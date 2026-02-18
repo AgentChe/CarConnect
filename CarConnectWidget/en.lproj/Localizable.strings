@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  CarConnect
+
+  Created by Андрей Чернышев on 18.02.2026.
+  
+*/
+
+// MARK: LiveActivity
+"LiveActivity.AccessCar.Lock" = "Lock";
+"LiveActivity.AccessCar.SubTitle" = "Access to a car";
+"LiveActivity.AccessCar.Unlock" = "Unlock";
+"LiveActivity.Power.Battery.SubTitle" = "Battery level";
+"LiveActivity.Power.Fuel.SubTitle" = "Fuel level";
+"LiveActivity.kpa" = "kPa";
+"LiveActivity.psi" = "psi";

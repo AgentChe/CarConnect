@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Type=Fuel, State=Medium.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

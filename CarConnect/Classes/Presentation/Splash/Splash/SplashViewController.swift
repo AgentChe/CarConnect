@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class SplashViewController: UIViewController {
     private lazy var mainView = SplashView()
     
+    private lazy var viewModel = SplashViewModel()
+    
+    private lazy var disposeBag = DisposeBag()
+    
     private lazy var sdkInitialize = SplashReceiptValidationObserver()
+    
+    private lazy var didSDKConfiguredTrigger = PublishRelay<Void>()
     
     override func loadView() {
         view = mainView
@@ -19,13 +27,27 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            self?.open(error: error) ?? .never()
+        }
+        
+        let output = viewModel.configure(input: SplashViewModel.Input(
+            didSDKConfigured: didSDKConfiguredTrigger.asSignal()
+        ))
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
+            })
+            .disposed(by: disposeBag)
+        
         sdkInitialize.observe { [weak self] in
-            self?.route()
+            self?.didSDKConfiguredTrigger.accept(Void())
         }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .darkContent
+        .lightContent
     }
 }
 
@@ -38,25 +60,32 @@ extension SplashViewController {
 
 // MARK: Private
 private extension SplashViewController {
-    func route() {
-        // TODO: 
-//        DispatchQueue.main.async { [weak self] in
-//            guard let window = UIApplication.shared.window else {
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
-//                    self?.route()
-//                }
-//                
-//                return
-//            }
-//            
-//            if SessionManager().hasActiveSubscriptions() {
-//                window.rootViewController = MainViewController.make(requestReview: false)
-//            } else {
-//                let vc = PaygateViewController.make { [weak window] in
-//                    window?.rootViewController = MainViewController.make(requestReview: false)
-//                }
-//                self?.present(vc, animated: true)
-//            }
-//        }
+    func action(_ action: SplashViewModel.Action) {
+        guard let window = UIApplication.shared.window else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+                self?.action(action)
+            }
+            
+            return
+        }
+        
+        switch action {
+        case .openMain:
+            window.rootViewController = MainViewController.make(requestReview: false)
+        }
+    }
+    
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self else { return Disposables.create() }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                present(vc, animated: true)
+                
+                return Disposables.create()
+            }
     }
 }

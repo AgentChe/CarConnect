@@ -22,10 +22,10 @@ extension NavigationControllerSettings {
             backgroundImage: UIImage(),
             shadowImage: UIImage(),
             isTranslucent: true,
-            tintColor: Appearance.mono200,
+            tintColor: Appearance.color_21232A,
             titleTextAttrributes: TextAttributes()
-                .textColor(Appearance.mono200)
-                .font(Fonts.IBMPlexSans.bold(size: 18.scale))
+                .textColor(Appearance.color_21232A)
+                .font(Fonts.Inter.bold(size: 18.scale))
                 .textAlignment(.center)
                 .dictionary
         )

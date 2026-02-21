@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: верстка
 final class SplashView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +24,7 @@ final class SplashView: UIView {
 // MARK: Private
 private extension SplashView {
     func initialize() {
-        backgroundColor = Appearance.mono100
+        backgroundColor = Appearance.color_21232A
     }
 }
 

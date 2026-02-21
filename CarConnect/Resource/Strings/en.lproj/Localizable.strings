@@ -15,3 +15,8 @@
 "OK" = "OK";
 "Save" = "Save";
 "Delete" = "Delete";
+
+// MARK: Main
+"Main.Tab.Garage" = "Garage";
+"Main.Tab.Widgets" = "Widgets";
+"Main.Tab.DrivingMode" = "Driving mode";

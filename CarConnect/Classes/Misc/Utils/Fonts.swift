@@ -8,22 +8,26 @@
 import UIKit
 
 struct Fonts {
-    // MARK: IBMPlexSans
-    struct IBMPlexSans {
+    // MARK: Inter
+    struct Inter {
         static func semiBold(size: CGFloat) -> UIFont {
-            UIFont(name: "IBMPlexSans-SemiBold", size: size)!
+            UIFont(name: "Inter-SemiBold", size: size)!
         }
         
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "IBMPlexSans-Regular", size: size)!
+            UIFont(name: "Inter-Regular", size: size)!
         }
         
         static func medium(size: CGFloat) -> UIFont {
-            UIFont(name: "IBMPlexSans-Medium", size: size)!
+            UIFont(name: "Inter-Medium", size: size)!
         }
         
         static func bold(size: CGFloat) -> UIFont {
-            UIFont(name: "IBMPlexSans-Bold", size: size)!
+            UIFont(name: "Inter-Bold", size: size)!
+        }
+        
+        static func extraBold(size: CGFloat) -> UIFont {
+            UIFont(name: "Inter-ExtraBold", size: size)!
         }
     }
 }

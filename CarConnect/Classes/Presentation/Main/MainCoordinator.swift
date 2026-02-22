@@ -32,7 +32,10 @@ extension MainCoordinator {
         case .widgets:
             changeVC(on: widgetsVC)
         case .drivingMode:
-            parentVC?.present(drivingModeVC, animated: false)
+            // TODO:
+//            parentVC?.present(drivingModeVC, animated: false)
+            
+            parentVC?.present(WidgetsHelperViewController.make(), animated: true)
         }
     }
 }

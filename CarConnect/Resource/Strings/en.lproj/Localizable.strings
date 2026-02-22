@@ -20,3 +20,24 @@
 "Main.Tab.Garage" = "Garage";
 "Main.Tab.Widgets" = "Widgets";
 "Main.Tab.DrivingMode" = "Driving mode";
+
+// MARK: WidgetsHelper
+"WidgetsHelper.Title" = "How to add widget";
+"WidgetsHelper.Tab.Setup" = "Setup";
+"WidgetsHelper.Tab.CarPlay" = "CarPlay";
+"WidgetsHelper.Tab.Phone" = "Phone";
+"WidgetsHelper.AcceptButton" = "Alright, I understand";
+"WidgetsHelper.Step" = "Step %i";
+"WidgetsHelper.Setup.Step1.SubTitle" = "Select a widget from the list";
+"WidgetsHelper.Setup.Step2.SubTitle" = "Customise widgets in the visual editor";
+"WidgetsHelper.Setup.Step3.SubTitle" = "Some widgets also offer parameter settings in addition to the visual editor";
+"WidgetsHelper.Setup.Step4.SubTitle" = "Once you have finished editing, you can save the widget to your library.";
+"WidgetsHelper.CarPlay.Step1.SubTitle" = "Open Settings → General→ CarPlay → Select your vehicle";
+"WidgetsHelper.CarPlay.Step2.SubTitle" = "Press + Add widget button";
+"WidgetsHelper.CarPlay.Step3.SubTitle" = "Select from the list of Car Sync applications";
+"WidgetsHelper.CarPlay.Step4.SubTitle" = "Choose the added widget → Add Widget";
+"WidgetsHelper.CarPlay.Step5.SubTitle" = "You can add second widget to Stack 2";
+"WidgetsHelper.Phone.Step1.SubTitle" = "On the main screen, long press to enter editing mode";
+"WidgetsHelper.Phone.Step2.SubTitle" = "Press the Edit button → Add Widget";
+"WidgetsHelper.Phone.Step3.SubTitle" = "Select from the list of Car Sync applications";
+"WidgetsHelper.Phone.Step4.SubTitle" = "Choose the added widget to place on the main screen → Add Widget";

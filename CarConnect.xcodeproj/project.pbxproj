@@ -118,6 +118,14 @@
 		DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52F2F456CFC00089B9E /* TextAttributes.swift */; };
 		DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5262F456CFC00089B9E /* ContentError.swift */; };
 		DEABE6752F456D0F00089B9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEABE6732F456D0F00089B9E /* Localizable.strings */; };
+		DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158402F4A1ABB00F2843C /* WidgetsHelperViewController.swift */; };
+		DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158422F4A1AC100F2843C /* WidgetsHelperViewModel.swift */; };
+		DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158442F4A1AC600F2843C /* WidgetsHelperView.swift */; };
+		DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158482F4A1EF400F2843C /* WidgetsHelperTabView.swift */; };
+		DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158582F4A28F500F2843C /* WidgetsHelperScrollView.swift */; };
+		DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585B2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift */; };
+		DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585D2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift */; };
+		DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +258,14 @@
 		DEABE5D82F456CFC00089B9E /* PurchaseValidationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseValidationObserver.swift; sourceTree = "<group>"; };
 		DEABE5DA2F456CFC00089B9E /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		DEABE6722F456D0F00089B9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DEC158402F4A1ABB00F2843C /* WidgetsHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperViewController.swift; sourceTree = "<group>"; };
+		DEC158422F4A1AC100F2843C /* WidgetsHelperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperViewModel.swift; sourceTree = "<group>"; };
+		DEC158442F4A1AC600F2843C /* WidgetsHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperView.swift; sourceTree = "<group>"; };
+		DEC158482F4A1EF400F2843C /* WidgetsHelperTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperTabView.swift; sourceTree = "<group>"; };
+		DEC158582F4A28F500F2843C /* WidgetsHelperScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollView.swift; sourceTree = "<group>"; };
+		DEC1585B2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollTextView.swift; sourceTree = "<group>"; };
+		DEC1585D2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollAcceptButton.swift; sourceTree = "<group>"; };
+		DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollImageView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -677,6 +693,7 @@
 		DEABE5C32F456CFC00089B9E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEC1583E2F4A1AA300F2843C /* Widgets */,
 				DE592C582F49C1F300ABA60E /* Main */,
 				DEABE5942F456CFC00089B9E /* Splash */,
 			);
@@ -736,6 +753,45 @@
 				DEABE6732F456D0F00089B9E /* Localizable.strings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		DEC1583E2F4A1AA300F2843C /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				DEC1583F2F4A1AAE00F2843C /* WidgetsHelper */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		DEC1583F2F4A1AAE00F2843C /* WidgetsHelper */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158462F4A1E3B00F2843C /* Views */,
+				DEC158402F4A1ABB00F2843C /* WidgetsHelperViewController.swift */,
+				DEC158422F4A1AC100F2843C /* WidgetsHelperViewModel.swift */,
+				DEC158442F4A1AC600F2843C /* WidgetsHelperView.swift */,
+			);
+			path = WidgetsHelper;
+			sourceTree = "<group>";
+		};
+		DEC158462F4A1E3B00F2843C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEC1585A2F4A2EC200F2843C /* ScrollView */,
+				DEC158482F4A1EF400F2843C /* WidgetsHelperTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEC1585A2F4A2EC200F2843C /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158582F4A28F500F2843C /* WidgetsHelperScrollView.swift */,
+				DEC1585B2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift */,
+				DEC1585D2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift */,
+				DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */,
+			);
+			path = ScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -939,6 +995,7 @@
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
+				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
@@ -948,14 +1005,17 @@
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
+				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
+				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
+				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
@@ -976,9 +1036,12 @@
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
+				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
+				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,
+				DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
@@ -996,6 +1059,7 @@
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
 				DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */,
 				DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */,
+				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,

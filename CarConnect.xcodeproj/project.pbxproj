@@ -126,6 +126,13 @@
 		DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585B2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift */; };
 		DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585D2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift */; };
 		DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */; };
+		DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158622F4B269400F2843C /* WidgetsPresetsViewController.swift */; };
+		DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158642F4B269A00F2843C /* WidgetsPresetsViewModel.swift */; };
+		DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158662F4B269F00F2843C /* WidgetsPresetsView.swift */; };
+		DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158692F4B29D200F2843C /* WidgetsPresetsHeaderView.swift */; };
+		DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */; };
+		DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1586E2F4B309D00F2843C /* WidgetsPresetsType.swift */; };
+		DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158722F4B320C00F2843C /* WidgetsPresetsTypesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +273,13 @@
 		DEC1585B2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollTextView.swift; sourceTree = "<group>"; };
 		DEC1585D2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollAcceptButton.swift; sourceTree = "<group>"; };
 		DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsHelperScrollImageView.swift; sourceTree = "<group>"; };
+		DEC158622F4B269400F2843C /* WidgetsPresetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsViewController.swift; sourceTree = "<group>"; };
+		DEC158642F4B269A00F2843C /* WidgetsPresetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsViewModel.swift; sourceTree = "<group>"; };
+		DEC158662F4B269F00F2843C /* WidgetsPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsView.swift; sourceTree = "<group>"; };
+		DEC158692F4B29D200F2843C /* WidgetsPresetsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsHeaderView.swift; sourceTree = "<group>"; };
+		DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTabView.swift; sourceTree = "<group>"; };
+		DEC1586E2F4B309D00F2843C /* WidgetsPresetsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsType.swift; sourceTree = "<group>"; };
+		DEC158722F4B320C00F2843C /* WidgetsPresetsTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTypesView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -758,6 +772,7 @@
 		DEC1583E2F4A1AA300F2843C /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DEC158612F4B24D300F2843C /* WidgetsPresets */,
 				DEC1583F2F4A1AAE00F2843C /* WidgetsHelper */,
 			);
 			path = Widgets;
@@ -792,6 +807,44 @@
 				DEC1585F2F4A338A00F2843C /* WidgetsHelperScrollImageView.swift */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		DEC158612F4B24D300F2843C /* WidgetsPresets */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158752F4B589100F2843C /* Model */,
+				DEC158682F4B29C200F2843C /* Views */,
+				DEC158622F4B269400F2843C /* WidgetsPresetsViewController.swift */,
+				DEC158642F4B269A00F2843C /* WidgetsPresetsViewModel.swift */,
+				DEC158662F4B269F00F2843C /* WidgetsPresetsView.swift */,
+			);
+			path = WidgetsPresets;
+			sourceTree = "<group>";
+		};
+		DEC158682F4B29C200F2843C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEC1586D2F4B308A00F2843C /* Types */,
+				DEC158692F4B29D200F2843C /* WidgetsPresetsHeaderView.swift */,
+				DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEC1586D2F4B308A00F2843C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				DEC1586E2F4B309D00F2843C /* WidgetsPresetsType.swift */,
+				DEC158722F4B320C00F2843C /* WidgetsPresetsTypesView.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		DEC158752F4B589100F2843C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1000,6 +1053,7 @@
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
+				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
@@ -1013,13 +1067,17 @@
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
+				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
+				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
+				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
+				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
@@ -1031,11 +1089,13 @@
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
 				DE51205A2F45C5140026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
+				DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
+				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,

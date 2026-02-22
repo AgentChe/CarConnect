@@ -41,3 +41,14 @@
 "WidgetsHelper.Phone.Step2.SubTitle" = "Press the Edit button → Add Widget";
 "WidgetsHelper.Phone.Step3.SubTitle" = "Select from the list of Car Sync applications";
 "WidgetsHelper.Phone.Step4.SubTitle" = "Choose the added widget to place on the main screen → Add Widget";
+
+// MARK: WidgetsPresets
+"WidgetsPresets.Tab.Widgets" = "Widgets";
+"WidgetsPresets.Tab.Saved" = "Saved";
+"WidgetsPresets.Types.All" = "All";
+"WidgetsPresets.Types.Calendar" = "Calendar";
+"WidgetsPresets.Types.Clock" = "Clock";
+"WidgetsPresets.Types.СarLogo" = "Сar logo";
+"WidgetsPresets.Types.Text" = "Text";
+"WidgetsPresets.Types.Photo" = "Photo";
+"WidgetsPresets.Types.Weather" = "Weather";

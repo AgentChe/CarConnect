@@ -9,7 +9,7 @@ import UIKit
 
 final class MainCoordinator {
     private lazy var garageVC = UIViewController()
-    private lazy var widgetsVC = UIViewController()
+    private lazy var widgetsVC = WidgetsPresetsViewController.make()
     private lazy var drivingModeVC = UIViewController()
     
     private weak var parentVC: UIViewController?
@@ -32,10 +32,7 @@ extension MainCoordinator {
         case .widgets:
             changeVC(on: widgetsVC)
         case .drivingMode:
-            // TODO:
-//            parentVC?.present(drivingModeVC, animated: false)
-            
-            parentVC?.present(WidgetsHelperViewController.make(), animated: true)
+            parentVC?.present(drivingModeVC, animated: false)
         }
     }
 }

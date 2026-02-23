@@ -32,6 +32,16 @@
 		<string>Inter-Medium.otf</string>
 		<string>Inter-Regular.otf</string>
 		<string>Inter-SemiBold.otf</string>
+		<string>BebasNeue-Regular.ttf</string>
+		<string>Jaro-Regular.ttf</string>
+		<string>Pacifico-Regular.ttf</string>
+		<string>CaveatBrush-Regular.ttf</string>
+		<string>DMSerifDisplay-Regular.ttf</string>
+		<string>Kalnia-Regular.ttf</string>
+		<string>ZenDots-Regular.ttf</string>
+		<string>DSEG7Classic-Regular.ttf</string>
+		<string>HoltwoodOneSC-Regular.ttf</string>
+		<string>GravitasOne-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

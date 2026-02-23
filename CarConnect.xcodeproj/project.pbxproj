@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
+		DE1DA01D2F4CA07F00742E69 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */; };
+		DE1DA0202F4CA0D200742E69 /* Jaro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */; };
+		DE1DA0232F4CA0FF00742E69 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */; };
+		DE1DA0262F4CA14B00742E69 /* CaveatBrush-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */; };
+		DE1DA0292F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */; };
+		DE1DA02C2F4CA1B400742E69 /* Kalnia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */; };
+		DE1DA02F2F4CA1DA00742E69 /* ZenDots-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */; };
+		DE1DA0322F4CA29500742E69 /* DSEG7Classic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */; };
+		DE1DA0352F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */; };
+		DE1DA0382F4CA2F900742E69 /* GravitasOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -133,6 +143,20 @@
 		DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */; };
 		DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1586E2F4B309D00F2843C /* WidgetsPresetsType.swift */; };
 		DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158722F4B320C00F2843C /* WidgetsPresetsTypesView.swift */; };
+		DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158762F4B59B900F2843C /* WidgetTextQuote.swift */; };
+		DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158792F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift */; };
+		DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1587B2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift */; };
+		DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1587D2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift */; };
+		DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1587F2F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift */; };
+		DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158822F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift */; };
+		DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158842F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift */; };
+		DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158882F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift */; };
+		DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1588A2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift */; };
+		DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1588C2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift */; };
+		DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1588E2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift */; };
+		DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158902F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift */; };
+		DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */; };
+		DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +186,16 @@
 /* Begin PBXFileReference section */
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F950CACCE70681AC75B2E /* Pods-CarConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.release.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.release.xcconfig"; sourceTree = "<group>"; };
+		DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jaro-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CaveatBrush-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kalnia-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZenDots-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DSEG7Classic-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoltwoodOneSC-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GravitasOne-Regular.ttf"; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -280,6 +314,20 @@
 		DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTabView.swift; sourceTree = "<group>"; };
 		DEC1586E2F4B309D00F2843C /* WidgetsPresetsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsType.swift; sourceTree = "<group>"; };
 		DEC158722F4B320C00F2843C /* WidgetsPresetsTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTypesView.swift; sourceTree = "<group>"; };
+		DEC158762F4B59B900F2843C /* WidgetTextQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuote.swift; sourceTree = "<group>"; };
+		DEC158792F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteAmbitionDrive.swift; sourceTree = "<group>"; };
+		DEC1587B2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteMindsetGrowth.swift; sourceTree = "<group>"; };
+		DEC1587D2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteLeadershipImpact.swift; sourceTree = "<group>"; };
+		DEC1587F2F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteLifeMeaning.swift; sourceTree = "<group>"; };
+		DEC158822F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplatesCollectionView.swift; sourceTree = "<group>"; };
+		DEC158842F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplatesCollectionElement.swift; sourceTree = "<group>"; };
+		DEC158882F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift; sourceTree = "<group>"; };
+		DEC1588A2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift; sourceTree = "<group>"; };
+		DEC1588C2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift; sourceTree = "<group>"; };
+		DEC1588E2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateQuoteLifeMeaningCell.swift; sourceTree = "<group>"; };
+		DEC158902F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateTextManuallyCell.swift; sourceTree = "<group>"; };
+		DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteConfiguration.swift; sourceTree = "<group>"; };
+		DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyConfiguration.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,6 +369,86 @@
 				B63F950CACCE70681AC75B2E /* Pods-CarConnect.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE1DA01B2F4CA05500742E69 /* BebasNeue */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */,
+			);
+			path = BebasNeue;
+			sourceTree = "<group>";
+		};
+		DE1DA01E2F4CA0CE00742E69 /* Jaro */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */,
+			);
+			path = Jaro;
+			sourceTree = "<group>";
+		};
+		DE1DA0212F4CA0FA00742E69 /* Pacifico */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */,
+			);
+			path = Pacifico;
+			sourceTree = "<group>";
+		};
+		DE1DA0242F4CA13400742E69 /* CaveatBrush */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */,
+			);
+			path = CaveatBrush;
+			sourceTree = "<group>";
+		};
+		DE1DA0272F4CA15A00742E69 /* DMSerifDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */,
+			);
+			path = DMSerifDisplay;
+			sourceTree = "<group>";
+		};
+		DE1DA02A2F4CA19300742E69 /* Kalnia */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */,
+			);
+			path = Kalnia;
+			sourceTree = "<group>";
+		};
+		DE1DA02D2F4CA1C200742E69 /* ZenDots */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */,
+			);
+			path = ZenDots;
+			sourceTree = "<group>";
+		};
+		DE1DA0302F4CA1E800742E69 /* DSEG7Classic */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */,
+			);
+			path = DSEG7Classic;
+			sourceTree = "<group>";
+		};
+		DE1DA0332F4CA2AA00742E69 /* HoltwoodOneSC */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */,
+			);
+			path = HoltwoodOneSC;
+			sourceTree = "<group>";
+		};
+		DE1DA0362F4CA2EF00742E69 /* GravitasOne */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */,
+			);
+			path = GravitasOne;
 			sourceTree = "<group>";
 		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
@@ -505,6 +633,16 @@
 		DE592C652F49C6A700ABA60E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA0362F4CA2EF00742E69 /* GravitasOne */,
+				DE1DA0332F4CA2AA00742E69 /* HoltwoodOneSC */,
+				DE1DA0302F4CA1E800742E69 /* DSEG7Classic */,
+				DE1DA02D2F4CA1C200742E69 /* ZenDots */,
+				DE1DA02A2F4CA19300742E69 /* Kalnia */,
+				DE1DA0272F4CA15A00742E69 /* DMSerifDisplay */,
+				DE1DA0242F4CA13400742E69 /* CaveatBrush */,
+				DE1DA0212F4CA0FA00742E69 /* Pacifico */,
+				DE1DA01E2F4CA0CE00742E69 /* Jaro */,
+				DE1DA01B2F4CA05500742E69 /* BebasNeue */,
 				DE592C662F49C6AE00ABA60E /* Inter */,
 			);
 			path = Fonts;
@@ -824,6 +962,7 @@
 		DEC158682F4B29C200F2843C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEC158812F4B628100F2843C /* Collection */,
 				DEC1586D2F4B308A00F2843C /* Types */,
 				DEC158692F4B29D200F2843C /* WidgetsPresetsHeaderView.swift */,
 				DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */,
@@ -843,8 +982,69 @@
 		DEC158752F4B589100F2843C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DEC158782F4B5DF500F2843C /* WidgetTextQuote */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DEC158782F4B5DF500F2843C /* WidgetTextQuote */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158932F4B6CD600F2843C /* TemplateConfiguration */,
+				DEC158922F4B6CCF00F2843C /* Quote */,
+			);
+			path = WidgetTextQuote;
+			sourceTree = "<group>";
+		};
+		DEC158812F4B628100F2843C /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158862F4B635300F2843C /* Cells */,
+				DEC158822F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift */,
+				DEC158842F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		DEC158862F4B635300F2843C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158872F4B635A00F2843C /* Text */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEC158872F4B635A00F2843C /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158882F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift */,
+				DEC1588A2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift */,
+				DEC1588C2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift */,
+				DEC1588E2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift */,
+				DEC158902F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		DEC158922F4B6CCF00F2843C /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158762F4B59B900F2843C /* WidgetTextQuote.swift */,
+				DEC158792F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift */,
+				DEC1587B2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift */,
+				DEC1587D2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift */,
+				DEC1587F2F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift */,
+			);
+			path = Quote;
+			sourceTree = "<group>";
+		};
+		DEC158932F4B6CD600F2843C /* TemplateConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */,
+				DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */,
+			);
+			path = TemplateConfiguration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -944,12 +1144,22 @@
 			files = (
 				DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */,
 				DEABE6752F456D0F00089B9E /* Localizable.strings in Resources */,
+				DE1DA0352F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf in Resources */,
 				DE592C6C2F49C73400ABA60E /* Inter-Bold.otf in Resources */,
+				DE1DA02C2F4CA1B400742E69 /* Kalnia-Regular.ttf in Resources */,
 				DE592C6D2F49C73400ABA60E /* Inter-ExtraBold.otf in Resources */,
 				DE592C6E2F49C73400ABA60E /* Inter-Medium.otf in Resources */,
 				DE592C6F2F49C73400ABA60E /* Inter-SemiBold.otf in Resources */,
 				DE592C702F49C73400ABA60E /* Inter-Regular.otf in Resources */,
+				DE1DA0202F4CA0D200742E69 /* Jaro-Regular.ttf in Resources */,
 				DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */,
+				DE1DA0292F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf in Resources */,
+				DE1DA01D2F4CA07F00742E69 /* BebasNeue-Regular.ttf in Resources */,
+				DE1DA0382F4CA2F900742E69 /* GravitasOne-Regular.ttf in Resources */,
+				DE1DA0262F4CA14B00742E69 /* CaveatBrush-Regular.ttf in Resources */,
+				DE1DA0232F4CA0FF00742E69 /* Pacifico-Regular.ttf in Resources */,
+				DE1DA02F2F4CA1DA00742E69 /* ZenDots-Regular.ttf in Resources */,
+				DE1DA0322F4CA29500742E69 /* DSEG7Classic-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,6 +1256,7 @@
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
+				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
@@ -1055,9 +1266,14 @@
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
+				DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
+				DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
+				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
+				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
+				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
@@ -1067,6 +1283,8 @@
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
+				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
+				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
@@ -1075,14 +1293,17 @@
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
+				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
+				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
+				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DEABE6212F456CFC00089B9E /* ChoosePhotoFromGallery.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
 				DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */,
@@ -1093,6 +1314,7 @@
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
+				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
@@ -1120,11 +1342,13 @@
 				DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */,
 				DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
+				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
+				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

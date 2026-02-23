@@ -8,7 +8,6 @@
 import UIKit
 
 struct TextAttributes {
-
     var font: UIFont?
     var textColor: UIColor?
     var paragraphStyle: NSMutableParagraphStyle?

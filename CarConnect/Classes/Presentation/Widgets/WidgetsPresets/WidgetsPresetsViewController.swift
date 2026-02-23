@@ -46,6 +46,12 @@ final class WidgetsPresetsViewController: UIViewController {
                 base.select(type: selectedPresetsType)
             })
             .disposed(by: disposeBag)
+        
+        output.collectionElements
+            .drive(Binder(mainView.collectionView) { base, elements in
+                base.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

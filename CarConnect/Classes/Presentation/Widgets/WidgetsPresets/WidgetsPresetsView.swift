@@ -10,6 +10,7 @@ import UIKit
 final class WidgetsPresetsView: UIView {
     lazy var headerView = makeHeaderView()
     lazy var presetsTypesView = makePresetsTypesView()
+    lazy var collectionView = makeCollectionView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +47,13 @@ private extension WidgetsPresetsView {
             presetsTypesView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             presetsTypesView.heightAnchor.constraint(equalToConstant: 59.scale)
         ])
+        
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            collectionView.topAnchor.constraint(equalTo: presetsTypesView.bottomAnchor, constant: 2.scale),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(TabView.Constants.tabBarHeight + TabView.Constants.tabBarBottomInset))
+        ])
     }
 }
 
@@ -60,6 +68,18 @@ private extension WidgetsPresetsView {
     
     func makePresetsTypesView() -> WidgetsPresetsTypesView {
         let view = WidgetsPresetsTypesView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeCollectionView() -> WidgetsPresetsTemplatesCollectionView {
+        let layout = LeftAlignedCollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 165.scale, height: 165.scale)
+        layout.minimumLineSpacing = 12.scale
+        layout.minimumInteritemSpacing = 10.scale
+        
+        let view = WidgetsPresetsTemplatesCollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

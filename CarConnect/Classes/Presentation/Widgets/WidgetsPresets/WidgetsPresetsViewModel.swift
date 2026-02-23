@@ -26,6 +26,7 @@ extension WidgetsPresetsViewModel {
         let action: Driver<Action>
         let selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>
         let selectedPresetsType: Driver<WidgetsPresetsType>
+        let collectionElements: Driver<[WidgetsPresetsTemplatesCollectionElement]>
     }
     
     func configure(input: Input) -> Output {
@@ -41,7 +42,11 @@ extension WidgetsPresetsViewModel {
         return Output(
             action: makeAction(didTapHelper: input.didTapHelper),
             selectedTabItem: selectedTabItem,
-            selectedPresetsType: selectedPresetsType
+            selectedPresetsType: selectedPresetsType,
+            collectionElements: makeCollectionElements(
+                selectedTabItem: selectedTabItem,
+                selectedPresetsType: selectedPresetsType
+            )
         )
     }
 }
@@ -55,5 +60,52 @@ private extension WidgetsPresetsViewModel {
         
         return Driver
             .merge(openWidgetsHelper)
+    }
+    
+    // TODO:
+    func makeCollectionElements(
+        selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
+        selectedPresetsType: Driver<WidgetsPresetsType>
+    ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        Driver
+            .combineLatest(selectedTabItem, selectedPresetsType)
+            .map { tabItem, presetsType -> [WidgetsPresetsTemplatesCollectionElement] in
+                let saved = tabItem == .saved
+                
+                switch presetsType {
+                case .all:
+                    return []
+                case .calendar:
+                    return []
+                case .clock:
+                    return []
+                case .carLogo:
+                    return []
+                case .text:
+                    return saved ? [] : [
+                        WidgetsPresetsTemplatesCollectionElement.textManually(WidgetTextManuallyConfiguration.default()),
+                        {
+                            guard let template = WidgetTextQuoteMindsetGrowth.templates().first else { return nil }
+                            return .quoteMindsetGrowth(template, WidgetTextQuoteConfiguration.mindsetGrowthDefault())
+                        }(),
+                        {
+                            guard let template = WidgetTextQuoteAmbitionDrive.templates().first else { return nil }
+                            return .quoteAmbitionDrive(template, WidgetTextQuoteConfiguration.ambitionDriveDefault())
+                        }(),
+                        {
+                            guard let template = WidgetTextQuoteLeadershipImpact.templates().first else { return nil }
+                            return .quoteLeadershipImpact(template, WidgetTextQuoteConfiguration.leadershipImpactDefault())
+                        }(),
+                        {
+                            guard let template = WidgetTextQuoteLifeMeaning.templates().first else { return nil }
+                            return .quoteLifeMeaning(template, WidgetTextQuoteConfiguration.lifeMeaningDefault())
+                        }()
+                    ].compactMap { $0 }
+                case .photo:
+                    return []
+                case .weather:
+                    return []
+                }
+            }
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: заменить шрифты
 enum WidgetsFonts {
     case bebasNeue
     case jaro

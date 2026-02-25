@@ -11,23 +11,20 @@ struct WidgetTextQuoteConfiguration {
     let font: WidgetsFonts
     let textColor: UIColor
     
-    // TODO: заменить шрифт
     static func ambitionDriveDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .gravitasOne,
+            font: .inter,
             textColor: Appearance.color_FFFFFF
         )
     }
     
-    // TODO: заменить шрифт
     static func mindsetGrowthDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .caveatBrush,
+            font: .dmSerifDisplay,
             textColor: Appearance.color_FFFFFF
         )
     }
     
-    // TODO: заменить шрифт
     static func leadershipImpactDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
             font: .bebasNeue,
@@ -35,10 +32,9 @@ struct WidgetTextQuoteConfiguration {
         )
     }
     
-    // TODO: заменить шрифт
     static func lifeMeaningDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .dseg7Classic,
+            font: .jaro,
             textColor: Appearance.color_FFFFFF
         )
     }

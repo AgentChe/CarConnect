@@ -26,7 +26,8 @@ final class WidgetsPresetsViewController: UIViewController {
         let output = viewModel.configure(input: WidgetsPresetsViewModel.Input(
             didTapHelper: mainView.headerView.helperButton.rx.tap.asSignal(),
             didSelectTabItem: mainView.headerView.tabView.didSelect,
-            didSelectPresetsType: mainView.presetsTypesView.didSelect
+            didSelectPresetsType: mainView.presetsTypesView.didSelect,
+            didSelectElement: mainView.collectionView.didSelect
         ))
         
         output.action
@@ -85,6 +86,11 @@ private extension WidgetsPresetsViewController {
         case .openWidgetsHelper:
             let vc = WidgetsHelperViewController.make()
             present(vc, animated: true)
+        case .openTextManuallyBuilder:
+            break // TODO:
+        case .openTextQuoteBuilder(let quote, let config):
+            let vc = WidgetTextQuoteViewController.create(quote: quote, configuration: config)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

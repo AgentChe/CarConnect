@@ -11,6 +11,8 @@ import RxCocoa
 final class WidgetsPresetsViewModel {
     enum Action {
         case openWidgetsHelper
+        case openTextManuallyBuilder
+        case openTextQuoteBuilder(WidgetTextQuote, WidgetTextQuoteConfiguration)
     }
 }
 
@@ -20,6 +22,7 @@ extension WidgetsPresetsViewModel {
         let didTapHelper: Signal<Void>
         let didSelectTabItem: Signal<WidgetsPresetsTabView.TabItem>
         let didSelectPresetsType: Signal<WidgetsPresetsType>
+        let didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
     }
     
     struct Output {
@@ -40,7 +43,10 @@ extension WidgetsPresetsViewModel {
             .distinctUntilChanged()
         
         return Output(
-            action: makeAction(didTapHelper: input.didTapHelper),
+            action: makeAction(
+                didTapHelper: input.didTapHelper,
+                didSelectElement: input.didSelectElement
+            ),
             selectedTabItem: selectedTabItem,
             selectedPresetsType: selectedPresetsType,
             collectionElements: makeCollectionElements(
@@ -53,13 +59,33 @@ extension WidgetsPresetsViewModel {
 
 // MARK: Private
 private extension WidgetsPresetsViewModel {
-    func makeAction(didTapHelper: Signal<Void>) -> Driver<Action> {
+    func makeAction(
+        didTapHelper: Signal<Void>,
+        didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
+    ) -> Driver<Action> {
         let openWidgetsHelper = didTapHelper
             .map { Action.openWidgetsHelper }
             .asDriver(onErrorDriveWith: .never())
         
+        let openBuilder = didSelectElement
+            .asDriver(onErrorDriveWith: .never())
+            .map { element -> Action in
+                switch element {
+                case .textManually:
+                    return Action.openTextManuallyBuilder
+                case .quoteAmbitionDrive(let quote, let config):
+                    return .openTextQuoteBuilder(.ambitionDrive(quote), config)
+                case .quoteLeadershipImpact(let quote, let config):
+                    return .openTextQuoteBuilder(.leadershipImpact(quote), config)
+                case .quoteLifeMeaning(let quote, let config):
+                    return .openTextQuoteBuilder(.lifeMeaning(quote), config)
+                case .quoteMindsetGrowth(let quote, let config):
+                    return .openTextQuoteBuilder(.mindsetGrowth(quote), config)
+                }
+            }
+        
         return Driver
-            .merge(openWidgetsHelper)
+            .merge(openWidgetsHelper, openBuilder)
     }
     
     // TODO:

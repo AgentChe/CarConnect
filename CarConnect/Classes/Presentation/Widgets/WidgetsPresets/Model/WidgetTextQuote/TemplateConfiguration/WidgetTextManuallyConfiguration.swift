@@ -19,7 +19,6 @@ struct WidgetTextManuallyConfiguration {
     let font: WidgetsFonts
     let textColor: UIColor
     
-    // TODO: заменить шрифт
     static func `default`() -> WidgetTextManuallyConfiguration {
         WidgetTextManuallyConfiguration(
             background: .gradient([
@@ -27,7 +26,7 @@ struct WidgetTextManuallyConfiguration {
                 Appearance.color_2C2F39
             ]),
             text: "Roads are calling",
-            font: .zenDots,
+            font: .inter,
             textColor: Appearance.color_FFFFFF
         )
     }

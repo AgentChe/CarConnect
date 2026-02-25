@@ -18,6 +18,24 @@
 		DE1DA0322F4CA29500742E69 /* DSEG7Classic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */; };
 		DE1DA0352F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */; };
 		DE1DA0382F4CA2F900742E69 /* GravitasOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */; };
+		DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */; };
+		DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */; };
+		DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */; };
+		DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0442F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift */; };
+		DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0462F4DE36C00742E69 /* WidgetBuilderFontColorView.swift */; };
+		DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0492F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift */; };
+		DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA04D2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift */; };
+		DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0512F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift */; };
+		DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0542F4E050900742E69 /* WidgetBuilderFontView.swift */; };
+		DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0562F4E052D00742E69 /* WidgetBuilderFontItemButton.swift */; };
+		DE1DA0592F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0582F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift */; };
+		DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA05A2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift */; };
+		DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA05D2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift */; };
+		DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA05F2F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift */; };
+		DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0612F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift */; };
+		DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0632F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift */; };
+		DE1DA0662F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */; };
+		DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0672F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -196,6 +214,24 @@
 		DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DSEG7Classic-Regular.ttf"; sourceTree = "<group>"; };
 		DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoltwoodOneSC-Regular.ttf"; sourceTree = "<group>"; };
 		DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GravitasOne-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewController.swift; sourceTree = "<group>"; };
+		DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewModel.swift; sourceTree = "<group>"; };
+		DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteView.swift; sourceTree = "<group>"; };
+		DE1DA0442F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderPreviewWidgetButton.swift; sourceTree = "<group>"; };
+		DE1DA0462F4DE36C00742E69 /* WidgetBuilderFontColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderFontColorView.swift; sourceTree = "<group>"; };
+		DE1DA0492F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderFontColorItemButton.swift; sourceTree = "<group>"; };
+		DE1DA04D2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderResetItemButton.swift; sourceTree = "<group>"; };
+		DE1DA0512F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderFontColorCustomButton.swift; sourceTree = "<group>"; };
+		DE1DA0542F4E050900742E69 /* WidgetBuilderFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderFontView.swift; sourceTree = "<group>"; };
+		DE1DA0562F4E052D00742E69 /* WidgetBuilderFontItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderFontItemButton.swift; sourceTree = "<group>"; };
+		DE1DA0582F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRestoreDefaultButton.swift; sourceTree = "<group>"; };
+		DE1DA05A2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderHelperButton.swift; sourceTree = "<group>"; };
+		DE1DA05D2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteSliderView.swift; sourceTree = "<group>"; };
+		DE1DA05F2F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderAmbitionDriveView.swift; sourceTree = "<group>"; };
+		DE1DA0612F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderMindsetGrowthView.swift; sourceTree = "<group>"; };
+		DE1DA0632F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderLeadershipImpactView.swift; sourceTree = "<group>"; };
+		DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderLifeMeaningView.swift; sourceTree = "<group>"; };
+		DE1DA0672F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderItemView.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -449,6 +485,79 @@
 				DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */,
 			);
 			path = GravitasOne;
+			sourceTree = "<group>";
+		};
+		DE1DA0392F4CBCE100742E69 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0432F4DDEA100742E69 /* Views */,
+				DE1DA0422F4DDE9900742E69 /* Screens */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		DE1DA03A2F4CBCE900742E69 /* WidgetTextQuote */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA05C2F4ED78900742E69 /* Views */,
+				DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */,
+				DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */,
+				DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */,
+			);
+			path = WidgetTextQuote;
+			sourceTree = "<group>";
+		};
+		DE1DA0422F4DDE9900742E69 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA03A2F4CBCE900742E69 /* WidgetTextQuote */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DE1DA0432F4DDEA100742E69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0532F4E050000742E69 /* Font */,
+				DE1DA0482F4DE3AD00742E69 /* FontColor */,
+				DE1DA0442F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift */,
+				DE1DA04D2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift */,
+				DE1DA0582F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift */,
+				DE1DA05A2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE1DA0482F4DE3AD00742E69 /* FontColor */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0462F4DE36C00742E69 /* WidgetBuilderFontColorView.swift */,
+				DE1DA0492F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift */,
+				DE1DA0512F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift */,
+			);
+			path = FontColor;
+			sourceTree = "<group>";
+		};
+		DE1DA0532F4E050000742E69 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0542F4E050900742E69 /* WidgetBuilderFontView.swift */,
+				DE1DA0562F4E052D00742E69 /* WidgetBuilderFontItemButton.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DE1DA05C2F4ED78900742E69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA05D2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift */,
+				DE1DA0672F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift */,
+				DE1DA05F2F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift */,
+				DE1DA0612F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift */,
+				DE1DA0632F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift */,
+				DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
@@ -910,6 +1019,7 @@
 		DEC1583E2F4A1AA300F2843C /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA0392F4CBCE100742E69 /* Builders */,
 				DEC158612F4B24D300F2843C /* WidgetsPresets */,
 				DEC1583F2F4A1AAE00F2843C /* WidgetsHelper */,
 			);
@@ -1252,6 +1362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */,
 				DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */,
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
@@ -1260,6 +1371,7 @@
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
+				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
@@ -1268,13 +1380,16 @@
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
+				DE1DA0592F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
 				DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */,
+				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
+				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
@@ -1282,11 +1397,13 @@
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
+				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
 				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
+				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
@@ -1298,21 +1415,27 @@
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
+				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
+				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
 				DEABE6212F456CFC00089B9E /* ChoosePhotoFromGallery.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
 				DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
+				DE1DA0662F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift in Sources */,
 				DE51205A2F45C5140026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
 				DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */,
+				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
+				DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
+				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
@@ -1320,6 +1443,7 @@
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
+				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,
@@ -1345,9 +1469,13 @@
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
+				DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
+				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
+				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,
 				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

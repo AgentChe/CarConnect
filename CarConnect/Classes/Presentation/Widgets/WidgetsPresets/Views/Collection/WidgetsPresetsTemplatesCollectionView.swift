@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class WidgetsPresetsTemplatesCollectionView: UICollectionView {
     private lazy var elements = [WidgetsPresetsTemplatesCollectionElement]()
+    
+    private lazy var didSelectTrigger = PublishRelay<WidgetsPresetsTemplatesCollectionElement>()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -27,6 +31,10 @@ extension WidgetsPresetsTemplatesCollectionView {
         self.elements = elements
         
         reloadData()
+    }
+    
+    var didSelect: Signal<WidgetsPresetsTemplatesCollectionElement> {
+        didSelectTrigger.asSignal()
     }
 }
 
@@ -64,7 +72,9 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectTrigger.accept(elements[indexPath.row])
+    }
 }
 
 // MARK: Private

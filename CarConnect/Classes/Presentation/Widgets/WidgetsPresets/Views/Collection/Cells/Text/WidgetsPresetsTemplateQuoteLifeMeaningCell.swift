@@ -32,14 +32,14 @@ extension WidgetsPresetsTemplateQuoteLifeMeaningCell {
         
         let textAttrs = TextAttributes()
             .textColor(configuration.textColor)
-            .font(configuration.font.uiFont(baseSize: 18.scale)) // TODO: проверить размер
+            .font(configuration.font.uiFont(baseSize: 18.scale))
             .textAlignment(.left)
             .lineBreakMode(.byTruncatingTail)
         textLabel.attributedText = element.text.attributed(with: textAttrs)
         
         let authorNameAttrs = TextAttributes()
             .textColor(configuration.textColor.withAlphaComponent(0.4))
-            .font(configuration.font.uiFont(baseSize: 12.scale)) // TODO: проверить размер
+            .font(configuration.font.uiFont(baseSize: 12.scale))
             .textAlignment(.left)
             .lineBreakMode(.byTruncatingTail)
         authorNameLabel.attributedText = element.authorName.attributed(with: authorNameAttrs)

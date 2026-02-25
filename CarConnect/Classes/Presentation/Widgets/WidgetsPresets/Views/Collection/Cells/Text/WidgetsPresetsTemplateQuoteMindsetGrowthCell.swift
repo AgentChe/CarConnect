@@ -12,8 +12,8 @@ final class WidgetsPresetsTemplateQuoteMindsetGrowthCell: UICollectionViewCell {
     lazy var imageView = makeImageView()
     lazy var gradientView = makeGradientView()
     lazy var refreshTimeView = makeRefreshTimeView()
-    lazy var quotationMarkView = makeQuotationMarkView()
-    lazy var textLabel = makeTextLabel()
+    lazy var quotationMarkLabel = makeLabel()
+    lazy var textLabel = makeLabel()
     lazy var authorNameLabel = makeAuthorLabel()
     
     override init(frame: CGRect) {
@@ -33,16 +33,23 @@ extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
     func setup(element: WidgetTextQuoteMindsetGrowth, configuration: WidgetTextQuoteConfiguration) {
         imageView.image = UIImage(named: element.picture)
         
+        let quotationMarkAttrs = TextAttributes()
+            .textColor(configuration.textColor)
+            .font(configuration.font.uiFont(baseSize: 36.scale))
+            .textAlignment(.left)
+            .lineBreakMode(.byTruncatingTail)
+        quotationMarkLabel.attributedText = "“".attributed(with: quotationMarkAttrs)
+        
         let textAttrs = TextAttributes()
             .textColor(configuration.textColor)
-            .font(configuration.font.uiFont(baseSize: 20.scale)) // TODO: проверить размер
+            .font(configuration.font.uiFont(baseSize: 16.scale))
             .textAlignment(.left)
             .lineBreakMode(.byTruncatingTail)
         textLabel.attributedText = element.text.attributed(with: textAttrs)
         
         let authorNameAttrs = TextAttributes()
             .textColor(configuration.textColor.withAlphaComponent(0.4))
-            .font(configuration.font.uiFont(baseSize: 12.scale)) // TODO: проверить размер
+            .font(configuration.font.uiFont(baseSize: 12.scale)) 
             .textAlignment(.left)
             .lineBreakMode(.byTruncatingTail)
         authorNameLabel.attributedText = element.authorName.attributed(with: authorNameAttrs)
@@ -93,10 +100,8 @@ private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
         ])
         
         NSLayoutConstraint.activate([
-            quotationMarkView.widthAnchor.constraint(equalToConstant: 14.scale),
-            quotationMarkView.heightAnchor.constraint(equalToConstant: 10.scale),
-            quotationMarkView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10.scale),
-            quotationMarkView.bottomAnchor.constraint(equalTo: textLabel.topAnchor, constant: -5.scale)
+            quotationMarkLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10.scale),
+            quotationMarkLabel.bottomAnchor.constraint(equalTo: textLabel.topAnchor, constant: -5.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -117,10 +122,6 @@ private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
 private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
     func makeContainer() -> UIView {
         let view = UIView()
-        view.layer.borderWidth = 1.scale
-        view.layer.borderColor = Appearance.color_2C2F39.cgColor
-        view.layer.cornerRadius = 10.scale
-        view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
@@ -128,6 +129,8 @@ private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
     
     func makeImageView() -> UIImageView {
         let view = UIImageView()
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = Appearance.color_2C2F39.cgColor
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 10.scale
         view.layer.masksToBounds = true
@@ -138,6 +141,8 @@ private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
     
     func makeGradientView() -> GradientView {
         let view = GradientView()
+        view.layer.cornerRadius = 10.scale
+        view.layer.masksToBounds = true
         view.layer.cornerRadius = 10.scale
         view.layer.masksToBounds = true
         view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
@@ -166,16 +171,7 @@ private extension WidgetsPresetsTemplateQuoteMindsetGrowthCell {
         return view
     }
     
-    func makeQuotationMarkView() -> UIImageView {
-        let view = UIImageView()
-        view.image = UIImage(named: "TextQuote.MindsetGrowth.QuotationMark")
-        view.contentMode = .scaleAspectFill
-        view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
-        return view
-    }
-    
-    func makeTextLabel() -> UILabel {
+    func makeLabel() -> UILabel {
         let view = UILabel()
         view.numberOfLines = 4
         view.translatesAutoresizingMaskIntoConstraints = false

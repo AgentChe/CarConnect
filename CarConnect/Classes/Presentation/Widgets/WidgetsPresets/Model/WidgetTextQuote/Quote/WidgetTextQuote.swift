@@ -5,4 +5,9 @@
 //  Created by Андрей Чернышев on 22.02.2026.
 //
 
-protocol WidgetTextQuote {}
+enum WidgetTextQuote {
+    case ambitionDrive(WidgetTextQuoteAmbitionDrive)
+    case mindsetGrowth(WidgetTextQuoteMindsetGrowth)
+    case leadershipImpact(WidgetTextQuoteLeadershipImpact)
+    case lifeMeaning(WidgetTextQuoteLifeMeaning)
+}

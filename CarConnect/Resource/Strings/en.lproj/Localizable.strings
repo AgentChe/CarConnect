@@ -52,3 +52,11 @@
 "WidgetsPresets.Types.Text" = "Text";
 "WidgetsPresets.Types.Photo" = "Photo";
 "WidgetsPresets.Types.Weather" = "Weather";
+
+// MARK: WidgetsBuilders
+"WidgetsBuilders.Title" = "Widgets";
+"WidgetsBuilders.PreviewWidgetButton" = "Preview widget";
+"WidgetsBuilders.FontColor" = "Font color";
+"WidgetsBuilders.Font" = "Font typography";
+"WidgetsBuilders.RestoreDefault" = "Restore default";
+"WidgetsBuilders.Helper" = "How to add";

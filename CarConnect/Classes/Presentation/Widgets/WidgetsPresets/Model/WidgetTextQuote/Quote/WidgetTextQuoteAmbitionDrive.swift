@@ -5,7 +5,7 @@
 //  Created by Андрей Чернышев on 22.02.2026.
 //
 
-struct WidgetTextQuoteAmbitionDrive: WidgetTextQuote {
+struct WidgetTextQuoteAmbitionDrive {
     let text: String
     let picture: String
     let authorName: String

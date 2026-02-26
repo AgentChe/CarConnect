@@ -7,55 +7,43 @@
 
 import UIKit
 
-// TODO: заменить шрифты
 enum WidgetsFonts {
-    case bebasNeue
-    case jaro
-    case pacifico
-    case caveatBrush
-    case dmSerifDisplay
-    case kalnia
-    case zenDots
-    case dseg7Classic
-    case holtwoodOneSC
-    case gravitasOne
+    case poppins
+    case audiowide
+    case orbitron
+    case archivoBlack
+    case rubik
+    case abrilFatface
+    case playfairDisplay
+    case georgia
+    case sora
+    case spaceGrotesk
     case inter
     
-    var sizeMultiplier: CGFloat {
-        switch self {
-        case .zenDots, .dseg7Classic, .holtwoodOneSC, .gravitasOne:
-            return 0.8
-        default:
-            return 1.0
-        }
-    }
-    
     func uiFont(baseSize: CGFloat) -> UIFont {
-        let finalSize = baseSize * sizeMultiplier
-        
         switch self {
-        case .bebasNeue:
-            return Fonts.BebasNeue.regular(size: finalSize)
-        case .jaro:
-            return Fonts.Jaro.regular(size: finalSize)
-        case .pacifico:
-            return Fonts.Pacifico.regular(size: finalSize)
-        case .caveatBrush:
-            return Fonts.CaveatBrush.regular(size: finalSize)
-        case .dmSerifDisplay:
-            return Fonts.DMSerifDisplay.regular(size: finalSize)
-        case .kalnia:
-            return Fonts.Kalnia.regular(size: finalSize)
-        case .zenDots:
-            return Fonts.ZenDots.regular(size: finalSize)
-        case .dseg7Classic:
-            return Fonts.DSEG7Classic.regular(size: finalSize)
-        case .holtwoodOneSC:
-            return Fonts.HoltwoodOneSC.regular(size: finalSize)
-        case .gravitasOne:
-            return Fonts.GravitasOne.regular(size: finalSize)
+        case .poppins:
+            return Fonts.Poppins.extraBold(size: baseSize)
+        case .audiowide:
+            return Fonts.Audiowide.regular(size: baseSize)
+        case .orbitron:
+            return Fonts.Orbitron.regular(size: baseSize)
+        case .archivoBlack:
+            return Fonts.ArchivoBlack.regular(size: baseSize)
+        case .rubik:
+            return Fonts.Rubik.semiBold(size: baseSize)
+        case .abrilFatface:
+            return Fonts.AbrilFatface.regular(size: baseSize)
+        case .playfairDisplay:
+            return Fonts.PlayfairDisplay.semiBold(size: baseSize)
+        case .georgia:
+            return Fonts.Georgia.regular(size: baseSize)
+        case .sora:
+            return Fonts.Sora.semiBold(size: baseSize)
+        case .spaceGrotesk:
+            return Fonts.SpaceGrotesk.medium(size: baseSize)
         case .inter:
-            return Fonts.Inter.regular(size: finalSize)
+            return Fonts.Inter.regular(size: baseSize)
         }
     }
 }
@@ -84,73 +72,73 @@ struct Fonts {
         }
     }
     
-    // MARK: BebasNeue
-    struct BebasNeue {
-        static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "BebasNeue-Regular", size: size)!
+    // MARK: Poppins
+    struct Poppins {
+        static func extraBold(size: CGFloat) -> UIFont {
+            UIFont(name: "Poppins-ExtraBold", size: size)!
         }
     }
     
-    // MARK: Jaro
-    struct Jaro {
+    // MARK: Audiowide
+    struct Audiowide {
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "Jaro-Regular", size: size)!
+            UIFont(name: "Audiowide-Regular", size: size)!
         }
     }
     
-    // MARK: Pacifico
-    struct Pacifico {
+    // MARK: Orbitron
+    struct Orbitron {
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "Pacifico-Regular", size: size)!
+            UIFont(name: "Orbitron-Regular", size: size)!
         }
     }
     
-    // MARK: CaveatBrush
-    struct CaveatBrush {
+    // MARK: ArchivoBlack
+    struct ArchivoBlack {
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "CaveatBrush-Regular", size: size)!
+            UIFont(name: "ArchivoBlack-Regular", size: size)!
         }
     }
     
-    // MARK: DMSerifDisplay
-    struct DMSerifDisplay {
-        static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "DMSerifDisplay-Regular", size: size)!
+    // MARK: Rubik
+    struct Rubik {
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "Rubik-SemiBold", size: size)!
         }
     }
     
-    // MARK: Kalnia
-    struct Kalnia {
+    // MARK: AbrilFatface
+    struct AbrilFatface {
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "Kalnia-Regular", size: size)!
+            UIFont(name: "AbrilFatface-Regular", size: size)!
         }
     }
     
-    // MARK: ZenDots
-    struct ZenDots {
-        static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "ZenDots-Regular", size: size)!
+    // MARK: PlayfairDisplay
+    struct PlayfairDisplay {
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "PlayfairDisplay-SemiBold", size: size)!
         }
     }
     
-    // MARK: DSEG7Classic
-    struct DSEG7Classic {
+    // MARK: Georgia
+    struct Georgia {
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "DSEG7Classic-Regular", size: size)!
+            UIFont(name: "georgia", size: size)!
         }
     }
     
-    // MARK: HoltwoodOneSC
-    struct HoltwoodOneSC {
-        static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "HoltwoodOneSC-Regular", size: size)!
+    // MARK: Sora
+    struct Sora {
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "Sora-SemiBold", size: size)!
         }
     }
     
-    // MARK: GravitasOne
-    struct GravitasOne {
-        static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "Gravitas One", size: size)!
+    // MARK: SpaceGrotesk
+    struct SpaceGrotesk {
+        static func medium(size: CGFloat) -> UIFont {
+            UIFont(name: "SpaceGrotesk-Medium", size: size)!
         }
     }
 }

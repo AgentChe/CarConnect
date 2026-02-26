@@ -8,16 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
-		DE1DA01D2F4CA07F00742E69 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */; };
-		DE1DA0202F4CA0D200742E69 /* Jaro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */; };
-		DE1DA0232F4CA0FF00742E69 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */; };
-		DE1DA0262F4CA14B00742E69 /* CaveatBrush-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */; };
-		DE1DA0292F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */; };
-		DE1DA02C2F4CA1B400742E69 /* Kalnia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */; };
-		DE1DA02F2F4CA1DA00742E69 /* ZenDots-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */; };
-		DE1DA0322F4CA29500742E69 /* DSEG7Classic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */; };
-		DE1DA0352F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */; };
-		DE1DA0382F4CA2F900742E69 /* GravitasOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */; };
 		DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */; };
 		DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */; };
 		DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */; };
@@ -36,6 +26,16 @@
 		DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0632F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift */; };
 		DE1DA0662F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */; };
 		DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0672F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift */; };
+		DE1DA06D2F50461700742E69 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA06C2F50461700742E69 /* SpaceGrotesk-Medium.ttf */; };
+		DE1DA0702F50464500742E69 /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA06F2F50464500742E69 /* Sora-SemiBold.ttf */; };
+		DE1DA0732F5046E100742E69 /* georgia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0722F5046E100742E69 /* georgia.ttf */; };
+		DE1DA0782F50475600742E69 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0772F50475600742E69 /* PlayfairDisplay-SemiBold.ttf */; };
+		DE1DA07B2F50478300742E69 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA07A2F50478300742E69 /* AbrilFatface-Regular.ttf */; };
+		DE1DA07E2F5047B100742E69 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA07D2F5047B100742E69 /* Rubik-SemiBold.ttf */; };
+		DE1DA0812F5047D900742E69 /* ArchivoBlack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0802F5047D900742E69 /* ArchivoBlack-Regular.ttf */; };
+		DE1DA0842F50483400742E69 /* Orbitron-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0832F50483400742E69 /* Orbitron-Regular.ttf */; };
+		DE1DA0872F50486100742E69 /* Audiowide-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0862F50486100742E69 /* Audiowide-Regular.ttf */; };
+		DE1DA08A2F50488A00742E69 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -204,16 +204,6 @@
 /* Begin PBXFileReference section */
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F950CACCE70681AC75B2E /* Pods-CarConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.release.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.release.xcconfig"; sourceTree = "<group>"; };
-		DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jaro-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CaveatBrush-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kalnia-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZenDots-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DSEG7Classic-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoltwoodOneSC-Regular.ttf"; sourceTree = "<group>"; };
-		DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GravitasOne-Regular.ttf"; sourceTree = "<group>"; };
 		DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewController.swift; sourceTree = "<group>"; };
 		DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewModel.swift; sourceTree = "<group>"; };
 		DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteView.swift; sourceTree = "<group>"; };
@@ -232,6 +222,16 @@
 		DE1DA0632F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderLeadershipImpactView.swift; sourceTree = "<group>"; };
 		DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderLifeMeaningView.swift; sourceTree = "<group>"; };
 		DE1DA0672F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetQuoteSliderItemView.swift; sourceTree = "<group>"; };
+		DE1DA06C2F50461700742E69 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		DE1DA06F2F50464500742E69 /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.ttf"; sourceTree = "<group>"; };
+		DE1DA0722F5046E100742E69 /* georgia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = georgia.ttf; sourceTree = "<group>"; };
+		DE1DA0772F50475600742E69 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		DE1DA07A2F50478300742E69 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA07D2F5047B100742E69 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		DE1DA0802F5047D900742E69 /* ArchivoBlack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoBlack-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0832F50483400742E69 /* Orbitron-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0862F50486100742E69 /* Audiowide-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audiowide-Regular.ttf"; sourceTree = "<group>"; };
+		DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -407,86 +407,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		DE1DA01B2F4CA05500742E69 /* BebasNeue */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA01C2F4CA07F00742E69 /* BebasNeue-Regular.ttf */,
-			);
-			path = BebasNeue;
-			sourceTree = "<group>";
-		};
-		DE1DA01E2F4CA0CE00742E69 /* Jaro */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA01F2F4CA0D200742E69 /* Jaro-Regular.ttf */,
-			);
-			path = Jaro;
-			sourceTree = "<group>";
-		};
-		DE1DA0212F4CA0FA00742E69 /* Pacifico */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0222F4CA0FF00742E69 /* Pacifico-Regular.ttf */,
-			);
-			path = Pacifico;
-			sourceTree = "<group>";
-		};
-		DE1DA0242F4CA13400742E69 /* CaveatBrush */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0252F4CA14B00742E69 /* CaveatBrush-Regular.ttf */,
-			);
-			path = CaveatBrush;
-			sourceTree = "<group>";
-		};
-		DE1DA0272F4CA15A00742E69 /* DMSerifDisplay */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0282F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf */,
-			);
-			path = DMSerifDisplay;
-			sourceTree = "<group>";
-		};
-		DE1DA02A2F4CA19300742E69 /* Kalnia */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA02B2F4CA1B400742E69 /* Kalnia-Regular.ttf */,
-			);
-			path = Kalnia;
-			sourceTree = "<group>";
-		};
-		DE1DA02D2F4CA1C200742E69 /* ZenDots */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA02E2F4CA1DA00742E69 /* ZenDots-Regular.ttf */,
-			);
-			path = ZenDots;
-			sourceTree = "<group>";
-		};
-		DE1DA0302F4CA1E800742E69 /* DSEG7Classic */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0312F4CA29500742E69 /* DSEG7Classic-Regular.ttf */,
-			);
-			path = DSEG7Classic;
-			sourceTree = "<group>";
-		};
-		DE1DA0332F4CA2AA00742E69 /* HoltwoodOneSC */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0342F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf */,
-			);
-			path = HoltwoodOneSC;
-			sourceTree = "<group>";
-		};
-		DE1DA0362F4CA2EF00742E69 /* GravitasOne */ = {
-			isa = PBXGroup;
-			children = (
-				DE1DA0372F4CA2F900742E69 /* GravitasOne-Regular.ttf */,
-			);
-			path = GravitasOne;
-			sourceTree = "<group>";
-		};
 		DE1DA0392F4CBCE100742E69 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +478,86 @@
 				DE1DA0652F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DE1DA0692F50460300742E69 /* SpaceGrotesk */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA06C2F50461700742E69 /* SpaceGrotesk-Medium.ttf */,
+			);
+			path = SpaceGrotesk;
+			sourceTree = "<group>";
+		};
+		DE1DA06E2F50463F00742E69 /* Sora */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA06F2F50464500742E69 /* Sora-SemiBold.ttf */,
+			);
+			path = Sora;
+			sourceTree = "<group>";
+		};
+		DE1DA0712F5046AC00742E69 /* Georgia */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0722F5046E100742E69 /* georgia.ttf */,
+			);
+			path = Georgia;
+			sourceTree = "<group>";
+		};
+		DE1DA0742F50473600742E69 /* PlayfairDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0772F50475600742E69 /* PlayfairDisplay-SemiBold.ttf */,
+			);
+			path = PlayfairDisplay;
+			sourceTree = "<group>";
+		};
+		DE1DA0792F50476900742E69 /* AbrilFatface */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA07A2F50478300742E69 /* AbrilFatface-Regular.ttf */,
+			);
+			path = AbrilFatface;
+			sourceTree = "<group>";
+		};
+		DE1DA07C2F50479500742E69 /* Rubik */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA07D2F5047B100742E69 /* Rubik-SemiBold.ttf */,
+			);
+			path = Rubik;
+			sourceTree = "<group>";
+		};
+		DE1DA07F2F5047C000742E69 /* ArchivoBlack */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0802F5047D900742E69 /* ArchivoBlack-Regular.ttf */,
+			);
+			path = ArchivoBlack;
+			sourceTree = "<group>";
+		};
+		DE1DA0822F5047E600742E69 /* Orbitron */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0832F50483400742E69 /* Orbitron-Regular.ttf */,
+			);
+			path = Orbitron;
+			sourceTree = "<group>";
+		};
+		DE1DA0852F50484700742E69 /* Audiowide */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0862F50486100742E69 /* Audiowide-Regular.ttf */,
+			);
+			path = Audiowide;
+			sourceTree = "<group>";
+		};
+		DE1DA0882F50487C00742E69 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */,
+			);
+			path = Poppins;
 			sourceTree = "<group>";
 		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
@@ -742,16 +742,16 @@
 		DE592C652F49C6A700ABA60E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DE1DA0362F4CA2EF00742E69 /* GravitasOne */,
-				DE1DA0332F4CA2AA00742E69 /* HoltwoodOneSC */,
-				DE1DA0302F4CA1E800742E69 /* DSEG7Classic */,
-				DE1DA02D2F4CA1C200742E69 /* ZenDots */,
-				DE1DA02A2F4CA19300742E69 /* Kalnia */,
-				DE1DA0272F4CA15A00742E69 /* DMSerifDisplay */,
-				DE1DA0242F4CA13400742E69 /* CaveatBrush */,
-				DE1DA0212F4CA0FA00742E69 /* Pacifico */,
-				DE1DA01E2F4CA0CE00742E69 /* Jaro */,
-				DE1DA01B2F4CA05500742E69 /* BebasNeue */,
+				DE1DA0882F50487C00742E69 /* Poppins */,
+				DE1DA0852F50484700742E69 /* Audiowide */,
+				DE1DA0822F5047E600742E69 /* Orbitron */,
+				DE1DA07F2F5047C000742E69 /* ArchivoBlack */,
+				DE1DA07C2F50479500742E69 /* Rubik */,
+				DE1DA0792F50476900742E69 /* AbrilFatface */,
+				DE1DA0742F50473600742E69 /* PlayfairDisplay */,
+				DE1DA0712F5046AC00742E69 /* Georgia */,
+				DE1DA06E2F50463F00742E69 /* Sora */,
+				DE1DA0692F50460300742E69 /* SpaceGrotesk */,
 				DE592C662F49C6AE00ABA60E /* Inter */,
 			);
 			path = Fonts;
@@ -1253,23 +1253,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */,
+				DE1DA0812F5047D900742E69 /* ArchivoBlack-Regular.ttf in Resources */,
 				DEABE6752F456D0F00089B9E /* Localizable.strings in Resources */,
-				DE1DA0352F4CA2CD00742E69 /* HoltwoodOneSC-Regular.ttf in Resources */,
+				DE1DA0872F50486100742E69 /* Audiowide-Regular.ttf in Resources */,
+				DE1DA0782F50475600742E69 /* PlayfairDisplay-SemiBold.ttf in Resources */,
+				DE1DA06D2F50461700742E69 /* SpaceGrotesk-Medium.ttf in Resources */,
 				DE592C6C2F49C73400ABA60E /* Inter-Bold.otf in Resources */,
-				DE1DA02C2F4CA1B400742E69 /* Kalnia-Regular.ttf in Resources */,
+				DE1DA0702F50464500742E69 /* Sora-SemiBold.ttf in Resources */,
+				DE1DA07B2F50478300742E69 /* AbrilFatface-Regular.ttf in Resources */,
 				DE592C6D2F49C73400ABA60E /* Inter-ExtraBold.otf in Resources */,
+				DE1DA08A2F50488A00742E69 /* Poppins-ExtraBold.ttf in Resources */,
 				DE592C6E2F49C73400ABA60E /* Inter-Medium.otf in Resources */,
 				DE592C6F2F49C73400ABA60E /* Inter-SemiBold.otf in Resources */,
+				DE1DA0732F5046E100742E69 /* georgia.ttf in Resources */,
 				DE592C702F49C73400ABA60E /* Inter-Regular.otf in Resources */,
-				DE1DA0202F4CA0D200742E69 /* Jaro-Regular.ttf in Resources */,
 				DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */,
-				DE1DA0292F4CA17C00742E69 /* DMSerifDisplay-Regular.ttf in Resources */,
-				DE1DA01D2F4CA07F00742E69 /* BebasNeue-Regular.ttf in Resources */,
-				DE1DA0382F4CA2F900742E69 /* GravitasOne-Regular.ttf in Resources */,
-				DE1DA0262F4CA14B00742E69 /* CaveatBrush-Regular.ttf in Resources */,
-				DE1DA0232F4CA0FF00742E69 /* Pacifico-Regular.ttf in Resources */,
-				DE1DA02F2F4CA1DA00742E69 /* ZenDots-Regular.ttf in Resources */,
-				DE1DA0322F4CA29500742E69 /* DSEG7Classic-Regular.ttf in Resources */,
+				DE1DA0842F50483400742E69 /* Orbitron-Regular.ttf in Resources */,
+				DE1DA07E2F5047B100742E69 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

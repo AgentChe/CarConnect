@@ -28,7 +28,7 @@ final class WidgetBuilderRestoreDefaultButton: UIButton {
 // MARK: Public
 extension WidgetBuilderRestoreDefaultButton {
     func setup(enable: Bool) {
-        isUserInteractionEnabled = false
+        isUserInteractionEnabled = enable
         alpha = enable ? 1 : 0.4
     }
 }

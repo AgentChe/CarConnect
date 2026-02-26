@@ -14,29 +14,29 @@ final class WidgetBuilderFontView: UIView {
     lazy var scrollView = makeScrollView()
     lazy var container = makeContainer()
     lazy var resetButton = makeResetButton()
-    lazy var bebasNeueButton = makeFontButton(widgetsFonts: .bebasNeue)
-    lazy var jaroButton = makeFontButton(widgetsFonts: .jaro)
-    lazy var pacificoButton = makeFontButton(widgetsFonts: .pacifico)
-    lazy var caveatBrushButton = makeFontButton(widgetsFonts: .caveatBrush)
-    lazy var dmSerifDisplayButton = makeFontButton(widgetsFonts: .dmSerifDisplay)
-    lazy var kalniaButton = makeFontButton(widgetsFonts: .kalnia)
-    lazy var zenDotsButton = makeFontButton(widgetsFonts: .zenDots)
-    lazy var dseg7ClassicButton = makeFontButton(widgetsFonts: .dseg7Classic)
-    lazy var holtwoodOneSCButton = makeFontButton(widgetsFonts: .holtwoodOneSC)
-    lazy var gravitasOneButton = makeFontButton(widgetsFonts: .gravitasOne)
+    lazy var poppinsButton = makeFontButton(widgetsFonts: .poppins)
+    lazy var audiowideButton = makeFontButton(widgetsFonts: .audiowide)
+    lazy var orbitronButton = makeFontButton(widgetsFonts: .orbitron)
+    lazy var archivoBlackButton = makeFontButton(widgetsFonts: .archivoBlack)
+    lazy var rubikButton = makeFontButton(widgetsFonts: .rubik)
+    lazy var abrilFatfaceButton = makeFontButton(widgetsFonts: .abrilFatface)
+    lazy var playfairDisplayButton = makeFontButton(widgetsFonts: .playfairDisplay)
+    lazy var georgiaButton = makeFontButton(widgetsFonts: .georgia)
+    lazy var soraButton = makeFontButton(widgetsFonts: .sora)
+    lazy var spaceGroteskButton = makeFontButton(widgetsFonts: .spaceGrotesk)
     lazy var interButton = makeFontButton(widgetsFonts: .inter)
     
     private lazy var fontsButtons = [
-        bebasNeueButton,
-        jaroButton,
-        pacificoButton,
-        caveatBrushButton,
-        dmSerifDisplayButton,
-        kalniaButton,
-        zenDotsButton,
-        dseg7ClassicButton,
-        holtwoodOneSCButton,
-        gravitasOneButton,
+        poppinsButton,
+        audiowideButton,
+        orbitronButton,
+        archivoBlackButton,
+        rubikButton,
+        abrilFatfaceButton,
+        playfairDisplayButton,
+        georgiaButton,
+        soraButton,
+        spaceGroteskButton,
         interButton
     ]
     
@@ -69,16 +69,16 @@ extension WidgetBuilderFontView {
     var didSelect: Signal<WidgetsFonts> {
         Signal<WidgetsFonts>
             .merge(
-                bebasNeueButton.didTap,
-                jaroButton.didTap,
-                pacificoButton.didTap,
-                caveatBrushButton.didTap,
-                dmSerifDisplayButton.didTap,
-                kalniaButton.didTap,
-                zenDotsButton.didTap,
-                dseg7ClassicButton.didTap,
-                holtwoodOneSCButton.didTap,
-                gravitasOneButton.didTap,
+                poppinsButton.didTap,
+                audiowideButton.didTap,
+                orbitronButton.didTap,
+                archivoBlackButton.didTap,
+                rubikButton.didTap,
+                abrilFatfaceButton.didTap,
+                playfairDisplayButton.didTap,
+                georgiaButton.didTap,
+                soraButton.didTap,
+                spaceGroteskButton.didTap,
                 interButton.didTap
             )
     }
@@ -123,67 +123,67 @@ private extension WidgetBuilderFontView {
         ])
         
         NSLayoutConstraint.activate([
-            bebasNeueButton.leadingAnchor.constraint(equalTo: resetButton.trailingAnchor, constant: 8.scale),
-            bebasNeueButton.topAnchor.constraint(equalTo: container.topAnchor),
-            bebasNeueButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            poppinsButton.leadingAnchor.constraint(equalTo: resetButton.trailingAnchor, constant: 8.scale),
+            poppinsButton.topAnchor.constraint(equalTo: container.topAnchor),
+            poppinsButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            jaroButton.leadingAnchor.constraint(equalTo: bebasNeueButton.trailingAnchor, constant: 8.scale),
-            jaroButton.topAnchor.constraint(equalTo: container.topAnchor),
-            jaroButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            audiowideButton.leadingAnchor.constraint(equalTo: poppinsButton.trailingAnchor, constant: 8.scale),
+            audiowideButton.topAnchor.constraint(equalTo: container.topAnchor),
+            audiowideButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            pacificoButton.leadingAnchor.constraint(equalTo: jaroButton.trailingAnchor, constant: 8.scale),
-            pacificoButton.topAnchor.constraint(equalTo: container.topAnchor),
-            pacificoButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            orbitronButton.leadingAnchor.constraint(equalTo: audiowideButton.trailingAnchor, constant: 8.scale),
+            orbitronButton.topAnchor.constraint(equalTo: container.topAnchor),
+            orbitronButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            caveatBrushButton.leadingAnchor.constraint(equalTo: pacificoButton.trailingAnchor, constant: 8.scale),
-            caveatBrushButton.topAnchor.constraint(equalTo: container.topAnchor),
-            caveatBrushButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            archivoBlackButton.leadingAnchor.constraint(equalTo: orbitronButton.trailingAnchor, constant: 8.scale),
+            archivoBlackButton.topAnchor.constraint(equalTo: container.topAnchor),
+            archivoBlackButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            dmSerifDisplayButton.leadingAnchor.constraint(equalTo: caveatBrushButton.trailingAnchor, constant: 8.scale),
-            dmSerifDisplayButton.topAnchor.constraint(equalTo: container.topAnchor),
-            dmSerifDisplayButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            rubikButton.leadingAnchor.constraint(equalTo: archivoBlackButton.trailingAnchor, constant: 8.scale),
+            rubikButton.topAnchor.constraint(equalTo: container.topAnchor),
+            rubikButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            kalniaButton.leadingAnchor.constraint(equalTo: dmSerifDisplayButton.trailingAnchor, constant: 8.scale),
-            kalniaButton.topAnchor.constraint(equalTo: container.topAnchor),
-            kalniaButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            abrilFatfaceButton.leadingAnchor.constraint(equalTo: rubikButton.trailingAnchor, constant: 8.scale),
+            abrilFatfaceButton.topAnchor.constraint(equalTo: container.topAnchor),
+            abrilFatfaceButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            zenDotsButton.leadingAnchor.constraint(equalTo: kalniaButton.trailingAnchor, constant: 8.scale),
-            zenDotsButton.topAnchor.constraint(equalTo: container.topAnchor),
-            zenDotsButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            playfairDisplayButton.leadingAnchor.constraint(equalTo: abrilFatfaceButton.trailingAnchor, constant: 8.scale),
+            playfairDisplayButton.topAnchor.constraint(equalTo: container.topAnchor),
+            playfairDisplayButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            dseg7ClassicButton.leadingAnchor.constraint(equalTo: zenDotsButton.trailingAnchor, constant: 8.scale),
-            dseg7ClassicButton.topAnchor.constraint(equalTo: container.topAnchor),
-            dseg7ClassicButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            georgiaButton.leadingAnchor.constraint(equalTo: playfairDisplayButton.trailingAnchor, constant: 8.scale),
+            georgiaButton.topAnchor.constraint(equalTo: container.topAnchor),
+            georgiaButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            holtwoodOneSCButton.leadingAnchor.constraint(equalTo: dseg7ClassicButton.trailingAnchor, constant: 8.scale),
-            holtwoodOneSCButton.topAnchor.constraint(equalTo: container.topAnchor),
-            holtwoodOneSCButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            soraButton.leadingAnchor.constraint(equalTo: georgiaButton.trailingAnchor, constant: 8.scale),
+            soraButton.topAnchor.constraint(equalTo: container.topAnchor),
+            soraButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            gravitasOneButton.leadingAnchor.constraint(equalTo: holtwoodOneSCButton.trailingAnchor, constant: 8.scale),
-            gravitasOneButton.topAnchor.constraint(equalTo: container.topAnchor),
-            gravitasOneButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            spaceGroteskButton.leadingAnchor.constraint(equalTo: soraButton.trailingAnchor, constant: 8.scale),
+            spaceGroteskButton.topAnchor.constraint(equalTo: container.topAnchor),
+            spaceGroteskButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            interButton.leadingAnchor.constraint(equalTo: gravitasOneButton.trailingAnchor, constant: 8.scale),
+            interButton.leadingAnchor.constraint(equalTo: spaceGroteskButton.trailingAnchor, constant: 8.scale),
             interButton.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             interButton.topAnchor.constraint(equalTo: container.topAnchor),
             interButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)

@@ -20,21 +20,21 @@ struct WidgetTextQuoteConfiguration {
     
     static func mindsetGrowthDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .dmSerifDisplay,
+            font: .abrilFatface,
             textColor: Appearance.color_FFFFFF
         )
     }
     
     static func leadershipImpactDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .bebasNeue,
+            font: .georgia,
             textColor: Appearance.color_FFFFFF
         )
     }
     
     static func lifeMeaningDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .jaro,
+            font: .playfairDisplay,
             textColor: Appearance.color_FFFFFF
         )
     }

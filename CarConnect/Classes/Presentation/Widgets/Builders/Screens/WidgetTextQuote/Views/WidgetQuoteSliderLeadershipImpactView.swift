@@ -41,7 +41,7 @@ final class WidgetQuoteSliderLeadershipImpactView: WidgetQuoteSliderItemView {
         
         let textAttrs = TextAttributes()
             .textColor(configuration.textColor)
-            .font(configuration.font.uiFont(baseSize: 33.scale))
+            .font(configuration.font.uiFont(baseSize: 30.scale))
             .textAlignment(.left)
             .lineBreakMode(.byTruncatingTail)
         textLabel.attributedText = quote.text.attributed(with: textAttrs)

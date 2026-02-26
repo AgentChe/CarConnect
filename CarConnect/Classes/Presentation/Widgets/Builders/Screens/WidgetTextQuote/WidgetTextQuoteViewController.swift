@@ -24,7 +24,7 @@ final class WidgetTextQuoteViewController: UIViewController {
     
     private init(quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
         self.quote = quote
-        self.viewModel = WidgetTextQuoteViewModel(configuration: configuration)
+        self.viewModel = WidgetTextQuoteViewModel(quote: quote, configuration: configuration)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,12 +45,36 @@ final class WidgetTextQuoteViewController: UIViewController {
         mainView.fontColorView.parentVC = self
         
         let output = viewModel.configure(input: WidgetTextQuoteViewModel.Input(
-            didTapHelper: mainView.helperButton.rx.tap.asSignal()
+            didTapHelper: mainView.helperButton.rx.tap.asSignal(),
+            didTapResetFont: mainView.fontView.didReset,
+            didSelectFont: mainView.fontView.didSelect,
+            didTapResetFontColor: mainView.fontColorView.didReset,
+            didSelectFontColor: mainView.fontColorView.didSelect,
+            didTapRestoreDefault: mainView.restoreDefaultButton.rx.tap.asSignal()
         ))
         
-        output.configuration
+        let defaultConfiguration = output.defaultConfiguration
+        let configuration = output.configuration
+        
+        configuration
             .drive(Binder(mainView.sliderView) { base, config in
                 base.setup(configuration: config)
+            })
+            .disposed(by: disposeBag)
+        
+        Driver
+            .combineLatest(defaultConfiguration, configuration)
+            .drive(Binder(mainView) { base, configs in
+                let (defaultConfiguration, configuration) = configs
+                
+                base.fontView.setup(selectedFont: configuration.font, defaultFont: defaultConfiguration.font)
+                base.fontColorView.setup(selectedColor: configuration.textColor, defaultColor: defaultConfiguration.textColor)
+            })
+            .disposed(by: disposeBag)
+        
+        output.enableRestoreDefault
+            .drive(Binder(mainView.restoreDefaultButton) { base, enable in
+                base.setup(enable: enable)
             })
             .disposed(by: disposeBag)
         

@@ -50,19 +50,19 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateTextManuallyCell.self), for: indexPath) as! WidgetsPresetsTemplateTextManuallyCell
             cell.setup(configuration: configuration)
             return cell
-        case .quoteAmbitionDrive(let element, let configuration):
+        case .quoteAmbitionDrive(_, let element, let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteAmbitionDriveCell.self), for: indexPath) as! WidgetsPresetsTemplateQuoteAmbitionDriveCell
             cell.setup(element: element, configuration: configuration)
             return cell
-        case .quoteMindsetGrowth(let element, let configuration):
+        case .quoteMindsetGrowth(_, let element, let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteMindsetGrowthCell.self), for: indexPath) as! WidgetsPresetsTemplateQuoteMindsetGrowthCell
             cell.setup(element: element, configuration: configuration)
             return cell
-        case .quoteLeadershipImpact(let element, let configuration):
+        case .quoteLeadershipImpact(_, let element, let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLeadershipImpactCell.self), for: indexPath) as! WidgetsPresetsTemplateQuoteLeadershipImpactCell
             cell.setup(element: element, configuration: configuration)
             return cell
-        case .quoteLifeMeaning(let element, let configuration):
+        case .quoteLifeMeaning(_, let element, let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLifeMeaningCell.self), for: indexPath) as! WidgetsPresetsTemplateQuoteLifeMeaningCell
             cell.setup(element: element, configuration: configuration)
             return cell

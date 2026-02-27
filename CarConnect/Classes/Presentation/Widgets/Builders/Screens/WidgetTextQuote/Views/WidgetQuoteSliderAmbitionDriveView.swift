@@ -64,6 +64,10 @@ final class WidgetQuoteSliderAmbitionDriveView: WidgetQuoteSliderItemView {
             .lineBreakMode(.byTruncatingTail)
         authorSocialRoleLabel.attributedText = quote.authorSocialRole.attributed(with: authorSocialRoleAttrs)
     }
+    
+    override func getQuote() -> WidgetTextQuote {
+        .ambitionDrive(quote)
+    }
 }
 
 // MARK: Private

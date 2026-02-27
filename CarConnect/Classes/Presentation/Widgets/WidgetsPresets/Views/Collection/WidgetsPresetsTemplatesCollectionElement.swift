@@ -8,8 +8,8 @@
 enum WidgetsPresetsTemplatesCollectionElement {
     // Presets of text type
     case textManually(WidgetTextManuallyConfiguration)
-    case quoteAmbitionDrive(WidgetTextQuoteAmbitionDrive, WidgetTextQuoteConfiguration)
-    case quoteMindsetGrowth(WidgetTextQuoteMindsetGrowth, WidgetTextQuoteConfiguration)
-    case quoteLeadershipImpact(WidgetTextQuoteLeadershipImpact, WidgetTextQuoteConfiguration)
-    case quoteLifeMeaning(WidgetTextQuoteLifeMeaning, WidgetTextQuoteConfiguration)
+    case quoteAmbitionDrive(String?, WidgetTextQuoteAmbitionDrive, WidgetTextQuoteConfiguration)
+    case quoteMindsetGrowth(String?, WidgetTextQuoteMindsetGrowth, WidgetTextQuoteConfiguration)
+    case quoteLeadershipImpact(String?, WidgetTextQuoteLeadershipImpact, WidgetTextQuoteConfiguration)
+    case quoteLifeMeaning(String?, WidgetTextQuoteLifeMeaning, WidgetTextQuoteConfiguration)
 }

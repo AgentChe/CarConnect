@@ -12,16 +12,19 @@ final class WidgetTextQuoteViewModel {
     enum Action {
         case openHelper
         case openPreview
-        case close 
+        case close
+        case requestRemoveConfirmation
     }
     
-    private let quote: Driver<WidgetTextQuote>
+    private let storageModelId: Driver<String?>
+    private let initialQuote: Driver<WidgetTextQuote>
     private let initialConfiguration: Driver<WidgetTextQuoteConfiguration>
     
     private lazy var storage = WidgetTextStorage()
     
-    init(quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
-        self.quote = BehaviorRelay(value: quote).asDriver()
+    init(storageModelId: String?, quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
+        self.storageModelId = BehaviorRelay(value: storageModelId).asDriver()
+        self.initialQuote = BehaviorRelay(value: quote).asDriver()
         self.initialConfiguration = BehaviorRelay(value: configuration).asDriver()
     }
 }
@@ -37,6 +40,9 @@ extension WidgetTextQuoteViewModel {
         let didTapRestoreDefault: Signal<Void>
         let didTapOpenPreview: Signal<Void>
         let didTapSave: Signal<Void>
+        let didTapRemove: Signal<Void>
+        let didRemoveConfirmed: Signal<Void>
+        let didChangeQuote: Signal<WidgetTextQuote>
     }
     
     struct Output {
@@ -47,7 +53,7 @@ extension WidgetTextQuoteViewModel {
     }
     
     func configure(input: Input) -> Output {
-        let defaultConfiguration = makeDefaultConfiguration(quote: quote)
+        let defaultConfiguration = makeDefaultConfiguration(quote: initialQuote) 
         let configuration = makeConfiguration(
             initialConfiguration: initialConfiguration,
             defaultConfiguration: defaultConfiguration,
@@ -56,6 +62,10 @@ extension WidgetTextQuoteViewModel {
             didTapResetFontColor: input.didTapResetFontColor,
             didSelectFontColor: input.didSelectFontColor,
             didTapRestoreDefault: input.didTapRestoreDefault
+        )
+        let quote = makeQuote(
+            initialQuote: initialQuote,
+            didChangeQuote: input.didChangeQuote
         )
         
         return Output(
@@ -70,7 +80,10 @@ extension WidgetTextQuoteViewModel {
                 didTapOpenPreview: input.didTapOpenPreview,
                 didTapSave: input.didTapSave,
                 quote: quote,
-                configuration: configuration
+                configuration: configuration,
+                didTapRemove: input.didTapRemove,
+                didRemoveConfirmed: input.didRemoveConfirmed,
+                storageModelId: storageModelId
             )
         )
     }
@@ -78,6 +91,17 @@ extension WidgetTextQuoteViewModel {
 
 // MARK: Private
 private extension WidgetTextQuoteViewModel {
+    func makeQuote(
+        initialQuote: Driver<WidgetTextQuote>,
+        didChangeQuote: Signal<WidgetTextQuote>
+    ) -> Driver<WidgetTextQuote> {
+        Driver
+            .merge(
+                initialQuote,
+                didChangeQuote.asDriver(onErrorDriveWith: .never())
+            )
+    }
+    
     func makeEnableRestoreDefault(
         defaultConfiguration: Driver<WidgetTextQuoteConfiguration>,
         configuration: Driver<WidgetTextQuoteConfiguration>
@@ -170,7 +194,10 @@ private extension WidgetTextQuoteViewModel {
         didTapOpenPreview: Signal<Void>,
         didTapSave: Signal<Void>,
         quote: Driver<WidgetTextQuote>,
-        configuration: Driver<WidgetTextQuoteConfiguration>
+        configuration: Driver<WidgetTextQuoteConfiguration>,
+        didTapRemove: Signal<Void>,
+        didRemoveConfirmed: Signal<Void>,
+        storageModelId: Driver<String?>
     ) -> Driver<Action> {
         let openHelper = didTapHelper
             .map { Action.openHelper }
@@ -182,18 +209,51 @@ private extension WidgetTextQuoteViewModel {
         
         let saveAndClose = didTapSave
             .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(quote)
-            .withLatestFrom(configuration) { ($0, $1) }
-            .flatMapLatest { [weak self] quote, configuration -> Driver<Action> in
-                guard let self else { return .never() }
+            .withLatestFrom(storageModelId)
+            .withLatestFrom(quote) { ($0, $1) }
+            .withLatestFrom(configuration) { ($0.0, $0.1, $1) }
+            .flatMapLatest {  id, quote, configuration -> Driver<Action> in
+                let model: Single<WidgetTextQuoteStorageModel> = { [weak self] in
+                    guard let self else { return .never() }
+                    
+                    if let id {
+                        return storage
+                            .edit(
+                                quoteStorageModelId: id,
+                                quote: quote,
+                                configuration: configuration
+                            )
+                    } else {
+                        return storage
+                            .save(
+                                quote: quote,
+                                configuration: configuration
+                            )
+                    }
+                }()
                 
-                return storage
-                    .save(quote: quote, configuration: configuration)
+                return model
                     .asDriver(onErrorDriveWith: .never())
                     .map { _ in Action.close }
             }
         
+        let requestRemoveConfirmation = didTapRemove
+            .asDriver(onErrorDriveWith: .never())
+            .map { Action.requestRemoveConfirmation }
+        
+        let removeAndClose = didRemoveConfirmed
+            .withLatestFrom(storageModelId)
+            .compactMap { $0 }
+            .flatMapLatest { [weak self] id -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                return storage
+                    .delete(quoteStorageModelId: id)
+                    .map { Action.close }
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
         return Driver
-            .merge(openHelper, openPreview, saveAndClose)
+            .merge(openHelper, openPreview, saveAndClose, requestRemoveConfirmation, removeAndClose)
     }
 }

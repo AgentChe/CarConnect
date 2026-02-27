@@ -16,10 +16,13 @@ final class WidgetTextQuoteView: UIView {
     lazy var fontColorView = makeFontColorView()
     lazy var restoreDefaultButton = makeRestoreDefaultButton()
     lazy var helperButton = makeHelperButton()
+    lazy var removeButton = makeRemoveButton()
     
+    private let editableMode: Bool
     private let quote: WidgetTextQuote
     
-    init(quote: WidgetTextQuote) {
+    init(editableMode: Bool, quote: WidgetTextQuote) {
+        self.editableMode = editableMode
         self.quote = quote
         
         super.init(frame: .zero)
@@ -93,13 +96,25 @@ private extension WidgetTextQuoteView {
             restoreDefaultButton.topAnchor.constraint(equalTo: fontColorView.bottomAnchor, constant: 32.scale)
         ])
         
-        NSLayoutConstraint.activate([
-            helperButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
-            helperButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
-            helperButton.heightAnchor.constraint(equalToConstant: 51.scale),
-            helperButton.topAnchor.constraint(equalTo: restoreDefaultButton.bottomAnchor, constant: 12.scale),
-            helperButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
-        ])
+        if let helperButton {
+            NSLayoutConstraint.activate([
+                helperButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
+                helperButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
+                helperButton.heightAnchor.constraint(equalToConstant: 51.scale),
+                helperButton.topAnchor.constraint(equalTo: restoreDefaultButton.bottomAnchor, constant: 12.scale),
+                helperButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            ])
+        }
+        
+        if let removeButton {
+            NSLayoutConstraint.activate([
+                removeButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
+                removeButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16.scale),
+                removeButton.heightAnchor.constraint(equalToConstant: 51.scale),
+                removeButton.topAnchor.constraint(equalTo: restoreDefaultButton.bottomAnchor, constant: 12.scale),
+                removeButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+            ])
+        }
     }
 }
 
@@ -159,8 +174,19 @@ private extension WidgetTextQuoteView {
         return view
     }
     
-    func makeHelperButton() -> WidgetBuilderHelperButton {
+    func makeHelperButton() -> WidgetBuilderHelperButton? {
+        guard !editableMode else { return nil }
+        
         let view = WidgetBuilderHelperButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        return view
+    }
+    
+    func makeRemoveButton() -> WidgetsBuilderRemoveButton? {
+        guard editableMode else { return nil }
+        
+        let view = WidgetsBuilderRemoveButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

@@ -9,4 +9,8 @@ import UIKit
 
 class WidgetQuoteSliderItemView: GradientView {
     func setup(configuration: WidgetTextQuoteConfiguration) {}
+    
+    func getQuote() -> WidgetTextQuote {
+        fatalError("Must be override")
+    }
 }

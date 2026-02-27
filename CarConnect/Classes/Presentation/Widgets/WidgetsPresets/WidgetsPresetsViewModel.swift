@@ -12,7 +12,7 @@ final class WidgetsPresetsViewModel {
     enum Action {
         case openWidgetsHelper
         case openTextManuallyBuilder
-        case openTextQuoteBuilder(WidgetTextQuote, WidgetTextQuoteConfiguration)
+        case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
     }
     
     private lazy var textStorage = WidgetTextStorage()
@@ -75,14 +75,14 @@ private extension WidgetsPresetsViewModel {
                 switch element {
                 case .textManually:
                     return Action.openTextManuallyBuilder
-                case .quoteAmbitionDrive(let quote, let config):
-                    return .openTextQuoteBuilder(.ambitionDrive(quote), config)
-                case .quoteLeadershipImpact(let quote, let config):
-                    return .openTextQuoteBuilder(.leadershipImpact(quote), config)
-                case .quoteLifeMeaning(let quote, let config):
-                    return .openTextQuoteBuilder(.lifeMeaning(quote), config)
-                case .quoteMindsetGrowth(let quote, let config):
-                    return .openTextQuoteBuilder(.mindsetGrowth(quote), config)
+                case .quoteAmbitionDrive(let storageModelId, let quote, let config):
+                    return .openTextQuoteBuilder(storageModelId, .ambitionDrive(quote), config)
+                case .quoteLeadershipImpact(let storageModelId, let quote, let config):
+                    return .openTextQuoteBuilder(storageModelId, .leadershipImpact(quote), config)
+                case .quoteLifeMeaning(let storageModelId, let quote, let config):
+                    return .openTextQuoteBuilder(storageModelId, .lifeMeaning(quote), config)
+                case .quoteMindsetGrowth(let storageModelId, let quote, let config):
+                    return .openTextQuoteBuilder(storageModelId, .mindsetGrowth(quote), config)
                 }
             }
         
@@ -180,13 +180,13 @@ private extension WidgetsPresetsViewModel {
                     models.map { model -> WidgetsPresetsTemplatesCollectionElement in
                         switch model.quote {
                         case .ambitionDrive(let quote):
-                            return .quoteAmbitionDrive(quote, model.configuration)
+                            return .quoteAmbitionDrive(model.id, quote, model.configuration)
                         case .mindsetGrowth(let quote):
-                            return .quoteMindsetGrowth(quote, model.configuration)
+                            return .quoteMindsetGrowth(model.id, quote, model.configuration)
                         case .leadershipImpact(let quote):
-                            return .quoteLeadershipImpact(quote, model.configuration)
+                            return .quoteLeadershipImpact(model.id, quote, model.configuration)
                         case .lifeMeaning(let quote):
-                            return .quoteLifeMeaning(quote, model.configuration)
+                            return .quoteLifeMeaning(model.id, quote, model.configuration)
                         }
                     }
                 }
@@ -199,19 +199,19 @@ private extension WidgetsPresetsViewModel {
                         WidgetsPresetsTemplatesCollectionElement.textManually(WidgetTextManuallyConfiguration.default()),
                         {
                             guard let template = WidgetTextQuoteMindsetGrowth.templates().first else { return nil }
-                            return .quoteMindsetGrowth(template, WidgetTextQuoteConfiguration.mindsetGrowthDefault())
+                            return .quoteMindsetGrowth(nil, template, WidgetTextQuoteConfiguration.mindsetGrowthDefault())
                         }(),
                         {
                             guard let template = WidgetTextQuoteAmbitionDrive.templates().first else { return nil }
-                            return .quoteAmbitionDrive(template, WidgetTextQuoteConfiguration.ambitionDriveDefault())
+                            return .quoteAmbitionDrive(nil, template, WidgetTextQuoteConfiguration.ambitionDriveDefault())
                         }(),
                         {
                             guard let template = WidgetTextQuoteLeadershipImpact.templates().first else { return nil }
-                            return .quoteLeadershipImpact(template, WidgetTextQuoteConfiguration.leadershipImpactDefault())
+                            return .quoteLeadershipImpact(nil, template, WidgetTextQuoteConfiguration.leadershipImpactDefault())
                         }(),
                         {
                             guard let template = WidgetTextQuoteLifeMeaning.templates().first else { return nil }
-                            return .quoteLifeMeaning(template, WidgetTextQuoteConfiguration.lifeMeaningDefault())
+                            return .quoteLifeMeaning(nil, template, WidgetTextQuoteConfiguration.lifeMeaningDefault())
                         }()
                     ].compactMap { $0 }
                     

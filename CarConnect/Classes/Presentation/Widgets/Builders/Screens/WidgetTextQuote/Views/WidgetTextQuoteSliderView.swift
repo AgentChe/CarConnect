@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class WidgetTextQuoteSliderView: UIView {
     lazy var viewsContainer = makeViewsContainer()
     lazy var pageControl = makePageControl()
     
-    private let quote: WidgetTextQuote
+    private let initialQuote: WidgetTextQuote
     
     private lazy var views = [(Int, WidgetQuoteSliderItemView)]()
     
     private lazy var currentIndex = 0
     
+    private lazy var didChangedQuoteTrigger = PublishRelay<WidgetTextQuote>()
+    
     init(quote: WidgetTextQuote) {
-        self.quote = quote
+        self.initialQuote = quote
         
         super.init(frame: .zero)
         
@@ -68,6 +72,10 @@ extension WidgetTextQuoteSliderView {
             }
         }
     }
+    
+    var didChangedQuote: Signal<WidgetTextQuote> {
+        didChangedQuoteTrigger.asSignal()
+    }
 }
 
 // MARK: Private
@@ -86,7 +94,7 @@ private extension WidgetTextQuoteSliderView {
     
     func createViews() {
         let views: [WidgetQuoteSliderItemView] = {
-            switch quote {
+            switch initialQuote {
             case .ambitionDrive:
                 return WidgetTextQuoteAmbitionDrive.templates().map { template -> WidgetQuoteSliderItemView in
                     WidgetQuoteSliderAmbitionDriveView(quote: template)
@@ -156,7 +164,11 @@ private extension WidgetTextQuoteSliderView {
                 
                 self.pageControl.currentPage = currentIndex
             },
-            completion: nil
+            completion: { [weak self] _ in
+                guard let self, let view = views.first(where: { $0.0 == self.currentIndex })?.1 else { return }
+                
+                didChangedQuoteTrigger.accept(view.getQuote())
+            }
         )
     }
 }

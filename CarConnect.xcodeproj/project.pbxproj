@@ -47,6 +47,9 @@
 		DE1DA0AD2F51E53800742E69 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AC2F51E53800742E69 /* CodableColor.swift */; };
 		DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AC2F51E53800742E69 /* CodableColor.swift */; };
 		DE1DA0B02F51EEEA00742E69 /* WidgetTextStorageMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AF2F51EEEA00742E69 /* WidgetTextStorageMediator.swift */; };
+		DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */; };
+		DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */; };
+		DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -253,6 +256,9 @@
 		DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteStorageModel.swift; sourceTree = "<group>"; };
 		DE1DA0AC2F51E53800742E69 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		DE1DA0AF2F51EEEA00742E69 /* WidgetTextStorageMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextStorageMediator.swift; sourceTree = "<group>"; };
+		DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBuilderRemoveButton.swift; sourceTree = "<group>"; };
+		DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmView.swift; sourceTree = "<group>"; };
+		DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmViewController.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -459,12 +465,14 @@
 		DE1DA0432F4DDEA100742E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA0B32F51FD4C00742E69 /* RemoveConfirm */,
 				DE1DA0532F4E050000742E69 /* Font */,
 				DE1DA0482F4DE3AD00742E69 /* FontColor */,
 				DE1DA0442F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift */,
 				DE1DA04D2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift */,
 				DE1DA0582F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift */,
 				DE1DA05A2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift */,
+				DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -635,6 +643,15 @@
 				DE1DA0AC2F51E53800742E69 /* CodableColor.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		DE1DA0B32F51FD4C00742E69 /* RemoveConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */,
+				DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */,
+			);
+			path = RemoveConfirm;
 			sourceTree = "<group>";
 		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
@@ -1489,6 +1506,7 @@
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
+				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
@@ -1524,6 +1542,7 @@
 				DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
+				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
@@ -1533,6 +1552,7 @@
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
+				DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,

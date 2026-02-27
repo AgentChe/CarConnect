@@ -88,8 +88,14 @@ private extension WidgetsPresetsViewController {
             present(vc, animated: true)
         case .openTextManuallyBuilder:
             break // TODO:
-        case .openTextQuoteBuilder(let quote, let config):
-            let vc = WidgetTextQuoteViewController.create(quote: quote, configuration: config)
+        case .openTextQuoteBuilder(let storageModelId, let quote, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetTextQuoteViewController.edit(storageModelId: storageModelId, quote: quote, configuration: config)
+                } else {
+                    return WidgetTextQuoteViewController.create(quote: quote, configuration: config)
+                }
+            }()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class WidgetTextQuoteViewController: UIViewController {
-    private lazy var mainView = WidgetTextQuoteView(quote: quote)
+    private let mainView: WidgetTextQuoteView
     
     private let viewModel: WidgetTextQuoteViewModel
     
@@ -18,13 +18,24 @@ final class WidgetTextQuoteViewController: UIViewController {
     
     private lazy var saveButton = UIBarButtonItem(title: "Save".localized, style: .done, target: nil, action: nil)
     
-    private let quote: WidgetTextQuote
-    
     private weak var previousPopDelegate: UIGestureRecognizerDelegate?
     
-    private init(quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
-        self.quote = quote
-        self.viewModel = WidgetTextQuoteViewModel(quote: quote, configuration: configuration)
+    private lazy var didRemoveConfirmedTrigger = PublishRelay<Void>()
+    
+    private init(
+        storageModelId: String?,
+        quote: WidgetTextQuote,
+        configuration: WidgetTextQuoteConfiguration
+    ) {
+        self.mainView = WidgetTextQuoteView(
+            editableMode: storageModelId != nil,
+            quote: quote
+        )
+        self.viewModel = WidgetTextQuoteViewModel(
+            storageModelId: storageModelId,
+            quote: quote,
+            configuration: configuration
+        )
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,14 +56,17 @@ final class WidgetTextQuoteViewController: UIViewController {
         mainView.fontColorView.parentVC = self
         
         let output = viewModel.configure(input: WidgetTextQuoteViewModel.Input(
-            didTapHelper: mainView.helperButton.rx.tap.asSignal(),
+            didTapHelper: mainView.helperButton?.rx.tap.asSignal() ?? .never(),
             didTapResetFont: mainView.fontView.didReset,
             didSelectFont: mainView.fontView.didSelect,
             didTapResetFontColor: mainView.fontColorView.didReset,
             didSelectFontColor: mainView.fontColorView.didSelect,
             didTapRestoreDefault: mainView.restoreDefaultButton.rx.tap.asSignal(),
             didTapOpenPreview: mainView.previewWidgetButton.rx.tap.asSignal(),
-            didTapSave: saveButton.rx.tap.asSignal()
+            didTapSave: saveButton.rx.tap.asSignal(),
+            didTapRemove: mainView.removeButton?.rx.tap.asSignal() ?? .never(),
+            didRemoveConfirmed: didRemoveConfirmedTrigger.asSignal(),
+            didChangeQuote: mainView.sliderView.didChangedQuote
         ))
         
         let defaultConfiguration = output.defaultConfiguration
@@ -123,7 +137,26 @@ final class WidgetTextQuoteViewController: UIViewController {
 // MARK: Public
 extension WidgetTextQuoteViewController {
     static func create(quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) -> WidgetTextQuoteViewController {
-        let vc = WidgetTextQuoteViewController(quote: quote, configuration: configuration)
+        let vc = WidgetTextQuoteViewController(
+            storageModelId: nil,
+            quote: quote,
+            configuration: configuration
+        )
+        vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = "WidgetsBuilders.Title".localized
+        return vc
+    }
+    
+    static func edit(
+        storageModelId: String?,
+        quote: WidgetTextQuote,
+        configuration: WidgetTextQuoteConfiguration
+    ) -> WidgetTextQuoteViewController {
+        let vc = WidgetTextQuoteViewController(
+            storageModelId: storageModelId,
+            quote: quote,
+            configuration: configuration
+        )
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "WidgetsBuilders.Title".localized
         return vc
@@ -175,6 +208,11 @@ private extension WidgetTextQuoteViewController {
             present(vc, animated: true)
         case .close:
             navigationController?.popViewController(animated: true)
+        case .requestRemoveConfirmation:
+            let vc = WidgetBuilderRemoveConfirmViewController.make { [weak self] in
+                self?.didRemoveConfirmedTrigger.accept(Void())
+            }
+            present(vc, animated: false)
         }
     }
 }

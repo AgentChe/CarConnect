@@ -53,6 +53,10 @@ final class WidgetQuoteSliderMindsetGrowthView: WidgetQuoteSliderItemView {
             .lineBreakMode(.byTruncatingTail)
         authorNameLabel.attributedText = quote.authorName.attributed(with: authorNameAttrs)
     }
+    
+    override func getQuote() -> WidgetTextQuote {
+        .mindsetGrowth(quote)
+    }
 }
 
 // MARK: Private

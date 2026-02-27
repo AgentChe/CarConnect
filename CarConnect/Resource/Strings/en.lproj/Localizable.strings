@@ -60,6 +60,10 @@
 "WidgetsBuilders.Font" = "Font typography";
 "WidgetsBuilders.RestoreDefault" = "Restore default";
 "WidgetsBuilders.Helper" = "How to add";
+"WidgetsBuilders.RemoveWidget" = "Remove widget";
+"WidgetsBuilders.RemoveWidget.Confirm.Title" = "Widget removal";
+"WidgetsBuilders.RemoveWidget.Confirm.SubTitle" = "Are you sure? The widget will be removed from your library";
+"WidgetsBuilders.RemoveWidget.Confirm.Accept" = "Remove widget";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

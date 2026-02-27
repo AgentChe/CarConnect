@@ -53,6 +53,10 @@ final class WidgetQuoteSliderLeadershipImpactView: WidgetQuoteSliderItemView {
             .lineBreakMode(.byTruncatingTail)
         authorNameLabel.attributedText = quote.authorName.attributed(with: authorNameAttrs)
     }
+    
+    override func getQuote() -> WidgetTextQuote {
+        .leadershipImpact(quote)
+    }
 }
 
 // MARK: Private

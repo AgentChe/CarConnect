@@ -42,6 +42,10 @@ final class WidgetQuoteSliderLifeMeaningView: WidgetQuoteSliderItemView {
             .lineBreakMode(.byTruncatingTail)
         authorNameLabel.attributedText = quote.authorName.attributed(with: authorNameAttrs)
     }
+    
+    override func getQuote() -> WidgetTextQuote {
+        .lifeMeaning(quote)
+    }
 }
 
 // MARK: Private

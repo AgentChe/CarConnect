@@ -9,6 +9,7 @@ import UIKit
 
 protocol Scalable {
     var scale: Self { get }
+    var vScale: Self { get }
 }
 
 extension CGFloat: Scalable {
@@ -17,11 +18,21 @@ extension CGFloat: Scalable {
         let currentScreenWidth = UIScreen.main.bounds.size.width
         return self * currentScreenWidth / designScreenWidth
     }
+    
+    var vScale: CGFloat {
+        let designScreenHeight: CGFloat = 812
+        let currentScreenHeight = UIScreen.main.bounds.size.height
+        return self * currentScreenHeight / designScreenHeight
+    }
 }
 
 extension Int {
     var scale: CGFloat {
         CGFloat(self).scale
+    }
+    
+    var vScale: CGFloat {
+        CGFloat(self).vScale
     }
 }
 
@@ -29,34 +40,8 @@ extension Double {
     var scale: CGFloat {
         CGFloat(self).scale
     }
-}
-
-extension CGPoint: Scalable {
-    var scale: CGPoint {
-        CGPoint(x: x.scale, y: y.scale)
-    }
-}
-
-extension CGSize: Scalable {
-    var scale: CGSize {
-        CGSize(width: width.scale, height: height.scale)
-    }
-}
-
-extension CGRect: Scalable {
-    var scale: CGRect {
-        CGRect(origin: origin.scale, size: size.scale)
-    }
-}
-
-extension UIFont {
-    var scale: UIFont {
-        UIFont(name: fontName, size: pointSize.scale) ?? UIFont.systemFont(ofSize: pointSize.scale)
-    }
-}
-
-extension UIEdgeInsets: Scalable {
-    var scale: UIEdgeInsets {
-        UIEdgeInsets(top: top.scale, left: left.scale, bottom: bottom.scale, right: right.scale)
+    
+    var vScale: CGFloat {
+        CGFloat(self).vScale
     }
 }

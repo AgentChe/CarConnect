@@ -43,6 +43,31 @@ extension WidgetTextQuoteSliderView {
     func canRigthSwipe() -> Bool {
         currentIndex > 0
     }
+    
+    func makeSnapshotCurrentView() -> UIImage? {
+        guard let currentView = views.first(where: { $0.0 == currentIndex })?.1 else {
+            return nil
+        }
+
+        let targetBounds = currentView.bounds
+        guard targetBounds.width > 0, targetBounds.height > 0 else { return nil }
+
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = UIScreen.main.scale
+        format.opaque = currentView.isOpaque
+
+        let renderer = UIGraphicsImageRenderer(size: targetBounds.size, format: format)
+
+        if currentView.window != nil {
+            return renderer.image { _ in
+                currentView.drawHierarchy(in: targetBounds, afterScreenUpdates: true)
+            }
+        } else {
+            return renderer.image { ctx in
+                currentView.layer.render(in: ctx.cgContext)
+            }
+        }
+    }
 }
 
 // MARK: Private

@@ -60,3 +60,10 @@
 "WidgetsBuilders.Font" = "Font typography";
 "WidgetsBuilders.RestoreDefault" = "Restore default";
 "WidgetsBuilders.Helper" = "How to add";
+
+// MARK: WidgetsPreview
+"WidgetsPreview.Title" = "Preview widget";
+"WidgetsPreview.Tab.OneWidget" = "1 Widget";
+"WidgetsPreview.Tab.TwoWidget" = "2 Widgets";
+"WidgetsPreview.Tab.ThreeWidget" = "3 Widgets";
+"WidgetsPreview.Phone.Title" = "Display on phone";

@@ -11,6 +11,7 @@ import RxCocoa
 final class WidgetTextQuoteViewModel {
     enum Action {
         case openHelper
+        case openPreview
     }
     
     private let quote: Driver<WidgetTextQuote>
@@ -31,6 +32,7 @@ extension WidgetTextQuoteViewModel {
         let didTapResetFontColor: Signal<Void>
         let didSelectFontColor: Signal<UIColor>
         let didTapRestoreDefault: Signal<Void>
+        let didTapOpenPreview: Signal<Void>
     }
     
     struct Output {
@@ -59,7 +61,10 @@ extension WidgetTextQuoteViewModel {
                 defaultConfiguration: defaultConfiguration,
                 configuration: configuration
             ),
-            action: makeAction(didTapHelper: input.didTapHelper)
+            action: makeAction(
+                didTapHelper: input.didTapHelper,
+                didTapOpenPreview: input.didTapOpenPreview
+            )
         )
     }
 }
@@ -153,12 +158,19 @@ private extension WidgetTextQuoteViewModel {
             }
     }
     
-    func makeAction(didTapHelper: Signal<Void>) -> Driver<Action> {
+    func makeAction(
+        didTapHelper: Signal<Void>,
+        didTapOpenPreview: Signal<Void>
+    ) -> Driver<Action> {
         let openHelper = didTapHelper
             .map { Action.openHelper }
             .asDriver(onErrorDriveWith: .never())
         
+        let openPreview = didTapOpenPreview
+            .map { Action.openPreview }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(openHelper)
+            .merge(openHelper, openPreview)
     }
 }

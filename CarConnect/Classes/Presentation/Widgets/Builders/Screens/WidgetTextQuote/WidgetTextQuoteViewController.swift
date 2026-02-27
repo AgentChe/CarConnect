@@ -50,7 +50,8 @@ final class WidgetTextQuoteViewController: UIViewController {
             didSelectFont: mainView.fontView.didSelect,
             didTapResetFontColor: mainView.fontColorView.didReset,
             didSelectFontColor: mainView.fontColorView.didSelect,
-            didTapRestoreDefault: mainView.restoreDefaultButton.rx.tap.asSignal()
+            didTapRestoreDefault: mainView.restoreDefaultButton.rx.tap.asSignal(),
+            didTapOpenPreview: mainView.previewWidgetButton.rx.tap.asSignal()
         ))
         
         let defaultConfiguration = output.defaultConfiguration
@@ -166,6 +167,10 @@ private extension WidgetTextQuoteViewController {
         switch action {
         case .openHelper:
             let vc = WidgetsHelperViewController.make()
+            present(vc, animated: true)
+        case .openPreview:
+            guard let snapshot = mainView.sliderView.makeSnapshotCurrentView() else { return }
+            let vc = WidgetsPreviewViewController.make(snapshot: snapshot)
             present(vc, animated: true)
         }
     }

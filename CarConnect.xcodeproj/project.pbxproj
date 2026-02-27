@@ -36,6 +36,12 @@
 		DE1DA0842F50483400742E69 /* Orbitron-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0832F50483400742E69 /* Orbitron-Regular.ttf */; };
 		DE1DA0872F50486100742E69 /* Audiowide-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0862F50486100742E69 /* Audiowide-Regular.ttf */; };
 		DE1DA08A2F50488A00742E69 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */; };
+		DE1DA08D2F515FE700742E69 /* WidgetsPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA08C2F515FE700742E69 /* WidgetsPreviewViewController.swift */; };
+		DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0902F515FF200742E69 /* WidgetsPreviewView.swift */; };
+		DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0922F51633200742E69 /* WidgetsPreviewViewModel.swift */; };
+		DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0962F5164FF00742E69 /* WidgetsPreviewTabView.swift */; };
+		DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA09A2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift */; };
+		DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA09C2F51B71800742E69 /* WidgetsPreviewPhoneView.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -232,6 +238,12 @@
 		DE1DA0832F50483400742E69 /* Orbitron-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Regular.ttf"; sourceTree = "<group>"; };
 		DE1DA0862F50486100742E69 /* Audiowide-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audiowide-Regular.ttf"; sourceTree = "<group>"; };
 		DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DE1DA08C2F515FE700742E69 /* WidgetsPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewViewController.swift; sourceTree = "<group>"; };
+		DE1DA0902F515FF200742E69 /* WidgetsPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewView.swift; sourceTree = "<group>"; };
+		DE1DA0922F51633200742E69 /* WidgetsPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewViewModel.swift; sourceTree = "<group>"; };
+		DE1DA0962F5164FF00742E69 /* WidgetsPreviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewTabView.swift; sourceTree = "<group>"; };
+		DE1DA09A2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewCarPlayView.swift; sourceTree = "<group>"; };
+		DE1DA09C2F51B71800742E69 /* WidgetsPreviewPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewPhoneView.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -558,6 +570,27 @@
 				DE1DA0892F50488A00742E69 /* Poppins-ExtraBold.ttf */,
 			);
 			path = Poppins;
+			sourceTree = "<group>";
+		};
+		DE1DA08B2F515FD500742E69 /* WidgetsPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0942F5164EF00742E69 /* Views */,
+				DE1DA08C2F515FE700742E69 /* WidgetsPreviewViewController.swift */,
+				DE1DA0922F51633200742E69 /* WidgetsPreviewViewModel.swift */,
+				DE1DA0902F515FF200742E69 /* WidgetsPreviewView.swift */,
+			);
+			path = WidgetsPreview;
+			sourceTree = "<group>";
+		};
+		DE1DA0942F5164EF00742E69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0962F5164FF00742E69 /* WidgetsPreviewTabView.swift */,
+				DE1DA09A2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift */,
+				DE1DA09C2F51B71800742E69 /* WidgetsPreviewPhoneView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
@@ -1019,6 +1052,7 @@
 		DEC1583E2F4A1AA300F2843C /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA08B2F515FD500742E69 /* WidgetsPreview */,
 				DE1DA0392F4CBCE100742E69 /* Builders */,
 				DEC158612F4B24D300F2843C /* WidgetsPresets */,
 				DEC1583F2F4A1AAE00F2843C /* WidgetsHelper */,
@@ -1363,14 +1397,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */,
+				DE1DA08D2F515FE700742E69 /* WidgetsPreviewViewController.swift in Sources */,
 				DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */,
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
+				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
+				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
@@ -1394,6 +1431,7 @@
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
+				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
@@ -1424,6 +1462,7 @@
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
 				DEABE6212F456CFC00089B9E /* ChoosePhotoFromGallery.swift in Sources */,
+				DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
 				DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
@@ -1455,6 +1494,7 @@
 				DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */,
 				DE592C5E2F49C21F00ABA60E /* MainCoordinator.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
+				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
 				DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */,
 				DE51205B2F45C5190026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,

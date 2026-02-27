@@ -5,7 +5,7 @@
 //  Created by Андрей Чернышев on 22.02.2026.
 //
 
-struct WidgetTextQuoteLeadershipImpact {
+struct WidgetTextQuoteLeadershipImpact: Codable {
     let text: String
     let picture: String
     let authorName: String

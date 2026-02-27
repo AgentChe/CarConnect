@@ -14,6 +14,8 @@ final class WidgetsPresetsViewModel {
         case openTextManuallyBuilder
         case openTextQuoteBuilder(WidgetTextQuote, WidgetTextQuoteConfiguration)
     }
+    
+    private lazy var textStorage = WidgetTextStorage()
 }
 
 // MARK: Public
@@ -95,20 +97,105 @@ private extension WidgetsPresetsViewModel {
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         Driver
             .combineLatest(selectedTabItem, selectedPresetsType)
-            .map { tabItem, presetsType -> [WidgetsPresetsTemplatesCollectionElement] in
+            .flatMapLatest { [weak self] tabItem, presetsType -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
+                guard let self else { return .just([]) }
+                
                 let saved = tabItem == .saved
                 
                 switch presetsType {
                 case .all:
-                    return []
+                    return .just([])
                 case .calendar:
-                    return []
+                    return .just([])
                 case .clock:
-                    return []
+                    return .just([])
                 case .carLogo:
-                    return []
+                    return .just([])
                 case .text:
-                    return saved ? [] : [
+                    return makeTextElements(isSaved: saved)
+                case .photo:
+                    return .just([])
+                case .weather:
+                    return .just([])
+                }
+            }
+    }
+    
+    func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetTextQuoteStorageModel])
+                case added(WidgetTextQuoteStorageModel)
+                case edited(WidgetTextQuoteStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = textStorage
+                .fetchQuotes()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetTextStorageMediator.shared
+                .didSavedQuoteModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetTextStorageMediator.shared
+                .didEditedQuoteModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetTextStorageMediator.shared
+                .didDeletedQuoteModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetTextQuoteStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { model -> WidgetsPresetsTemplatesCollectionElement in
+                        switch model.quote {
+                        case .ambitionDrive(let quote):
+                            return .quoteAmbitionDrive(quote, model.configuration)
+                        case .mindsetGrowth(let quote):
+                            return .quoteMindsetGrowth(quote, model.configuration)
+                        case .leadershipImpact(let quote):
+                            return .quoteLeadershipImpact(quote, model.configuration)
+                        case .lifeMeaning(let quote):
+                            return .quoteLifeMeaning(quote, model.configuration)
+                        }
+                    }
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    let templates = [
                         WidgetsPresetsTemplatesCollectionElement.textManually(WidgetTextManuallyConfiguration.default()),
                         {
                             guard let template = WidgetTextQuoteMindsetGrowth.templates().first else { return nil }
@@ -127,11 +214,12 @@ private extension WidgetsPresetsViewModel {
                             return .quoteLifeMeaning(template, WidgetTextQuoteConfiguration.lifeMeaningDefault())
                         }()
                     ].compactMap { $0 }
-                case .photo:
-                    return []
-                case .weather:
-                    return []
+                    
+                    return .just(templates)
                 }
-            }
+                .asDriver(onErrorDriveWith: .never())
+        }
+        
+        return isSaved ? saved() : templates()
     }
 }

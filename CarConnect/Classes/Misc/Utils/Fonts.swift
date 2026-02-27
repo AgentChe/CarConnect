@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum WidgetsFonts {
+enum WidgetsFonts: Codable {
     case poppins
     case audiowide
     case orbitron

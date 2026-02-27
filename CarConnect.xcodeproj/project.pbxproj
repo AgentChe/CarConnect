@@ -42,6 +42,11 @@
 		DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0962F5164FF00742E69 /* WidgetsPreviewTabView.swift */; };
 		DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA09A2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift */; };
 		DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA09C2F51B71800742E69 /* WidgetsPreviewPhoneView.swift */; };
+		DE1DA0A72F51E14500742E69 /* WidgetTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0A62F51E14500742E69 /* WidgetTextStorage.swift */; };
+		DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */; };
+		DE1DA0AD2F51E53800742E69 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AC2F51E53800742E69 /* CodableColor.swift */; };
+		DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AC2F51E53800742E69 /* CodableColor.swift */; };
+		DE1DA0B02F51EEEA00742E69 /* WidgetTextStorageMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0AF2F51EEEA00742E69 /* WidgetTextStorageMediator.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -244,6 +249,10 @@
 		DE1DA0962F5164FF00742E69 /* WidgetsPreviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewTabView.swift; sourceTree = "<group>"; };
 		DE1DA09A2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewCarPlayView.swift; sourceTree = "<group>"; };
 		DE1DA09C2F51B71800742E69 /* WidgetsPreviewPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPreviewPhoneView.swift; sourceTree = "<group>"; };
+		DE1DA0A62F51E14500742E69 /* WidgetTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextStorage.swift; sourceTree = "<group>"; };
+		DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteStorageModel.swift; sourceTree = "<group>"; };
+		DE1DA0AC2F51E53800742E69 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
+		DE1DA0AF2F51EEEA00742E69 /* WidgetTextStorageMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextStorageMediator.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -593,6 +602,41 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DE1DA0A42F51E12D00742E69 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0A52F51E13500742E69 /* WidgetText */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		DE1DA0A52F51E13500742E69 /* WidgetText */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0A82F51E14A00742E69 /* Model */,
+				DE1DA0A62F51E14500742E69 /* WidgetTextStorage.swift */,
+				DE1DA0AF2F51EEEA00742E69 /* WidgetTextStorageMediator.swift */,
+			);
+			path = WidgetText;
+			sourceTree = "<group>";
+		};
+		DE1DA0A82F51E14A00742E69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE1DA0AB2F51E52D00742E69 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DEABE51C2F456CFC00089B9E /* UIColor+Extension.swift */,
+				DE1DA0AC2F51E53800742E69 /* CodableColor.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,11 +936,11 @@
 		DEABE5212F456CFC00089B9E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA0AB2F51E52D00742E69 /* Color */,
 				DEABE5182F456CFC00089B9E /* Collection+Extension.swift */,
 				DEABE5192F456CFC00089B9E /* ObservableAndSingle+Extension.swift */,
 				DEABE51A2F456CFC00089B9E /* String+Extension.swift */,
 				DEABE51B2F456CFC00089B9E /* UIApplication+Extension.swift */,
-				DEABE51C2F456CFC00089B9E /* UIColor+Extension.swift */,
 				DEABE51D2F456CFC00089B9E /* UIDevice+Extension.swift */,
 				DEABE51E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift */,
 				DEABE51F2F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift */,
@@ -1094,6 +1138,7 @@
 		DEC158612F4B24D300F2843C /* WidgetsPresets */ = {
 			isa = PBXGroup;
 			children = (
+				DE1DA0A42F51E12D00742E69 /* Storage */,
 				DEC158752F4B589100F2843C /* Model */,
 				DEC158682F4B29C200F2843C /* Views */,
 				DEC158622F4B269400F2843C /* WidgetsPresetsViewController.swift */,
@@ -1126,18 +1171,18 @@
 		DEC158752F4B589100F2843C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DEC158782F4B5DF500F2843C /* WidgetTextQuote */,
+				DEC158782F4B5DF500F2843C /* WidgetText */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DEC158782F4B5DF500F2843C /* WidgetTextQuote */ = {
+		DEC158782F4B5DF500F2843C /* WidgetText */ = {
 			isa = PBXGroup;
 			children = (
 				DEC158932F4B6CD600F2843C /* TemplateConfiguration */,
 				DEC158922F4B6CCF00F2843C /* Quote */,
 			);
-			path = WidgetTextQuote;
+			path = WidgetText;
 			sourceTree = "<group>";
 		};
 		DEC158812F4B628100F2843C /* Collection */ = {
@@ -1380,6 +1425,7 @@
 				DE5120312F4572280026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
 				DE51203F2F4574800026C5CC /* String+Extension.swift in Sources */,
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,
+				DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DE5120322F4572280026C5CC /* PowerCompactIconView.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
@@ -1418,6 +1464,7 @@
 				DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
 				DE1DA0592F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift in Sources */,
+				DE1DA0AD2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
 				DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */,
 				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
@@ -1447,8 +1494,11 @@
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
+				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
+				DE1DA0A72F51E14500742E69 /* WidgetTextStorage.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
+				DE1DA0B02F51EEEA00742E69 /* WidgetTextStorageMediator.swift in Sources */,
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,

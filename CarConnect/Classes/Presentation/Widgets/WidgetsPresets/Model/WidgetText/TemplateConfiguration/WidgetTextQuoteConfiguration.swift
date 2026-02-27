@@ -7,9 +7,9 @@
 
 import UIKit
 
-struct WidgetTextQuoteConfiguration {
+struct WidgetTextQuoteConfiguration: Codable {
     let font: WidgetsFonts
-    let textColor: UIColor
+    @CodableColor var textColor: UIColor
     
     static func ambitionDriveDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(

@@ -12,10 +12,13 @@ final class WidgetTextQuoteViewModel {
     enum Action {
         case openHelper
         case openPreview
+        case close 
     }
     
     private let quote: Driver<WidgetTextQuote>
     private let initialConfiguration: Driver<WidgetTextQuoteConfiguration>
+    
+    private lazy var storage = WidgetTextStorage()
     
     init(quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
         self.quote = BehaviorRelay(value: quote).asDriver()
@@ -33,6 +36,7 @@ extension WidgetTextQuoteViewModel {
         let didSelectFontColor: Signal<UIColor>
         let didTapRestoreDefault: Signal<Void>
         let didTapOpenPreview: Signal<Void>
+        let didTapSave: Signal<Void>
     }
     
     struct Output {
@@ -63,7 +67,10 @@ extension WidgetTextQuoteViewModel {
             ),
             action: makeAction(
                 didTapHelper: input.didTapHelper,
-                didTapOpenPreview: input.didTapOpenPreview
+                didTapOpenPreview: input.didTapOpenPreview,
+                didTapSave: input.didTapSave,
+                quote: quote,
+                configuration: configuration
             )
         )
     }
@@ -160,7 +167,10 @@ private extension WidgetTextQuoteViewModel {
     
     func makeAction(
         didTapHelper: Signal<Void>,
-        didTapOpenPreview: Signal<Void>
+        didTapOpenPreview: Signal<Void>,
+        didTapSave: Signal<Void>,
+        quote: Driver<WidgetTextQuote>,
+        configuration: Driver<WidgetTextQuoteConfiguration>
     ) -> Driver<Action> {
         let openHelper = didTapHelper
             .map { Action.openHelper }
@@ -170,7 +180,20 @@ private extension WidgetTextQuoteViewModel {
             .map { Action.openPreview }
             .asDriver(onErrorDriveWith: .never())
         
+        let saveAndClose = didTapSave
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(quote)
+            .withLatestFrom(configuration) { ($0, $1) }
+            .flatMapLatest { [weak self] quote, configuration -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                return storage
+                    .save(quote: quote, configuration: configuration)
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { _ in Action.close }
+            }
+        
         return Driver
-            .merge(openHelper, openPreview)
+            .merge(openHelper, openPreview, saveAndClose)
     }
 }

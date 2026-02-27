@@ -1,0 +1,46 @@
+//
+//  WidgetTextStorageMediator.swift
+//  CarConnect
+//
+//  Created by Андрей Чернышев on 27.02.2026.
+//
+
+import RxSwift
+import RxCocoa
+
+final class WidgetTextStorageMediator {
+    static let shared = WidgetTextStorageMediator()
+    
+    private lazy var didSavedQuoteModelTrigger = PublishRelay<WidgetTextQuoteStorageModel>()
+    private lazy var didEditedQuoteModelTrigger = PublishRelay<WidgetTextQuoteStorageModel>()
+    private lazy var didDeletedQuoteModelIdTrigger = PublishRelay<String>()
+    
+    private init() {}
+}
+
+// MARK: Public
+extension WidgetTextStorageMediator {
+    func saved(quoteModel: WidgetTextQuoteStorageModel) {
+        didSavedQuoteModelTrigger.accept(quoteModel)
+    }
+    
+    func edited(quoteModel: WidgetTextQuoteStorageModel) {
+        didEditedQuoteModelTrigger.accept(quoteModel)
+    }
+    
+    func deleted(quoteModelId: String) {
+        didDeletedQuoteModelIdTrigger.accept(quoteModelId)
+    }
+    
+    var didSavedQuoteModel: Signal<WidgetTextQuoteStorageModel> {
+        didSavedQuoteModelTrigger.asSignal()
+    }
+    
+    var didEditedQuoteModel: Signal<WidgetTextQuoteStorageModel> {
+        didEditedQuoteModelTrigger.asSignal()
+    }
+    
+    var didDeletedQuoteModelId: Signal<String> {
+        didDeletedQuoteModelIdTrigger.asSignal()
+    }
+}

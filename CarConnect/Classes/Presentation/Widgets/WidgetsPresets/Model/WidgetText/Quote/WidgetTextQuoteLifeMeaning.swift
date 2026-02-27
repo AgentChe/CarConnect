@@ -5,7 +5,7 @@
 //  Created by Андрей Чернышев on 22.02.2026.
 //
 
-struct WidgetTextQuoteLifeMeaning {
+struct WidgetTextQuoteLifeMeaning: Codable {
     let text: String
     let authorName: String
     

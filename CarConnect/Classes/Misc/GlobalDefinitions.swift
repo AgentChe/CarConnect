@@ -14,6 +14,8 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "2extFDQoyWgSfr5R"
     
+    static let appGroupId = "group.mobile.carconnect"
+    
     enum Metrics {
         static let psi = 0.145038
         static let limitDriveSourceWarning = 35

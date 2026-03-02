@@ -20,7 +20,7 @@ final class WidgetTextQuoteViewModel {
     private let initialQuote: Driver<WidgetTextQuote>
     private let initialConfiguration: Driver<WidgetTextQuoteConfiguration>
     
-    private lazy var storage = WidgetTextStorage()
+    private lazy var service = WidgetTextService()
     
     init(storageModelId: String?, quote: WidgetTextQuote, configuration: WidgetTextQuoteConfiguration) {
         self.storageModelId = BehaviorRelay(value: storageModelId).asDriver()
@@ -217,14 +217,14 @@ private extension WidgetTextQuoteViewModel {
                     guard let self else { return .never() }
                     
                     if let id {
-                        return storage
+                        return service
                             .edit(
                                 quoteStorageModelId: id,
                                 quote: quote,
                                 configuration: configuration
                             )
                     } else {
-                        return storage
+                        return service
                             .save(
                                 quote: quote,
                                 configuration: configuration
@@ -247,7 +247,7 @@ private extension WidgetTextQuoteViewModel {
             .flatMapLatest { [weak self] id -> Driver<Action> in
                 guard let self else { return .never() }
                 
-                return storage
+                return service
                     .delete(quoteStorageModelId: id)
                     .map { Action.close }
                     .asDriver(onErrorDriveWith: .never())

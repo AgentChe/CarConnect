@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WidgetTextQuoteStorageModel: Codable {
+struct WidgetTextQuoteStorageModel: Codable, Hashable {
     let id: String
     let quote: WidgetTextQuote
     let configuration: WidgetTextQuoteConfiguration

@@ -1,5 +1,5 @@
 //
-//  WidgetTextStorageMediator.swift
+//  WidgetTextServiceMediator.swift
 //  CarConnect
 //
 //  Created by Андрей Чернышев on 27.02.2026.
@@ -8,8 +8,8 @@
 import RxSwift
 import RxCocoa
 
-final class WidgetTextStorageMediator {
-    static let shared = WidgetTextStorageMediator()
+final class WidgetTextServiceMediator {
+    static let shared = WidgetTextServiceMediator()
     
     private lazy var didSavedQuoteModelTrigger = PublishRelay<WidgetTextQuoteStorageModel>()
     private lazy var didEditedQuoteModelTrigger = PublishRelay<WidgetTextQuoteStorageModel>()
@@ -19,7 +19,7 @@ final class WidgetTextStorageMediator {
 }
 
 // MARK: Public
-extension WidgetTextStorageMediator {
+extension WidgetTextServiceMediator {
     func saved(quoteModel: WidgetTextQuoteStorageModel) {
         didSavedQuoteModelTrigger.accept(quoteModel)
     }

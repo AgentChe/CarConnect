@@ -15,7 +15,7 @@ final class WidgetsPresetsViewModel {
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
     }
     
-    private lazy var textStorage = WidgetTextStorage()
+    private lazy var textService = WidgetTextService()
 }
 
 // MARK: Public
@@ -130,22 +130,22 @@ private extension WidgetsPresetsViewModel {
                 case deleted(String)
             }
             
-            let initial = textStorage
+            let initial = textService
                 .fetchQuotes()
                 .map { Action.initial($0) }
                 .asDriver(onErrorDriveWith: .never())
             
-            let added = WidgetTextStorageMediator.shared
+            let added = WidgetTextServiceMediator.shared
                 .didSavedQuoteModel
                 .map { Action.added($0) }
                 .asDriver(onErrorDriveWith: .never())
             
-            let edited = WidgetTextStorageMediator.shared
+            let edited = WidgetTextServiceMediator.shared
                 .didEditedQuoteModel
                 .map { Action.edited($0) }
                 .asDriver(onErrorDriveWith: .never())
             
-            let deleted = WidgetTextStorageMediator.shared
+            let deleted = WidgetTextServiceMediator.shared
                 .didDeletedQuoteModelId
                 .map { Action.deleted($0) }
                 .asDriver(onErrorDriveWith: .never())

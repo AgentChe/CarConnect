@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct WidgetTextQuoteConfiguration: Codable {
+struct WidgetTextQuoteConfiguration: Codable, Hashable {
     let font: WidgetsFonts
     @CodableColor var textColor: UIColor
     

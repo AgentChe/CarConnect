@@ -8,7 +8,7 @@
 import UIKit
 
 @propertyWrapper
-struct CodableColor: Codable {
+struct CodableColor: Codable, Hashable {
     var wrappedValue: UIColor
 
     init(wrappedValue: UIColor) {

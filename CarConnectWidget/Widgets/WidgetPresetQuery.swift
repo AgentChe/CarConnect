@@ -1,0 +1,28 @@
+//
+//  WidgetPresetQuery.swift
+//  CarConnectWidgetExtension
+//
+//  Created by Андрей Чернышев on 02.03.2026.
+//
+
+import AppIntents
+
+struct WidgetPresetQuery: EntityQuery {
+    func suggestedEntities() async throws -> [WidgetPresetEntity] {
+        let textQuotes = WidgetTextStorage.shared.loadAllQuotes()
+            .map { textQuote -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .textQuote(textQuote))
+            }
+        return textQuotes
+    }
+    
+    func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {
+        let all = try await suggestedEntities()
+        let map = Dictionary(uniqueKeysWithValues: all.map { ($0.id, $0) })
+        return identifiers.compactMap { map[$0] }
+    }
+    
+    func defaultResult() async -> WidgetPresetEntity? {
+        nil
+    }
+}

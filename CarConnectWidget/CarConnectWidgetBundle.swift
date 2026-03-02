@@ -14,5 +14,7 @@ struct CarConnectWidgetBundle: WidgetBundle {
         AccessCarLiveActivityWidget()
         PowerLiveActivityWidget()
         TirePressureLiveActivityWidget()
+        
+        WidgetWithPresets()
     }
 }

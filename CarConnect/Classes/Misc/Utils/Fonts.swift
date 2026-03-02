@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwiftUI
 
-enum WidgetsFonts: Codable {
+enum WidgetsFonts: Codable, Hashable {
     case poppins
     case audiowide
     case orbitron
@@ -45,6 +46,10 @@ enum WidgetsFonts: Codable {
         case .inter:
             return Fonts.Inter.regular(size: baseSize)
         }
+    }
+    
+    func swiftUIFont(size: CGFloat) -> Font {
+        Font(uiFont(baseSize: size))
     }
 }
 

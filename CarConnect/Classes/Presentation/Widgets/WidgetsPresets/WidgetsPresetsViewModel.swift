@@ -72,7 +72,7 @@ extension WidgetsPresetsViewModel {
 // MARK: Private
 private extension WidgetsPresetsViewModel {
     enum Constants {
-        static let helperCellWasDisplayed = "helpder_cell_was_displayed" 
+        static let helperCellWasDisplayed = "helpder_cell_was_displayed__213" // TODO
     }
     
     func makeSelectedTabItem(
@@ -164,7 +164,6 @@ private extension WidgetsPresetsViewModel {
             .startWith(true)
     }
     
-    // TODO:
     func makeCollectionElements(
         selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
         selectedPresetsType: Driver<WidgetsPresetsType>,
@@ -177,26 +176,44 @@ private extension WidgetsPresetsViewModel {
                 
                 let saved = tabItem == .saved
                 
-                switch presetsType {
-                case .all:
-                    return .just([])
-                case .calendar:
-                    return .just([])
-                case .clock:
-                    return .just([])
-                case .carLogo:
-                    return .just([])
-                case .text:
-                    return makeTextElements(isSaved: saved, helperCellWasDisplayed: helperCellWasDisplayed)
-                case .photo:
-                    return .just([])
-                case .weather:
-                    return .just([])
-                }
+                let elements: Driver<[WidgetsPresetsTemplatesCollectionElement]> = {
+                    switch presetsType {
+                    case .all:
+                        let textElements = self.makeTextElements(isSaved: saved)
+                        
+                        return textElements
+                            .map { texts -> [WidgetsPresetsTemplatesCollectionElement] in
+                                texts
+                            }
+                    case .calendar:
+                        return .just([])
+                    case .clock:
+                        return .just([])
+                    case .carLogo:
+                        return .just([])
+                    case .text:
+                        return self.makeTextElements(isSaved: saved)
+                    case .photo:
+                        return .just([])
+                    case .weather:
+                        return .just([])
+                    }
+                }()
+                
+                return elements
+                    .map { elements -> [WidgetsPresetsTemplatesCollectionElement] in
+                        guard saved, !elements.isEmpty, !helperCellWasDisplayed else { return elements }
+                        
+                        var result = elements
+                        let insertIndex = elements.count == 1 ? 1 : 2
+                        result.insert(.openHelper, at: min(insertIndex, elements.count))
+                        
+                        return result
+                    }
             }
     }
     
-    func makeTextElements(isSaved: Bool, helperCellWasDisplayed: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+    func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             enum Action {
                 case initial([WidgetTextQuoteStorageModel])
@@ -252,7 +269,7 @@ private extension WidgetsPresetsViewModel {
             
             return models
                 .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
-                    var elements = models.map { model -> WidgetsPresetsTemplatesCollectionElement in
+                    models.map { model -> WidgetsPresetsTemplatesCollectionElement in
                         switch model.quote {
                         case .ambitionDrive(let quote):
                             return .quoteAmbitionDrive(model.id, quote, model.configuration)
@@ -264,13 +281,6 @@ private extension WidgetsPresetsViewModel {
                             return .quoteLifeMeaning(model.id, quote, model.configuration)
                         }
                     }
-                    
-                    guard !elements.isEmpty, !helperCellWasDisplayed else { return elements }
-                    
-                    let insertIndex = elements.count == 1 ? 1 : 2
-                    elements.insert(.openHelper, at: min(insertIndex, elements.count))
-                    
-                    return elements
                 }
         }
         

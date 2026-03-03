@@ -157,6 +157,8 @@
 		DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
 		DE629C0E2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
 		DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */; };
+		DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */; };
+		DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
 		DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */; };
 		DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */; };
@@ -369,6 +371,8 @@
 		DE629C092F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetTimelineProvider.swift; sourceTree = "<group>"; };
 		DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWithPresets.swift; sourceTree = "<group>"; };
 		DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsEmptyView.swift; sourceTree = "<group>"; };
+		DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsCollectionHelperCell.swift; sourceTree = "<group>"; };
+		DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsCollectionHelperButton.swift; sourceTree = "<group>"; };
 		DEABE4DB2F456B4300089B9E /* CarConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABE4F42F456B4B00089B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEABE4F52F456B4B00089B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -950,6 +954,15 @@
 			path = TextQuote;
 			sourceTree = "<group>";
 		};
+		DE629C142F56E45E004F5F7E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */,
+				DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		DEABE4D22F456B4300089B9E = {
 			isa = PBXGroup;
 			children = (
@@ -1302,6 +1315,7 @@
 		DEC158862F4B635300F2843C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE629C142F56E45E004F5F7E /* Helper */,
 				DEC158872F4B635A00F2843C /* Text */,
 			);
 			path = Cells;
@@ -1592,6 +1606,7 @@
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
+				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
@@ -1708,6 +1723,7 @@
 				DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */,
 				DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
+				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DE629BEB2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,

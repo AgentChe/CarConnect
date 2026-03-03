@@ -82,7 +82,6 @@ private extension WidgetsPresetsView {
     
     func makeCollectionView() -> WidgetsPresetsTemplatesCollectionView {
         let layout = LeftAlignedCollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 165.scale, height: 165.scale)
         layout.minimumLineSpacing = 12.scale
         layout.minimumInteritemSpacing = 10.scale
         

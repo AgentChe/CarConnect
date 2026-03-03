@@ -6,6 +6,9 @@
 //
 
 enum WidgetsPresetsTemplatesCollectionElement {
+    // Helper
+    case openHelper
+    
     // Presets of text type
     case textManually(WidgetTextManuallyConfiguration)
     case quoteAmbitionDrive(String?, WidgetTextQuoteAmbitionDrive, WidgetTextQuoteConfiguration)

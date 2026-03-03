@@ -32,4 +32,3 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
 // 1. обновление text quote каждый 24 часа
 // 2. Saved - количество
 // 3. Widget presets - all tab
-// 5. Saved - hepler cell

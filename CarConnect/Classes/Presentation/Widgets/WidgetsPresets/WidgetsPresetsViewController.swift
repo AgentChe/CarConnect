@@ -25,6 +25,7 @@ final class WidgetsPresetsViewController: UIViewController {
         
         let output = viewModel.configure(input: WidgetsPresetsViewModel.Input(
             didTapHelper: mainView.headerView.helperButton.rx.tap.asSignal(),
+            didTapOpenHelperFromCollection: mainView.collectionView.didTapOpenHelper,
             didSelectTabItem: mainView.headerView.tabView.didSelect,
             didSelectPresetsType: mainView.presetsTypesView.didSelect,
             didSelectElement: mainView.collectionView.didSelect,

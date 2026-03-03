@@ -22,6 +22,7 @@ final class WidgetsPresetsViewModel {
 extension WidgetsPresetsViewModel {
     struct Input {
         let didTapHelper: Signal<Void>
+        let didTapOpenHelperFromCollection: Signal<Void>
         let didSelectTabItem: Signal<WidgetsPresetsTabView.TabItem>
         let didSelectPresetsType: Signal<WidgetsPresetsType>
         let didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
@@ -47,12 +48,14 @@ extension WidgetsPresetsViewModel {
             .distinctUntilChanged()
         let collectionElements = makeCollectionElements(
             selectedTabItem: selectedTabItem,
-            selectedPresetsType: selectedPresetsType
+            selectedPresetsType: selectedPresetsType,
+            helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection)
         )
         
         return Output(
             action: makeAction(
                 didTapHelper: input.didTapHelper,
+                didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection,
                 didSelectElement: input.didSelectElement
             ),
             selectedTabItem: selectedTabItem,
@@ -68,6 +71,10 @@ extension WidgetsPresetsViewModel {
 
 // MARK: Private
 private extension WidgetsPresetsViewModel {
+    enum Constants {
+        static let helperCellWasDisplayed = "helpder_cell_was_displayed" 
+    }
+    
     func makeSelectedTabItem(
         didSelectTabItem: Signal<WidgetsPresetsTabView.TabItem>,
         didTapGoToCatalog: Signal<Void>
@@ -87,16 +94,20 @@ private extension WidgetsPresetsViewModel {
     
     func makeAction(
         didTapHelper: Signal<Void>,
+        didTapOpenHelperFromCollection: Signal<Void>,
         didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
     ) -> Driver<Action> {
-        let openWidgetsHelper = didTapHelper
+        let openWidgetsHelper = Signal
+            .merge(didTapHelper, didTapOpenHelperFromCollection)
             .map { Action.openWidgetsHelper }
             .asDriver(onErrorDriveWith: .never())
         
         let openBuilder = didSelectElement
             .asDriver(onErrorDriveWith: .never())
-            .map { element -> Action in
+            .compactMap { element -> Action? in
                 switch element {
+                case .openHelper:
+                    return nil 
                 case .textManually:
                     return Action.openTextManuallyBuilder
                 case .quoteAmbitionDrive(let storageModelId, let quote, let config):
@@ -112,6 +123,28 @@ private extension WidgetsPresetsViewModel {
         
         return Driver
             .merge(openWidgetsHelper, openBuilder)
+    }
+    
+    func makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: Signal<Void>) -> Driver<Bool> {
+        let initial = Single
+            .deferred {
+                let wasDisplayed = UserDefaults.standard.bool(forKey: Constants.helperCellWasDisplayed)
+                return .just(wasDisplayed)
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let openAction = didTapOpenHelperFromCollection
+            .flatMapLatest { void -> Signal<Bool> in
+                Signal.deferred {
+                    UserDefaults.standard.set(true, forKey: Constants.helperCellWasDisplayed)
+                    
+                    return .just(true)
+                }
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(initial, openAction)
     }
     
     func makeEmptyHidden(
@@ -134,11 +167,12 @@ private extension WidgetsPresetsViewModel {
     // TODO:
     func makeCollectionElements(
         selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
-        selectedPresetsType: Driver<WidgetsPresetsType>
+        selectedPresetsType: Driver<WidgetsPresetsType>,
+        helperCellWasDisplayed: Driver<Bool>
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         Driver
-            .combineLatest(selectedTabItem, selectedPresetsType)
-            .flatMapLatest { [weak self] tabItem, presetsType -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
+            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed)
+            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
                 guard let self else { return .just([]) }
                 
                 let saved = tabItem == .saved
@@ -153,7 +187,7 @@ private extension WidgetsPresetsViewModel {
                 case .carLogo:
                     return .just([])
                 case .text:
-                    return makeTextElements(isSaved: saved)
+                    return makeTextElements(isSaved: saved, helperCellWasDisplayed: helperCellWasDisplayed)
                 case .photo:
                     return .just([])
                 case .weather:
@@ -162,7 +196,7 @@ private extension WidgetsPresetsViewModel {
             }
     }
     
-    func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+    func makeTextElements(isSaved: Bool, helperCellWasDisplayed: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             enum Action {
                 case initial([WidgetTextQuoteStorageModel])
@@ -218,7 +252,7 @@ private extension WidgetsPresetsViewModel {
             
             return models
                 .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
-                    models.map { model -> WidgetsPresetsTemplatesCollectionElement in
+                    var elements = models.map { model -> WidgetsPresetsTemplatesCollectionElement in
                         switch model.quote {
                         case .ambitionDrive(let quote):
                             return .quoteAmbitionDrive(model.id, quote, model.configuration)
@@ -230,6 +264,13 @@ private extension WidgetsPresetsViewModel {
                             return .quoteLifeMeaning(model.id, quote, model.configuration)
                         }
                     }
+                    
+                    guard !elements.isEmpty, !helperCellWasDisplayed else { return elements }
+                    
+                    let insertIndex = elements.count == 1 ? 1 : 2
+                    elements.insert(.openHelper, at: min(insertIndex, elements.count))
+                    
+                    return elements
                 }
         }
         

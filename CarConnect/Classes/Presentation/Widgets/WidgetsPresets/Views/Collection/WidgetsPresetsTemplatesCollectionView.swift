@@ -12,6 +12,7 @@ import RxCocoa
 final class WidgetsPresetsTemplatesCollectionView: UICollectionView {
     private lazy var elements = [WidgetsPresetsTemplatesCollectionElement]()
     
+    private lazy var didTapOpenHelperTrigger = PublishRelay<Void>()
     private lazy var didSelectTrigger = PublishRelay<WidgetsPresetsTemplatesCollectionElement>()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -33,6 +34,10 @@ extension WidgetsPresetsTemplatesCollectionView {
         reloadData()
     }
     
+    var didTapOpenHelper: Signal<Void> {
+        didTapOpenHelperTrigger.asSignal()
+    }
+    
     var didSelect: Signal<WidgetsPresetsTemplatesCollectionElement> {
         didSelectTrigger.asSignal()
     }
@@ -46,6 +51,12 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch elements[indexPath.row] {
+        case .openHelper:
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self), for: indexPath) as! WidgetsPresetsCollectionHelperCell
+            cell.didTapOpenHelper = { [weak self] in
+                self?.didTapOpenHelperTrigger.accept(Void())
+            }
+            return cell
         case .textManually(let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateTextManuallyCell.self), for: indexPath) as! WidgetsPresetsTemplateTextManuallyCell
             cell.setup(configuration: configuration)
@@ -75,6 +86,15 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelectTrigger.accept(elements[indexPath.row])
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch elements[indexPath.row] {
+        case .openHelper:
+            return CGSize(width: 343.scale, height: 149.scale)
+        default:
+            return CGSize(width: 165.scale, height: 165.scale)
+        }
+    }
 }
 
 // MARK: Private
@@ -86,6 +106,9 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateQuoteLeadershipImpactCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLeadershipImpactCell.self))
         register(WidgetsPresetsTemplateQuoteLifeMeaningCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLifeMeaningCell.self))
         register(WidgetsPresetsTemplateTextManuallyCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateTextManuallyCell.self))
+        
+        // Helper
+        register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))
         
         dataSource = self
         delegate = self

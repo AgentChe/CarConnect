@@ -156,6 +156,7 @@
 		DE629C0B2F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C092F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift */; };
 		DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
 		DE629C0E2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
+		DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
 		DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */; };
 		DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */; };
@@ -367,6 +368,7 @@
 		DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetConfigurationIntent.swift; sourceTree = "<group>"; };
 		DE629C092F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetTimelineProvider.swift; sourceTree = "<group>"; };
 		DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWithPresets.swift; sourceTree = "<group>"; };
+		DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsEmptyView.swift; sourceTree = "<group>"; };
 		DEABE4DB2F456B4300089B9E /* CarConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABE4F42F456B4B00089B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEABE4F52F456B4B00089B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1256,6 +1258,7 @@
 				DEC1586D2F4B308A00F2843C /* Types */,
 				DEC158692F4B29D200F2843C /* WidgetsPresetsHeaderView.swift */,
 				DEC1586B2F4B2A7800F2843C /* WidgetsPresetsTabView.swift */,
+				DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1649,6 +1652,7 @@
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
+				DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,

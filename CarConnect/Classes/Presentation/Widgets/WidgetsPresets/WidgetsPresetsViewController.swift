@@ -27,7 +27,8 @@ final class WidgetsPresetsViewController: UIViewController {
             didTapHelper: mainView.headerView.helperButton.rx.tap.asSignal(),
             didSelectTabItem: mainView.headerView.tabView.didSelect,
             didSelectPresetsType: mainView.presetsTypesView.didSelect,
-            didSelectElement: mainView.collectionView.didSelect
+            didSelectElement: mainView.collectionView.didSelect,
+            didTapGoToCatalog: mainView.emptyView.catalogButton.rx.tap.asSignal()
         ))
         
         output.action
@@ -52,6 +53,10 @@ final class WidgetsPresetsViewController: UIViewController {
             .drive(Binder(mainView.collectionView) { base, elements in
                 base.setup(elements: elements)
             })
+            .disposed(by: disposeBag)
+        
+        output.emptyHidden
+            .drive(mainView.emptyView.rx.isHidden)
             .disposed(by: disposeBag)
     }
     

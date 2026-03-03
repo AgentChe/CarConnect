@@ -25,6 +25,7 @@ extension WidgetsPresetsViewModel {
         let didSelectTabItem: Signal<WidgetsPresetsTabView.TabItem>
         let didSelectPresetsType: Signal<WidgetsPresetsType>
         let didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
+        let didTapGoToCatalog: Signal<Void>
     }
     
     struct Output {
@@ -32,17 +33,22 @@ extension WidgetsPresetsViewModel {
         let selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>
         let selectedPresetsType: Driver<WidgetsPresetsType>
         let collectionElements: Driver<[WidgetsPresetsTemplatesCollectionElement]>
+        let emptyHidden: Driver<Bool>
     }
     
     func configure(input: Input) -> Output {
-        let selectedTabItem = input.didSelectTabItem
-            .startWith(.widgets)
-            .asDriver(onErrorDriveWith: .never())
-            .distinctUntilChanged()
+        let selectedTabItem = makeSelectedTabItem(
+            didSelectTabItem: input.didSelectTabItem,
+            didTapGoToCatalog: input.didTapGoToCatalog
+        )
         let selectedPresetsType = input.didSelectPresetsType
             .startWith(.calendar)
             .asDriver(onErrorDriveWith: .never())
             .distinctUntilChanged()
+        let collectionElements = makeCollectionElements(
+            selectedTabItem: selectedTabItem,
+            selectedPresetsType: selectedPresetsType
+        )
         
         return Output(
             action: makeAction(
@@ -51,9 +57,10 @@ extension WidgetsPresetsViewModel {
             ),
             selectedTabItem: selectedTabItem,
             selectedPresetsType: selectedPresetsType,
-            collectionElements: makeCollectionElements(
+            collectionElements: collectionElements,
+            emptyHidden: makeEmptyHidden(
                 selectedTabItem: selectedTabItem,
-                selectedPresetsType: selectedPresetsType
+                elements: collectionElements
             )
         )
     }
@@ -61,6 +68,23 @@ extension WidgetsPresetsViewModel {
 
 // MARK: Private
 private extension WidgetsPresetsViewModel {
+    func makeSelectedTabItem(
+        didSelectTabItem: Signal<WidgetsPresetsTabView.TabItem>,
+        didTapGoToCatalog: Signal<Void>
+    ) -> Driver<WidgetsPresetsTabView.TabItem> {
+        let selectTab = didSelectTabItem
+            .startWith(.widgets)
+            .asDriver(onErrorDriveWith: .never())
+        
+        let tapCatalogButton = didTapGoToCatalog
+            .map { WidgetsPresetsTabView.TabItem.widgets }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(selectTab, tapCatalogButton)
+            .distinctUntilChanged()
+    }
+    
     func makeAction(
         didTapHelper: Signal<Void>,
         didSelectElement: Signal<WidgetsPresetsTemplatesCollectionElement>
@@ -88,6 +112,23 @@ private extension WidgetsPresetsViewModel {
         
         return Driver
             .merge(openWidgetsHelper, openBuilder)
+    }
+    
+    func makeEmptyHidden(
+        selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
+        elements: Driver<[WidgetsPresetsTemplatesCollectionElement]>
+    ) -> Driver<Bool> {
+        Driver
+            .combineLatest(selectedTabItem, elements)
+            .map { selectedTabItem, elements -> Bool in
+                switch selectedTabItem {
+                case .widgets:
+                    return true
+                case .saved:
+                    return !elements.isEmpty
+                }
+            }
+            .startWith(true)
     }
     
     // TODO:

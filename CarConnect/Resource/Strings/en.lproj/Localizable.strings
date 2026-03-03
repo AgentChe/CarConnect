@@ -52,6 +52,9 @@
 "WidgetsPresets.Types.Text" = "Text";
 "WidgetsPresets.Types.Photo" = "Photo";
 "WidgetsPresets.Types.Weather" = "Weather";
+"WidgetsPresets.Empty.Title" = "You have not added any widgets yet";
+"WidgetsPresets.Empty.SubTitle" = "Select widgets from the catalogue, customize them, and save";
+"WidgetsPresets.Empty.CatalogButton" = "Go to catalogue";
 
 // MARK: WidgetsBuilders
 "WidgetsBuilders.Title" = "Widgets";

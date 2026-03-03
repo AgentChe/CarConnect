@@ -11,6 +11,7 @@ final class WidgetsPresetsView: UIView {
     lazy var headerView = makeHeaderView()
     lazy var presetsTypesView = makePresetsTypesView()
     lazy var collectionView = makeCollectionView()
+    lazy var emptyView = makeEmptyView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +55,12 @@ private extension WidgetsPresetsView {
             collectionView.topAnchor.constraint(equalTo: presetsTypesView.bottomAnchor, constant: 2.scale),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(TabView.Constants.tabBarHeight + TabView.Constants.tabBarBottomInset))
         ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
+        ])
     }
 }
 
@@ -80,6 +87,14 @@ private extension WidgetsPresetsView {
         layout.minimumInteritemSpacing = 10.scale
         
         let view = WidgetsPresetsTemplatesCollectionView(frame: .zero, collectionViewLayout: layout)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptyView() -> WidgetsPresetsEmptyView {
+        let view = WidgetsPresetsEmptyView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

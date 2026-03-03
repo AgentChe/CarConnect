@@ -27,3 +27,9 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
         return Timeline(entries: [entry], policy: .after(.now.addingTimeInterval(60 * 30)))
     }
 }
+
+// TODO:
+// 1. обновление text quote каждый 24 часа
+// 2. Saved - количество
+// 3. Widget presets - all tab
+// 5. Saved - hepler cell

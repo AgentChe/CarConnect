@@ -159,6 +159,7 @@
 		DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */; };
 		DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */; };
 		DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */; };
+		DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5182F456CFC00089B9E /* Collection+Extension.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
 		DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */; };
 		DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */; };
@@ -1566,6 +1567,7 @@
 				DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE629BFF2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */,
 				DE629BC42F55C74A004F5F7E /* WidgetTextQuoteLifeMeaning.swift in Sources */,
+				DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */,
 				DE5120312F4572280026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
 				DE51203F2F4574800026C5CC /* String+Extension.swift in Sources */,
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,

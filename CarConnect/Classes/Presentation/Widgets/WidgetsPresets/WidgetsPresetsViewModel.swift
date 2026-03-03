@@ -72,7 +72,7 @@ extension WidgetsPresetsViewModel {
 // MARK: Private
 private extension WidgetsPresetsViewModel {
     enum Constants {
-        static let helperCellWasDisplayed = "helpder_cell_was_displayed__213" // TODO
+        static let helperCellWasDisplayed = "helpder_cell_was_displayed" 
     }
     
     func makeSelectedTabItem(

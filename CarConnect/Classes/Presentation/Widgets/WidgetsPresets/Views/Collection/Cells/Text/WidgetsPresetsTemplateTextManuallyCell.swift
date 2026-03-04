@@ -9,6 +9,7 @@ import UIKit
 
 final class WidgetsPresetsTemplateTextManuallyCell: UICollectionViewCell {
     lazy var container = makeContainer()
+    lazy var imageView = makeImageView()
     lazy var label = makeLabel()
     
     override init(frame: CGRect) {
@@ -26,20 +27,8 @@ final class WidgetsPresetsTemplateTextManuallyCell: UICollectionViewCell {
 // MARK: Public
 extension WidgetsPresetsTemplateTextManuallyCell {
     func setup(configuration: WidgetTextManuallyConfiguration) {
-        let attrs = TextAttributes()
-            .textColor(configuration.textColor)
-            .font(configuration.font.uiFont(baseSize: 28.scale))
-            .textAlignment(.center)
-        label.attributedText = configuration.text.attributed(with: attrs)
-        
-        switch configuration.background {
-        case .fileUrl:
-            break // TODO: реализовать
-        case .color(let color):
-            container.gradientLayer.colors = [color, color].map { $0.cgColor }
-        case .gradient(let colors):
-            container.gradientLayer.colors = colors.map { $0.cgColor }
-        }
+        updateText(configuration: configuration)
+        updateBackgroundIfNeeded(configuration: configuration)
     }
 }
 
@@ -52,6 +41,61 @@ private extension WidgetsPresetsTemplateTextManuallyCell {
         let selectedView = UIView()
         selectedView.backgroundColor = UIColor.clear
         selectedBackgroundView = selectedView
+    }
+    
+    func updateText(configuration: WidgetTextManuallyConfiguration) {
+        let attrs = TextAttributes()
+            .textColor(configuration.textColor)
+            .font(configuration.font.uiFont(baseSize: 28.scale))
+            .textAlignment(.center)
+        label.attributedText = configuration.text.attributed(with: attrs)
+    }
+    
+    func updateBackgroundIfNeeded(configuration: WidgetTextManuallyConfiguration) {
+        switch configuration.background {
+        case .color(let codableColor):
+            imageView.isHidden = true
+            imageView.image = nil
+
+            container.backgroundColor = codableColor.wrappedValue
+            
+            container.gradientLayer.colors = nil
+        case .gradient(let codableColors):
+            imageView.isHidden = true
+            imageView.image = nil
+
+            container.backgroundColor = .clear
+            
+            container.gradientLayer.colors = codableColors.map { $0.wrappedValue.cgColor }
+            container.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+            container.gradientLayer.endPoint   = CGPoint(x: 0.5, y: 1.0)
+            container.gradientLayer.locations = [NSNumber(value: 0), NSNumber(value: 1)]
+        case .fileName(let fileName):
+            imageView.isHidden = false
+            imageView.image = SharedImageFileStore.shared.loadImage(fileName: fileName)
+
+            container.backgroundColor = .clear
+            container.gradientLayer.colors = nil
+        case .photoAssetId(let assetId):
+            imageView.isHidden = false
+            imageView.image = nil
+
+            container.backgroundColor = .clear
+            container.gradientLayer.colors = nil
+            
+            PhotoAssetImageLoader.shared.loadImage(
+                assetId: assetId,
+                targetSize: {
+                    let scale = UIScreen.main.scale
+                    return CGSize(
+                        width: bounds.width * scale,
+                        height: bounds.height * scale
+                    )
+                }()
+            ) { [weak self] image in
+                self?.imageView.image = image
+            }
+        }
     }
 }
 
@@ -66,9 +110,16 @@ private extension WidgetsPresetsTemplateTextManuallyCell {
         ])
         
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 8.scale),
-            label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -8.scale),
-            label.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8.scale),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8.scale),
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }
@@ -77,9 +128,6 @@ private extension WidgetsPresetsTemplateTextManuallyCell {
 private extension WidgetsPresetsTemplateTextManuallyCell {
     func makeContainer() -> GradientView {
         let view = GradientView()
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        view.gradientLayer.locations = [NSNumber(value: 0), NSNumber(value: 1)]
         view.layer.borderWidth = 1.scale
         view.layer.borderColor = Appearance.color_2C2F39.cgColor
         view.layer.cornerRadius = 10.scale
@@ -89,11 +137,23 @@ private extension WidgetsPresetsTemplateTextManuallyCell {
         return view
     }
     
+    func makeImageView() -> UIImageView {
+        let view = UIImageView()
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = Appearance.color_2C2F39.cgColor
+        view.layer.cornerRadius = 10.scale
+        view.layer.masksToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(view)
+        return view
+    }
+    
     func makeLabel() -> UILabel {
         let view = UILabel()
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        contentView.addSubview(view)
         return view
     }
 }

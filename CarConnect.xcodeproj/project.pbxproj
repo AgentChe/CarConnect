@@ -81,8 +81,6 @@
 		DE51204D2F4576B60026C5CC /* AccessCarDeepLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120432F4576B60026C5CC /* AccessCarDeepLinkParser.swift */; };
 		DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120472F4576B60026C5CC /* LiveActivityType.swift */; };
 		DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120452F4576B60026C5CC /* LiveActivityRegisterToken.swift */; };
-		DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120502F4579D80026C5CC /* AppGroupStore.swift */; };
-		DE5120522F4579DD0026C5CC /* AppGroupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120502F4579D80026C5CC /* AppGroupStore.swift */; };
 		DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE51C2F456CFC00089B9E /* UIColor+Extension.swift */; };
 		DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120462F4576B60026C5CC /* LiveActivitySelectionStore.swift */; };
 		DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5120482F4576B60026C5CC /* VehicleImageCacheManager.swift */; };
@@ -160,6 +158,13 @@
 		DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */; };
 		DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */; };
 		DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5182F456CFC00089B9E /* Collection+Extension.swift */; };
+		DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C192F5708FC004F5F7E /* WidgetTextManuallyViewController.swift */; };
+		DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C1B2F570902004F5F7E /* WidgetTextManuallyViewModel.swift */; };
+		DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C1D2F570907004F5F7E /* WidgetTextManuallyView.swift */; };
+		DE629C202F572EB9004F5F7E /* WidgetBuilderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C1F2F572EB9004F5F7E /* WidgetBuilderTextField.swift */; };
+		DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */; };
+		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
+		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
 		DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */; };
 		DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */; };
@@ -186,7 +191,6 @@
 		DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5222F456CFC00089B9E /* APIFormDataRequestBody.swift */; };
 		DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5332F456CFC00089B9E /* Appearance.swift */; };
 		DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5D22F456CFC00089B9E /* IAPErrorHelper.swift */; };
-		DEABE6212F456CFC00089B9E /* ChoosePhotoFromGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5092F456CFC00089B9E /* ChoosePhotoFromGallery.swift */; };
 		DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5D72F456CFC00089B9E /* IAPManager.swift */; };
 		DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5912F456CFC00089B9E /* SplashView.swift */; };
 		DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5922F456CFC00089B9E /* SplashViewController.swift */; };
@@ -200,7 +204,6 @@
 		DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE51B2F456CFC00089B9E /* UIApplication+Extension.swift */; };
 		DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52A2F456CFC00089B9E /* Fonts.swift */; };
 		DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5122F456CFC00089B9E /* GradientView.swift */; };
-		DEABE6562F456CFC00089B9E /* TakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE50C2F456CFC00089B9E /* TakePhoto.swift */; };
 		DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE51C2F456CFC00089B9E /* UIColor+Extension.swift */; };
 		DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5142F456CFC00089B9E /* PaddingLabel.swift */; };
 		DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5322F456CFC00089B9E /* AppDelegate.swift */; };
@@ -239,6 +242,14 @@
 		DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158902F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift */; };
 		DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */; };
 		DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */; };
+		DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86792F585C0200378ADC /* WidgetTextManuallyResultView.swift */; };
+		DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB867B2F5863F100378ADC /* SharedImageFileStore.swift */; };
+		DECB867D2F5870FC00378ADC /* SharedImageFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB867B2F5863F100378ADC /* SharedImageFileStore.swift */; };
+		DECB867F2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */; };
+		DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */; };
+		DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */; };
+		DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
+		DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,7 +352,6 @@
 		DE5120462F4576B60026C5CC /* LiveActivitySelectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivitySelectionStore.swift; sourceTree = "<group>"; };
 		DE5120472F4576B60026C5CC /* LiveActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityType.swift; sourceTree = "<group>"; };
 		DE5120482F4576B60026C5CC /* VehicleImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleImageCacheManager.swift; sourceTree = "<group>"; };
-		DE5120502F4579D80026C5CC /* AppGroupStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupStore.swift; sourceTree = "<group>"; };
 		DE51205D2F45C8820026C5CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE592C462F49BC8500ABA60E /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		DE592C492F49BCE500ABA60E /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
@@ -374,14 +384,19 @@
 		DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsEmptyView.swift; sourceTree = "<group>"; };
 		DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsCollectionHelperCell.swift; sourceTree = "<group>"; };
 		DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsCollectionHelperButton.swift; sourceTree = "<group>"; };
+		DE629C192F5708FC004F5F7E /* WidgetTextManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyViewController.swift; sourceTree = "<group>"; };
+		DE629C1B2F570902004F5F7E /* WidgetTextManuallyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyViewModel.swift; sourceTree = "<group>"; };
+		DE629C1D2F570907004F5F7E /* WidgetTextManuallyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyView.swift; sourceTree = "<group>"; };
+		DE629C1F2F572EB9004F5F7E /* WidgetBuilderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderTextField.swift; sourceTree = "<group>"; };
+		DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundView.swift; sourceTree = "<group>"; };
+		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
+		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		DEABE4DB2F456B4300089B9E /* CarConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABE4F42F456B4B00089B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEABE4F52F456B4B00089B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEABE4F62F456B4B00089B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DEABE5092F456CFC00089B9E /* ChoosePhotoFromGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePhotoFromGallery.swift; sourceTree = "<group>"; };
 		DEABE50A2F456CFC00089B9E /* RequestReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestReview.swift; sourceTree = "<group>"; };
 		DEABE50B2F456CFC00089B9E /* RxActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActivityIndicator.swift; sourceTree = "<group>"; };
-		DEABE50C2F456CFC00089B9E /* TakePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
 		DEABE50E2F456CFC00089B9E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DEABE50F2F456CFC00089B9E /* NavigationControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSettings.swift; sourceTree = "<group>"; };
 		DEABE5112F456CFC00089B9E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -455,6 +470,10 @@
 		DEC158902F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateTextManuallyCell.swift; sourceTree = "<group>"; };
 		DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteConfiguration.swift; sourceTree = "<group>"; };
 		DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyConfiguration.swift; sourceTree = "<group>"; };
+		DECB86792F585C0200378ADC /* WidgetTextManuallyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyResultView.swift; sourceTree = "<group>"; };
+		DECB867B2F5863F100378ADC /* SharedImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImageFileStore.swift; sourceTree = "<group>"; };
+		DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyStorageModel.swift; sourceTree = "<group>"; };
+		DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssetImageLoader.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -522,6 +541,7 @@
 		DE1DA0422F4DDE9900742E69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DE629C182F5708F0004F5F7E /* WidgetTextManually */,
 				DE1DA03A2F4CBCE900742E69 /* WidgetTextQuote */,
 			);
 			path = Screens;
@@ -530,6 +550,7 @@
 		DE1DA0432F4DDEA100742E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE629C212F573A14004F5F7E /* Background */,
 				DE1DA0B32F51FD4C00742E69 /* RemoveConfirm */,
 				DE1DA0532F4E050000742E69 /* Font */,
 				DE1DA0482F4DE3AD00742E69 /* FontColor */,
@@ -538,6 +559,7 @@
 				DE1DA0582F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift */,
 				DE1DA05A2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift */,
 				DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */,
+				DE629C1F2F572EB9004F5F7E /* WidgetBuilderTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -698,6 +720,7 @@
 			isa = PBXGroup;
 			children = (
 				DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */,
+				DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -964,6 +987,35 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		DE629C182F5708F0004F5F7E /* WidgetTextManually */ = {
+			isa = PBXGroup;
+			children = (
+				DECB86782F585BF100378ADC /* Views */,
+				DE629C192F5708FC004F5F7E /* WidgetTextManuallyViewController.swift */,
+				DE629C1B2F570902004F5F7E /* WidgetTextManuallyViewModel.swift */,
+				DE629C1D2F570907004F5F7E /* WidgetTextManuallyView.swift */,
+			);
+			path = WidgetTextManually;
+			sourceTree = "<group>";
+		};
+		DE629C212F573A14004F5F7E /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				DE629C262F573B99004F5F7E /* Model */,
+				DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */,
+				DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		DE629C262F573B99004F5F7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE629C272F573BA4004F5F7E /* WidgetBackground.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DEABE4D22F456B4300089B9E = {
 			isa = PBXGroup;
 			children = (
@@ -1014,17 +1066,6 @@
 				DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		DEABE50D2F456CFC00089B9E /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				DEABE5092F456CFC00089B9E /* ChoosePhotoFromGallery.swift */,
-				DEABE50A2F456CFC00089B9E /* RequestReview.swift */,
-				DEABE50B2F456CFC00089B9E /* RxActivityIndicator.swift */,
-				DEABE50C2F456CFC00089B9E /* TakePhoto.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		DEABE5102F456CFC00089B9E /* NavigationController */ = {
@@ -1094,8 +1135,12 @@
 				DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */,
 				DEABE52C2F456CFC00089B9E /* ObservableRetrySingle.swift */,
 				DEABE52D2F456CFC00089B9E /* Scalable.swift */,
+				DEABE50A2F456CFC00089B9E /* RequestReview.swift */,
 				DEABE52E2F456CFC00089B9E /* ScreenSize.swift */,
+				DEABE50B2F456CFC00089B9E /* RxActivityIndicator.swift */,
 				DEABE52F2F456CFC00089B9E /* TextAttributes.swift */,
+				DECB867B2F5863F100378ADC /* SharedImageFileStore.swift */,
+				DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1103,7 +1148,6 @@
 		DEABE5362F456CFC00089B9E /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				DEABE50D2F456CFC00089B9E /* Components */,
 				DEABE5172F456CFC00089B9E /* CustomViews */,
 				DEABE5212F456CFC00089B9E /* Extension */,
 				DEABE5252F456CFC00089B9E /* Network */,
@@ -1112,7 +1156,6 @@
 				DEABE5332F456CFC00089B9E /* Appearance.swift */,
 				DEABE5342F456CFC00089B9E /* GlobalDefinitions.swift */,
 				DEABE5352F456CFC00089B9E /* SceneDelegate.swift */,
-				DE5120502F4579D80026C5CC /* AppGroupStore.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -1355,6 +1398,14 @@
 			path = TemplateConfiguration;
 			sourceTree = "<group>";
 		};
+		DECB86782F585BF100378ADC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECB86792F585C0200378ADC /* WidgetTextManuallyResultView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1541,7 +1592,6 @@
 			files = (
 				DE629BEF2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */,
 				DE5120272F4572280026C5CC /* PowerProgressFill.swift in Sources */,
-				DE5120522F4579DD0026C5CC /* AppGroupStore.swift in Sources */,
 				DE5120282F4572280026C5CC /* PowerDisplayIslandLeading.swift in Sources */,
 				DE5120292F4572280026C5CC /* PowerLiveActivityWidget.swift in Sources */,
 				DE51202A2F4572280026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
@@ -1561,7 +1611,10 @@
 				DE51204D2F4576B60026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DE629BC22F55C741004F5F7E /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
 				DE629BDA2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */,
+				DECB867F2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
 				DE629BD52F55CE23004F5F7E /* Fonts.swift in Sources */,
+				DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */,
+				DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */,
 				DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */,
@@ -1580,6 +1633,7 @@
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
+				DECB867D2F5870FC00378ADC /* SharedImageFileStore.swift in Sources */,
 				DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
 				DE629BD62F55CF0D004F5F7E /* Appearance.swift in Sources */,
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
@@ -1609,7 +1663,6 @@
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
-				DE5120512F4579D80026C5CC /* AppGroupStore.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
@@ -1618,6 +1671,7 @@
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
+				DE629C202F572EB9004F5F7E /* WidgetBuilderTextField.swift in Sources */,
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
@@ -1627,6 +1681,7 @@
 				DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */,
 				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
+				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
 				DE629C052F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
@@ -1637,10 +1692,12 @@
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
+				DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
 				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
+				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
@@ -1666,6 +1723,7 @@
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				DE629BDB2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
+				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
@@ -1675,9 +1733,9 @@
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
-				DEABE6212F456CFC00089B9E /* ChoosePhotoFromGallery.swift in Sources */,
 				DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
+				DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */,
 				DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
@@ -1687,13 +1745,16 @@
 				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
 				DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
+				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
+				DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
 				DE629C0E2F560039004F5F7E /* WidgetWithPresets.swift in Sources */,
+				DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DE629BEE2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */,
@@ -1719,12 +1780,13 @@
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
 				DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */,
-				DEABE6562F456CFC00089B9E /* TakePhoto.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
+				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
 				DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */,
 				DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
+				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DE629BEB2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
@@ -1881,6 +1943,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Required for displaying your location and routes on the map.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required for displaying your location and routes on the map.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to music is required for this app to work properly.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We use access to your Photo Library only to let you choose a photo you’ll set as the widget background.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to measure advertising effciency.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1932,6 +1995,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Required for displaying your location and routes on the map.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required for displaying your location and routes on the map.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to music is required for this app to work properly.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We use access to your Photo Library only to let you choose a photo you’ll set as the widget background.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to measure advertising effciency.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

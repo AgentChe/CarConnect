@@ -70,6 +70,8 @@
 "WidgetsBuilders.RemoveWidget.Confirm.Title" = "Widget removal";
 "WidgetsBuilders.RemoveWidget.Confirm.SubTitle" = "Are you sure? The widget will be removed from your library";
 "WidgetsBuilders.RemoveWidget.Confirm.Accept" = "Remove widget";
+"WidgetsBuilders.TextField.Title" = "Widget text";
+"WidgetsBuilders.Background" = "Background";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

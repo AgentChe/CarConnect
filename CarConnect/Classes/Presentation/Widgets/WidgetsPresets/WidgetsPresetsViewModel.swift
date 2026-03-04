@@ -11,7 +11,7 @@ import RxCocoa
 final class WidgetsPresetsViewModel {
     enum Action {
         case openWidgetsHelper
-        case openTextManuallyBuilder
+        case openTextManuallyBuilder(String?, WidgetTextManuallyConfiguration)
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
     }
     
@@ -108,8 +108,8 @@ private extension WidgetsPresetsViewModel {
                 switch element {
                 case .openHelper:
                     return nil 
-                case .textManually:
-                    return Action.openTextManuallyBuilder
+                case .textManually(let storageModelId, let config):
+                    return .openTextManuallyBuilder(storageModelId, config)
                 case .quoteAmbitionDrive(let storageModelId, let quote, let config):
                     return .openTextQuoteBuilder(storageModelId, .ambitionDrive(quote), config)
                 case .quoteLeadershipImpact(let storageModelId, let quote, let config):
@@ -214,7 +214,66 @@ private extension WidgetsPresetsViewModel {
     }
     
     func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
-        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func savedManually() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetTextManuallyStorageModel])
+                case added(WidgetTextManuallyStorageModel)
+                case edited(WidgetTextManuallyStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = textService
+                .fetchManuallyConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetTextServiceMediator.shared
+                .didSavedManuallyConfiguration
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetTextServiceMediator.shared
+                .didEditedManuallyConfiguration
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetTextServiceMediator.shared
+                .didDeletedManuallyConfigurationId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetTextManuallyStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .textManually($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedQuotes() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             enum Action {
                 case initial([WidgetTextQuoteStorageModel])
                 case added(WidgetTextQuoteStorageModel)
@@ -284,11 +343,21 @@ private extension WidgetsPresetsViewModel {
                 }
         }
         
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Driver
+                .combineLatest(
+                    savedManually(), savedQuotes()
+                )
+                .map { manually, quotes -> [WidgetsPresetsTemplatesCollectionElement] in
+                    manually + quotes
+                }
+        }
+        
         func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             Single
                 .deferred {
                     let templates = [
-                        WidgetsPresetsTemplatesCollectionElement.textManually(WidgetTextManuallyConfiguration.default()),
+                        WidgetsPresetsTemplatesCollectionElement.textManually(nil, WidgetTextManuallyConfiguration.default()),
                         {
                             guard let template = WidgetTextQuoteMindsetGrowth.templates().first else { return nil }
                             return .quoteMindsetGrowth(nil, template, WidgetTextQuoteConfiguration.mindsetGrowthDefault())

@@ -15,6 +15,10 @@ final class WidgetTextServiceMediator {
     private lazy var didEditedQuoteModelTrigger = PublishRelay<WidgetTextQuoteStorageModel>()
     private lazy var didDeletedQuoteModelIdTrigger = PublishRelay<String>()
     
+    private lazy var didSavedManuallyConfigurationTrigger = PublishRelay<WidgetTextManuallyStorageModel>()
+    private lazy var didEditedManuallyConfigurationTrigger = PublishRelay<WidgetTextManuallyStorageModel>()
+    private lazy var didDeletedManuallyConfigurationIdTrigger = PublishRelay<String>()
+    
     private init() {}
 }
 
@@ -32,6 +36,18 @@ extension WidgetTextServiceMediator {
         didDeletedQuoteModelIdTrigger.accept(quoteModelId)
     }
     
+    func saved(manuallyConfigurationModel: WidgetTextManuallyStorageModel) {
+        didSavedManuallyConfigurationTrigger.accept(manuallyConfigurationModel)
+    }
+    
+    func edited(manuallyConfigurationModel: WidgetTextManuallyStorageModel) {
+        didEditedManuallyConfigurationTrigger.accept(manuallyConfigurationModel)
+    }
+    
+    func deleted(manuallyConfigurationModelId: String) {
+        didDeletedManuallyConfigurationIdTrigger.accept(manuallyConfigurationModelId)
+    }
+    
     var didSavedQuoteModel: Signal<WidgetTextQuoteStorageModel> {
         didSavedQuoteModelTrigger.asSignal()
     }
@@ -42,5 +58,17 @@ extension WidgetTextServiceMediator {
     
     var didDeletedQuoteModelId: Signal<String> {
         didDeletedQuoteModelIdTrigger.asSignal()
+    }
+    
+    var didSavedManuallyConfiguration: Signal<WidgetTextManuallyStorageModel> {
+        didSavedManuallyConfigurationTrigger.asSignal()
+    }
+    
+    var didEditedManuallyConfiguration: Signal<WidgetTextManuallyStorageModel> {
+        didEditedManuallyConfigurationTrigger.asSignal()
+    }
+    
+    var didDeletedManuallyConfigurationId: Signal<String> {
+        didDeletedManuallyConfigurationIdTrigger.asSignal()
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: перенести в SharedImageFileStore
 final class VehicleImageCacheManager {
     static let shared = VehicleImageCacheManager()
 
@@ -36,7 +37,7 @@ extension VehicleImageCacheManager {
         }
 
         do {
-            let container = try AppGroupStore.shared.appGroupContainerURL()
+            let container = try appGroupContainerURL()
             let folder = container.appendingPathComponent(folderName, isDirectory: true)
             try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
 
@@ -72,7 +73,7 @@ extension VehicleImageCacheManager {
 
     func cachedImageURL(vehicleId: String) -> URL? {
         do {
-            let container = try AppGroupStore.shared.appGroupContainerURL()
+            let container = try appGroupContainerURL()
             let folder = container.appendingPathComponent(folderName, isDirectory: true)
             let fileURL = cachedImageFileURL(folder: folder, vehicleId: vehicleId)
             return FileManager.default.fileExists(atPath: fileURL.path) ? fileURL : nil
@@ -89,6 +90,13 @@ extension VehicleImageCacheManager {
 
 // MARK: Private
 private extension VehicleImageCacheManager {
+    func appGroupContainerURL() throws -> URL {
+        guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: GlobalDefinitions.appGroupId) else {
+            throw NSError(domain: "No app group container", code: 404)
+        }
+        return url
+    }
+    
     func cachedImageFileURL(folder: URL, vehicleId: String) -> URL {
         let safeId = vehicleId
             .replacingOccurrences(of: "/", with: "_")

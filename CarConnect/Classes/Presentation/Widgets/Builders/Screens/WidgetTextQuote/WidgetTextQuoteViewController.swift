@@ -148,7 +148,7 @@ extension WidgetTextQuoteViewController {
     }
     
     static func edit(
-        storageModelId: String?,
+        storageModelId: String,
         quote: WidgetTextQuote,
         configuration: WidgetTextQuoteConfiguration
     ) -> WidgetTextQuoteViewController {

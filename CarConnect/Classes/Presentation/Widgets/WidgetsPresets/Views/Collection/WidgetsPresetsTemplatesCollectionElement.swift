@@ -10,7 +10,7 @@ enum WidgetsPresetsTemplatesCollectionElement {
     case openHelper
     
     // Presets of text type
-    case textManually(WidgetTextManuallyConfiguration)
+    case textManually(String?, WidgetTextManuallyConfiguration)
     case quoteAmbitionDrive(String?, WidgetTextQuoteAmbitionDrive, WidgetTextQuoteConfiguration)
     case quoteMindsetGrowth(String?, WidgetTextQuoteMindsetGrowth, WidgetTextQuoteConfiguration)
     case quoteLeadershipImpact(String?, WidgetTextQuoteLeadershipImpact, WidgetTextQuoteConfiguration)

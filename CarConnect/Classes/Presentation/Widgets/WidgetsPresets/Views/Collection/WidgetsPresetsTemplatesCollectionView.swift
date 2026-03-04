@@ -57,7 +57,7 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
                 self?.didTapOpenHelperTrigger.accept(Void())
             }
             return cell
-        case .textManually(let configuration):
+        case .textManually(_, let configuration):
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateTextManuallyCell.self), for: indexPath) as! WidgetsPresetsTemplateTextManuallyCell
             cell.setup(configuration: configuration)
             return cell

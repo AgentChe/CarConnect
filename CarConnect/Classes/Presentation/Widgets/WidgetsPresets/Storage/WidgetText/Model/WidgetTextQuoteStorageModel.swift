@@ -5,8 +5,6 @@
 //  Created by Андрей Чернышев on 27.02.2026.
 //
 
-import Foundation
-
 struct WidgetTextQuoteStorageModel: Codable, Hashable {
     let id: String
     let quote: WidgetTextQuote

@@ -92,8 +92,15 @@ private extension WidgetsPresetsViewController {
         case .openWidgetsHelper:
             let vc = WidgetsHelperViewController.make()
             present(vc, animated: true)
-        case .openTextManuallyBuilder:
-            break // TODO:
+        case .openTextManuallyBuilder(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetTextManuallyViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetTextManuallyViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         case .openTextQuoteBuilder(let storageModelId, let quote, let config):
             let vc: UIViewController = {
                 if let storageModelId {

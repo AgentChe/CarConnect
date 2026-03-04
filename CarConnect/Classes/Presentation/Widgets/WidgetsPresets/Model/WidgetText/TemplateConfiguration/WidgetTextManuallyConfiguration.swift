@@ -7,23 +7,17 @@
 
 import UIKit
 
-struct WidgetTextManuallyConfiguration {
-    enum Background {
-        case fileUrl(String)
-        case color(UIColor)
-        case gradient([UIColor])
-    }
-    
-    let background: Background
+struct WidgetTextManuallyConfiguration: Codable, Hashable {
+    let background: WidgetBackground
     let text: String
     let font: WidgetsFonts
-    let textColor: UIColor
+    @CodableColor var textColor: UIColor
     
     static func `default`() -> WidgetTextManuallyConfiguration {
         WidgetTextManuallyConfiguration(
             background: .gradient([
-                Appearance.color_4B4F5B,
-                Appearance.color_2C2F39
+                CodableColor(wrappedValue: Appearance.color_4B4F5B),
+                CodableColor(wrappedValue: Appearance.color_2C2F39)
             ]),
             text: "Roads are calling",
             font: .inter,

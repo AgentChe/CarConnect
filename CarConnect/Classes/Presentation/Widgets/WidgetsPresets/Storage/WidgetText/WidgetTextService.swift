@@ -19,6 +19,14 @@ protocol WidgetTextServiceProtocol {
     ) -> Single<WidgetTextQuoteStorageModel>
     func delete(quoteStorageModelId: String) -> Single<Void>
     func fetchQuotes() -> Single<[WidgetTextQuoteStorageModel]>
+    
+    func save(manuallyConfiguration: WidgetTextManuallyConfiguration) -> Single<WidgetTextManuallyStorageModel>
+    func edit(
+        manuallyConfigurationStorageModelId: String,
+        manuallyConfiguration: WidgetTextManuallyConfiguration
+    ) -> Single<WidgetTextManuallyStorageModel>
+    func delete(manuallyConfigurationStorageModelId: String) -> Single<Void>
+    func fetchManuallyConfigurations() -> Single<[WidgetTextManuallyStorageModel]>
 }
 
 final class WidgetTextService {
@@ -105,6 +113,82 @@ extension WidgetTextService: WidgetTextServiceProtocol {
             guard let self else { return .error(ContentError.init(.notContent)) }
             
             let items = storage.loadAllQuotes()
+            
+            return .just(items)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func save(manuallyConfiguration: WidgetTextManuallyConfiguration) -> Single<WidgetTextManuallyStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            var items = storage.loadAllManuallyConfigurations()
+
+            let model = WidgetTextManuallyStorageModel(
+                id: UUID().uuidString,
+                configuration: manuallyConfiguration
+            )
+
+            items.append(model)
+            storage.persist(manuallyConfigurations: items)
+            
+            WidgetTextServiceMediator.shared.saved(manuallyConfigurationModel: model)
+
+            return .just(model)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func edit(
+        manuallyConfigurationStorageModelId: String,
+        manuallyConfiguration: WidgetTextManuallyConfiguration
+    ) -> Single<WidgetTextManuallyStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllManuallyConfigurations()
+
+            guard let index = items.firstIndex(where: { $0.id == manuallyConfigurationStorageModelId }) else {
+                return .error(NSError(domain: "Not found", code: 404))
+            }
+
+            let edited = WidgetTextManuallyStorageModel(
+                id: manuallyConfigurationStorageModelId,
+                configuration: manuallyConfiguration
+            )
+            
+            items[index] = edited
+            storage.persist(manuallyConfigurations: items)
+            
+            WidgetTextServiceMediator.shared.edited(manuallyConfigurationModel: edited)
+
+            return .just(edited)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func delete(manuallyConfigurationStorageModelId: String) -> Single<Void> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllManuallyConfigurations()
+            items.removeAll { $0.id == manuallyConfigurationStorageModelId }
+
+            storage.persist(manuallyConfigurations: items)
+            
+            WidgetTextServiceMediator.shared.deleted(manuallyConfigurationModelId: manuallyConfigurationStorageModelId)
+            
+            return .just(())
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func fetchManuallyConfigurations() -> Single<[WidgetTextManuallyStorageModel]> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            let items = storage.loadAllManuallyConfigurations()
             
             return .just(items)
         }

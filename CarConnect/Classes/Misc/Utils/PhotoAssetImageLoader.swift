@@ -24,14 +24,13 @@ extension PhotoAssetImageLoader {
         completion: @escaping (_ image: UIImage?) -> Void
     ) -> PHImageRequestID {
         let assets = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil)
-        
         guard let asset = assets.firstObject else {
             DispatchQueue.main.async { completion(nil) }
             return PHInvalidImageRequestID
         }
 
         let options = PHImageRequestOptions()
-        options.isNetworkAccessAllowed = true
+        options.isNetworkAccessAllowed = true          
         options.deliveryMode = .highQualityFormat
         options.resizeMode = .none
         options.version = .current
@@ -50,7 +49,6 @@ extension PhotoAssetImageLoader {
 
     func cancel(_ requestId: PHImageRequestID) {
         guard requestId != PHInvalidImageRequestID else { return }
-        
         PHImageManager.default().cancelImageRequest(requestId)
     }
 }

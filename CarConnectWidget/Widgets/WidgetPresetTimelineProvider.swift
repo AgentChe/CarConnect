@@ -84,6 +84,9 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
             let reloadDate = calendar.date(byAdding: .day, value: daysToSchedule + 1, to: startOfToday)
                 ?? calendar.date(byAdding: .day, value: 1, to: startOfToday)
             return Timeline(entries: entries, policy: reloadDate == nil ? .never : .after(reloadDate!))
+        case .textManually(let textManuallyConfiguration):
+            let entry = WidgetPresetTimelineEntry(date: now, model: .textManually(textManuallyConfiguration))
+            return Timeline(entries: [entry], policy: .never)
         }
     }
 }

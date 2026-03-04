@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import ImageIO
+import MobileCoreServices
 
 final class SharedImageFileStore {
     enum Constants {
@@ -59,6 +61,25 @@ extension SharedImageFileStore {
         guard let url = fileURL(for: fileName), let data = try? Data(contentsOf: url) else { return nil }
         
         return UIImage(data: data)
+    }
+    
+    func loadDownsampledImage(fileName: String, size: CGSize, scale: CGFloat) -> UIImage? {
+        guard let url = fileURL(for: fileName) else { return nil }
+
+        let maxDimension = max(size.width, size.height) * scale
+
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, nil) else { return nil }
+
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: Int(maxDimension)
+        ]
+
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, options as CFDictionary) else { return nil }
+
+        return UIImage(cgImage: cgImage)
     }
 
     func removeImage(fileName: String) {

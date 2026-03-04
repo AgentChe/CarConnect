@@ -13,7 +13,12 @@ struct WidgetPresetQuery: EntityQuery {
             .map { textQuote -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .textQuote(textQuote))
             }
-        return textQuotes
+        let textManuallyConfigurations = WidgetTextStorage.shared.loadAllManuallyConfigurations()
+            .map { textManuallyConfiguration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .textManually(textManuallyConfiguration))
+            }
+        
+        return textQuotes + textManuallyConfigurations
     }
     
     func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {

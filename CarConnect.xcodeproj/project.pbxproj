@@ -131,29 +131,19 @@
 		DE629BD52F55CE23004F5F7E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52A2F456CFC00089B9E /* Fonts.swift */; };
 		DE629BD62F55CF0D004F5F7E /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE5332F456CFC00089B9E /* Appearance.swift */; };
 		DE629BDA2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BD92F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift */; };
-		DE629BDB2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BD92F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift */; };
 		DE629BDC2F55D056004F5F7E /* WidgetTextQuoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158962F4B728300F2843C /* WidgetTextQuoteConfiguration.swift */; };
-		DE629BEB2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BEA2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift */; };
 		DE629BEC2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BEA2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift */; };
-		DE629BEE2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BED2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift */; };
 		DE629BEF2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BED2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift */; };
-		DE629BF12F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF02F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift */; };
 		DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF02F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift */; };
 		DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF32F55F2B3004F5F7E /* WidgetTextStorage.swift */; };
 		DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF32F55F2B3004F5F7E /* WidgetTextStorage.swift */; };
 		DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */; };
-		DE629BFE2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */; };
 		DE629BFF2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */; };
-		DE629C012F55F60B004F5F7E /* WidgetPresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */; };
 		DE629C022F55F60B004F5F7E /* WidgetPresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */; };
 		DE629C042F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C032F55F669004F5F7E /* WidgetPresetQuery.swift */; };
-		DE629C052F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C032F55F669004F5F7E /* WidgetPresetQuery.swift */; };
 		DE629C072F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */; };
-		DE629C082F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */; };
-		DE629C0A2F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C092F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift */; };
 		DE629C0B2F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C092F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift */; };
 		DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
-		DE629C0E2F560039004F5F7E /* WidgetWithPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C0C2F560039004F5F7E /* WidgetWithPresets.swift */; };
 		DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C102F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift */; };
 		DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C122F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift */; };
 		DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C152F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift */; };
@@ -250,6 +240,8 @@
 		DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158982F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift */; };
 		DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
 		DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */; };
+		DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */; };
+		DECB86892F588A7400378ADC /* PhotoAssetImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -474,6 +466,7 @@
 		DECB867B2F5863F100378ADC /* SharedImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImageFileStore.swift; sourceTree = "<group>"; };
 		DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyStorageModel.swift; sourceTree = "<group>"; };
 		DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssetImageLoader.swift; sourceTree = "<group>"; };
+		DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextManuallyWidgetView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -956,6 +949,7 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DECB86852F58896400378ADC /* TextManually */,
 				DE629BD82F55CFE7004F5F7E /* TextQuote */,
 				DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */,
 				DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */,
@@ -1406,6 +1400,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DECB86852F58896400378ADC /* TextManually */ = {
+			isa = PBXGroup;
+			children = (
+				DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */,
+			);
+			path = TextManually;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1630,6 +1632,7 @@
 				DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DE5120322F4572280026C5CC /* PowerCompactIconView.swift in Sources */,
 				DE629BEC2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
+				DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */,
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
@@ -1639,6 +1642,7 @@
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
 				DE5120352F4572280026C5CC /* AccessCarLockScreenView.swift in Sources */,
 				DE5120362F4572280026C5CC /* StripedIndicatorBar.swift in Sources */,
+				DECB86892F588A7400378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE5120372F4572280026C5CC /* TirePressureLockScreenView.swift in Sources */,
 				DE5120382F4572280026C5CC /* AccessCarDeepLink.swift in Sources */,
 				DE5120392F4572280026C5CC /* AccessCarLiveActivityWidget.swift in Sources */,
@@ -1651,10 +1655,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE629C012F55F60B004F5F7E /* WidgetPresetEntity.swift in Sources */,
 				DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */,
 				DE1DA08D2F515FE700742E69 /* WidgetsPreviewViewController.swift in Sources */,
-				DE629C0A2F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift in Sources */,
 				DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */,
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
@@ -1683,7 +1685,6 @@
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
 				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
-				DE629C052F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
@@ -1703,7 +1704,6 @@
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
 				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
-				DE629BFE2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
@@ -1721,7 +1721,6 @@
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
-				DE629BDB2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
 				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
@@ -1753,11 +1752,9 @@
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
-				DE629C0E2F560039004F5F7E /* WidgetWithPresets.swift in Sources */,
 				DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
-				DE629BEE2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
@@ -1775,7 +1772,6 @@
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
 				DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */,
-				DE629C082F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */,
 				DE51205B2F45C5190026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
@@ -1789,10 +1785,8 @@
 				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
-				DE629BEB2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
-				DE629BF12F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
 				DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,

@@ -29,6 +29,8 @@ struct WidgetWithPresets: Widget {
                     case .lifeMeaning(let quote):
                         QuoteLifeMeaningWidgetView(quote: quote, configuration: storageModel.configuration)
                     }
+                case .textManually(let storageModel):
+                    WidgetTextManuallyResultSwiftUIView(configuration: storageModel.configuration)
                 }
             } else {
                 Text("Select preset")

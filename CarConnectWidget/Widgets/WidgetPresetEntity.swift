@@ -18,6 +18,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
         switch preset {
         case .textQuote(let textQuote):
             return textQuote.id
+        case .textManually(let manuallyConfiguration):
+            return manuallyConfiguration.id
         }
     }
     
@@ -35,6 +37,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
                 case .lifeMeaning(let quote):
                     return quote.text
                 }
+            case .textManually(let storateModel):
+                return storateModel.configuration.text
             }
         }()
         

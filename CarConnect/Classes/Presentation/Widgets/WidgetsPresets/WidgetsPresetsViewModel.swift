@@ -13,9 +13,11 @@ final class WidgetsPresetsViewModel {
         case openWidgetsHelper
         case openTextManuallyBuilder(String?, WidgetTextManuallyConfiguration)
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
+        case openCalendarBuilder(String?, WidgetCalendarCongifuration)
     }
     
     private lazy var textService = WidgetTextService()
+    private lazy var calendarService = WidgetCalendarService()
 }
 
 // MARK: Public
@@ -118,6 +120,8 @@ private extension WidgetsPresetsViewModel {
                     return .openTextQuoteBuilder(storageModelId, .lifeMeaning(quote), config)
                 case .quoteMindsetGrowth(let storageModelId, let quote, let config):
                     return .openTextQuoteBuilder(storageModelId, .mindsetGrowth(quote), config)
+                case .calendar(let storageModelId, let config):
+                    return .openCalendarBuilder(storageModelId, config)
                 }
             }
         
@@ -180,13 +184,18 @@ private extension WidgetsPresetsViewModel {
                     switch presetsType {
                     case .all:
                         let textElements = self.makeTextElements(isSaved: saved)
+                        let calendarElements = self.makeCalendarElements(isSaved: saved)
                         
-                        return textElements
-                            .map { texts -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts
+                        return Driver
+                            .combineLatest(
+                                textElements,
+                                calendarElements
+                            )
+                            .map { texts, calendars -> [WidgetsPresetsTemplatesCollectionElement] in
+                                texts + calendars
                             }
                     case .calendar:
-                        return .just([])
+                        return self.makeCalendarElements(isSaved: saved)
                     case .clock:
                         return .just([])
                     case .carLogo:
@@ -212,7 +221,10 @@ private extension WidgetsPresetsViewModel {
                     }
             }
     }
-    
+}
+
+// MARK: Additional: make text elements
+private extension WidgetsPresetsViewModel {
     func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         func savedManually() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             enum Action {
@@ -379,6 +391,91 @@ private extension WidgetsPresetsViewModel {
                     return .just(templates)
                 }
                 .asDriver(onErrorDriveWith: .never())
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: Additonal: make calendar elements
+private extension WidgetsPresetsViewModel {
+    func makeCalendarElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetCalendarStorageModel])
+                case added(WidgetCalendarStorageModel)
+                case edited(WidgetCalendarStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = calendarService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetCalendarMediator.shared
+                .didSavedCalendarModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetCalendarMediator.shared
+                .didEditedCalendarModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetCalendarMediator.shared
+                .didDeletedCalendarModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetCalendarStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .calendar($0.id, $0.configuration) }
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    let templates = [
+                        WidgetCalendarCongifuration.default(for: .monthGrid),
+                        WidgetCalendarCongifuration.default(for: .weekdayAndDayNumberLarge),
+                        WidgetCalendarCongifuration.default(for: .dayNumberWithMonthGrid),
+                        WidgetCalendarCongifuration.default(for: .monthAbbrevAndDayNumberLarge),
+                        WidgetCalendarCongifuration.default(for: .monthDayAndWeekdayText),
+                        WidgetCalendarCongifuration.default(for: .stackedMonthDayWeekday)
+                    ]
+                    
+                    let elements = templates.map { WidgetsPresetsTemplatesCollectionElement.calendar(nil, $0) }
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
         }
         
         return isSaved ? saved() : templates()

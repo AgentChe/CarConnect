@@ -108,6 +108,26 @@
 		DE592C6E2F49C73400ABA60E /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE592C692F49C73400ABA60E /* Inter-Medium.otf */; };
 		DE592C6F2F49C73400ABA60E /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE592C6B2F49C73400ABA60E /* Inter-SemiBold.otf */; };
 		DE592C702F49C73400ABA60E /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE592C6A2F49C73400ABA60E /* Inter-Regular.otf */; };
+		DE6083992F59994E0025BB2D /* WidgetCalendarCongifuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083982F59994E0025BB2D /* WidgetCalendarCongifuration.swift */; };
+		DE60839A2F59994E0025BB2D /* WidgetCalendarCongifuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083982F59994E0025BB2D /* WidgetCalendarCongifuration.swift */; };
+		DE60839C2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60839B2F5999E50025BB2D /* WidgetCalendarStyle.swift */; };
+		DE60839D2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60839B2F5999E50025BB2D /* WidgetCalendarStyle.swift */; };
+		DE6083A12F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A02F599B030025BB2D /* WidgetCalendarStorageModel.swift */; };
+		DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A02F599B030025BB2D /* WidgetCalendarStorageModel.swift */; };
+		DE6083A42F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A32F599B750025BB2D /* WidgetCalendarStorage.swift */; };
+		DE6083A52F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A32F599B750025BB2D /* WidgetCalendarStorage.swift */; };
+		DE6083A82F599B860025BB2D /* WidgetCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A62F599B860025BB2D /* WidgetCalendarService.swift */; };
+		DE6083AA2F599B8D0025BB2D /* WidgetCalendarMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083A92F599B8D0025BB2D /* WidgetCalendarMediator.swift */; };
+		DE6083AE2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083AD2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift */; };
+		DE6083B02F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083AF2F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift */; };
+		DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083B12F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift */; };
+		DE6083B42F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083B32F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift */; };
+		DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083B52F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift */; };
+		DE6083B82F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083B72F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift */; };
+		DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083BA2F5AE83F0025BB2D /* MonthGridView.swift */; };
+		DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083BD2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift */; };
+		DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083BF2F5B1CB10025BB2D /* CalendarWeekRowView.swift */; };
+		DE6083C32F5B20980025BB2D /* CalendarWeekRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6083C22F5B20980025BB2D /* CalendarWeekRowItemView.swift */; };
 		DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC158792F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift */; };
 		DE629BC22F55C741004F5F7E /* WidgetTextQuoteMindsetGrowth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1587B2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift */; };
 		DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1587D2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift */; };
@@ -155,6 +175,10 @@
 		DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */; };
 		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
 		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
+		DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */; };
+		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */; };
+		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
+		DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
 		DEABE4FF2F456B4B00089B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F72F456B4B00089B9E /* LaunchScreen.storyboard */; };
 		DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEABE52B2F456CFC00089B9E /* NumberLaunches.swift */; };
@@ -362,6 +386,22 @@
 		DE592C692F49C73400ABA60E /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		DE592C6A2F49C73400ABA60E /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		DE592C6B2F49C73400ABA60E /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		DE6083982F59994E0025BB2D /* WidgetCalendarCongifuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarCongifuration.swift; sourceTree = "<group>"; };
+		DE60839B2F5999E50025BB2D /* WidgetCalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarStyle.swift; sourceTree = "<group>"; };
+		DE6083A02F599B030025BB2D /* WidgetCalendarStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarStorageModel.swift; sourceTree = "<group>"; };
+		DE6083A32F599B750025BB2D /* WidgetCalendarStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarStorage.swift; sourceTree = "<group>"; };
+		DE6083A62F599B860025BB2D /* WidgetCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarService.swift; sourceTree = "<group>"; };
+		DE6083A92F599B8D0025BB2D /* WidgetCalendarMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarMediator.swift; sourceTree = "<group>"; };
+		DE6083AD2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateMonthGridCell.swift; sourceTree = "<group>"; };
+		DE6083AF2F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift; sourceTree = "<group>"; };
+		DE6083B12F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift; sourceTree = "<group>"; };
+		DE6083B32F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift; sourceTree = "<group>"; };
+		DE6083B52F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift; sourceTree = "<group>"; };
+		DE6083B72F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift; sourceTree = "<group>"; };
+		DE6083BA2F5AE83F0025BB2D /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
+		DE6083BD2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNumberWithMonthGridView.swift; sourceTree = "<group>"; };
+		DE6083BF2F5B1CB10025BB2D /* CalendarWeekRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekRowView.swift; sourceTree = "<group>"; };
+		DE6083C22F5B20980025BB2D /* CalendarWeekRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekRowItemView.swift; sourceTree = "<group>"; };
 		DE629BD92F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteAmbitionDriveWidgetView.swift; sourceTree = "<group>"; };
 		DE629BEA2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteMindsetGrowthWidgetView.swift; sourceTree = "<group>"; };
 		DE629BED2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteLeadershipImpactWidgetView.swift; sourceTree = "<group>"; };
@@ -383,6 +423,10 @@
 		DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundView.swift; sourceTree = "<group>"; };
 		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
 		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayAndDayNumberLargeView.swift; sourceTree = "<group>"; };
+		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLarge.swift; sourceTree = "<group>"; };
+		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
+		DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedMonthDayWeekdayView.swift; sourceTree = "<group>"; };
 		DEABE4DB2F456B4300089B9E /* CarConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABE4F42F456B4B00089B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEABE4F52F456B4B00089B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -693,6 +737,7 @@
 		DE1DA0A42F51E12D00742E69 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				DE60839E2F599AE70025BB2D /* Calendar */,
 				DE1DA0A52F51E13500742E69 /* WidgetText */,
 			);
 			path = Storage;
@@ -946,6 +991,75 @@
 			path = Inter;
 			sourceTree = "<group>";
 		};
+		DE6083972F5999290025BB2D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083982F59994E0025BB2D /* WidgetCalendarCongifuration.swift */,
+				DE60839B2F5999E50025BB2D /* WidgetCalendarStyle.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DE60839E2F599AE70025BB2D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DE60839F2F599AEE0025BB2D /* Model */,
+				DE6083A32F599B750025BB2D /* WidgetCalendarStorage.swift */,
+				DE6083A62F599B860025BB2D /* WidgetCalendarService.swift */,
+				DE6083A92F599B8D0025BB2D /* WidgetCalendarMediator.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DE60839F2F599AEE0025BB2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083A02F599B030025BB2D /* WidgetCalendarStorageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE6083AC2F59A0F60025BB2D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DE8881432F5C9A2D00E59393 /* StackedMonthDayWeekday */,
+				DE8881402F5C282D00E59393 /* MonthDayAndWeekdayText */,
+				DE88813D2F5C24A900E59393 /* MonthAbbrevAndDayNumberLarge */,
+				DE88813A2F5C1E0100E59393 /* WeekdayAndDayNumberLarge */,
+				DE6083BC2F5B10B70025BB2D /* DayNumberWithMonthGrid */,
+				DE6083B92F5AE82C0025BB2D /* MonthGrid */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DE6083B92F5AE82C0025BB2D /* MonthGrid */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083AD2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift */,
+				DE6083BA2F5AE83F0025BB2D /* MonthGridView.swift */,
+			);
+			path = MonthGrid;
+			sourceTree = "<group>";
+		};
+		DE6083BC2F5B10B70025BB2D /* DayNumberWithMonthGrid */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083C12F5B208E0025BB2D /* CalendarWeekRow */,
+				DE6083B12F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift */,
+				DE6083BD2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift */,
+			);
+			path = DayNumberWithMonthGrid;
+			sourceTree = "<group>";
+		};
+		DE6083C12F5B208E0025BB2D /* CalendarWeekRow */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083BF2F5B1CB10025BB2D /* CalendarWeekRowView.swift */,
+				DE6083C22F5B20980025BB2D /* CalendarWeekRowItemView.swift */,
+			);
+			path = CalendarWeekRow;
+			sourceTree = "<group>";
+		};
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,6 +1122,42 @@
 				DE629C272F573BA4004F5F7E /* WidgetBackground.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DE88813A2F5C1E0100E59393 /* WeekdayAndDayNumberLarge */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083AF2F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift */,
+				DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */,
+			);
+			path = WeekdayAndDayNumberLarge;
+			sourceTree = "<group>";
+		};
+		DE88813D2F5C24A900E59393 /* MonthAbbrevAndDayNumberLarge */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083B32F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift */,
+				DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */,
+			);
+			path = MonthAbbrevAndDayNumberLarge;
+			sourceTree = "<group>";
+		};
+		DE8881402F5C282D00E59393 /* MonthDayAndWeekdayText */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083B52F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift */,
+				DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */,
+			);
+			path = MonthDayAndWeekdayText;
+			sourceTree = "<group>";
+		};
+		DE8881432F5C9A2D00E59393 /* StackedMonthDayWeekday */ = {
+			isa = PBXGroup;
+			children = (
+				DE6083B72F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift */,
+				DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */,
+			);
+			path = StackedMonthDayWeekday;
 			sourceTree = "<group>";
 		};
 		DEABE4D22F456B4300089B9E = {
@@ -1326,6 +1476,7 @@
 		DEC158752F4B589100F2843C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE6083972F5999290025BB2D /* Calendar */,
 				DEC158782F4B5DF500F2843C /* WidgetText */,
 			);
 			path = Model;
@@ -1353,6 +1504,7 @@
 		DEC158862F4B635300F2843C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE6083AC2F59A0F60025BB2D /* Calendar */,
 				DE629C142F56E45E004F5F7E /* Helper */,
 				DEC158872F4B635A00F2843C /* Text */,
 			);
@@ -1597,6 +1749,7 @@
 				DE5120282F4572280026C5CC /* PowerDisplayIslandLeading.swift in Sources */,
 				DE5120292F4572280026C5CC /* PowerLiveActivityWidget.swift in Sources */,
 				DE51202A2F4572280026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
+				DE6083A12F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE629BDC2F55D056004F5F7E /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DE51202B2F4572280026C5CC /* PowerCompactProgressText.swift in Sources */,
 				DE51202C2F4572280026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
@@ -1628,6 +1781,7 @@
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,
 				DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */,
 				DE629BC52F55C74F004F5F7E /* WidgetTextQuote.swift in Sources */,
+				DE60839A2F59994E0025BB2D /* WidgetCalendarCongifuration.swift in Sources */,
 				DE629C042F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */,
 				DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DE5120322F4572280026C5CC /* PowerCompactIconView.swift in Sources */,
@@ -1635,7 +1789,9 @@
 				DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */,
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
+				DE6083A52F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
+				DE60839C2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */,
 				DECB867D2F5870FC00378ADC /* SharedImageFileStore.swift in Sources */,
 				DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
 				DE629BD62F55CF0D004F5F7E /* Appearance.swift in Sources */,
@@ -1663,6 +1819,7 @@
 				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
+				DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
@@ -1688,9 +1845,12 @@
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
+				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
+				DE6083AE2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
+				DE6083992F59994E0025BB2D /* WidgetCalendarCongifuration.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
 				DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
@@ -1712,6 +1872,7 @@
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
+				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
@@ -1726,15 +1887,19 @@
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
+				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
+				DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */,
 				DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
+				DE6083B02F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift in Sources */,
 				DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
 				DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */,
+				DE60839D2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */,
 				DEABE6262F456CFC00089B9E /* SplashView.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
@@ -1747,17 +1912,21 @@
 				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
 				DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */,
+				DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
+				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
 				DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
+				DE6083C32F5B20980025BB2D /* CalendarWeekRowItemView.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
+				DE6083A42F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
@@ -1776,6 +1945,11 @@
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
 				DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */,
+				DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */,
+				DE6083B82F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift in Sources */,
+				DE6083A82F599B860025BB2D /* WidgetCalendarService.swift in Sources */,
+				DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
+				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
 				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
@@ -1788,7 +1962,9 @@
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
 				DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */,
+				DE6083AA2F599B8D0025BB2D /* WidgetCalendarMediator.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE6083B42F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
 				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,

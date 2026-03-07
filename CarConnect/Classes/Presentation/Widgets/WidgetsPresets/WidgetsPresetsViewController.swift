@@ -110,6 +110,8 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openCalendarBuilder(let storageModelId, let config):
+            break // TODO: 
         }
     }
 }

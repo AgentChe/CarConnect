@@ -77,6 +77,33 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLifeMeaningCell.self), for: indexPath) as! WidgetsPresetsTemplateQuoteLifeMeaningCell
             cell.setup(element: element, configuration: configuration)
             return cell
+        case .calendar(_, let configuration):
+            switch configuration.style {
+            case .monthGrid:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthGridCell.self), for: indexPath) as! WidgetsPresetsTemplateMonthGridCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .weekdayAndDayNumberLarge:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.self), for: indexPath) as! WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .dayNumberWithMonthGrid:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDayNumberWithMonthGridCell.self), for: indexPath) as! WidgetsPresetsTemplateDayNumberWithMonthGridCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .monthAbbrevAndDayNumberLarge:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.self), for: indexPath) as! WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .monthDayAndWeekdayText:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.self), for: indexPath) as! WidgetsPresetsTemplateMonthDayAndWeekdayTextCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .stackedMonthDayWeekday:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateStackedMonthDayWeekdayCell.self), for: indexPath) as! WidgetsPresetsTemplateStackedMonthDayWeekdayCell
+                cell.setup(configuration: configuration)
+                return cell
+            }
         }
     }
 }
@@ -106,6 +133,14 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateQuoteLeadershipImpactCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLeadershipImpactCell.self))
         register(WidgetsPresetsTemplateQuoteLifeMeaningCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateQuoteLifeMeaningCell.self))
         register(WidgetsPresetsTemplateTextManuallyCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateTextManuallyCell.self))
+        
+        // Calendar
+        register(WidgetsPresetsTemplateMonthGridCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthGridCell.self))
+        register(WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.self))
+        register(WidgetsPresetsTemplateDayNumberWithMonthGridCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDayNumberWithMonthGridCell.self))
+        register(WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.self))
+        register(WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.self))
+        register(WidgetsPresetsTemplateStackedMonthDayWeekdayCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateStackedMonthDayWeekdayCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

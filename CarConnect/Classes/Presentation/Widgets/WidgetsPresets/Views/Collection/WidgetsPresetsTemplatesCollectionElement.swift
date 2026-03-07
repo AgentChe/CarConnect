@@ -15,4 +15,7 @@ enum WidgetsPresetsTemplatesCollectionElement {
     case quoteMindsetGrowth(String?, WidgetTextQuoteMindsetGrowth, WidgetTextQuoteConfiguration)
     case quoteLeadershipImpact(String?, WidgetTextQuoteLeadershipImpact, WidgetTextQuoteConfiguration)
     case quoteLifeMeaning(String?, WidgetTextQuoteLifeMeaning, WidgetTextQuoteConfiguration)
+    
+    // Presets of calendar
+    case calendar(String?, WidgetCalendarCongifuration)
 }

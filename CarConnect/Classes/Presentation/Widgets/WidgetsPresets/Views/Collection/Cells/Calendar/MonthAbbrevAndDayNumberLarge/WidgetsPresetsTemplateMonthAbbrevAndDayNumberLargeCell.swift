@@ -8,7 +8,7 @@
 import UIKit
 
 final class WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell: UICollectionViewCell {
-    lazy var monthAbbrevAndDayNumberLarge = makeMonthAbbrevAndDayNumberLarge()
+    lazy var monthAbbrevAndDayNumberLargeView = makeMonthAbbrevAndDayNumberLargeView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ final class WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell: UICollection
 // MARK: Public
 extension WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell {
     func setup(configuration: WidgetCalendarCongifuration) {
-        monthAbbrevAndDayNumberLarge.setup(configuration: configuration)
+        monthAbbrevAndDayNumberLargeView.setup(configuration: configuration)
     }
 }
 
@@ -45,18 +45,18 @@ private extension WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell {
 private extension WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            monthAbbrevAndDayNumberLarge.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            monthAbbrevAndDayNumberLarge.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            monthAbbrevAndDayNumberLarge.topAnchor.constraint(equalTo: contentView.topAnchor),
-            monthAbbrevAndDayNumberLarge.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            monthAbbrevAndDayNumberLargeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            monthAbbrevAndDayNumberLargeView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            monthAbbrevAndDayNumberLargeView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            monthAbbrevAndDayNumberLargeView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell {
-    func makeMonthAbbrevAndDayNumberLarge() -> MonthAbbrevAndDayNumberLarge {
-        let view = MonthAbbrevAndDayNumberLarge(metrics: .small)
+    func makeMonthAbbrevAndDayNumberLargeView() -> MonthAbbrevAndDayNumberLargeView {
+        let view = MonthAbbrevAndDayNumberLargeView(metrics: .small)
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

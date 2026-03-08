@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StackedMonthDayWeekdayView: UIView {
+final class StackedMonthDayWeekdayView: CalendarStyleView {
     enum Metrics {
         case small, large
     }
@@ -54,11 +54,8 @@ final class StackedMonthDayWeekdayView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Public
-extension StackedMonthDayWeekdayView {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }

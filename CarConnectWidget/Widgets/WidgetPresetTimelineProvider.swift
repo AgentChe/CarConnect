@@ -59,6 +59,7 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 .map { quote -> WidgetTextQuoteStorageModel in
                     WidgetTextQuoteStorageModel(
                         id: "\(selected.id)_\(quote.hashValue)",
+                        name: selected.name,
                         quote: quote,
                         configuration: selected.configuration
                     )

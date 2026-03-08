@@ -14,6 +14,7 @@ final class WidgetTextQuoteViewModel {
         case openPreview
         case close
         case requestRemoveConfirmation
+        case enterName(String)
     }
     
     private let storageModelId: Driver<String?>
@@ -43,6 +44,7 @@ extension WidgetTextQuoteViewModel {
         let didTapRemove: Signal<Void>
         let didRemoveConfirmed: Signal<Void>
         let didChangeQuote: Signal<WidgetTextQuote>
+        let didEnterName: Signal<String>
     }
     
     struct Output {
@@ -53,7 +55,8 @@ extension WidgetTextQuoteViewModel {
     }
     
     func configure(input: Input) -> Output {
-        let defaultConfiguration = makeDefaultConfiguration(quote: initialQuote) 
+        let storageModel = makeStorageModel(id: storageModelId)
+        let defaultConfiguration = makeDefaultConfiguration(quote: initialQuote)
         let configuration = makeConfiguration(
             initialConfiguration: initialConfiguration,
             defaultConfiguration: defaultConfiguration,
@@ -83,7 +86,9 @@ extension WidgetTextQuoteViewModel {
                 configuration: configuration,
                 didTapRemove: input.didTapRemove,
                 didRemoveConfirmed: input.didRemoveConfirmed,
-                storageModelId: storageModelId
+                storageModelId: storageModelId,
+                didEnterName: input.didEnterName,
+                storageModel: storageModel
             )
         )
     }
@@ -197,7 +202,9 @@ private extension WidgetTextQuoteViewModel {
         configuration: Driver<WidgetTextQuoteConfiguration>,
         didTapRemove: Signal<Void>,
         didRemoveConfirmed: Signal<Void>,
-        storageModelId: Driver<String?>
+        storageModelId: Driver<String?>,
+        didEnterName: Signal<String>,
+        storageModel: Driver<WidgetTextQuoteStorageModel?>
     ) -> Driver<Action> {
         let openHelper = didTapHelper
             .map { Action.openHelper }
@@ -207,18 +214,24 @@ private extension WidgetTextQuoteViewModel {
             .map { Action.openPreview }
             .asDriver(onErrorDriveWith: .never())
         
-        let saveAndClose = didTapSave
+        let enterName = didTapSave
+            .withLatestFrom(storageModel)
+            .map { Action.enterName($0?.name ?? "Text Quote") }
             .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(storageModelId)
-            .withLatestFrom(quote) { ($0, $1) }
-            .withLatestFrom(configuration) { ($0.0, $0.1, $1) }
-            .flatMapLatest {  id, quote, configuration -> Driver<Action> in
+        
+        let saveAndClose = didEnterName
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(storageModelId) { ($0, $1) }
+            .withLatestFrom(quote) { ($0.0, $0.1, $1) }
+            .withLatestFrom(configuration) { ($0.0, $0.1, $0.2, $1) }
+            .flatMapLatest { name, id, quote, configuration -> Driver<Action> in
                 let model: Single<WidgetTextQuoteStorageModel> = { [weak self] in
                     guard let self else { return .never() }
                     
                     if let id {
                         return service
                             .edit(
+                                name: name,
                                 quoteStorageModelId: id,
                                 quote: quote,
                                 configuration: configuration
@@ -226,6 +239,7 @@ private extension WidgetTextQuoteViewModel {
                     } else {
                         return service
                             .save(
+                                name: name,
                                 quote: quote,
                                 configuration: configuration
                             )
@@ -254,6 +268,22 @@ private extension WidgetTextQuoteViewModel {
             }
         
         return Driver
-            .merge(openHelper, openPreview, saveAndClose, requestRemoveConfirmation, removeAndClose)
+            .merge(openHelper, openPreview, enterName, saveAndClose, requestRemoveConfirmation, removeAndClose)
+    }
+    
+    func makeStorageModel(id: Driver<String?>) -> Driver<WidgetTextQuoteStorageModel?> {
+        id
+            .flatMapLatest { [weak self] id -> Driver<WidgetTextQuoteStorageModel?> in
+                guard let self, let id else {
+                    return .just(nil)
+                }
+                
+                return service
+                    .fetchQuotes()
+                    .map { quotes -> WidgetTextQuoteStorageModel? in
+                        quotes.first(where: { $0.id == id })
+                    }
+                    .asDriver(onErrorJustReturn: nil)
+            }
     }
 }

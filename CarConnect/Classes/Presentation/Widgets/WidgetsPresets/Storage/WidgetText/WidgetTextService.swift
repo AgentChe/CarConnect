@@ -9,10 +9,12 @@ import RxSwift
 
 protocol WidgetTextServiceProtocol {
     func save(
+        name: String,
         quote: WidgetTextQuote,
         configuration: WidgetTextQuoteConfiguration
     ) -> Single<WidgetTextQuoteStorageModel>
     func edit(
+        name: String,
         quoteStorageModelId: String,
         quote: WidgetTextQuote,
         configuration: WidgetTextQuoteConfiguration
@@ -20,8 +22,12 @@ protocol WidgetTextServiceProtocol {
     func delete(quoteStorageModelId: String) -> Single<Void>
     func fetchQuotes() -> Single<[WidgetTextQuoteStorageModel]>
     
-    func save(manuallyConfiguration: WidgetTextManuallyConfiguration) -> Single<WidgetTextManuallyStorageModel>
+    func save(
+        name: String,
+        manuallyConfiguration: WidgetTextManuallyConfiguration
+    ) -> Single<WidgetTextManuallyStorageModel>
     func edit(
+        name: String,
         manuallyConfigurationStorageModelId: String,
         manuallyConfiguration: WidgetTextManuallyConfiguration
     ) -> Single<WidgetTextManuallyStorageModel>
@@ -38,6 +44,7 @@ final class WidgetTextService {
 // MARK: WidgetTextServiceProtocol
 extension WidgetTextService: WidgetTextServiceProtocol {
     func save(
+        name: String,
         quote: WidgetTextQuote,
         configuration: WidgetTextQuoteConfiguration
     ) -> Single<WidgetTextQuoteStorageModel> {
@@ -48,6 +55,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
 
             let model = WidgetTextQuoteStorageModel(
                 id: UUID().uuidString,
+                name: name,
                 quote: quote,
                 configuration: configuration
             )
@@ -63,6 +71,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
     }
     
     func edit(
+        name: String,
         quoteStorageModelId: String,
         quote: WidgetTextQuote,
         configuration: WidgetTextQuoteConfiguration
@@ -78,6 +87,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
 
             let edited = WidgetTextQuoteStorageModel(
                 id: quoteStorageModelId,
+                name: name,
                 quote: quote,
                 configuration: configuration
             )
@@ -119,7 +129,10 @@ extension WidgetTextService: WidgetTextServiceProtocol {
         .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
     }
     
-    func save(manuallyConfiguration: WidgetTextManuallyConfiguration) -> Single<WidgetTextManuallyStorageModel> {
+    func save(
+        name: String,
+        manuallyConfiguration: WidgetTextManuallyConfiguration
+    ) -> Single<WidgetTextManuallyStorageModel> {
         Single.deferred { [weak self] in
             guard let self else { return .error(ContentError.init(.notContent)) }
             
@@ -127,6 +140,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
 
             let model = WidgetTextManuallyStorageModel(
                 id: UUID().uuidString,
+                name: name,
                 configuration: manuallyConfiguration
             )
 
@@ -141,6 +155,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
     }
     
     func edit(
+        name: String,
         manuallyConfigurationStorageModelId: String,
         manuallyConfiguration: WidgetTextManuallyConfiguration
     ) -> Single<WidgetTextManuallyStorageModel> {
@@ -155,6 +170,7 @@ extension WidgetTextService: WidgetTextServiceProtocol {
 
             let edited = WidgetTextManuallyStorageModel(
                 id: manuallyConfigurationStorageModelId,
+                name: name,
                 configuration: manuallyConfiguration
             )
             

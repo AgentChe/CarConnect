@@ -72,6 +72,8 @@
 "WidgetsBuilders.RemoveWidget.Confirm.Accept" = "Remove widget";
 "WidgetsBuilders.TextField.Title" = "Widget text";
 "WidgetsBuilders.Background" = "Background";
+"WidgetsBuilders.EnterName.Title" = "Give a name for the widget";
+"WidgetsBuilders.EnterName.SubTitle" = "Provide a unique name for the widget to save it in the collection of saved widgets";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

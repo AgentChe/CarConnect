@@ -1,5 +1,5 @@
 //
-//  MonthAbbrevAndDayNumberLarge.swift
+//  MonthAbbrevAndDayNumberLargeView.swift
 //  CarConnect
 //
 //  Created by Андрей Чернышев on 07.03.2026.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MonthAbbrevAndDayNumberLarge: UIView {
+final class MonthAbbrevAndDayNumberLargeView: CalendarStyleView {
     enum Metrics {
         case small, large
     }
@@ -51,18 +51,15 @@ final class MonthAbbrevAndDayNumberLarge: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Public
-extension MonthAbbrevAndDayNumberLarge {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
 }
 
 // MARK: Private
-private extension MonthAbbrevAndDayNumberLarge {
+private extension MonthAbbrevAndDayNumberLargeView {
     func initialize() {
         backgroundColor = UIColor.clear
     }
@@ -77,7 +74,7 @@ private extension MonthAbbrevAndDayNumberLarge {
                 case .small:
                     return 28.scale
                 case .large:
-                    return 28.scale
+                    return 56.scale
                 }
             }()))
             .textAlignment(.center)
@@ -90,7 +87,7 @@ private extension MonthAbbrevAndDayNumberLarge {
                 case .small:
                     return 28.scale
                 case .large:
-                    return 28.scale
+                    return 56.scale
                 }
             }()))
             .textAlignment(.center)
@@ -109,7 +106,7 @@ private extension MonthAbbrevAndDayNumberLarge {
                 case .small:
                     return 70.scale
                 case .large:
-                    return 70.scale
+                    return 140.scale
                 }
             }()))
             .textAlignment(.center)
@@ -165,7 +162,7 @@ private extension MonthAbbrevAndDayNumberLarge {
 }
 
 // MARK: Make constraints
-private extension MonthAbbrevAndDayNumberLarge {
+private extension MonthAbbrevAndDayNumberLargeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             backgroundColorView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -203,7 +200,7 @@ private extension MonthAbbrevAndDayNumberLarge {
 }
 
 // MARK: Lazy initialization
-private extension MonthAbbrevAndDayNumberLarge {
+private extension MonthAbbrevAndDayNumberLargeView {
     func makeBackgroundColorView() -> GradientView {
         let view = GradientView()
         view.layer.cornerRadius = 10.scale

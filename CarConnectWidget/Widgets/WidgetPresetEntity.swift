@@ -27,18 +27,9 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
         let title: String = {
             switch preset {
             case .textQuote(let storageModel):
-                switch storageModel.quote {
-                case .ambitionDrive(let quote):
-                    return quote.text
-                case .mindsetGrowth(let quote):
-                    return quote.text
-                case .leadershipImpact(let quote):
-                    return quote.text
-                case .lifeMeaning(let quote):
-                    return quote.text
-                }
+                return storageModel.name
             case .textManually(let storateModel):
-                return storateModel.configuration.text
+                return storateModel.name
             }
         }()
         

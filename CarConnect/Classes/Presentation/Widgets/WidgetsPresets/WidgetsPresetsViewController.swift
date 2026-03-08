@@ -111,7 +111,14 @@ private extension WidgetsPresetsViewController {
             }()
             navigationController?.pushViewController(vc, animated: true)
         case .openCalendarBuilder(let storageModelId, let config):
-            break // TODO: 
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetCalendarViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetCalendarViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

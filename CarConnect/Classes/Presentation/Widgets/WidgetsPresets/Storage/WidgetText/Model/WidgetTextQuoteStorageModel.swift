@@ -7,6 +7,7 @@
 
 struct WidgetTextQuoteStorageModel: Codable, Hashable {
     let id: String
+    let name: String 
     let quote: WidgetTextQuote
     let configuration: WidgetTextQuoteConfiguration
 }

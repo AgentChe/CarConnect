@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
+		DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */; };
+		DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */; };
+		DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879EC2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift */; };
+		DE0879EF2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879EE2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift */; };
+		DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */; };
+		DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F22F5DB48600FECBA5 /* CalendarStyleView.swift */; };
 		DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */; };
 		DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */; };
 		DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */; };
@@ -176,7 +182,7 @@
 		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
 		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
 		DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */; };
-		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */; };
+		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */; };
 		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
 		DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */; };
 		DEABE4FD2F456B4B00089B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEABE4F42F456B4B00089B9E /* Assets.xcassets */; };
@@ -295,6 +301,12 @@
 /* Begin PBXFileReference section */
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F950CACCE70681AC75B2E /* Pods-CarConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.release.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.release.xcconfig"; sourceTree = "<group>"; };
+		DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderEnterNameView.swift; sourceTree = "<group>"; };
+		DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderEnterNameViewController.swift; sourceTree = "<group>"; };
+		DE0879EC2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarViewController.swift; sourceTree = "<group>"; };
+		DE0879EE2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarViewModel.swift; sourceTree = "<group>"; };
+		DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarView.swift; sourceTree = "<group>"; };
+		DE0879F22F5DB48600FECBA5 /* CalendarStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyleView.swift; sourceTree = "<group>"; };
 		DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewController.swift; sourceTree = "<group>"; };
 		DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewModel.swift; sourceTree = "<group>"; };
 		DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteView.swift; sourceTree = "<group>"; };
@@ -424,7 +436,7 @@
 		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
 		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayAndDayNumberLargeView.swift; sourceTree = "<group>"; };
-		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLarge.swift; sourceTree = "<group>"; };
+		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
 		DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedMonthDayWeekdayView.swift; sourceTree = "<group>"; };
 		DEABE4DB2F456B4300089B9E /* CarConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -555,6 +567,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DE0879E62F5D95D000FECBA5 /* EnterName */ = {
+			isa = PBXGroup;
+			children = (
+				DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */,
+				DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */,
+			);
+			path = EnterName;
+			sourceTree = "<group>";
+		};
+		DE0879EB2F5DA92100FECBA5 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DE0879EC2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift */,
+				DE0879EE2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift */,
+				DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		DE1DA0392F4CBCE100742E69 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +609,7 @@
 		DE1DA0422F4DDE9900742E69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DE0879EB2F5DA92100FECBA5 /* Calendar */,
 				DE629C182F5708F0004F5F7E /* WidgetTextManually */,
 				DE1DA03A2F4CBCE900742E69 /* WidgetTextQuote */,
 			);
@@ -587,6 +619,7 @@
 		DE1DA0432F4DDEA100742E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE0879E62F5D95D000FECBA5 /* EnterName */,
 				DE629C212F573A14004F5F7E /* Background */,
 				DE1DA0B32F51FD4C00742E69 /* RemoveConfirm */,
 				DE1DA0532F4E050000742E69 /* Font */,
@@ -1028,6 +1061,7 @@
 				DE88813A2F5C1E0100E59393 /* WeekdayAndDayNumberLarge */,
 				DE6083BC2F5B10B70025BB2D /* DayNumberWithMonthGrid */,
 				DE6083B92F5AE82C0025BB2D /* MonthGrid */,
+				DE0879F22F5DB48600FECBA5 /* CalendarStyleView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -1137,7 +1171,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6083B32F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift */,
-				DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift */,
+				DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */,
 			);
 			path = MonthAbbrevAndDayNumberLarge;
 			sourceTree = "<group>";
@@ -1816,6 +1850,7 @@
 				DEABE5DD2F456CFC00089B9E /* NumberLaunches.swift in Sources */,
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
+				DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */,
 				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
@@ -1845,7 +1880,7 @@
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
-				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLarge.swift in Sources */,
+				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
 				DE6083AE2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
@@ -1872,16 +1907,19 @@
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
+				DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */,
 				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
+				DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */,
 				DE1DA0A72F51E14500742E69 /* WidgetTextService.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
 				DE1DA0B02F51EEEA00742E69 /* WidgetTextServiceMediator.swift in Sources */,
 				DE592C522F49BD2600ABA60E /* ProfileCreateRequest.swift in Sources */,
 				DEABE60F2F456CFC00089B9E /* IAPProduct.swift in Sources */,
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
+				DE0879EF2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
 				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
@@ -1895,6 +1933,7 @@
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
+				DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */,
 				DE6083B02F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift in Sources */,
 				DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
@@ -1965,6 +2004,7 @@
 				DE6083AA2F599B8D0025BB2D /* WidgetCalendarMediator.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE6083B42F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift in Sources */,
+				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
 				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,

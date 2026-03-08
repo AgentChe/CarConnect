@@ -19,6 +19,7 @@ final class WidgetTextManuallyViewController: UIViewController {
     private lazy var saveButton = UIBarButtonItem(title: "Save".localized, style: .done, target: nil, action: nil)
     
     private lazy var didRemoveConfirmedTrigger = PublishRelay<Void>()
+    private lazy var didEnterNameTrigger = PublishRelay<String>()
     
     private init(
         storageModelId: String?,
@@ -65,7 +66,8 @@ final class WidgetTextManuallyViewController: UIViewController {
             didRemoveConfirmed: didRemoveConfirmedTrigger.asSignal(),
             didChangeText: mainView.textField.didChangeText,
             didTapResetBackground: mainView.backgroundView.didReset,
-            didSelectBackground: mainView.backgroundView.didSelect
+            didSelectBackground: mainView.backgroundView.didSelect,
+            didEnterName: didEnterNameTrigger.asSignal()
         ))
         
         let defaultConfiguration = output.defaultConfiguration
@@ -144,6 +146,11 @@ private extension WidgetTextManuallyViewController {
         case .requestRemoveConfirmation:
             let vc = WidgetBuilderRemoveConfirmViewController.make { [weak self] in
                 self?.didRemoveConfirmedTrigger.accept(Void())
+            }
+            present(vc, animated: false)
+        case .enterName(let name):
+            let vc = WidgetBuilderEnterNameViewController.make(placeholder: name) { [weak self] name in
+                self?.didEnterNameTrigger.accept(name)
             }
             present(vc, animated: false)
         }

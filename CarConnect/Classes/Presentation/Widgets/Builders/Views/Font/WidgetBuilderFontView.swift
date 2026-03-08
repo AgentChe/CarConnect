@@ -14,6 +14,7 @@ final class WidgetBuilderFontView: UIView {
     lazy var scrollView = makeScrollView()
     lazy var container = makeContainer()
     lazy var resetButton = makeResetButton()
+    lazy var interButton = makeFontButton(widgetsFonts: .inter)
     lazy var poppinsButton = makeFontButton(widgetsFonts: .poppins)
     lazy var audiowideButton = makeFontButton(widgetsFonts: .audiowide)
     lazy var orbitronButton = makeFontButton(widgetsFonts: .orbitron)
@@ -24,9 +25,9 @@ final class WidgetBuilderFontView: UIView {
     lazy var georgiaButton = makeFontButton(widgetsFonts: .georgia)
     lazy var soraButton = makeFontButton(widgetsFonts: .sora)
     lazy var spaceGroteskButton = makeFontButton(widgetsFonts: .spaceGrotesk)
-    lazy var interButton = makeFontButton(widgetsFonts: .inter)
     
     private lazy var fontsButtons = [
+        interButton,
         poppinsButton,
         audiowideButton,
         orbitronButton,
@@ -36,8 +37,7 @@ final class WidgetBuilderFontView: UIView {
         playfairDisplayButton,
         georgiaButton,
         soraButton,
-        spaceGroteskButton,
-        interButton
+        spaceGroteskButton
     ]
     
     override init(frame: CGRect) {
@@ -123,7 +123,13 @@ private extension WidgetBuilderFontView {
         ])
         
         NSLayoutConstraint.activate([
-            poppinsButton.leadingAnchor.constraint(equalTo: resetButton.trailingAnchor, constant: 8.scale),
+            interButton.leadingAnchor.constraint(equalTo: resetButton.trailingAnchor, constant: 8.scale),
+            interButton.topAnchor.constraint(equalTo: container.topAnchor),
+            interButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            poppinsButton.leadingAnchor.constraint(equalTo: interButton.trailingAnchor, constant: 8.scale),
             poppinsButton.topAnchor.constraint(equalTo: container.topAnchor),
             poppinsButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
@@ -178,15 +184,9 @@ private extension WidgetBuilderFontView {
         
         NSLayoutConstraint.activate([
             spaceGroteskButton.leadingAnchor.constraint(equalTo: soraButton.trailingAnchor, constant: 8.scale),
+            spaceGroteskButton.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             spaceGroteskButton.topAnchor.constraint(equalTo: container.topAnchor),
             spaceGroteskButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            interButton.leadingAnchor.constraint(equalTo: spaceGroteskButton.trailingAnchor, constant: 8.scale),
-            interButton.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            interButton.topAnchor.constraint(equalTo: container.topAnchor),
-            interButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 
 enum WidgetsFonts: Codable, Hashable {
+    case inter
     case poppins
     case audiowide
     case orbitron
@@ -19,10 +20,11 @@ enum WidgetsFonts: Codable, Hashable {
     case georgia
     case sora
     case spaceGrotesk
-    case inter
     
     func uiFont(baseSize: CGFloat) -> UIFont {
         switch self {
+        case .inter:
+            return Fonts.Inter.regular(size: baseSize)
         case .poppins:
             return Fonts.Poppins.extraBold(size: baseSize)
         case .audiowide:
@@ -43,8 +45,6 @@ enum WidgetsFonts: Codable, Hashable {
             return Fonts.Sora.semiBold(size: baseSize)
         case .spaceGrotesk:
             return Fonts.SpaceGrotesk.medium(size: baseSize)
-        case .inter:
-            return Fonts.Inter.regular(size: baseSize)
         }
     }
     

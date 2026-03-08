@@ -14,7 +14,7 @@
 
 import UIKit
 
-final class MonthGridView: UIView {
+final class MonthGridView: CalendarStyleView {
     private enum Constants {
         static let columns = 7
         static let weekRows = 6
@@ -89,21 +89,10 @@ final class MonthGridView: UIView {
         
         updateMetrics()
     }
-}
-
-// MARK: Public
-extension MonthGridView {
-    func setup(date: Date, configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
         self.configuration = configuration
-        self.shownDate = date
-        
-        updateMetrics()
-        reloadData()
-        updateBackground(configuration: configuration)
-    }
-
-    func setup(configuration: WidgetCalendarCongifuration) {
-        self.configuration = configuration
+        self.shownDate = Date()
         
         updateMetrics()
         reloadData()

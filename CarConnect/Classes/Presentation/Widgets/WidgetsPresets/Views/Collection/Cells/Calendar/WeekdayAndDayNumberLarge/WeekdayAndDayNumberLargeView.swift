@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WeekdayAndDayNumberLargeView: UIView {
+final class WeekdayAndDayNumberLargeView: CalendarStyleView {
     enum Metrics {
         case small, large
     }
@@ -45,11 +45,8 @@ final class WeekdayAndDayNumberLargeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Public
-extension WeekdayAndDayNumberLargeView {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
@@ -71,7 +68,7 @@ private extension WeekdayAndDayNumberLargeView {
                 case .small:
                     return 28.scale
                 case .large:
-                    return 28.scale
+                    return 56.scale
                 }
             }()))
             .textAlignment(.center)
@@ -84,7 +81,7 @@ private extension WeekdayAndDayNumberLargeView {
                 case .small:
                     return 70.scale
                 case .large:
-                    return 70.scale
+                    return 140.scale
                 }
             }()))
             .textAlignment(.center)

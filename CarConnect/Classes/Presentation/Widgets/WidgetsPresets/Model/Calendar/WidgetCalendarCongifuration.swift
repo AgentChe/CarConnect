@@ -21,7 +21,7 @@ struct WidgetCalendarCongifuration: Codable, Hashable {
                 CodableColor(wrappedValue: Appearance.color_2C2F39)
             ]),
             fontColor: Appearance.color_FFFFFF,
-            font: WidgetsFonts.audiowide
+            font: WidgetsFonts.inter
         )
     }
 }

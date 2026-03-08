@@ -21,6 +21,7 @@ final class WidgetTextQuoteViewController: UIViewController {
     private weak var previousPopDelegate: UIGestureRecognizerDelegate?
     
     private lazy var didRemoveConfirmedTrigger = PublishRelay<Void>()
+    private lazy var didEnterNameTrigger = PublishRelay<String>()
     
     private init(
         storageModelId: String?,
@@ -66,7 +67,8 @@ final class WidgetTextQuoteViewController: UIViewController {
             didTapSave: saveButton.rx.tap.asSignal(),
             didTapRemove: mainView.removeButton?.rx.tap.asSignal() ?? .never(),
             didRemoveConfirmed: didRemoveConfirmedTrigger.asSignal(),
-            didChangeQuote: mainView.sliderView.didChangedQuote
+            didChangeQuote: mainView.sliderView.didChangedQuote,
+            didEnterName: didEnterNameTrigger.asSignal()
         ))
         
         let defaultConfiguration = output.defaultConfiguration
@@ -211,6 +213,11 @@ private extension WidgetTextQuoteViewController {
         case .requestRemoveConfirmation:
             let vc = WidgetBuilderRemoveConfirmViewController.make { [weak self] in
                 self?.didRemoveConfirmedTrigger.accept(Void())
+            }
+            present(vc, animated: false)
+        case .enterName(let name):
+            let vc = WidgetBuilderEnterNameViewController.make(placeholder: name) { [weak self] name in
+                self?.didEnterNameTrigger.accept(name)
             }
             present(vc, animated: false)
         }

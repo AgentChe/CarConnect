@@ -25,7 +25,7 @@ final class WidgetsPresetsTemplateDayNumberWithMonthGridCell: UICollectionViewCe
 // MARK: Public
 extension WidgetsPresetsTemplateDayNumberWithMonthGridCell {
     func setup(configuration: WidgetCalendarCongifuration) {
-        dayNumberWithMonthGridView.setup(date: Date(), configuration: configuration)
+        dayNumberWithMonthGridView.setup(configuration: configuration)
     }
 }
 

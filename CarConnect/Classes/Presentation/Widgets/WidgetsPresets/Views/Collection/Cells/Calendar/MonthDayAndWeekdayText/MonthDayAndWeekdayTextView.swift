@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MonthDayAndWeekdayTextView: UIView {
+final class MonthDayAndWeekdayTextView: CalendarStyleView {
     enum Metrics {
         case small, large
     }
@@ -52,11 +52,8 @@ final class MonthDayAndWeekdayTextView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Public
-extension MonthDayAndWeekdayTextView {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
@@ -79,7 +76,7 @@ private extension MonthDayAndWeekdayTextView {
                 case .small:
                     return 42.scale
                 case .large:
-                    return 42.scale
+                    return 84.scale
                 }
             }()))
             .textAlignment(.left)
@@ -99,7 +96,7 @@ private extension MonthDayAndWeekdayTextView {
                 case .small:
                     return 22.scale
                 case .large:
-                    return 22.scale
+                    return 44.scale
                 }
             }()))
             .textAlignment(.left)
@@ -171,18 +168,36 @@ private extension MonthDayAndWeekdayTextView {
             backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
+        let glowInsets: CGFloat = {
+            switch metrics {
+            case .small:
+                return 20.scale
+            case .large:
+                return 40.scale
+            }
+        }()
+        
+        let glowSize: CGFloat = {
+            switch metrics {
+            case .small:
+                return 160.scale
+            case .large:
+                return 320.scale
+            }
+        }()
+        
         NSLayoutConstraint.activate([
-            topGlowView.centerXAnchor.constraint(equalTo: trailingAnchor, constant: -20.scale),
-            topGlowView.centerYAnchor.constraint(equalTo: topAnchor, constant: 20.scale),
-            topGlowView.widthAnchor.constraint(equalToConstant: 160.scale),
-            topGlowView.heightAnchor.constraint(equalToConstant: 160.scale)
+            topGlowView.centerXAnchor.constraint(equalTo: trailingAnchor, constant: -glowInsets),
+            topGlowView.centerYAnchor.constraint(equalTo: topAnchor, constant: glowInsets),
+            topGlowView.widthAnchor.constraint(equalToConstant: glowSize),
+            topGlowView.heightAnchor.constraint(equalToConstant: glowSize)
         ])
         
         NSLayoutConstraint.activate([
-            bottomGlowView.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 20.scale),
-            bottomGlowView.centerYAnchor.constraint(equalTo: bottomAnchor, constant: -20.scale),
-            bottomGlowView.widthAnchor.constraint(equalToConstant: 160.scale),
-            bottomGlowView.heightAnchor.constraint(equalToConstant: 160.scale)
+            bottomGlowView.centerXAnchor.constraint(equalTo: leadingAnchor, constant: glowInsets),
+            bottomGlowView.centerYAnchor.constraint(equalTo: bottomAnchor, constant: -glowInsets),
+            bottomGlowView.widthAnchor.constraint(equalToConstant: glowSize),
+            bottomGlowView.heightAnchor.constraint(equalToConstant: glowSize)
         ])
         
         let insets: CGFloat = {
@@ -190,7 +205,7 @@ private extension MonthDayAndWeekdayTextView {
             case .small:
                 return 16.scale
             case .large:
-                return 16.scale
+                return 32.scale
             }
         }()
         

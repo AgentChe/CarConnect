@@ -20,21 +20,21 @@ struct WidgetTextQuoteConfiguration: Codable, Hashable {
     
     static func mindsetGrowthDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .abrilFatface,
+            font: .inter,
             textColor: Appearance.color_FFFFFF
         )
     }
     
     static func leadershipImpactDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .georgia,
+            font: .inter,
             textColor: Appearance.color_FFFFFF
         )
     }
     
     static func lifeMeaningDefault() -> WidgetTextQuoteConfiguration {
         WidgetTextQuoteConfiguration(
-            font: .playfairDisplay,
+            font: .inter,
             textColor: Appearance.color_FFFFFF
         )
     }

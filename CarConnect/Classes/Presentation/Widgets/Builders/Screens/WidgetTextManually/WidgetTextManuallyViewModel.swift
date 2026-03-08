@@ -14,6 +14,7 @@ final class WidgetTextManuallyViewModel {
         case openPreview
         case close
         case requestRemoveConfirmation
+        case enterName(String)
     }
     
     private let storageModelId: Driver<String?>
@@ -43,6 +44,7 @@ extension WidgetTextManuallyViewModel {
         let didChangeText: Signal<String>
         let didTapResetBackground: Signal<Void>
         let didSelectBackground: Signal<WidgetBackground>
+        let didEnterName: Signal<String>
     }
     
     struct Output {
@@ -53,6 +55,7 @@ extension WidgetTextManuallyViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let storageModel = makeStorageModel(id: storageModelId)
         let defaultConfiguration = makeDefaultConfiguration()
         let configuration = makeConfiguration(
             initialConfiguration: initialConfiguration,
@@ -81,7 +84,9 @@ extension WidgetTextManuallyViewModel {
                 configuration: configuration,
                 didTapRemove: input.didTapRemove,
                 didRemoveConfirmed: input.didRemoveConfirmed,
-                storageModelId: storageModelId
+                storageModelId: storageModelId,
+                didEnterName: input.didEnterName,
+                storageModel: storageModel
             )
         )
     }
@@ -199,7 +204,9 @@ extension WidgetTextManuallyViewModel {
         configuration: Driver<WidgetTextManuallyConfiguration>,
         didTapRemove: Signal<Void>,
         didRemoveConfirmed: Signal<Void>,
-        storageModelId: Driver<String?>
+        storageModelId: Driver<String?>,
+        didEnterName: Signal<String>,
+        storageModel: Driver<WidgetTextManuallyStorageModel?>
     ) -> Driver<Action> {
         let openHelper = didTapHelper
             .map { Action.openHelper }
@@ -209,14 +216,19 @@ extension WidgetTextManuallyViewModel {
             .map { Action.openPreview }
             .asDriver(onErrorDriveWith: .never())
         
-        let saveAndClose = didTapSave
+        let enterName = didTapSave
+            .withLatestFrom(storageModel)
+            .map { Action.enterName($0?.name ?? "Text manually") }
             .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(storageModelId)
-            .withLatestFrom(configuration) { ($0, $1) }
-            .flatMapLatest {  id, configuration -> Signal<(String?, WidgetTextManuallyConfiguration)> in
+        
+        let saveAndClose = didEnterName
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(storageModelId) { ($0, $1) }
+            .withLatestFrom(configuration) { ($0.0, $0.1, $1) }
+            .flatMapLatest { name, id, configuration -> Signal<(String?, String, WidgetTextManuallyConfiguration)> in
                 switch configuration.background {
                 case .photoAssetId(let assetId):
-                    return Observable<(String?, WidgetTextManuallyConfiguration)>
+                    return Observable<(String?, String, WidgetTextManuallyConfiguration)>
                         .create { observer in
                             let requestId = PhotoAssetImageLoader.shared.loadImage(assetId: assetId) { image in
                                 guard let image, let fileName = SharedImageFileStore.shared.save(image: image, format: .jpeg(quality: 0.9)) else {
@@ -231,7 +243,7 @@ extension WidgetTextManuallyViewModel {
                                     textColor: configuration.textColor
                                 )
                                 
-                                observer.onNext((id, updated))
+                                observer.onNext((id, name, updated))
                                 observer.onCompleted()
                             }
 
@@ -241,21 +253,22 @@ extension WidgetTextManuallyViewModel {
                         }
                         .asSignal(onErrorSignalWith: .never())
                 default:
-                    return .just((id, configuration))
+                    return .just((id, name, configuration))
                 }
             }
-            .flatMapLatest {  id, configuration -> Driver<Action> in
+            .flatMapLatest { id, name, configuration -> Driver<Action> in
                 let model: Single<WidgetTextManuallyStorageModel> = { [weak self] in
                     guard let self else { return .never() }
                     
                     if let id {
                         return service.edit(
+                            name: name,
                             manuallyConfigurationStorageModelId: id,
                             manuallyConfiguration: configuration
                         )
                     } else {
                         return service
-                            .save(manuallyConfiguration: configuration)
+                            .save(name: name, manuallyConfiguration: configuration)
                     }
                 }()
                 
@@ -281,6 +294,22 @@ extension WidgetTextManuallyViewModel {
             }
         
         return Driver
-            .merge(openHelper, openPreview, saveAndClose, requestRemoveConfirmation, removeAndClose)
+            .merge(openHelper, openPreview, enterName, saveAndClose, requestRemoveConfirmation, removeAndClose)
+    }
+    
+    func makeStorageModel(id: Driver<String?>) -> Driver<WidgetTextManuallyStorageModel?> {
+        id
+            .flatMapLatest { [weak self] id -> Driver<WidgetTextManuallyStorageModel?> in
+                guard let self, let id else {
+                    return .just(nil)
+                }
+                
+                return service
+                    .fetchManuallyConfigurations()
+                    .map { quotes -> WidgetTextManuallyStorageModel? in
+                        quotes.first(where: { $0.id == id })
+                    }
+                    .asDriver(onErrorJustReturn: nil)
+            }
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DayNumberWithMonthGridView: UIView {
+final class DayNumberWithMonthGridView: CalendarStyleView {
     enum Metrics {
         case small, large
     }
@@ -55,11 +55,10 @@ final class DayNumberWithMonthGridView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Public
-extension DayNumberWithMonthGridView {
-    func setup(date: Date, configuration: WidgetCalendarCongifuration) {
+    
+    override func setup(configuration: WidgetCalendarCongifuration) {
+        let date = Date()
+        
         let dayFontSize: CGFloat = {
             switch metrics {
             case .small:

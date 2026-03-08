@@ -8,4 +8,5 @@
 enum WidgetPreset: Hashable {
     case textQuote(WidgetTextQuoteStorageModel)
     case textManually(WidgetTextManuallyStorageModel)
+    case calendar(WidgetCalendarStorageModel)
 }

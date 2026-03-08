@@ -5,13 +5,6 @@
 //  Created by Андрей Чернышев on 06.03.2026.
 //
 
-//
-//  MonthGridView.swift
-//  CarConnect
-//
-//  Created by Андрей Чернышев on 06.03.2026.
-//
-
 import UIKit
 
 final class MonthGridView: CalendarStyleView {

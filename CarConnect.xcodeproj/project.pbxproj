@@ -14,6 +14,14 @@
 		DE0879EF2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879EE2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift */; };
 		DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */; };
 		DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F22F5DB48600FECBA5 /* CalendarStyleView.swift */; };
+		DE0879F62F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F52F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift */; };
+		DE0879F82F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F72F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift */; };
+		DE0879FA2F5DBD7200FECBA5 /* CalendarWeekdayAndDayNumberLargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879F92F5DBD7200FECBA5 /* CalendarWeekdayAndDayNumberLargeWidgetView.swift */; };
+		DE0879FC2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879FB2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift */; };
+		DE0879FE2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879FD2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift */; };
+		DE087A002F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879FF2F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift */; };
+		DE087A032F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087A022F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift */; };
+		DE087A052F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087A042F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift */; };
 		DE1DA03C2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */; };
 		DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */; };
 		DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */; };
@@ -307,6 +315,14 @@
 		DE0879EE2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarViewModel.swift; sourceTree = "<group>"; };
 		DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCalendarView.swift; sourceTree = "<group>"; };
 		DE0879F22F5DB48600FECBA5 /* CalendarStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyleView.swift; sourceTree = "<group>"; };
+		DE0879F52F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthGridWidgetView.swift; sourceTree = "<group>"; };
+		DE0879F72F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayNumberWithMonthGridWidgetView.swift; sourceTree = "<group>"; };
+		DE0879F92F5DBD7200FECBA5 /* CalendarWeekdayAndDayNumberLargeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayAndDayNumberLargeWidgetView.swift; sourceTree = "<group>"; };
+		DE0879FB2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift; sourceTree = "<group>"; };
+		DE0879FD2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthDayAndWeekdayTextWidgetView.swift; sourceTree = "<group>"; };
+		DE0879FF2F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStackedMonthDayWeekdayWidgetView.swift; sourceTree = "<group>"; };
+		DE087A022F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekRowWidgetView.swift; sourceTree = "<group>"; };
+		DE087A042F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekRowItemWidgetView.swift; sourceTree = "<group>"; };
 		DE1DA03B2F4CBCFB00742E69 /* WidgetTextQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewController.swift; sourceTree = "<group>"; };
 		DE1DA03D2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteViewModel.swift; sourceTree = "<group>"; };
 		DE1DA03F2F4CBD0700742E69 /* WidgetTextQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextQuoteView.swift; sourceTree = "<group>"; };
@@ -584,6 +600,29 @@
 				DE0879F02F5DAC1F00FECBA5 /* WidgetCalendarView.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DE0879F42F5DBBF800FECBA5 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DE087A012F5DD30000FECBA5 /* DayNumberWithMonthGrid */,
+				DE0879F52F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift */,
+				DE0879F92F5DBD7200FECBA5 /* CalendarWeekdayAndDayNumberLargeWidgetView.swift */,
+				DE0879FB2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift */,
+				DE0879FD2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift */,
+				DE0879FF2F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DE087A012F5DD30000FECBA5 /* DayNumberWithMonthGrid */ = {
+			isa = PBXGroup;
+			children = (
+				DE0879F72F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift */,
+				DE087A022F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift */,
+				DE087A042F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift */,
+			);
+			path = DayNumberWithMonthGrid;
 			sourceTree = "<group>";
 		};
 		DE1DA0392F4CBCE100742E69 /* Builders */ = {
@@ -1097,6 +1136,7 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DE0879F42F5DBBF800FECBA5 /* Calendar */,
 				DECB86852F58896400378ADC /* TextManually */,
 				DE629BD82F55CFE7004F5F7E /* TextQuote */,
 				DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */,
@@ -1781,8 +1821,11 @@
 				DE629BEF2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */,
 				DE5120272F4572280026C5CC /* PowerProgressFill.swift in Sources */,
 				DE5120282F4572280026C5CC /* PowerDisplayIslandLeading.swift in Sources */,
+				DE087A032F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift in Sources */,
+				DE087A002F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift in Sources */,
 				DE5120292F4572280026C5CC /* PowerLiveActivityWidget.swift in Sources */,
 				DE51202A2F4572280026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
+				DE0879FC2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift in Sources */,
 				DE6083A12F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE629BDC2F55D056004F5F7E /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DE51202B2F4572280026C5CC /* PowerCompactProgressText.swift in Sources */,
@@ -1793,9 +1836,11 @@
 				DE51203D2F4572420026C5CC /* CarConnectWidgetBundle.swift in Sources */,
 				DE5120302F4572280026C5CC /* TirePressureDinamicIslandTrailingView.swift in Sources */,
 				DE629C072F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */,
+				DE0879FA2F5DBD7200FECBA5 /* CalendarWeekdayAndDayNumberLargeWidgetView.swift in Sources */,
 				DE629C022F55F60B004F5F7E /* WidgetPresetEntity.swift in Sources */,
 				DE629C0B2F55FFFC004F5F7E /* WidgetPresetTimelineProvider.swift in Sources */,
 				DE51204A2F4576B60026C5CC /* LiveActivitySelectionStore.swift in Sources */,
+				DE087A052F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift in Sources */,
 				DE51204B2F4576B60026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE51204D2F4576B60026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DE629BC22F55C741004F5F7E /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
@@ -1805,6 +1850,7 @@
 				DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */,
 				DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */,
+				DE0879F82F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift in Sources */,
 				DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */,
 				DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE629BFF2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */,
@@ -1822,6 +1868,7 @@
 				DE629BEC2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
 				DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */,
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
+				DE0879F62F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift in Sources */,
 				DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DE6083A52F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
@@ -1832,6 +1879,7 @@
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
 				DE5120352F4572280026C5CC /* AccessCarLockScreenView.swift in Sources */,
 				DE5120362F4572280026C5CC /* StripedIndicatorBar.swift in Sources */,
+				DE0879FE2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift in Sources */,
 				DECB86892F588A7400378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE5120372F4572280026C5CC /* TirePressureLockScreenView.swift in Sources */,
 				DE5120382F4572280026C5CC /* AccessCarDeepLink.swift in Sources */,

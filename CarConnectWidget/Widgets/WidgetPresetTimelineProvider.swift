@@ -88,6 +88,14 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
         case .textManually(let textManuallyConfiguration):
             let entry = WidgetPresetTimelineEntry(date: now, model: .textManually(textManuallyConfiguration))
             return Timeline(entries: [entry], policy: .never)
+        case .calendar(let configuration):
+            let entry = WidgetPresetTimelineEntry(date: now, model: .calendar(configuration))
+
+            let startOfToday = calendar.startOfDay(for: now)
+            let nextDay = calendar.date(byAdding: .day, value: 1, to: startOfToday) ?? now.addingTimeInterval(86400)
+            let reloadDate = calendar.date(byAdding: .minute, value: 1, to: nextDay) ?? nextDay
+
+            return Timeline(entries: [entry], policy: .after(reloadDate))
         }
     }
 }

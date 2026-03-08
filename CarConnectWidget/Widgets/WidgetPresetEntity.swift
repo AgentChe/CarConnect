@@ -20,6 +20,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             return textQuote.id
         case .textManually(let manuallyConfiguration):
             return manuallyConfiguration.id
+        case .calendar(let model):
+            return model.id
         }
     }
     
@@ -30,6 +32,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
                 return storageModel.name
             case .textManually(let storateModel):
                 return storateModel.name
+            case .calendar(let model):
+                return model.name
             }
         }()
         

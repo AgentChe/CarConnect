@@ -31,6 +31,21 @@ struct WidgetWithPresets: Widget {
                     }
                 case .textManually(let storageModel):
                     WidgetTextManuallyResultSwiftUIView(configuration: storageModel.configuration)
+                case .calendar(let model):
+                    switch model.configuration.style {
+                    case .monthGrid:
+                        CalendarMonthGridWidgetView(configuration: model.configuration)
+                    case .weekdayAndDayNumberLarge:
+                        CalendarWeekdayAndDayNumberLargeWidgetView(configuration: model.configuration, metrics: .large)
+                    case .dayNumberWithMonthGrid:
+                        DayNumberWithMonthGridWidgetView(metrics: .large, configuration: model.configuration)
+                    case .monthAbbrevAndDayNumberLarge:
+                        CalendarMonthAbbrevAndDayNumberLargeWidgetView(configuration: model.configuration, metrics: .large)
+                    case .monthDayAndWeekdayText:
+                        CalendarMonthDayAndWeekdayTextWidgetView(configuration: model.configuration, metrics: .large)
+                    case .stackedMonthDayWeekday:
+                        StackedMonthDayWeekdayWidgetView(configuration: model.configuration, metrics: .large)
+                    }
                 }
             } else {
                 Text("Select preset")

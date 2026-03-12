@@ -10,7 +10,7 @@ import UIKit
 final class MainCoordinator {
     private lazy var garageVC = UIViewController()
     private lazy var widgetsVC = WidgetsPresetsViewController.make()
-    private lazy var drivingModeVC = UIViewController()
+    private lazy var drivingModeVC = DrivingModeViewController.make()
     
     private weak var parentVC: UIViewController?
     private weak var container: UIView?
@@ -32,7 +32,18 @@ extension MainCoordinator {
         case .widgets:
             changeVC(on: widgetsVC)
         case .drivingMode:
-            parentVC?.present(drivingModeVC, animated: false)
+            guard let parentVC else { return }
+
+            drivingModeVC.modalPresentationStyle = .fullScreen
+
+            if let windowScene = parentVC.view.window?.windowScene {
+                windowScene.requestGeometryUpdate(
+                    .iOS(interfaceOrientations: .landscapeLeft)
+                )
+            }
+
+            parentVC.setNeedsUpdateOfSupportedInterfaceOrientations()
+            parentVC.present(drivingModeVC, animated: false)
         }
     }
 }

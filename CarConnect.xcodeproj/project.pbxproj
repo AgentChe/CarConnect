@@ -280,6 +280,17 @@
 		DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */; };
 		DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */; };
 		DECB86892F588A7400378ADC /* PhotoAssetImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */; };
+		DECE31542F62AC880078414C /* DrivingModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31532F62AC880078414C /* DrivingModeViewController.swift */; };
+		DECE31582F62AC930078414C /* DrivingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31572F62AC930078414C /* DrivingModeView.swift */; };
+		DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31592F62AD350078414C /* DrivingModeCoordinator.swift */; };
+		DECE315E2F62ADED0078414C /* DrivingModeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE315D2F62ADED0078414C /* DrivingModeMenuView.swift */; };
+		DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE315F2F62ADF60078414C /* DrivingModeRouteItemButton.swift */; };
+		DECE31652F62AFCA0078414C /* MusicSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31642F62AFCA0078414C /* MusicSource.swift */; };
+		DECE31672F62BF960078414C /* DrivingModeMenuStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31662F62BF960078414C /* DrivingModeMenuStatusView.swift */; };
+		DECE316A2F62C24D0078414C /* DrivingModeSignalBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31692F62C24D0078414C /* DrivingModeSignalBarsView.swift */; };
+		DECE316C2F62C2910078414C /* DrivingModeBatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE316B2F62C2910078414C /* DrivingModeBatteryView.swift */; };
+		DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE316D2F62C56A0078414C /* DrivingModeStatusTimeView.swift */; };
+		DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE31702F62CA170078414C /* SignalBarsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -539,6 +550,17 @@
 		DECB867E2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextManuallyStorageModel.swift; sourceTree = "<group>"; };
 		DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssetImageLoader.swift; sourceTree = "<group>"; };
 		DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextManuallyWidgetView.swift; sourceTree = "<group>"; };
+		DECE31532F62AC880078414C /* DrivingModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeViewController.swift; sourceTree = "<group>"; };
+		DECE31572F62AC930078414C /* DrivingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeView.swift; sourceTree = "<group>"; };
+		DECE31592F62AD350078414C /* DrivingModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeCoordinator.swift; sourceTree = "<group>"; };
+		DECE315D2F62ADED0078414C /* DrivingModeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeMenuView.swift; sourceTree = "<group>"; };
+		DECE315F2F62ADF60078414C /* DrivingModeRouteItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeRouteItemButton.swift; sourceTree = "<group>"; };
+		DECE31642F62AFCA0078414C /* MusicSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSource.swift; sourceTree = "<group>"; };
+		DECE31662F62BF960078414C /* DrivingModeMenuStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeMenuStatusView.swift; sourceTree = "<group>"; };
+		DECE31692F62C24D0078414C /* DrivingModeSignalBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeSignalBarsView.swift; sourceTree = "<group>"; };
+		DECE316B2F62C2910078414C /* DrivingModeBatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeBatteryView.swift; sourceTree = "<group>"; };
+		DECE316D2F62C56A0078414C /* DrivingModeStatusTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingModeStatusTimeView.swift; sourceTree = "<group>"; };
+		DECE31702F62CA170078414C /* SignalBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalBarsView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1409,6 +1431,7 @@
 		DEABE5C32F456CFC00089B9E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DECE31522F62AC7B0078414C /* DrivingMode */,
 				DEC1583E2F4A1AA300F2843C /* Widgets */,
 				DE592C582F49C1F300ABA60E /* Main */,
 				DEABE5942F456CFC00089B9E /* Splash */,
@@ -1632,6 +1655,80 @@
 				DECB86862F588A1E00378ADC /* TextManuallyWidgetView.swift */,
 			);
 			path = TextManually;
+			sourceTree = "<group>";
+		};
+		DECE31522F62AC7B0078414C /* DrivingMode */ = {
+			isa = PBXGroup;
+			children = (
+				DECE31622F62AFBF0078414C /* Music */,
+				DECE31612F62AF040078414C /* Main */,
+			);
+			path = DrivingMode;
+			sourceTree = "<group>";
+		};
+		DECE315B2F62ADCF0078414C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECE315C2F62ADDF0078414C /* Menu */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DECE315C2F62ADDF0078414C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DECE31682F62C2310078414C /* Status */,
+				DECE315D2F62ADED0078414C /* DrivingModeMenuView.swift */,
+				DECE315F2F62ADF60078414C /* DrivingModeRouteItemButton.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DECE31612F62AF040078414C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DECE315B2F62ADCF0078414C /* Views */,
+				DECE31532F62AC880078414C /* DrivingModeViewController.swift */,
+				DECE31572F62AC930078414C /* DrivingModeView.swift */,
+				DECE31592F62AD350078414C /* DrivingModeCoordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DECE31622F62AFBF0078414C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DECE31632F62AFC30078414C /* Model */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		DECE31632F62AFC30078414C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DECE31642F62AFCA0078414C /* MusicSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DECE31682F62C2310078414C /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				DECE316F2F62C9EF0078414C /* SignalBars */,
+				DECE31662F62BF960078414C /* DrivingModeMenuStatusView.swift */,
+				DECE316B2F62C2910078414C /* DrivingModeBatteryView.swift */,
+				DECE316D2F62C56A0078414C /* DrivingModeStatusTimeView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		DECE316F2F62C9EF0078414C /* SignalBars */ = {
+			isa = PBXGroup;
+			children = (
+				DECE31692F62C24D0078414C /* DrivingModeSignalBarsView.swift */,
+				DECE31702F62CA170078414C /* SignalBarsView.swift */,
+			);
+			path = SignalBars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1902,6 +1999,7 @@
 				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
+				DECE31672F62BF960078414C /* DrivingModeMenuStatusView.swift in Sources */,
 				DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
@@ -1923,6 +2021,7 @@
 				DEC158772F4B59B900F2843C /* WidgetTextQuote.swift in Sources */,
 				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
+				DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */,
 				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
@@ -1936,6 +2035,7 @@
 				DE6083992F59994E0025BB2D /* WidgetCalendarCongifuration.swift in Sources */,
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
+				DECE31652F62AFCA0078414C /* MusicSource.swift in Sources */,
 				DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
 				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
@@ -1944,6 +2044,7 @@
 				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
+				DECE316A2F62C24D0078414C /* DrivingModeSignalBarsView.swift in Sources */,
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
 				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
@@ -1955,6 +2056,7 @@
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
+				DECE31582F62AC930078414C /* DrivingModeView.swift in Sources */,
 				DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */,
 				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
@@ -2003,6 +2105,7 @@
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
+				DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
@@ -2015,14 +2118,17 @@
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
 				DE6083A42F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */,
+				DECE31542F62AC880078414C /* DrivingModeViewController.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,
 				DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */,
+				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
 				DEABE6452F456CFC00089B9E /* APIRequestBody.swift in Sources */,
+				DECE316C2F62C2910078414C /* DrivingModeBatteryView.swift in Sources */,
 				DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */,
 				DE592C5E2F49C21F00ABA60E /* MainCoordinator.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
@@ -2045,6 +2151,7 @@
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
 				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
+				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
@@ -2055,6 +2162,7 @@
 				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
 				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
+				DECE315E2F62ADED0078414C /* DrivingModeMenuView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,

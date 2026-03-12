@@ -17,6 +17,27 @@ class NavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if let presentedViewController {
+            return presentedViewController.supportedInterfaceOrientations
+        }
+        return topViewController?.supportedInterfaceOrientations ?? .portrait
+    }
+
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        if let presentedViewController {
+            return presentedViewController.preferredInterfaceOrientationForPresentation
+        }
+        return topViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
+    }
+
+    override var shouldAutorotate: Bool {
+        if let presentedViewController {
+            return presentedViewController.shouldAutorotate
+        }
+        return topViewController?.shouldAutorotate ?? true
+    }
 }
 
 // MARK: API

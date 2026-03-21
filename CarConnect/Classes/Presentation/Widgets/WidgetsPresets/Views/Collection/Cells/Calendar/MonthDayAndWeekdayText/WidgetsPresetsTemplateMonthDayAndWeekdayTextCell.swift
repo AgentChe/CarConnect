@@ -24,7 +24,7 @@ final class WidgetsPresetsTemplateMonthDayAndWeekdayTextCell: UICollectionViewCe
 
 // MARK: Public
 extension WidgetsPresetsTemplateMonthDayAndWeekdayTextCell {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         monthDayAndWeekdayTextView.setup(configuration: configuration)
     }
 }

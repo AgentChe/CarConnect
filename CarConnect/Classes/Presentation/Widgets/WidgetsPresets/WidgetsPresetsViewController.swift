@@ -119,6 +119,8 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openWeather(let storageModelId, let config):
+            break // TODO: 
         }
     }
 }

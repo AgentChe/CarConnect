@@ -17,5 +17,8 @@ enum WidgetsPresetsTemplatesCollectionElement {
     case quoteLifeMeaning(String?, WidgetTextQuoteLifeMeaning, WidgetTextQuoteConfiguration)
     
     // Presets of calendar
-    case calendar(String?, WidgetCalendarCongifuration)
+    case calendar(String?, WidgetCalendarConfiguration)
+    
+    // Presets of weather
+    case weather(String?, WidgetWeatherConfiguration, WeatherData)
 }

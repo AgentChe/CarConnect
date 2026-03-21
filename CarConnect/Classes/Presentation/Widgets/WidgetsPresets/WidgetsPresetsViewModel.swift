@@ -13,11 +13,15 @@ final class WidgetsPresetsViewModel {
         case openWidgetsHelper
         case openTextManuallyBuilder(String?, WidgetTextManuallyConfiguration)
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
-        case openCalendarBuilder(String?, WidgetCalendarCongifuration)
+        case openCalendarBuilder(String?, WidgetCalendarConfiguration)
+        case openWeather(String?, WidgetWeatherConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
     private lazy var calendarService = WidgetCalendarService()
+    private lazy var weatherService = WidgetWeatherService()
+    
+    private lazy var weatherFetcher = WeatherFetcher()
 }
 
 // MARK: Public
@@ -51,7 +55,8 @@ extension WidgetsPresetsViewModel {
         let collectionElements = makeCollectionElements(
             selectedTabItem: selectedTabItem,
             selectedPresetsType: selectedPresetsType,
-            helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection)
+            helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection),
+            weatherData: weatherFetcher.weatherData
         )
         
         return Output(
@@ -122,6 +127,8 @@ private extension WidgetsPresetsViewModel {
                     return .openTextQuoteBuilder(storageModelId, .mindsetGrowth(quote), config)
                 case .calendar(let storageModelId, let config):
                     return .openCalendarBuilder(storageModelId, config)
+                case .weather(let storageModelId, let config, _):
+                    return .openWeather(storageModelId, config)
                 }
             }
         
@@ -171,9 +178,10 @@ private extension WidgetsPresetsViewModel {
     func makeCollectionElements(
         selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
         selectedPresetsType: Driver<WidgetsPresetsType>,
-        helperCellWasDisplayed: Driver<Bool>
+        helperCellWasDisplayed: Driver<Bool>,
+        weatherData: Driver<WeatherData?>
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
-        Driver
+        return Driver
             .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed)
             .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
                 guard let self else { return .just([]) }
@@ -185,14 +193,16 @@ private extension WidgetsPresetsViewModel {
                     case .all:
                         let textElements = self.makeTextElements(isSaved: saved)
                         let calendarElements = self.makeCalendarElements(isSaved: saved)
+                        let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                         
                         return Driver
                             .combineLatest(
                                 textElements,
-                                calendarElements
+                                calendarElements,
+                                weatherElements
                             )
-                            .map { texts, calendars -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts + calendars
+                            .map { texts, calendars, weathers -> [WidgetsPresetsTemplatesCollectionElement] in
+                                texts + calendars + weathers
                             }
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
@@ -205,7 +215,7 @@ private extension WidgetsPresetsViewModel {
                     case .photo:
                         return .just([])
                     case .weather:
-                        return .just([])
+                        return self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                     }
                 }()
                 
@@ -223,7 +233,7 @@ private extension WidgetsPresetsViewModel {
     }
 }
 
-// MARK: Additional: make text elements
+// MARK: make text elements
 private extension WidgetsPresetsViewModel {
     func makeTextElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         func savedManually() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
@@ -397,7 +407,7 @@ private extension WidgetsPresetsViewModel {
     }
 }
 
-// MARK: Additonal: make calendar elements
+// MARK: make calendar elements
 private extension WidgetsPresetsViewModel {
     func makeCalendarElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
@@ -463,12 +473,12 @@ private extension WidgetsPresetsViewModel {
             Single
                 .deferred {
                     let templates = [
-                        WidgetCalendarCongifuration.default(for: .monthGrid),
-                        WidgetCalendarCongifuration.default(for: .weekdayAndDayNumberLarge),
-                        WidgetCalendarCongifuration.default(for: .dayNumberWithMonthGrid),
-                        WidgetCalendarCongifuration.default(for: .monthAbbrevAndDayNumberLarge),
-                        WidgetCalendarCongifuration.default(for: .monthDayAndWeekdayText),
-                        WidgetCalendarCongifuration.default(for: .stackedMonthDayWeekday)
+                        WidgetCalendarConfiguration.default(for: .monthGrid),
+                        WidgetCalendarConfiguration.default(for: .weekdayAndDayNumberLarge),
+                        WidgetCalendarConfiguration.default(for: .dayNumberWithMonthGrid),
+                        WidgetCalendarConfiguration.default(for: .monthAbbrevAndDayNumberLarge),
+                        WidgetCalendarConfiguration.default(for: .monthDayAndWeekdayText),
+                        WidgetCalendarConfiguration.default(for: .stackedMonthDayWeekday)
                     ]
                     
                     let elements = templates.map { WidgetsPresetsTemplatesCollectionElement.calendar(nil, $0) }
@@ -476,6 +486,95 @@ private extension WidgetsPresetsViewModel {
                     return .just(elements)
                 }
                 .asDriver(onErrorJustReturn: [])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make weather elements
+private extension WidgetsPresetsViewModel {
+    func makeWeatherElements(weatherData: Driver<WeatherData?>, isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        let resolvedWeatherData = weatherData.compactMap { $0 }
+        
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetWeatherStorageModel])
+                case added(WidgetWeatherStorageModel)
+                case edited(WidgetWeatherStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = weatherService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetWeatherMediator.shared
+                .didSavedWeatherModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetWeatherMediator.shared
+                .didEditedWeatherModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetWeatherMediator.shared
+                .didDeletedWeatherModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetWeatherStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return Driver
+                .combineLatest(models, resolvedWeatherData)
+                .map { models, weatherData -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .weather($0.id, $0.configuration, weatherData) }
+                }
+                .startWith([])
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            let templates = [
+                WidgetWeatherConfiguration.default(for: .weatherIconTemperature),
+                WidgetWeatherConfiguration.default(for: .currentWeatherSummary),
+                WidgetWeatherConfiguration.default(for: .locationTemperature),
+                WidgetWeatherConfiguration.default(for: .compactWeatherForecast),
+                WidgetWeatherConfiguration.default(for: .todayTomorrowWeather),
+                WidgetWeatherConfiguration.default(for: .weatherClock),
+                WidgetWeatherConfiguration.default(for: .weatherConditionForecast),
+                WidgetWeatherConfiguration.default(for: .digitalWeatherClock)
+            ]
+            
+            return resolvedWeatherData
+                .map { weatherData -> [WidgetsPresetsTemplatesCollectionElement] in
+                    templates.map { WidgetsPresetsTemplatesCollectionElement.weather(nil, $0, weatherData) }
+                }
+                .startWith([])
         }
         
         return isSaved ? saved() : templates()

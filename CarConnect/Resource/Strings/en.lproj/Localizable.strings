@@ -58,6 +58,10 @@
 "WidgetsPresets.HelperCell.Title" = "Widget Configuration";
 "WidgetsPresets.HelperCell.SubTitle" = "Editing and adding widgets to the screen";
 "WidgetsPresets.HelperCell.Button" = "How to set widgets";
+"WidgetsPresets.Weather.NowIn" = " now in";
+"WidgetsPresets.Weather.Feels" = "feels ";
+"WidgetsPresets.Weather.Today" = "Today";
+"WidgetsPresets.Weather.TomorrowTemperature" = "Tomorrow\nwill be %@";
 
 // MARK: WidgetsBuilders
 "WidgetsBuilders.Title" = "Widgets";
@@ -81,3 +85,10 @@
 "WidgetsPreview.Tab.TwoWidget" = "2 Widgets";
 "WidgetsPreview.Tab.ThreeWidget" = "3 Widgets";
 "WidgetsPreview.Phone.Title" = "Display on phone";
+
+// MARK: WeatherCondition
+"WeatherCondition.Sunny" = "Sunny";
+"WeatherCondition.Rainy" = "Rainy";
+"WeatherCondition.Snowy" = "Snowy";
+"WeatherCondition.Cloudy" = "Cloudy";
+"WeatherCondition.Windy" = "Windy";

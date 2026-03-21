@@ -24,7 +24,7 @@ final class WidgetsPresetsTemplateStackedMonthDayWeekdayCell: UICollectionViewCe
 
 // MARK: Public
 extension WidgetsPresetsTemplateStackedMonthDayWeekdayCell {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         stackedMonthDayWeekdayView.setup(configuration: configuration)
     }
 }

@@ -48,7 +48,7 @@ final class MonthGridView: CalendarStyleView {
     private var daysGridTopConstraint: NSLayoutConstraint?
 
     private var shownDate: Date?
-    private var configuration = WidgetCalendarCongifuration.default(for: .monthGrid)
+    private var configuration = WidgetCalendarConfiguration.default(for: .monthGrid)
 
     private lazy var calendar: Calendar = {
         var calendar = Calendar.current
@@ -83,7 +83,7 @@ final class MonthGridView: CalendarStyleView {
         updateMetrics()
     }
     
-    override func setup(configuration: WidgetCalendarCongifuration) {
+    override func setup(configuration: WidgetCalendarConfiguration) {
         self.configuration = configuration
         self.shownDate = Date()
         
@@ -99,7 +99,7 @@ private extension MonthGridView {
         backgroundColor = .clear
     }
     
-    func updateBackground(configuration: WidgetCalendarCongifuration) {
+    func updateBackground(configuration: WidgetCalendarConfiguration) {
         switch configuration.background {
         case .color(let codableColor):
             backgroundImageView.isHidden = true

@@ -31,7 +31,7 @@ struct CalendarMonthGridWidgetView: View {
         static let baseHighlightCornerRadius: CGFloat = 8.5
     }
 
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
 
     private let weekdaySymbols = ["S", "M", "T", "W", "T", "F", "S"]
 

@@ -24,7 +24,7 @@ final class WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell: UICollectionView
 
 // MARK: Public
 extension WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         weekdayAndDayNumberLargeView.setup(configuration: configuration)
     }
 }

@@ -21,7 +21,7 @@ struct CalendarWeekRowItemWidgetView: View {
 
     let metrics: DayNumberWithMonthGridWidgetView.Metrics
     let item: CalendarWeekRowWidgetView.Item
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
 
     var body: some View {
         GeometryReader { geo in

@@ -50,7 +50,7 @@ final class CalendarWeekRowView: UIView {
 
 // MARK: Public
 extension CalendarWeekRowView {
-    func setup(date: Date, configuration: WidgetCalendarCongifuration) {
+    func setup(date: Date, configuration: WidgetCalendarConfiguration) {
         let calendar = Calendar.current
         
         let offsets = [-3, -2, -1, 0, 1, 2]

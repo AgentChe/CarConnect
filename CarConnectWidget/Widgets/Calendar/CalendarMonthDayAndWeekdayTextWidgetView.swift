@@ -35,7 +35,7 @@ struct CalendarMonthDayAndWeekdayTextWidgetView: View {
         static let largeWeekdayFontSize: CGFloat = 44
     }
 
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
     let metrics: Metrics
 
     private var weekdayFormatter: DateFormatter {

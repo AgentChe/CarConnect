@@ -50,7 +50,7 @@ struct DayNumberWithMonthGridWidgetView: View {
     }
 
     let metrics: Metrics
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
 
     private var designSize: CGSize {
         switch metrics {

@@ -104,6 +104,41 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
                 cell.setup(configuration: configuration)
                 return cell
             }
+        case .weather(_, let configuration, let weatherData):
+            switch configuration.style {
+            case .weatherIconTemperature:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherIconTemperatureCell.self), for: indexPath) as! WidgetsPresetsTemplateWeatherIconTemperatureCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .currentWeatherSummary:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCurrentWeatherSummaryCell.self), for: indexPath) as! WidgetsPresetsTemplateCurrentWeatherSummaryCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .locationTemperature:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateLocationTemperatureCell.self), for: indexPath) as! WidgetsPresetsTemplateLocationTemperatureCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .compactWeatherForecast:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCompactWeatherForecastCell.self), for: indexPath) as! WidgetsPresetsTemplateCompactWeatherForecastCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .todayTomorrowWeather:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateTodayTomorrowWeatherCell.self), for: indexPath) as! WidgetsPresetsTemplateTodayTomorrowWeatherCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .weatherClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherClockCell.self), for: indexPath) as! WidgetsPresetsTemplateWeatherClockCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .weatherConditionForecast:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherConditionForecastCell.self), for: indexPath) as! WidgetsPresetsTemplateWeatherConditionForecastCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            case .digitalWeatherClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalWeatherClockCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalWeatherClockCell
+                cell.setup(configuration: configuration, weatherData: weatherData)
+                return cell
+            }
         }
     }
 }
@@ -141,6 +176,16 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.self))
         register(WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.self))
         register(WidgetsPresetsTemplateStackedMonthDayWeekdayCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateStackedMonthDayWeekdayCell.self))
+        
+        // Weather
+        register(WidgetsPresetsTemplateDigitalWeatherClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalWeatherClockCell.self))
+        register(WidgetsPresetsTemplateWeatherConditionForecastCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherConditionForecastCell.self))
+        register(WidgetsPresetsTemplateWeatherClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherClockCell.self))
+        register(WidgetsPresetsTemplateTodayTomorrowWeatherCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateTodayTomorrowWeatherCell.self))
+        register(WidgetsPresetsTemplateCompactWeatherForecastCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCompactWeatherForecastCell.self))
+        register(WidgetsPresetsTemplateLocationTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateLocationTemperatureCell.self))
+        register(WidgetsPresetsTemplateCurrentWeatherSummaryCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCurrentWeatherSummaryCell.self))
+        register(WidgetsPresetsTemplateWeatherIconTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherIconTemperatureCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

@@ -8,5 +8,5 @@
 import UIKit
 
 class CalendarStyleView: UIView {
-    func setup(configuration: WidgetCalendarCongifuration) {}
+    func setup(configuration: WidgetCalendarConfiguration) {}
 }

@@ -24,7 +24,7 @@ final class WidgetsPresetsTemplateMonthGridCell: UICollectionViewCell {
 
 // MARK: Public
 extension WidgetsPresetsTemplateMonthGridCell {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         monthGridView.setup(configuration: configuration)
     }
 }

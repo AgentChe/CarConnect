@@ -24,7 +24,7 @@ final class WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell: UICollection
 
 // MARK: Public
 extension WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         monthAbbrevAndDayNumberLargeView.setup(configuration: configuration)
     }
 }

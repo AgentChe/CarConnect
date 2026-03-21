@@ -40,7 +40,7 @@ final class CalendarWeekRowItemView: UIView {
 
 // MARK: Public
 extension CalendarWeekRowItemView {
-    func setup(item: Item, configuration: WidgetCalendarCongifuration) {
+    func setup(item: Item, configuration: WidgetCalendarConfiguration) {
         highlightView.isHidden = !item.isHighlight
         
         let fontSize: CGFloat = {

@@ -23,7 +23,7 @@ final class WidgetCalendarViewController: UIViewController {
     
     private init(
         storageModelId: String?,
-        configuration: WidgetCalendarCongifuration
+        configuration: WidgetCalendarConfiguration
     ) {
         self.mainView = WidgetCalendarView(
             editableMode: storageModelId != nil,
@@ -105,7 +105,7 @@ final class WidgetCalendarViewController: UIViewController {
 
 // MARK: Public
 extension WidgetCalendarViewController {
-    static func create(configuration: WidgetCalendarCongifuration) -> WidgetCalendarViewController {
+    static func create(configuration: WidgetCalendarConfiguration) -> WidgetCalendarViewController {
         let vc = WidgetCalendarViewController(
             storageModelId: nil,
             configuration: configuration
@@ -117,7 +117,7 @@ extension WidgetCalendarViewController {
     
     static func edit(
         storageModelId: String,
-        configuration: WidgetCalendarCongifuration
+        configuration: WidgetCalendarConfiguration
     ) -> WidgetCalendarViewController {
         let vc = WidgetCalendarViewController(
             storageModelId: storageModelId,

@@ -20,9 +20,9 @@ final class WidgetCalendarView: UIView {
     lazy var removeButton = makeRemoveButton()
     
     private let editableMode: Bool
-    private let configuration: WidgetCalendarCongifuration
+    private let configuration: WidgetCalendarConfiguration
     
-    init(editableMode: Bool, configuration: WidgetCalendarCongifuration) {
+    init(editableMode: Bool, configuration: WidgetCalendarConfiguration) {
         self.editableMode = editableMode
         self.configuration = configuration
         
@@ -39,7 +39,7 @@ final class WidgetCalendarView: UIView {
 
 // MARK: Public
 extension WidgetCalendarView {
-    func setup(configuration: WidgetCalendarCongifuration) {
+    func setup(configuration: WidgetCalendarConfiguration) {
         calendarStyleView.setup(configuration: configuration)
     }
     

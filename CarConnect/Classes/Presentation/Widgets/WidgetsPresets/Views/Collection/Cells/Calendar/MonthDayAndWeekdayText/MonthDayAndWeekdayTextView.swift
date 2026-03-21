@@ -53,7 +53,7 @@ final class MonthDayAndWeekdayTextView: CalendarStyleView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setup(configuration: WidgetCalendarCongifuration) {
+    override func setup(configuration: WidgetCalendarConfiguration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
@@ -66,7 +66,7 @@ private extension MonthDayAndWeekdayTextView {
         layer.masksToBounds = true
     }
     
-    func updateDate(configuration: WidgetCalendarCongifuration) {
+    func updateDate(configuration: WidgetCalendarConfiguration) {
         let date = Date()
         
         let dayMonthAttrs = TextAttributes()
@@ -103,7 +103,7 @@ private extension MonthDayAndWeekdayTextView {
         weekdayLabel.attributedText = weekdayFormatter.string(from: date).attributed(with: weekdayAttrs)
     }
     
-    func updateBackground(configuration: WidgetCalendarCongifuration) {
+    func updateBackground(configuration: WidgetCalendarConfiguration) {
         switch configuration.background {
         case .color(let codableColor):
             backgroundImageView.isHidden = true

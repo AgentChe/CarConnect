@@ -35,7 +35,7 @@ struct StackedMonthDayWeekdayWidgetView: View {
         static let largeTodayFontSize: CGFloat = 80
     }
 
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
     let metrics: Metrics
 
     private var calendar: Calendar {

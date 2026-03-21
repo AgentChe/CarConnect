@@ -18,11 +18,11 @@ final class WidgetCalendarViewModel {
     }
     
     private let storageModelId: Driver<String?>
-    private let initialConfiguration: Driver<WidgetCalendarCongifuration>
+    private let initialConfiguration: Driver<WidgetCalendarConfiguration>
     
     private lazy var service = WidgetCalendarService()
     
-    init(storageModelId: String?, configuration: WidgetCalendarCongifuration) {
+    init(storageModelId: String?, configuration: WidgetCalendarConfiguration) {
         self.storageModelId = BehaviorRelay(value: storageModelId).asDriver()
         self.initialConfiguration = BehaviorRelay(value: configuration).asDriver()
     }
@@ -47,8 +47,8 @@ extension WidgetCalendarViewModel {
     }
     
     struct Output {
-        let defaultConfiguration: Driver<WidgetCalendarCongifuration>
-        let configuration: Driver<WidgetCalendarCongifuration>
+        let defaultConfiguration: Driver<WidgetCalendarConfiguration>
+        let configuration: Driver<WidgetCalendarConfiguration>
         let enableRestoreDefault: Driver<Bool>
         let action: Driver<Action>
     }
@@ -93,8 +93,8 @@ extension WidgetCalendarViewModel {
 // MARK: Private
 extension WidgetCalendarViewModel {
     func makeEnableRestoreDefault(
-        defaultConfiguration: Driver<WidgetCalendarCongifuration>,
-        configuration: Driver<WidgetCalendarCongifuration>
+        defaultConfiguration: Driver<WidgetCalendarConfiguration>,
+        configuration: Driver<WidgetCalendarConfiguration>
     ) -> Driver<Bool> {
         Driver
             .combineLatest(defaultConfiguration, configuration)
@@ -107,8 +107,8 @@ extension WidgetCalendarViewModel {
     }
     
     func makeConfiguration(
-        initialConfiguration: Driver<WidgetCalendarCongifuration>,
-        defaultConfiguration: Driver<WidgetCalendarCongifuration>,
+        initialConfiguration: Driver<WidgetCalendarConfiguration>,
+        defaultConfiguration: Driver<WidgetCalendarConfiguration>,
         didTapResetFont: Signal<Void>,
         didSelectFont: Signal<WidgetsFonts>,
         didTapResetFontColor: Signal<Void>,
@@ -116,7 +116,7 @@ extension WidgetCalendarViewModel {
         didTapRestoreDefault: Signal<Void>,
         didTapResetBackground: Signal<Void>,
         didSelectBackground: Signal<WidgetBackground>
-    ) -> Driver<WidgetCalendarCongifuration> {
+    ) -> Driver<WidgetCalendarConfiguration> {
         let background = Driver<WidgetBackground>
             .merge(
                 initialConfiguration
@@ -175,8 +175,8 @@ extension WidgetCalendarViewModel {
         
         let changedConfiguration = Driver
             .combineLatest(style, background, font, fontColor)
-            .map { style, background, font, fontColor -> WidgetCalendarCongifuration in
-                WidgetCalendarCongifuration(
+            .map { style, background, font, fontColor -> WidgetCalendarConfiguration in
+                WidgetCalendarConfiguration(
                     style: style,
                     background: background,
                     fontColor: fontColor,
@@ -188,16 +188,16 @@ extension WidgetCalendarViewModel {
             .merge(initialConfiguration, changedConfiguration)
     }
     
-    func makeDefaultConfiguration(initialConfiguration: Driver<WidgetCalendarCongifuration>) -> Driver<WidgetCalendarCongifuration> {
+    func makeDefaultConfiguration(initialConfiguration: Driver<WidgetCalendarConfiguration>) -> Driver<WidgetCalendarConfiguration> {
         initialConfiguration
-            .map { WidgetCalendarCongifuration.default(for: $0.style) }
+            .map { WidgetCalendarConfiguration.default(for: $0.style) }
     }
     
     func makeAction(
         didTapHelper: Signal<Void>,
         didTapOpenPreview: Signal<Void>,
         didTapSave: Signal<Void>,
-        configuration: Driver<WidgetCalendarCongifuration>,
+        configuration: Driver<WidgetCalendarConfiguration>,
         didTapRemove: Signal<Void>,
         didRemoveConfirmed: Signal<Void>,
         storageModelId: Driver<String?>,
@@ -221,10 +221,10 @@ extension WidgetCalendarViewModel {
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(storageModelId) { ($0, $1) }
             .withLatestFrom(configuration) { ($0.0, $0.1, $1) }
-            .flatMapLatest { name, id, configuration -> Signal<(String?, String, WidgetCalendarCongifuration)> in
+            .flatMapLatest { name, id, configuration -> Signal<(String?, String, WidgetCalendarConfiguration)> in
                 switch configuration.background {
                 case .photoAssetId(let assetId):
-                    return Observable<(String?, String, WidgetCalendarCongifuration)>
+                    return Observable<(String?, String, WidgetCalendarConfiguration)>
                         .create { observer in
                             let requestId = PhotoAssetImageLoader.shared.loadImage(assetId: assetId) { image in
                                 guard let image, let fileName = SharedImageFileStore.shared.save(image: image, format: .jpeg(quality: 0.9)) else {
@@ -232,7 +232,7 @@ extension WidgetCalendarViewModel {
                                     return
                                 }
                                 
-                                let updated = WidgetCalendarCongifuration(
+                                let updated = WidgetCalendarConfiguration(
                                     style: configuration.style,
                                     background: .fileName(fileName),
                                     fontColor: configuration.fontColor,

@@ -56,7 +56,7 @@ final class DayNumberWithMonthGridView: CalendarStyleView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setup(configuration: WidgetCalendarCongifuration) {
+    override func setup(configuration: WidgetCalendarConfiguration) {
         let date = Date()
         
         let dayFontSize: CGFloat = {
@@ -105,7 +105,7 @@ private extension DayNumberWithMonthGridView {
         backgroundColor = UIColor.clear
     }
     
-    func updateBackground(configuration: WidgetCalendarCongifuration) {
+    func updateBackground(configuration: WidgetCalendarConfiguration) {
         switch configuration.background {
         case .color(let codableColor):
             backgroundImageView.isHidden = true

@@ -52,7 +52,7 @@ final class MonthAbbrevAndDayNumberLargeView: CalendarStyleView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setup(configuration: WidgetCalendarCongifuration) {
+    override func setup(configuration: WidgetCalendarConfiguration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
@@ -64,7 +64,7 @@ private extension MonthAbbrevAndDayNumberLargeView {
         backgroundColor = UIColor.clear
     }
     
-    func updateDate(configuration: WidgetCalendarCongifuration) {
+    func updateDate(configuration: WidgetCalendarConfiguration) {
         let date = Date()
         
         let weekdayAttrs = TextAttributes()
@@ -113,7 +113,7 @@ private extension MonthAbbrevAndDayNumberLargeView {
         dayLabel.attributedText = dayFormatter.string(from: date).attributed(with: dayAttrs)
     }
     
-    func updateBackground(configuration: WidgetCalendarCongifuration) {
+    func updateBackground(configuration: WidgetCalendarConfiguration) {
         switch configuration.background {
         case .color(let codableColor):
             backgroundImageView.isHidden = true

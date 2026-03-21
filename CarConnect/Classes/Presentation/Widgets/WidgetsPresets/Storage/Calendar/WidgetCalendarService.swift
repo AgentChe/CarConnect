@@ -8,11 +8,11 @@
 import RxSwift
 
 protocol WidgetCalendarServiceProtocol {
-    func save(name: String, configuration: WidgetCalendarCongifuration) -> Single<WidgetCalendarStorageModel>
+    func save(name: String, configuration: WidgetCalendarConfiguration) -> Single<WidgetCalendarStorageModel>
     func edit(
         name: String,
         storageModelId: String,
-        configuration: WidgetCalendarCongifuration
+        configuration: WidgetCalendarConfiguration
     ) -> Single<WidgetCalendarStorageModel>
     func delete(storageModelId: String) -> Single<Void>
     func fetchConfigurations() -> Single<[WidgetCalendarStorageModel]>
@@ -26,7 +26,7 @@ final class WidgetCalendarService {
 
 // MARK: WidgetCalendarServiceProtocol
 extension WidgetCalendarService: WidgetCalendarServiceProtocol {
-    func save(name: String, configuration: WidgetCalendarCongifuration) -> Single<WidgetCalendarStorageModel> {
+    func save(name: String, configuration: WidgetCalendarConfiguration) -> Single<WidgetCalendarStorageModel> {
         Single.deferred { [weak self] in
             guard let self else { return .error(ContentError.init(.notContent)) }
             
@@ -51,7 +51,7 @@ extension WidgetCalendarService: WidgetCalendarServiceProtocol {
     func edit(
         name: String,
         storageModelId: String,
-        configuration: WidgetCalendarCongifuration
+        configuration: WidgetCalendarConfiguration
     ) -> Single<WidgetCalendarStorageModel> {
         Single.deferred { [weak self] in
             guard let self else { return .error(ContentError.init(.notContent)) }

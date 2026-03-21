@@ -1,5 +1,5 @@
 //
-//  WidgetCalendarCongifuration.swift
+//  WidgetCalendarConfiguration.swift
 //  CarConnect
 //
 //  Created by Андрей Чернышев on 05.03.2026.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-struct WidgetCalendarCongifuration: Codable, Hashable {
+struct WidgetCalendarConfiguration: Codable, Hashable {
     let style: WidgetCalendarStyle
     let background: WidgetBackground
     @CodableColor var fontColor: UIColor
     let font: WidgetsFonts
     
-    static func `default`(for style: WidgetCalendarStyle) -> WidgetCalendarCongifuration {
-        WidgetCalendarCongifuration(
+    static func `default`(for style: WidgetCalendarStyle) -> WidgetCalendarConfiguration {
+        WidgetCalendarConfiguration(
             style: style,
             background: .gradient([
                 CodableColor(wrappedValue: Appearance.color_373B47),

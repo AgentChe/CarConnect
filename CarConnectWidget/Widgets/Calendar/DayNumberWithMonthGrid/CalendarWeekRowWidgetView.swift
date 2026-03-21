@@ -26,7 +26,7 @@ struct CalendarWeekRowWidgetView: View {
 
     let metrics: DayNumberWithMonthGridWidgetView.Metrics
     let date: Date
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
 
     private var weekdayFormatter: DateFormatter {
         let formatter = DateFormatter()

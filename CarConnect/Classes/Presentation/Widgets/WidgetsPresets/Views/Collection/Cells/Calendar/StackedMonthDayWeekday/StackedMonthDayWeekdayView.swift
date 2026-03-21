@@ -55,7 +55,7 @@ final class StackedMonthDayWeekdayView: CalendarStyleView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setup(configuration: WidgetCalendarCongifuration) {
+    override func setup(configuration: WidgetCalendarConfiguration) {
         updateDate(configuration: configuration)
         updateBackground(configuration: configuration)
     }
@@ -67,7 +67,7 @@ private extension StackedMonthDayWeekdayView {
         backgroundColor = UIColor.clear
     }
     
-    func updateDate(configuration: WidgetCalendarCongifuration) {
+    func updateDate(configuration: WidgetCalendarConfiguration) {
         let date = Date()
         
         let monthAttrs = TextAttributes()
@@ -126,7 +126,7 @@ private extension StackedMonthDayWeekdayView {
         todayLabel.attributedText = todayWeekdayResult
     }
     
-    func updateBackground(configuration: WidgetCalendarCongifuration) {
+    func updateBackground(configuration: WidgetCalendarConfiguration) {
         switch configuration.background {
         case .color(let codableColor):
             backgroundImageView.isHidden = true

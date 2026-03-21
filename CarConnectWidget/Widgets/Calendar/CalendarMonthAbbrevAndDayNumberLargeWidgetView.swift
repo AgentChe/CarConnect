@@ -26,7 +26,7 @@ struct CalendarMonthAbbrevAndDayNumberLargeWidgetView: View {
         static let largeDayFontSize: CGFloat = 140
     }
 
-    let configuration: WidgetCalendarCongifuration
+    let configuration: WidgetCalendarConfiguration
     let metrics: Metrics
 
     private var weekdayFormatter: DateFormatter {

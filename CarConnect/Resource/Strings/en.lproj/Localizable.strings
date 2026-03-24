@@ -78,6 +78,17 @@
 "WidgetsBuilders.Background" = "Background";
 "WidgetsBuilders.EnterName.Title" = "Give a name for the widget";
 "WidgetsBuilders.EnterName.SubTitle" = "Provide a unique name for the widget to save it in the collection of saved widgets";
+"WidgetsBuilders.ConfigurationTab.VisualEditor" = "Visual Editor";
+"WidgetsBuilders.ConfigurationTab.WidgetsSettings" = "Widget Settings";
+"WidgetsBuilders.TimeFormat.TwentyFourHour" = "24-hour format";
+"WidgetsBuilders.TemperatureType.Title" = "Type of temperature";
+"WidgetsBuilders.TemperatureType.Celsius" = "Celsius (°C)";
+"WidgetsBuilders.TemperatureType.Fahrenheit" = "Fahrenheit (°F)";
+"WidgetsBuilders.Location.Title" = "Location";
+"WidgetsBuilders.Location.EnterName.Title" = "Enter the name of the city";
+"WidgetsBuilders.Location.EnterName.SubTitle" = "Select a city from the list";
+"WidgetsBuilders.Location.Search" = "Search";
+"WidgetsBuilders.Location.MyGeo.Title" = "My geolocation (auto)";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

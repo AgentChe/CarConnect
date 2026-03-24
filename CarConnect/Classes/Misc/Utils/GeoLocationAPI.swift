@@ -126,7 +126,13 @@ private extension GeoLocationAPI {
                 return
             }
             
-            self.locationCompletion?(Location(name: name, coordinate: coordinate))
+            let location = Location(
+                id: UUID().uuidString,
+                name: name,
+                coordinate: coordinate
+            )
+            
+            self.locationCompletion?(location)
             self.clearCompletions()
         }
     }

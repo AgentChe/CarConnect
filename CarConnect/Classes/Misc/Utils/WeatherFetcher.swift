@@ -20,6 +20,34 @@ final class WeatherFetcher {
         trigger.asDriver()
     }
     
+    init(location: Location) {
+        Observable<WeatherData?>.create { [weak self] observer in
+            guard let self else {
+                observer.onNext(nil)
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            
+            let task = Task {
+                let weather = try? await self.weatherAPI.fetchWeather(location: location)
+                
+                if !Task.isCancelled {
+                    observer.onNext(weather)
+                    observer.onCompleted()
+                }
+            }
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+        .asDriver(onErrorJustReturn: nil)
+        .drive(onNext: { [weak self] weatherData in
+            self?.trigger.accept(weatherData)
+        })
+        .disposed(by: disposeBag)
+    }
+    
     init() {
         Single<Location>
             .create { [weak self] single in

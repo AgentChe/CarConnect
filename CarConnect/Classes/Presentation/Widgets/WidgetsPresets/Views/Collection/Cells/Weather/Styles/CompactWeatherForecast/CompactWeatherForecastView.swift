@@ -45,7 +45,7 @@ final class CompactWeatherForecastView: WeatherStyleView {
                     case .small:
                         return 15.scale
                     case .large:
-                        return 15.scale
+                        return 30.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -62,7 +62,7 @@ final class CompactWeatherForecastView: WeatherStyleView {
                     case .small:
                         return 32.scale
                     case .large:
-                        return 32.scale
+                        return 64.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -106,7 +106,7 @@ private extension CompactWeatherForecastView {
             case .small:
                 return 12.scale
             case .large:
-                return 12.scale
+                return 24.scale
             }
         }()
         
@@ -123,7 +123,7 @@ private extension CompactWeatherForecastView {
                 case .small:
                     return 3.scale
                 case .large:
-                    return 3.scale
+                    return 6.scale
                 }
             }())
         ])
@@ -134,7 +134,7 @@ private extension CompactWeatherForecastView {
                 case .small:
                     return 44.scale
                 case .large:
-                    return 44.scale
+                    return 88.scale
                 }
             }()),
             kindIconView.heightAnchor.constraint(equalToConstant: {
@@ -142,7 +142,7 @@ private extension CompactWeatherForecastView {
                 case .small:
                     return 44.scale
                 case .large:
-                    return 44.scale
+                    return 88.scale
                 }
             }()),
             kindIconView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
@@ -158,7 +158,7 @@ private extension CompactWeatherForecastView {
                 case .small:
                     return 52.scale
                 case .large:
-                    return 52.scale
+                    return 104.scale
                 }
             }())
         ])

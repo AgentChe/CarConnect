@@ -21,8 +21,12 @@ struct WidgetPresetQuery: EntityQuery {
             .map { configuration -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .calendar(configuration))
             }
+        let weatherConfigurations = WidgetWeatherStorage.shared.loadAllConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .weather(configuration))
+            }
         
-        return textQuotes + textManuallyConfigurations + calendarConfigurations
+        return textQuotes + textManuallyConfigurations + calendarConfigurations + weatherConfigurations
     }
     
     func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {

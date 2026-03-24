@@ -43,7 +43,7 @@ final class CurrentWeatherSummaryView: WeatherStyleView {
             case .small:
                 return 20.scale
             case .large:
-                return 20.scale
+                return 40.scale
             }
         }()
         
@@ -156,7 +156,7 @@ private extension CurrentWeatherSummaryView {
             case .small:
                 return 12.scale
             case .large:
-                return 12.scale
+                return 24.scale
             }
         }()
         
@@ -174,7 +174,7 @@ private extension CurrentWeatherSummaryView {
                 case .small:
                     return 4.scale
                 case .large:
-                    return 4.scale
+                    return 8.scale
                 }
             }())
         ])
@@ -187,7 +187,7 @@ private extension CurrentWeatherSummaryView {
                 case .small:
                     return 4.scale
                 case .large:
-                    return 4.scale
+                    return 8.scale
                 }
             }())
         ])
@@ -198,7 +198,7 @@ private extension CurrentWeatherSummaryView {
                 case .small:
                     return 24.scale
                 case .large:
-                    return 24.scale
+                    return 48.scale
                 }
             }()),
             kindIconView.heightAnchor.constraint(equalToConstant: {
@@ -206,7 +206,7 @@ private extension CurrentWeatherSummaryView {
                 case .small:
                     return 24.scale
                 case .large:
-                    return 24.scale
+                    return 48.scale
                 }
             }()),
             kindIconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
@@ -219,7 +219,7 @@ private extension CurrentWeatherSummaryView {
                 case .small:
                     return 46.scale
                 case .large:
-                    return 46.scale
+                    return 92.scale
                 }
             }()),
             kindNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset),

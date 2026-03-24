@@ -44,7 +44,14 @@ extension WeatherFourDaysItemView {
         let temperature: NSAttributedString = {
             let attrs = TextAttributes()
                 .textColor(configuration.textColor)
-                .font(configuration.font.uiFont(baseSize: 15.scale))
+                .font(configuration.font.uiFont(baseSize: {
+                    switch metrics {
+                    case .small:
+                        return 15.scale
+                    case .large:
+                        return 30.scale
+                    }
+                }()))
                 .textAlignment(.center)
             let temperature: String = {
                 let temperature = weather.temperature
@@ -63,7 +70,14 @@ extension WeatherFourDaysItemView {
         let day: NSAttributedString = {
             let attrs = TextAttributes()
                 .textColor(configuration.textColor)
-                .font(configuration.font.uiFont(baseSize: 12.scale))
+                .font(configuration.font.uiFont(baseSize: {
+                    switch metrics {
+                    case .small:
+                        return 12.scale
+                    case .large:
+                        return 24.scale
+                    }
+                }()))
                 .textAlignment(.center)
             return dateFormatter.string(from: weather.date).attributed(with: attrs)
         }()

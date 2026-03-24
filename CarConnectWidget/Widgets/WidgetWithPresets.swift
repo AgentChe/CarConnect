@@ -16,8 +16,8 @@ struct WidgetWithPresets: Widget {
             intent: WidgetPresetConfigurationIntent.self,
             provider: WidgetPresetTimelineProvider()
         ) { entry in
-            if let preset = entry.model {
-                switch preset {
+            if let content = entry.content {
+                switch content {
                 case .textQuote(let storageModel):
                     switch storageModel.quote {
                     case .ambitionDrive(let quote):
@@ -45,6 +45,58 @@ struct WidgetWithPresets: Widget {
                         CalendarMonthDayAndWeekdayTextWidgetView(configuration: model.configuration, metrics: .large)
                     case .stackedMonthDayWeekday:
                         StackedMonthDayWeekdayWidgetView(configuration: model.configuration, metrics: .large)
+                    }
+                case .weather(let model, let weatherData):
+                    switch model.configuration.style {
+                    case .weatherIconTemperature:
+                        WeatherIconTemperatureWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .currentWeatherSummary:
+                        CurrentWeatherSummaryWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .locationTemperature:
+                        LocationTemperatureWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .compactWeatherForecast:
+                        CompactWeatherForecastWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .todayTomorrowWeather:
+                        TodayTomorrowWeatherWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .weatherClock:
+                        WeatherClockWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .weatherConditionForecast:
+                        WeatherConditionForecastWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large
+                        )
+                    case .digitalWeatherClock:
+                        DigitalWeatherClockWidgetView(
+                            configuration: model.configuration,
+                            weatherData: weatherData,
+                            metrics: .large,
+                            date: Date()
+                        )
                     }
                 }
             } else {

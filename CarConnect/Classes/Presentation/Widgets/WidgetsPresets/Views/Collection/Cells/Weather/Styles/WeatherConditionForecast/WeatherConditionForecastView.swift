@@ -45,7 +45,7 @@ final class WeatherConditionForecastView: WeatherStyleView {
                     case .small:
                         return 50.scale
                     case .large:
-                        return 50.scale
+                        return 100.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -71,7 +71,7 @@ final class WeatherConditionForecastView: WeatherStyleView {
                     case .small:
                         return 16.scale
                     case .large:
-                        return 16.scale
+                        return 32.scale
                     }
                 }()))
             
@@ -120,7 +120,7 @@ private extension WeatherConditionForecastView {
             case .small:
                 return 12.scale
             case .large:
-                return 12.scale
+                return 24.scale
             }
         }()
         
@@ -136,7 +136,7 @@ private extension WeatherConditionForecastView {
                 case .small:
                     return 24.scale
                 case .large:
-                    return 24.scale
+                    return 48.scale
                 }
             }()),
             kindIconView.heightAnchor.constraint(equalToConstant: {
@@ -144,7 +144,7 @@ private extension WeatherConditionForecastView {
                 case .small:
                     return 24.scale
                 case .large:
-                    return 24.scale
+                    return 48.scale
                 }
             }()),
             kindIconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
@@ -157,7 +157,7 @@ private extension WeatherConditionForecastView {
                 case .small:
                     return 6.scale
                 case .large:
-                    return 6.scale
+                    return 12.scale
                 }
             }()),
             kindLabel.centerYAnchor.constraint(equalTo: kindIconView.centerYAnchor)
@@ -172,7 +172,7 @@ private extension WeatherConditionForecastView {
                 case .small:
                     return 38.scale
                 case .large:
-                    return 38.scale
+                    return 76.scale
                 }
             }())
         ])

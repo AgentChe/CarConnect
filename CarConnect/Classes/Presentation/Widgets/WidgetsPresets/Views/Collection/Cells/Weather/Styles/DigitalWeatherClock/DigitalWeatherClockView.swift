@@ -56,7 +56,7 @@ final class DigitalWeatherClockView: WeatherStyleView {
                     case .small:
                         return 28.scale
                     case .large:
-                        return 28.scale
+                        return 56.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -72,7 +72,7 @@ final class DigitalWeatherClockView: WeatherStyleView {
                     case .small:
                         return 40.scale
                     case .large:
-                        return 40.scale
+                        return 80.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -98,7 +98,7 @@ final class DigitalWeatherClockView: WeatherStyleView {
                     case .small:
                         return 28.scale
                     case .large:
-                        return 28.scale
+                        return 56.scale
                     }
                 }()))
                 .textAlignment(.center)
@@ -239,7 +239,7 @@ private extension DigitalWeatherClockView {
     func makeTimeLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        timeContainer.addSubview(view)
         return view
     }
 }

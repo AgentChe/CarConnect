@@ -120,7 +120,14 @@ private extension WidgetsPresetsViewController {
             }()
             navigationController?.pushViewController(vc, animated: true)
         case .openWeather(let storageModelId, let config):
-            break // TODO: 
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetWeatherViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetWeatherViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

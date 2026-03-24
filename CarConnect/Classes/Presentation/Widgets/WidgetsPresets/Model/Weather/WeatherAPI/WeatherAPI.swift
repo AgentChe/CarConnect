@@ -8,13 +8,13 @@
 import CoreLocation
 import WeatherKit
 
-struct WeatherData: Sendable {
+struct WeatherData: Sendable, Hashable {
     let location: Location
     let current: WeatherSummary
     let daily: [WeatherSummary]   // 4 next days
 }
 
-struct WeatherSummary: Sendable {
+struct WeatherSummary: Sendable, Hashable {
     let date: Date
     let temperature: Temperature
     let feelsLike: Temperature

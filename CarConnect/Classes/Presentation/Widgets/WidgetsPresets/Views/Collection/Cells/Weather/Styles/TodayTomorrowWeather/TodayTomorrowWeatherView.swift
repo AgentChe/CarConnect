@@ -45,7 +45,7 @@ final class TodayTomorrowWeatherView: WeatherStyleView {
                     case .small:
                         return 16.scale
                     case .large:
-                        return 16.scale
+                        return 32.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -61,7 +61,7 @@ final class TodayTomorrowWeatherView: WeatherStyleView {
                     case .small:
                         return 32.scale
                     case .large:
-                        return 32.scale
+                        return 64.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -87,7 +87,7 @@ final class TodayTomorrowWeatherView: WeatherStyleView {
                     case .small:
                         return 16.scale
                     case .large:
-                        return 16.scale
+                        return 32.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -132,7 +132,7 @@ private extension TodayTomorrowWeatherView {
             case .small:
                 return 12.scale
             case .large:
-                return 12.scale
+                return 24.scale
             }
         }()
         
@@ -149,7 +149,7 @@ private extension TodayTomorrowWeatherView {
                 case .small:
                     return 2.scale
                 case .large:
-                    return 2.scale
+                    return 4.scale
                 }
             }())
         ])
@@ -160,7 +160,7 @@ private extension TodayTomorrowWeatherView {
                 case .small:
                     return 36.scale
                 case .large:
-                    return 36.scale
+                    return 72.scale
                 }
             }()),
             kindIconView.heightAnchor.constraint(equalToConstant: {
@@ -168,7 +168,7 @@ private extension TodayTomorrowWeatherView {
                 case .small:
                     return 36.scale
                 case .large:
-                    return 36.scale
+                    return 72.scale
                 }
             }()),
             kindIconView.leadingAnchor.constraint(equalTo: todayTemperatureLabel.trailingAnchor, constant: 6.scale),

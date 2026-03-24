@@ -12,7 +12,7 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
     
     static var defaultQuery = WidgetPresetQuery()
     
-    let preset: WidgetPreset
+    let preset: WidgetPresetSelection
     
     var id: String {
         switch preset {
@@ -21,6 +21,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
         case .textManually(let manuallyConfiguration):
             return manuallyConfiguration.id
         case .calendar(let model):
+            return model.id
+        case .weather(let model):
             return model.id
         }
     }
@@ -33,6 +35,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             case .textManually(let storateModel):
                 return storateModel.name
             case .calendar(let model):
+                return model.name
+            case .weather(let model):
                 return model.name
             }
         }()

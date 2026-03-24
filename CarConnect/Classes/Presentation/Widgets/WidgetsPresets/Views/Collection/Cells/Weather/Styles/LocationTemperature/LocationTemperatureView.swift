@@ -42,7 +42,7 @@ final class LocationTemperatureView: WeatherStyleView {
                     case .small:
                         return 22.scale
                     case .large:
-                        return 22.scale
+                        return 44.scale
                     }
                 }()))
                 .textAlignment(.center)
@@ -59,7 +59,7 @@ final class LocationTemperatureView: WeatherStyleView {
                     case .small:
                         return 50.scale
                     case .large:
-                        return 50.scale
+                        return 100.scale
                     }
                 }()))
                 .textAlignment(.center)
@@ -101,7 +101,7 @@ private extension LocationTemperatureView {
             case .small:
                 return 12.scale
             case .large:
-                return 12.scale
+                return 24.scale
             }
         }()
         
@@ -113,7 +113,7 @@ private extension LocationTemperatureView {
                 case .small:
                     return 15.scale
                 case .large:
-                    return 15.scale
+                    return 30.scale
                 }
             }())
         ])
@@ -126,7 +126,7 @@ private extension LocationTemperatureView {
                 case .small:
                     return 24.scale
                 case .large:
-                    return 24.scale
+                    return 48.scale
                 }
             }())
         ])

@@ -14,3 +14,16 @@
 "LiveActivity.Power.Fuel.SubTitle" = "Fuel level";
 "LiveActivity.kpa" = "kPa";
 "LiveActivity.psi" = "psi";
+
+// MARK: WidgetsPresets
+"WidgetsPresets.Weather.NowIn" = " now in";
+"WidgetsPresets.Weather.Feels" = "feels ";
+"WidgetsPresets.Weather.Today" = "Today";
+"WidgetsPresets.Weather.TomorrowTemperature" = "Tomorrow\nwill be %@";
+
+// MARK: WeatherCondition
+"WeatherCondition.Sunny" = "Sunny";
+"WeatherCondition.Rainy" = "Rainy";
+"WeatherCondition.Snowy" = "Snowy";
+"WeatherCondition.Cloudy" = "Cloudy";
+"WeatherCondition.Windy" = "Windy";

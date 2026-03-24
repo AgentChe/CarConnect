@@ -43,7 +43,7 @@ final class WeatherIconTemperatureView: WeatherStyleView {
                 case .small:
                     return 15.scale
                 case .large:
-                    return 15.scale
+                    return 30.scale
                 }
             }()))
             .textAlignment(.center)
@@ -56,7 +56,7 @@ final class WeatherIconTemperatureView: WeatherStyleView {
                 case .small:
                     return 34.scale
                 case .large:
-                    return 34.scale
+                    return 68.scale
                 }
             }()))
             .textAlignment(.center)
@@ -99,7 +99,7 @@ private extension WeatherIconTemperatureView {
                 case .small:
                     return 12.scale
                 case .large:
-                    return 12.scale
+                    return 24.scale
                 }
             }())
         ])
@@ -110,7 +110,7 @@ private extension WeatherIconTemperatureView {
                 case .small:
                     return 52.scale
                 case .large:
-                    return 52.scale
+                    return 104.scale
                 }
             }()),
             iconView.heightAnchor.constraint(equalToConstant: {
@@ -118,7 +118,7 @@ private extension WeatherIconTemperatureView {
                 case .small:
                     return 52.scale
                 case .large:
-                    return 52.scale
+                    return 104.scale
                 }
             }()),
             iconView.topAnchor.constraint(equalTo: placeLabel.bottomAnchor, constant: {
@@ -126,7 +126,7 @@ private extension WeatherIconTemperatureView {
                 case .small:
                     return 16.scale
                 case .large:
-                    return 16.scale
+                    return 32.scale
                 }
             }()),
             iconView.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -140,7 +140,7 @@ private extension WeatherIconTemperatureView {
                 case .small:
                     return -12.scale
                 case .large:
-                    return -12.scale
+                    return -24.scale
                 }
             }())
         ])

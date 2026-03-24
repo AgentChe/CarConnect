@@ -72,7 +72,7 @@ final class WeatherClockView: WeatherStyleView {
                     case .small:
                         return 32.scale
                     case .large:
-                        return 32.scale
+                        return 64.scale
                     }
                 }()))
             let formatter: DateFormatter = {
@@ -94,9 +94,9 @@ final class WeatherClockView: WeatherStyleView {
                 .font(configuration.font.uiFont(baseSize: {
                     switch metrics {
                     case .small:
-                        return 14.scale
+                        return 12.scale
                     case .large:
-                        return 14.scale
+                        return 24.scale
                     }
                 }()))
             
@@ -112,9 +112,9 @@ final class WeatherClockView: WeatherStyleView {
                 .font(configuration.font.uiFont(baseSize: {
                     switch metrics {
                     case .small:
-                        return 14.scale
+                        return 12.scale
                     case .large:
-                        return 14.scale
+                        return 24.scale
                     }
                 }()))
             
@@ -130,7 +130,7 @@ final class WeatherClockView: WeatherStyleView {
                     case .small:
                         return 32.scale
                     case .large:
-                        return 32.scale
+                        return 64.scale
                     }
                 }()))
                 .textAlignment(.left)
@@ -174,7 +174,7 @@ private extension WeatherClockView {
                 case .small:
                     return 10.scale
                 case .large:
-                    return 10.scale
+                    return 20.scale
                 }
             }())
         ])
@@ -185,7 +185,7 @@ private extension WeatherClockView {
                 case .small:
                     return 10.scale
                 case .large:
-                    return 10.scale
+                    return 20.scale
                 }
             }()),
             dateContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: {
@@ -193,7 +193,7 @@ private extension WeatherClockView {
                 case .small:
                     return -10.scale
                 case .large:
-                    return -10.scale
+                    return -20.scale
                 }
             }()),
             dateContainer.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: {
@@ -201,7 +201,7 @@ private extension WeatherClockView {
                 case .small:
                     return 16.scale
                 case .large:
-                    return 16.scale
+                    return 32.scale
                 }
             }())
         ])
@@ -211,7 +211,7 @@ private extension WeatherClockView {
             case .small:
                 return 11.scale
             case .large:
-                return 11.scale
+                return 22.scale
             }
         }()
         
@@ -228,7 +228,7 @@ private extension WeatherClockView {
                 case .small:
                     return 10.scale
                 case .large:
-                    return 10.scale
+                    return 20.scale
                 }
             }()),
             dateSeparator.widthAnchor.constraint(equalToConstant: 1.scale),
@@ -237,18 +237,18 @@ private extension WeatherClockView {
                 case .small:
                     return 7.scale
                 case .large:
-                    return 7.scale
+                    return 14.scale
                 }
             }())
         ])
         
         NSLayoutConstraint.activate([
-            weekdayLabel.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: {
+            weekdayLabel.leadingAnchor.constraint(equalTo: dateSeparator.trailingAnchor, constant: {
                 switch metrics {
                 case .small:
-                    return 22.scale
+                    return 10.scale
                 case .large:
-                    return 22.scale
+                    return 20.scale
                 }
             }()),
             weekdayLabel.trailingAnchor.constraint(equalTo: dateContainer.contentView.trailingAnchor, constant: -dateContainerInsideInsets),
@@ -263,7 +263,7 @@ private extension WeatherClockView {
                 case .small:
                     return -10.scale
                 case .large:
-                    return -10.scale
+                    return -20.scale
                 }
             }())
         ])
@@ -273,7 +273,7 @@ private extension WeatherClockView {
             case .small:
                 return 36.scale
             case .large:
-                return 36.scale
+                return 72.scale
             }
         }()
         
@@ -290,7 +290,7 @@ private extension WeatherClockView {
                 case .small:
                     return kindSize + 10.scale
                 case .large:
-                    return kindSize + 10.scale
+                    return kindSize + 20.scale
                 }
             }()),
             temperatureLabel.trailingAnchor.constraint(equalTo: temperatureContainer.trailingAnchor),

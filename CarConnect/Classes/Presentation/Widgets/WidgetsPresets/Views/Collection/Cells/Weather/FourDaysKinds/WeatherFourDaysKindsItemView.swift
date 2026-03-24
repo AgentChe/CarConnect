@@ -47,7 +47,14 @@ extension WeatherFourDaysKindsItemView {
         let temperature: NSAttributedString = {
             let attrs = TextAttributes()
                 .textColor(configuration.textColor)
-                .font(configuration.font.uiFont(baseSize: 12.scale))
+                .font(configuration.font.uiFont(baseSize: {
+                    switch metrics {
+                    case .small:
+                        return 12.scale
+                    case .large:
+                        return 24.scale
+                    }
+                }()))
                 .textAlignment(.center)
             let temperature: String = {
                 let temperature = weather.temperature
@@ -66,7 +73,14 @@ extension WeatherFourDaysKindsItemView {
         let day: NSAttributedString = {
             let attrs = TextAttributes()
                 .textColor(configuration.textColor)
-                .font(configuration.font.uiFont(baseSize: 10.scale))
+                .font(configuration.font.uiFont(baseSize: {
+                    switch metrics {
+                    case .small:
+                        return 10.scale
+                    case .large:
+                        return 20.scale
+                    }
+                }()))
                 .textAlignment(.center)
             return dateFormatter.string(from: weather.date).attributed(with: attrs)
         }()
@@ -90,7 +104,7 @@ private extension WeatherFourDaysKindsItemView {
                 case .small:
                     return 18.scale
                 case .large:
-                    return 18.scale
+                    return 36.scale
                 }
             }()),
             kindView.heightAnchor.constraint(equalToConstant: {
@@ -98,7 +112,7 @@ private extension WeatherFourDaysKindsItemView {
                 case .small:
                     return 18.scale
                 case .large:
-                    return 18.scale
+                    return 36.scale
                 }
             }()),
             kindView.topAnchor.constraint(equalTo: topAnchor),

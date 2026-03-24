@@ -172,7 +172,7 @@
 		DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF32F55F2B3004F5F7E /* WidgetTextStorage.swift */; };
 		DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BF32F55F2B3004F5F7E /* WidgetTextStorage.swift */; };
 		DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0A92F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift */; };
-		DE629BFF2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */; };
+		DE629BFF2F55F5F9004F5F7E /* WidgetPresetSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629BFD2F55F5F9004F5F7E /* WidgetPresetSelection.swift */; };
 		DE629C022F55F60B004F5F7E /* WidgetPresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */; };
 		DE629C042F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C032F55F669004F5F7E /* WidgetPresetQuery.swift */; };
 		DE629C072F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */; };
@@ -337,6 +337,46 @@
 		DEEAA92E2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */; };
 		DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA9FB2F6EFB560072C702 /* WeatherFourDaysView.swift */; };
 		DEEAA9FE2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA9FD2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift */; };
+		DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA002F6F07CF0072C702 /* WidgetWeatherViewController.swift */; };
+		DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA022F6F07D70072C702 /* WidgetWeatherViewModel.swift */; };
+		DEEAAA052F6F07DC0072C702 /* WidgetWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA042F6F07DC0072C702 /* WidgetWeatherView.swift */; };
+		DEEAAA092F6F0CE40072C702 /* WidgetBuilderConfigurationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA082F6F0CE40072C702 /* WidgetBuilderConfigurationTabView.swift */; };
+		DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA0A2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift */; };
+		DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA0D2F7121500072C702 /* WidgetBuilderTimeFormatView.swift */; };
+		DEEAAA122F712B210072C702 /* SelectTemperatureTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA112F712B210072C702 /* SelectTemperatureTypeViewController.swift */; };
+		DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA152F712B340072C702 /* SelectTemperatureTypeView.swift */; };
+		DEEAAA1A2F712B560072C702 /* SelectTemperatureTypeCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA192F712B560072C702 /* SelectTemperatureTypeCellButton.swift */; };
+		DEEAAA1C2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA1B2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift */; };
+		DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA1F2F7138D20072C702 /* WidgetBuilderLocationView.swift */; };
+		DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA212F713BB00072C702 /* SelectLocationViewController.swift */; };
+		DEEAAA242F713BB90072C702 /* SelectLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA232F713BB90072C702 /* SelectLocationViewModel.swift */; };
+		DEEAAA262F713BBE0072C702 /* SelectLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA252F713BBE0072C702 /* SelectLocationView.swift */; };
+		DEEAAA292F71A3E80072C702 /* SelectLocationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA282F71A3E80072C702 /* SelectLocationTableView.swift */; };
+		DEEAAA2B2F71A3EF0072C702 /* SelectLocationTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA2A2F71A3EF0072C702 /* SelectLocationTableElement.swift */; };
+		DEEAAA2E2F71A4000072C702 /* SelectLocationMyGeoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA2D2F71A4000072C702 /* SelectLocationMyGeoCell.swift */; };
+		DEEAAA302F71A4090072C702 /* SelectLocationEnterNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA2F2F71A4090072C702 /* SelectLocationEnterNameCell.swift */; };
+		DEEAAA332F71A9420072C702 /* SelectLocationSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA322F71A9420072C702 /* SelectLocationSearchField.swift */; };
+		DEEAAA352F72778B0072C702 /* SelectLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA342F72778B0072C702 /* SelectLocationCell.swift */; };
+		DEEAAA382F727C7F0072C702 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA362F727C7F0072C702 /* LocationManager.swift */; };
+		DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA3A2F727C8E0072C702 /* FetchLocationsRequest.swift */; };
+		DEEAAA3F2F727EFA0072C702 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA3E2F727EFA0072C702 /* PageInfo.swift */; };
+		DEEAAA402F727EFA0072C702 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA3E2F727EFA0072C702 /* PageInfo.swift */; };
+		DEEAAA422F727F3D0072C702 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA412F727F3D0072C702 /* Page.swift */; };
+		DEEAAA432F727F3D0072C702 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA412F727F3D0072C702 /* Page.swift */; };
+		DEEAAA442F728F760072C702 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF902F69483D0045CBC0 /* WeatherAPI.swift */; };
+		DEEAAA472F7292930072C702 /* WeatherIconTemperatureWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA462F7292930072C702 /* WeatherIconTemperatureWidgetView.swift */; };
+		DEEAAA492F7293A40072C702 /* CurrentWeatherSummaryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA482F7293A30072C702 /* CurrentWeatherSummaryWidgetView.swift */; };
+		DEEAAA4B2F7295210072C702 /* LocationTemperatureWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA4A2F7295210072C702 /* LocationTemperatureWidgetView.swift */; };
+		DEEAAA4D2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA4C2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift */; };
+		DEEAAA502F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA4F2F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift */; };
+		DEEAAA522F7295E60072C702 /* WeatherFourDaysKindsItemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA512F7295E60072C702 /* WeatherFourDaysKindsItemWidgetView.swift */; };
+		DEEAAA542F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA532F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift */; };
+		DEEAAA562F7297760072C702 /* WeatherClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA552F7297760072C702 /* WeatherClockWidgetView.swift */; };
+		DEEAAA592F7299100072C702 /* WeatherConditionForecastWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA582F7299100072C702 /* WeatherConditionForecastWidgetView.swift */; };
+		DEEAAA5B2F72994A0072C702 /* WeatherFourDaysWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA5A2F72994A0072C702 /* WeatherFourDaysWidgetView.swift */; };
+		DEEAAA5D2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA5C2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift */; };
+		DEEAAA5F2F72999E0072C702 /* DigitalWeatherClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA5E2F72999E0072C702 /* DigitalWeatherClockWidgetView.swift */; };
+		DEEAAA612F72A0A50072C702 /* WidgetPresetRenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAAA602F72A0A50072C702 /* WidgetPresetRenderModel.swift */; };
 		DEEB9D422F6A8CDD0041587F /* WidgetWeatherStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D412F6A8CDD0041587F /* WidgetWeatherStorageModel.swift */; };
 		DEEB9D432F6A8CDD0041587F /* WidgetWeatherStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D412F6A8CDD0041587F /* WidgetWeatherStorageModel.swift */; };
 		DEEB9D452F6A8CEC0041587F /* WidgetWeatherStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D442F6A8CEC0041587F /* WidgetWeatherStorage.swift */; };
@@ -519,7 +559,7 @@
 		DE629BED2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteLeadershipImpactWidgetView.swift; sourceTree = "<group>"; };
 		DE629BF02F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteLifeMeaningWidgetView.swift; sourceTree = "<group>"; };
 		DE629BF32F55F2B3004F5F7E /* WidgetTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextStorage.swift; sourceTree = "<group>"; };
-		DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreset.swift; sourceTree = "<group>"; };
+		DE629BFD2F55F5F9004F5F7E /* WidgetPresetSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetSelection.swift; sourceTree = "<group>"; };
 		DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetEntity.swift; sourceTree = "<group>"; };
 		DE629C032F55F669004F5F7E /* WidgetPresetQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetQuery.swift; sourceTree = "<group>"; };
 		DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetConfigurationIntent.swift; sourceTree = "<group>"; };
@@ -676,6 +716,43 @@
 		DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsItemView.swift; sourceTree = "<group>"; };
 		DEEAA9FB2F6EFB560072C702 /* WeatherFourDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysView.swift; sourceTree = "<group>"; };
 		DEEAA9FD2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysItemView.swift; sourceTree = "<group>"; };
+		DEEAAA002F6F07CF0072C702 /* WidgetWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherViewController.swift; sourceTree = "<group>"; };
+		DEEAAA022F6F07D70072C702 /* WidgetWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherViewModel.swift; sourceTree = "<group>"; };
+		DEEAAA042F6F07DC0072C702 /* WidgetWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherView.swift; sourceTree = "<group>"; };
+		DEEAAA082F6F0CE40072C702 /* WidgetBuilderConfigurationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderConfigurationTabView.swift; sourceTree = "<group>"; };
+		DEEAAA0A2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderConfigurationTabItemButton.swift; sourceTree = "<group>"; };
+		DEEAAA0D2F7121500072C702 /* WidgetBuilderTimeFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderTimeFormatView.swift; sourceTree = "<group>"; };
+		DEEAAA112F712B210072C702 /* SelectTemperatureTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemperatureTypeViewController.swift; sourceTree = "<group>"; };
+		DEEAAA152F712B340072C702 /* SelectTemperatureTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemperatureTypeView.swift; sourceTree = "<group>"; };
+		DEEAAA192F712B560072C702 /* SelectTemperatureTypeCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemperatureTypeCellButton.swift; sourceTree = "<group>"; };
+		DEEAAA1B2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderTemperatureTypeView.swift; sourceTree = "<group>"; };
+		DEEAAA1F2F7138D20072C702 /* WidgetBuilderLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderLocationView.swift; sourceTree = "<group>"; };
+		DEEAAA212F713BB00072C702 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
+		DEEAAA232F713BB90072C702 /* SelectLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewModel.swift; sourceTree = "<group>"; };
+		DEEAAA252F713BBE0072C702 /* SelectLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationView.swift; sourceTree = "<group>"; };
+		DEEAAA282F71A3E80072C702 /* SelectLocationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationTableView.swift; sourceTree = "<group>"; };
+		DEEAAA2A2F71A3EF0072C702 /* SelectLocationTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationTableElement.swift; sourceTree = "<group>"; };
+		DEEAAA2D2F71A4000072C702 /* SelectLocationMyGeoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationMyGeoCell.swift; sourceTree = "<group>"; };
+		DEEAAA2F2F71A4090072C702 /* SelectLocationEnterNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationEnterNameCell.swift; sourceTree = "<group>"; };
+		DEEAAA322F71A9420072C702 /* SelectLocationSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationSearchField.swift; sourceTree = "<group>"; };
+		DEEAAA342F72778B0072C702 /* SelectLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationCell.swift; sourceTree = "<group>"; };
+		DEEAAA362F727C7F0072C702 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DEEAAA3A2F727C8E0072C702 /* FetchLocationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLocationsRequest.swift; sourceTree = "<group>"; };
+		DEEAAA3E2F727EFA0072C702 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
+		DEEAAA412F727F3D0072C702 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DEEAAA462F7292930072C702 /* WeatherIconTemperatureWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconTemperatureWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA482F7293A30072C702 /* CurrentWeatherSummaryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherSummaryWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA4A2F7295210072C702 /* LocationTemperatureWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTemperatureWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA4C2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactWeatherForecastWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA4F2F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA512F7295E60072C702 /* WeatherFourDaysKindsItemWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsItemWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA532F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTomorrowWeatherWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA552F7297760072C702 /* WeatherClockWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClockWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA582F7299100072C702 /* WeatherConditionForecastWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionForecastWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA5A2F72994A0072C702 /* WeatherFourDaysWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA5C2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysItemWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA5E2F72999E0072C702 /* DigitalWeatherClockWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalWeatherClockWidgetView.swift; sourceTree = "<group>"; };
+		DEEAAA602F72A0A50072C702 /* WidgetPresetRenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresetRenderModel.swift; sourceTree = "<group>"; };
 		DEEB9D412F6A8CDD0041587F /* WidgetWeatherStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherStorageModel.swift; sourceTree = "<group>"; };
 		DEEB9D442F6A8CEC0041587F /* WidgetWeatherStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherStorage.swift; sourceTree = "<group>"; };
 		DEEB9D472F6A8CF20041587F /* WidgetWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherService.swift; sourceTree = "<group>"; };
@@ -808,6 +885,7 @@
 		DE1DA0422F4DDE9900742E69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAA9FF2F6F07C00072C702 /* Weather */,
 				DE0879EB2F5DA92100FECBA5 /* Calendar */,
 				DE629C182F5708F0004F5F7E /* WidgetTextManually */,
 				DE1DA03A2F4CBCE900742E69 /* WidgetTextQuote */,
@@ -818,6 +896,10 @@
 		DE1DA0432F4DDEA100742E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAAA1D2F7138A80072C702 /* Location */,
+				DEEAAA0F2F712AF80072C702 /* TemperatureType */,
+				DEEAAA0C2F7121420072C702 /* TimeFormat */,
+				DEEAAA072F6F0CCF0072C702 /* ConfigurationTab */,
 				DE0879E62F5D95D000FECBA5 /* EnterName */,
 				DE629C212F573A14004F5F7E /* Background */,
 				DE1DA0B32F51FD4C00742E69 /* RemoveConfirm */,
@@ -1297,10 +1379,12 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAAA452F72918A0072C702 /* Weather */,
 				DE0879F42F5DBBF800FECBA5 /* Calendar */,
 				DECB86852F58896400378ADC /* TextManually */,
 				DE629BD82F55CFE7004F5F7E /* TextQuote */,
-				DE629BFD2F55F5F9004F5F7E /* WidgetPreset.swift */,
+				DE629BFD2F55F5F9004F5F7E /* WidgetPresetSelection.swift */,
+				DEEAAA602F72A0A50072C702 /* WidgetPresetRenderModel.swift */,
 				DE629C002F55F60B004F5F7E /* WidgetPresetEntity.swift */,
 				DE629C032F55F669004F5F7E /* WidgetPresetQuery.swift */,
 				DE629C062F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift */,
@@ -1471,6 +1555,7 @@
 		DEA5CF982F6958100045CBC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAAA3D2F727EF40072C702 /* Page */,
 				DEA5CF992F6958440045CBC0 /* TimeFormat.swift */,
 				DEA5CF9C2F6958700045CBC0 /* Temperature.swift */,
 			);
@@ -1480,7 +1565,9 @@
 		DEA5CF9F2F6958BA0045CBC0 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAAA392F727C830072C702 /* Request */,
 				DEA5CFA02F6958C20045CBC0 /* Model */,
+				DEEAAA362F727C7F0072C702 /* LocationManager.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -2048,6 +2135,161 @@
 			path = FourDays;
 			sourceTree = "<group>";
 		};
+		DEEAA9FF2F6F07C00072C702 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA002F6F07CF0072C702 /* WidgetWeatherViewController.swift */,
+				DEEAAA022F6F07D70072C702 /* WidgetWeatherViewModel.swift */,
+				DEEAAA042F6F07DC0072C702 /* WidgetWeatherView.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		DEEAAA072F6F0CCF0072C702 /* ConfigurationTab */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA082F6F0CE40072C702 /* WidgetBuilderConfigurationTabView.swift */,
+				DEEAAA0A2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift */,
+			);
+			path = ConfigurationTab;
+			sourceTree = "<group>";
+		};
+		DEEAAA0C2F7121420072C702 /* TimeFormat */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA0D2F7121500072C702 /* WidgetBuilderTimeFormatView.swift */,
+			);
+			path = TimeFormat;
+			sourceTree = "<group>";
+		};
+		DEEAAA0F2F712AF80072C702 /* TemperatureType */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA102F712B090072C702 /* Select */,
+				DEEAAA1B2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift */,
+			);
+			path = TemperatureType;
+			sourceTree = "<group>";
+		};
+		DEEAAA102F712B090072C702 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA172F712B370072C702 /* Views */,
+				DEEAAA112F712B210072C702 /* SelectTemperatureTypeViewController.swift */,
+				DEEAAA152F712B340072C702 /* SelectTemperatureTypeView.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		DEEAAA172F712B370072C702 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA192F712B560072C702 /* SelectTemperatureTypeCellButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEEAAA1D2F7138A80072C702 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA1E2F7138B10072C702 /* Select */,
+				DEEAAA1F2F7138D20072C702 /* WidgetBuilderLocationView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		DEEAAA1E2F7138B10072C702 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA272F71A3D80072C702 /* Views */,
+				DEEAAA212F713BB00072C702 /* SelectLocationViewController.swift */,
+				DEEAAA232F713BB90072C702 /* SelectLocationViewModel.swift */,
+				DEEAAA252F713BBE0072C702 /* SelectLocationView.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		DEEAAA272F71A3D80072C702 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA312F71A8E90072C702 /* TableView */,
+				DEEAAA322F71A9420072C702 /* SelectLocationSearchField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEEAAA2C2F71A3F20072C702 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA2D2F71A4000072C702 /* SelectLocationMyGeoCell.swift */,
+				DEEAAA2F2F71A4090072C702 /* SelectLocationEnterNameCell.swift */,
+				DEEAAA342F72778B0072C702 /* SelectLocationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEEAAA312F71A8E90072C702 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA2C2F71A3F20072C702 /* Cells */,
+				DEEAAA282F71A3E80072C702 /* SelectLocationTableView.swift */,
+				DEEAAA2A2F71A3EF0072C702 /* SelectLocationTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEEAAA392F727C830072C702 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA3A2F727C8E0072C702 /* FetchLocationsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DEEAAA3D2F727EF40072C702 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA3E2F727EFA0072C702 /* PageInfo.swift */,
+				DEEAAA412F727F3D0072C702 /* Page.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		DEEAAA452F72918A0072C702 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA572F7298570072C702 /* ConditionForecast */,
+				DEEAAA4E2F7295BF0072C702 /* CompactWeatherForecast */,
+				DEEAAA462F7292930072C702 /* WeatherIconTemperatureWidgetView.swift */,
+				DEEAAA482F7293A30072C702 /* CurrentWeatherSummaryWidgetView.swift */,
+				DEEAAA4A2F7295210072C702 /* LocationTemperatureWidgetView.swift */,
+				DEEAAA532F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift */,
+				DEEAAA552F7297760072C702 /* WeatherClockWidgetView.swift */,
+				DEEAAA5E2F72999E0072C702 /* DigitalWeatherClockWidgetView.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		DEEAAA4E2F7295BF0072C702 /* CompactWeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA4C2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift */,
+				DEEAAA4F2F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift */,
+				DEEAAA512F7295E60072C702 /* WeatherFourDaysKindsItemWidgetView.swift */,
+			);
+			path = CompactWeatherForecast;
+			sourceTree = "<group>";
+		};
+		DEEAAA572F7298570072C702 /* ConditionForecast */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA582F7299100072C702 /* WeatherConditionForecastWidgetView.swift */,
+				DEEAAA5A2F72994A0072C702 /* WeatherFourDaysWidgetView.swift */,
+				DEEAAA5C2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift */,
+			);
+			path = ConditionForecast;
+			sourceTree = "<group>";
+		};
 		DEEB9D3F2F6A8CC40041587F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -2332,19 +2574,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEAAA402F727EFA0072C702 /* PageInfo.swift in Sources */,
+				DEEAAA522F7295E60072C702 /* WeatherFourDaysKindsItemWidgetView.swift in Sources */,
 				DEA5CF9B2F6958580045CBC0 /* TimeFormat.swift in Sources */,
 				DE629BEF2F55DDE4004F5F7E /* QuoteLeadershipImpactWidgetView.swift in Sources */,
 				DE5120272F4572280026C5CC /* PowerProgressFill.swift in Sources */,
 				DE5120282F4572280026C5CC /* PowerDisplayIslandLeading.swift in Sources */,
 				DE087A032F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift in Sources */,
+				DEEAAA4D2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift in Sources */,
 				DE087A002F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift in Sources */,
+				DEEAAA5D2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift in Sources */,
 				DE5120292F4572280026C5CC /* PowerLiveActivityWidget.swift in Sources */,
+				DEEAAA4B2F7295210072C702 /* LocationTemperatureWidgetView.swift in Sources */,
 				DE51202A2F4572280026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DE0879FC2F5DBD8000FECBA5 /* CalendarMonthAbbrevAndDayNumberLargeWidgetView.swift in Sources */,
+				DEEAAA612F72A0A50072C702 /* WidgetPresetRenderModel.swift in Sources */,
 				DE6083A12F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE629BDC2F55D056004F5F7E /* WidgetTextQuoteConfiguration.swift in Sources */,
+				DEEAAA562F7297760072C702 /* WeatherClockWidgetView.swift in Sources */,
 				DE51202B2F4572280026C5CC /* PowerCompactProgressText.swift in Sources */,
 				DE51202C2F4572280026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
+				DEEAAA422F727F3D0072C702 /* Page.swift in Sources */,
 				DE51202D2F4572280026C5CC /* TirePressureLiveActivityWidget.swift in Sources */,
 				DE51202E2F4572280026C5CC /* PowerLockScreenView.swift in Sources */,
 				DE51202F2F4572280026C5CC /* PowerProgressExpanded.swift in Sources */,
@@ -2370,10 +2620,12 @@
 				DEEB9D4E2F6A8D2A0041587F /* WidgetWeatherConfiguration.swift in Sources */,
 				DEEB9D422F6A8CDD0041587F /* WidgetWeatherStorageModel.swift in Sources */,
 				DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */,
-				DE629BFF2F55F5F9004F5F7E /* WidgetPreset.swift in Sources */,
+				DE629BFF2F55F5F9004F5F7E /* WidgetPresetSelection.swift in Sources */,
+				DEEAAA5B2F72994A0072C702 /* WeatherFourDaysWidgetView.swift in Sources */,
 				DE629BC42F55C74A004F5F7E /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */,
 				DE5120312F4572280026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
+				DEEAAA592F7299100072C702 /* WeatherConditionForecastWidgetView.swift in Sources */,
 				DE51203F2F4574800026C5CC /* String+Extension.swift in Sources */,
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,
 				DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */,
@@ -2385,12 +2637,14 @@
 				DE629BEC2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
 				DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */,
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
+				DEEAAA472F7292930072C702 /* WeatherIconTemperatureWidgetView.swift in Sources */,
 				DEEB9D4D2F6A8D250041587F /* WidgetWeatherStyle.swift in Sources */,
 				DE0879F62F5DBD3E00FECBA5 /* CalendarMonthGridWidgetView.swift in Sources */,
 				DE629BC32F55C745004F5F7E /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DE6083A52F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE5120332F4572280026C5CC /* AccessCarActionPill.swift in Sources */,
 				DE60839C2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */,
+				DEEAAA442F728F760072C702 /* WeatherAPI.swift in Sources */,
 				DECB867D2F5870FC00378ADC /* SharedImageFileStore.swift in Sources */,
 				DEEB9D452F6A8CEC0041587F /* WidgetWeatherStorage.swift in Sources */,
 				DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
@@ -2399,12 +2653,16 @@
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
 				DEA5CFA32F6958CD0045CBC0 /* Location.swift in Sources */,
 				DE5120352F4572280026C5CC /* AccessCarLockScreenView.swift in Sources */,
+				DEEAAA542F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift in Sources */,
 				DE5120362F4572280026C5CC /* StripedIndicatorBar.swift in Sources */,
 				DE0879FE2F5DBD8F00FECBA5 /* CalendarMonthDayAndWeekdayTextWidgetView.swift in Sources */,
 				DECB86892F588A7400378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE5120372F4572280026C5CC /* TirePressureLockScreenView.swift in Sources */,
+				DEEAAA5F2F72999E0072C702 /* DigitalWeatherClockWidgetView.swift in Sources */,
+				DEEAAA492F7293A40072C702 /* CurrentWeatherSummaryWidgetView.swift in Sources */,
 				DE5120382F4572280026C5CC /* AccessCarDeepLink.swift in Sources */,
 				DE5120392F4572280026C5CC /* AccessCarLiveActivityWidget.swift in Sources */,
+				DEEAAA502F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift in Sources */,
 				DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */,
 				DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */,
 				DE51203E2F4572B00026C5CC /* GlobalDefinitions.swift in Sources */,
@@ -2457,11 +2715,13 @@
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */,
+				DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
+				DEEAAA302F71A4090072C702 /* SelectLocationEnterNameCell.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
@@ -2485,6 +2745,7 @@
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
+				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
 				DEEB9D772F6A92530041587F /* DigitalWeatherClockView.swift in Sources */,
 				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
@@ -2500,17 +2761,21 @@
 				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
+				DEEAAA432F727F3D0072C702 /* Page.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
 				DEC158592F4A28F500F2843C /* WidgetsHelperScrollView.swift in Sources */,
 				DECE316A2F62C24D0078414C /* DrivingModeSignalBarsView.swift in Sources */,
+				DEEAAA382F727C7F0072C702 /* LocationManager.swift in Sources */,
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
 				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
+				DEEAAA1C2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
 				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
 				DEEB9D5C2F6A91500041587F /* WidgetsPresetsTemplateLocationTemperatureCell.swift in Sources */,
+				DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
@@ -2523,8 +2788,10 @@
 				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DEEB9D542F6A91070041587F /* WeatherIconTemperatureView.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
+				DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
+				DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */,
 				DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */,
 				DE1DA0A72F51E14500742E69 /* WidgetTextService.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
@@ -2538,6 +2805,7 @@
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				DE0879EF2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
+				DEEAAA122F712B210072C702 /* SelectTemperatureTypeViewController.swift in Sources */,
 				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
@@ -2545,12 +2813,14 @@
 				DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */,
 				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
 				DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */,
+				DEEAAA1A2F712B560072C702 /* SelectTemperatureTypeCellButton.swift in Sources */,
 				DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
 				DEEB9D572F6A912E0041587F /* WidgetsPresetsTemplateCurrentWeatherSummaryCell.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
+				DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
 				DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */,
 				DEEB9D792F6A942F0041587F /* WeatherStyleView.swift in Sources */,
@@ -2565,6 +2835,7 @@
 				DEEB9D522F6A90E40041587F /* WidgetsPresetsTemplateWeatherIconTemperatureCell.swift in Sources */,
 				DEA2FBDA2F6307790034A47D /* AppleMusicSearchRequest.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
+				DEEAAA2E2F71A4000072C702 /* SelectLocationMyGeoCell.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
 				DE1DA0662F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift in Sources */,
 				DEEB9D662F6A91BC0041587F /* WidgetsPresetsTemplateTodayTomorrowWeatherCell.swift in Sources */,
@@ -2574,6 +2845,7 @@
 				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
 				DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
+				DEEAAA262F713BBE0072C702 /* SelectLocationView.swift in Sources */,
 				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
 				DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */,
@@ -2582,8 +2854,10 @@
 				DECE31772F62D7B20078414C /* AppleMusicViewController.swift in Sources */,
 				DEEB9D722F6A92350041587F /* WeatherConditionForecastView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,
+				DEEAAA352F72778B0072C702 /* SelectLocationCell.swift in Sources */,
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEA5CF962F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift in Sources */,
+				DEEAAA052F6F07DC0072C702 /* WidgetWeatherView.swift in Sources */,
 				DEEB9D752F6A924C0041587F /* WidgetsPresetsTemplateDigitalWeatherClockCell.swift in Sources */,
 				DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */,
 				DEEB9D482F6A8CF20041587F /* WidgetWeatherService.swift in Sources */,
@@ -2595,6 +2869,7 @@
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DE6083C32F5B20980025BB2D /* CalendarWeekRowItemView.swift in Sources */,
+				DEEAAA332F71A9420072C702 /* SelectLocationSearchField.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
@@ -2609,13 +2884,16 @@
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
+				DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */,
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
+				DEEAAA292F71A3E80072C702 /* SelectLocationTableView.swift in Sources */,
 				DEABE6452F456CFC00089B9E /* APIRequestBody.swift in Sources */,
 				DECE316C2F62C2910078414C /* DrivingModeBatteryView.swift in Sources */,
 				DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */,
 				DE592C5E2F49C21F00ABA60E /* MainCoordinator.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
+				DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */,
 				DEEB9D6B2F6A92090041587F /* WidgetsPresetsTemplateWeatherClockCell.swift in Sources */,
 				DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */,
 				DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */,
@@ -2623,6 +2901,7 @@
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
 				DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */,
+				DEEAAA3F2F727EFA0072C702 /* PageInfo.swift in Sources */,
 				DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */,
 				DE6083B82F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift in Sources */,
 				DE6083A82F599B860025BB2D /* WidgetCalendarService.swift in Sources */,
@@ -2634,6 +2913,7 @@
 				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,
 				DEEAA92C2F6D976E0072C702 /* WeatherFourDaysKindsView.swift in Sources */,
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
+				DEEAAA092F6F0CE40072C702 /* WidgetBuilderConfigurationTabView.swift in Sources */,
 				DEABE65B2F456CFC00089B9E /* PaddingLabel.swift in Sources */,
 				DEABE65D2F456CFC00089B9E /* AppDelegate.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
@@ -2643,6 +2923,7 @@
 				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
+				DEEAAA2B2F71A3EF0072C702 /* SelectLocationTableElement.swift in Sources */,
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
 				DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */,
 				DE6083AA2F599B8D0025BB2D /* WidgetCalendarMediator.swift in Sources */,
@@ -2652,6 +2933,7 @@
 				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
 				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
+				DEEAAA242F713BB90072C702 /* SelectLocationViewModel.swift in Sources */,
 				DECE315E2F62ADED0078414C /* DrivingModeMenuView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,

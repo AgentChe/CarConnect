@@ -139,6 +139,33 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
                 cell.setup(configuration: configuration, weatherData: weatherData)
                 return cell
             }
+        case .clock(_, let configuration):
+            switch configuration.style {
+            case .digitalStacked:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalStackedCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .digitalMirror:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalMirrorCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .digitalClassic:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalClassicCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalClassicCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .splitFlap:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateSplitFlapCell.self), for: indexPath) as! WidgetsPresetsTemplateSplitFlapCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .calendarClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCalendarClockCell.self), for: indexPath) as! WidgetsPresetsTemplateCalendarClockCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .analogClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAnalogClockCell.self), for: indexPath) as! WidgetsPresetsTemplateAnalogClockCell
+                cell.setup(configuration: configuration)
+                return cell
+            }
         }
     }
 }
@@ -186,6 +213,14 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateLocationTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateLocationTemperatureCell.self))
         register(WidgetsPresetsTemplateCurrentWeatherSummaryCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCurrentWeatherSummaryCell.self))
         register(WidgetsPresetsTemplateWeatherIconTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherIconTemperatureCell.self))
+        
+        // Clock
+        register(WidgetsPresetsTemplateAnalogClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAnalogClockCell.self))
+        register(WidgetsPresetsTemplateCalendarClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCalendarClockCell.self))
+        register(WidgetsPresetsTemplateSplitFlapCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateSplitFlapCell.self))
+        register(WidgetsPresetsTemplateDigitalClassicCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalClassicCell.self))
+        register(WidgetsPresetsTemplateDigitalMirrorCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self))
+        register(WidgetsPresetsTemplateDigitalStackedCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

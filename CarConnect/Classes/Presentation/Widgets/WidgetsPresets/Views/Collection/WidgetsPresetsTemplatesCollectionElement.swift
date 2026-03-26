@@ -21,4 +21,7 @@ enum WidgetsPresetsTemplatesCollectionElement {
     
     // Presets of weather
     case weather(String?, WidgetWeatherConfiguration, WeatherData)
+    
+    // Presets of clock
+    case clock(String?, WidgetClockConfiguration)
 }

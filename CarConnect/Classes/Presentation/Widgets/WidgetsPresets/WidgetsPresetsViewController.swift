@@ -128,6 +128,8 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openClock(let storageModelId, let config):
+            break // TODO: 
         }
     }
 }

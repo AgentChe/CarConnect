@@ -15,11 +15,13 @@ final class WidgetsPresetsViewModel {
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
         case openCalendarBuilder(String?, WidgetCalendarConfiguration)
         case openWeather(String?, WidgetWeatherConfiguration)
+        case openClock(String?, WidgetClockConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
     private lazy var calendarService = WidgetCalendarService()
     private lazy var weatherService = WidgetWeatherService()
+    private lazy var clockService = WidgetClockService()
     
     private lazy var weatherFetcher = WeatherFetcher()
 }
@@ -129,6 +131,8 @@ private extension WidgetsPresetsViewModel {
                     return .openCalendarBuilder(storageModelId, config)
                 case .weather(let storageModelId, let config, _):
                     return .openWeather(storageModelId, config)
+                case .clock(let storageModelId, let config):
+                    return .openClock(storageModelId, config)
                 }
             }
         
@@ -194,20 +198,22 @@ private extension WidgetsPresetsViewModel {
                         let textElements = self.makeTextElements(isSaved: saved)
                         let calendarElements = self.makeCalendarElements(isSaved: saved)
                         let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
+                        let clockElements = self.makeClockElements(isSaved: saved)
                         
                         return Driver
                             .combineLatest(
                                 textElements,
                                 calendarElements,
-                                weatherElements
+                                weatherElements,
+                                clockElements
                             )
-                            .map { texts, calendars, weathers -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts + calendars + weathers
+                            .map { texts, calendars, weathers, clocks -> [WidgetsPresetsTemplatesCollectionElement] in
+                                texts + calendars + weathers + clocks
                             }
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
                     case .clock:
-                        return .just([])
+                        return self.makeClockElements(isSaved: saved)
                     case .carLogo:
                         return .just([])
                     case .text:
@@ -575,6 +581,91 @@ private extension WidgetsPresetsViewModel {
                     templates.map { WidgetsPresetsTemplatesCollectionElement.weather(nil, $0, weatherData) }
                 }
                 .startWith([])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make clock elements
+private extension WidgetsPresetsViewModel {
+    func makeClockElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetClockStorageModel])
+                case added(WidgetClockStorageModel)
+                case edited(WidgetClockStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = clockService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetClockMediator.shared
+                .didSavedClockModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetClockMediator.shared
+                .didEditedClockModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetClockMediator.shared
+                .didDeletedClockModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetClockStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .clock($0.id, $0.configuration) }
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    let templates = [
+                        WidgetClockConfiguration.default(for: .digitalStacked),
+                        WidgetClockConfiguration.default(for: .digitalMirror),
+                        WidgetClockConfiguration.default(for: .digitalClassic),
+                        WidgetClockConfiguration.default(for: .splitFlap),
+                        WidgetClockConfiguration.default(for: .calendarClock),
+                        WidgetClockConfiguration.default(for: .analogClock)
+                    ]
+                    
+                    let elements = templates.map { WidgetsPresetsTemplatesCollectionElement.clock(nil, $0) }
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
         }
         
         return isSaved ? saved() : templates()

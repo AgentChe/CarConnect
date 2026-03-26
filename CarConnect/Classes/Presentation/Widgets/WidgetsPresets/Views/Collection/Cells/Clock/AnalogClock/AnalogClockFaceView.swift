@@ -19,6 +19,15 @@ final class AnalogClockFaceView: UIView {
         updateHands(for: date)
     }
 
+    func setupNumeralsAppearance(
+        font: UIFont,
+        textColor: UIColor
+    ) {
+        numeralFont = font
+        numeralTextColor = textColor
+        applyNumeralsAppearance()
+    }
+
     // MARK: - Private
 
     private let calendar = Calendar.current
@@ -31,6 +40,9 @@ final class AnalogClockFaceView: UIView {
     private let minuteHandView = UIView()
 
     private var numeralLabels: [UILabel] = []
+
+    private var numeralFont: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+    private var numeralTextColor: UIColor = .black
 
     // MARK: - Init
 
@@ -81,11 +93,19 @@ private extension AnalogClockFaceView {
             let label = UILabel()
             label.text = "\(value)"
             label.textAlignment = .center
-            label.textColor = .black
             label.adjustsFontSizeToFitWidth = true
             label.minimumScaleFactor = 0.6
             faceView.addSubview(label)
             numeralLabels.append(label)
+        }
+
+        applyNumeralsAppearance()
+    }
+
+    func applyNumeralsAppearance() {
+        numeralLabels.forEach {
+            $0.font = numeralFont
+            $0.textColor = numeralTextColor
         }
     }
 
@@ -149,16 +169,12 @@ private extension AnalogClockFaceView {
         guard side > 0 else { return }
 
         let center = CGPoint(x: side / 2, y: side / 2)
-        let values = numeralValues()
-        let count = values.count
+        let count = numeralValues().count
 
         let labelSize = side * 0.12
-        let fontSize = side * 0.09
         let radius = side * 0.40
 
         for (index, label) in numeralLabels.enumerated() {
-            label.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
-
             let angle = (-CGFloat.pi / 2) + (CGFloat(index) * 2 * .pi / CGFloat(count))
             let x = center.x + cos(angle) * radius
             let y = center.y + sin(angle) * radius

@@ -25,7 +25,7 @@ extension WidgetClockConfiguration {
                 CodableColor(wrappedValue: Appearance.color_2C2F39)
             ]),
             font: WidgetsFonts.orbitron,
-            textColor: CodableColor(wrappedValue: Appearance.color_FFFFFF),
+            textColor: CodableColor(wrappedValue: style == .analogClock ? Appearance.color_000000 : Appearance.color_FFFFFF),
             timeFormat: .twentyFourHour
         )
     }

@@ -32,9 +32,7 @@ final class AnalogClockView: ClockStyleView {
     }
     
     override func setup(configuration: WidgetClockConfiguration) {
-        clockFaceView.timeFormat = configuration.timeFormat
-        clockFaceView.setup(date: Date())
-        
+        updateTime(configuration: configuration)
         updateBackground(configuration: configuration)
     }
 }
@@ -43,6 +41,22 @@ final class AnalogClockView: ClockStyleView {
 private extension AnalogClockView {
     func initialize() {
         backgroundColor = UIColor.clear
+    }
+    
+    func updateTime(configuration: WidgetClockConfiguration) {
+        clockFaceView.timeFormat = configuration.timeFormat
+        clockFaceView.setupNumeralsAppearance(
+            font: configuration.font.uiFont(baseSize: {
+                switch metrics {
+                case .small:
+                    return 12.scale
+                case .large:
+                    return 24.scale 
+                }
+            }()),
+            textColor: configuration.textColor.wrappedValue
+        )
+        clockFaceView.setup(date: Date())
     }
     
     func updateBackground(configuration: WidgetClockConfiguration) {

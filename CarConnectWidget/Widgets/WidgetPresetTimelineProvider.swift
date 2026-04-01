@@ -36,6 +36,8 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 } catch {
                     return nil
                 }
+            case .clock(let model):
+                return .clock(model)
             }
         }()
 
@@ -116,12 +118,12 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
             let reloadDate = calendar.date(byAdding: .minute, value: 1, to: nextDay) ?? nextDay
 
             return Timeline(entries: [entry], policy: .after(reloadDate))
-        case .weather(let weatherConfiguration):
+        case .weather(let configuration):
             do {
-                let weatherData = try await WeatherAPI().fetchWeather(location: weatherConfiguration.configuration.location)
+                let weatherData = try await WeatherAPI().fetchWeather(location: configuration.configuration.location)
                 let entry = WidgetPresetTimelineEntry(
                     date: now,
-                    content: .weather(weatherConfiguration, weatherData)
+                    content: .weather(configuration, weatherData)
                 )
 
                 let reloadDate = calendar.date(byAdding: .minute, value: 30, to: now) ?? now.addingTimeInterval(1800)
@@ -131,6 +133,40 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 let reloadDate = calendar.date(byAdding: .minute, value: 30, to: now) ?? now.addingTimeInterval(1800)
                 return Timeline(entries: [entry], policy: .after(reloadDate))
             }
+        case .clock(let configuration):
+            let now = Date()
+
+            let startOfCurrentMinute = calendar.date(
+                from: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: now)
+            ) ?? now
+
+            let firstFutureMinute = calendar.date(byAdding: .minute, value: 1, to: startOfCurrentMinute)
+                ?? now.addingTimeInterval(60)
+
+            var entries: [WidgetPresetTimelineEntry] = [
+                WidgetPresetTimelineEntry(
+                    date: now,
+                    content: .clock(configuration)
+                )
+            ]
+
+            for minuteOffset in 0..<60 {
+                guard let entryDate = calendar.date(byAdding: .minute, value: minuteOffset, to: firstFutureMinute) else {
+                    continue
+                }
+
+                entries.append(
+                    WidgetPresetTimelineEntry(
+                        date: entryDate,
+                        content: .clock(configuration)
+                    )
+                )
+            }
+
+            let reloadDate = calendar.date(byAdding: .minute, value: 60, to: firstFutureMinute)
+                ?? firstFutureMinute.addingTimeInterval(3600)
+
+            return Timeline(entries: entries, policy: .after(reloadDate))
         }
     }
 }

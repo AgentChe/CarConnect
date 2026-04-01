@@ -192,6 +192,12 @@
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
+		DE747DA82F753717007C145B /* DigitalStackedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA72F753717007C145B /* DigitalStackedWidgetView.swift */; };
+		DE747DAB2F7537C0007C145B /* DigitalMirrorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DAA2F7537C0007C145B /* DigitalMirrorWidgetView.swift */; };
+		DE747DAE2F753856007C145B /* DigitalClassicWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DAD2F753856007C145B /* DigitalClassicWidgetView.swift */; };
+		DE747DB22F7538D3007C145B /* SplitFlapWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DB12F7538D3007C145B /* SplitFlapWidgetView.swift */; };
+		DE747DB52F75394F007C145B /* CalendarClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DB42F75394F007C145B /* CalendarClockWidgetView.swift */; };
+		DE747DB82F7539A8007C145B /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DB72F7539A8007C145B /* AnalogClockWidgetView.swift */; };
 		DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */; };
 		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */; };
 		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
@@ -610,6 +616,12 @@
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
+		DE747DA72F753717007C145B /* DigitalStackedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStackedWidgetView.swift; sourceTree = "<group>"; };
+		DE747DAA2F7537C0007C145B /* DigitalMirrorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalMirrorWidgetView.swift; sourceTree = "<group>"; };
+		DE747DAD2F753856007C145B /* DigitalClassicWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalClassicWidgetView.swift; sourceTree = "<group>"; };
+		DE747DB12F7538D3007C145B /* SplitFlapWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitFlapWidgetView.swift; sourceTree = "<group>"; };
+		DE747DB42F75394F007C145B /* CalendarClockWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClockWidgetView.swift; sourceTree = "<group>"; };
+		DE747DB72F7539A8007C145B /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
 		DE88813B2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
@@ -1441,6 +1453,7 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DE747DA62F753663007C145B /* Clock */,
 				DEEAAA452F72918A0072C702 /* Weather */,
 				DE0879F42F5DBBF800FECBA5 /* Calendar */,
 				DECB86852F58896400378ADC /* TextManually */,
@@ -1511,6 +1524,19 @@
 				DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */,
 				DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */,
 				DE747DA42F752A5A007C145B /* WidgetClockView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		DE747DA62F753663007C145B /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				DE747DA72F753717007C145B /* DigitalStackedWidgetView.swift */,
+				DE747DAA2F7537C0007C145B /* DigitalMirrorWidgetView.swift */,
+				DE747DAD2F753856007C145B /* DigitalClassicWidgetView.swift */,
+				DE747DB12F7538D3007C145B /* SplitFlapWidgetView.swift */,
+				DE747DB42F75394F007C145B /* CalendarClockWidgetView.swift */,
+				DE747DB72F7539A8007C145B /* AnalogClockWidgetView.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -2793,7 +2819,10 @@
 				DE629BDC2F55D056004F5F7E /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEEAAA562F7297760072C702 /* WeatherClockWidgetView.swift in Sources */,
 				DE51202B2F4572280026C5CC /* PowerCompactProgressText.swift in Sources */,
+				DE747DB82F7539A8007C145B /* AnalogClockWidgetView.swift in Sources */,
 				DE51202C2F4572280026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
+				DE747DB52F75394F007C145B /* CalendarClockWidgetView.swift in Sources */,
+				DE747DA82F753717007C145B /* DigitalStackedWidgetView.swift in Sources */,
 				DEEAAA422F727F3D0072C702 /* Page.swift in Sources */,
 				DE51202D2F4572280026C5CC /* TirePressureLiveActivityWidget.swift in Sources */,
 				DE51202E2F4572280026C5CC /* PowerLockScreenView.swift in Sources */,
@@ -2823,7 +2852,9 @@
 				DEEB9D422F6A8CDD0041587F /* WidgetWeatherStorageModel.swift in Sources */,
 				DE51204F2F4576B60026C5CC /* LiveActivityRegisterToken.swift in Sources */,
 				DE629BFF2F55F5F9004F5F7E /* WidgetPresetSelection.swift in Sources */,
+				DE747DAB2F7537C0007C145B /* DigitalMirrorWidgetView.swift in Sources */,
 				DEEAAA5B2F72994A0072C702 /* WeatherFourDaysWidgetView.swift in Sources */,
+				DE747DAE2F753856007C145B /* DigitalClassicWidgetView.swift in Sources */,
 				DE629BC42F55C74A004F5F7E /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */,
 				DE5120312F4572280026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
@@ -2849,6 +2880,7 @@
 				DE60839C2F5999E50025BB2D /* WidgetCalendarStyle.swift in Sources */,
 				DEEAAA442F728F760072C702 /* WeatherAPI.swift in Sources */,
 				DECB867D2F5870FC00378ADC /* SharedImageFileStore.swift in Sources */,
+				DE747DB22F7538D3007C145B /* SplitFlapWidgetView.swift in Sources */,
 				DEEB9D452F6A8CEC0041587F /* WidgetWeatherStorage.swift in Sources */,
 				DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
 				DE629BD62F55CF0D004F5F7E /* Appearance.swift in Sources */,

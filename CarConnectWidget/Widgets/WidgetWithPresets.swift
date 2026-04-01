@@ -98,6 +98,21 @@ struct WidgetWithPresets: Widget {
                             date: Date()
                         )
                     }
+                case .clock(let model):
+                    switch model.configuration.style {
+                    case .digitalStacked:
+                        DigitalStackedWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .digitalMirror:
+                        DigitalMirrorWidgetView(configuration: model.configuration, metrics: .small, date: entry.date)
+                    case .digitalClassic:
+                        DigitalClassicWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .splitFlap:
+                        SplitFlapWidgetView(metrics: .large, configuration: model.configuration, date: entry.date)
+                    case .calendarClock:
+                        CalendarClockWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .analogClock:
+                        AnalogClockWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    }
                 }
             } else {
                 Text("Select preset")

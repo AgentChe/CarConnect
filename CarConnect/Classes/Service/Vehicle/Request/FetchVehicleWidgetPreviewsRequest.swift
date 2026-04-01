@@ -16,7 +16,7 @@ struct FetchVehicleWidgetPreviewsRequest: APIRequestBody {
     }
     
     var method: HTTPMethod {
-        .get
+        .post
     }
     
     var headers: HTTPHeaders? {
@@ -30,9 +30,5 @@ struct FetchVehicleWidgetPreviewsRequest: APIRequestBody {
             "anonymous_id": anonymousId,
             "internal_id": internalId
         ]
-    }
-    
-    var encoding: ParameterEncoding {
-        URLEncoding.queryString
     }
 }

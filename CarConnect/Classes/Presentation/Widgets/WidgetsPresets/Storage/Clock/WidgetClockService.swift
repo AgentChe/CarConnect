@@ -16,6 +16,15 @@ protocol WidgetClockServiceProtocol {
     ) -> Single<WidgetClockStorageModel>
     func delete(storageModelId: String) -> Single<Void>
     func fetchConfigurations() -> Single<[WidgetClockStorageModel]>
+    
+    func save(name: String, configurationAIPreview: WidgetClockAIPreviewConfiguration) -> Single<WidgetClockAIPreviewStorageModel>
+    func edit(
+        name: String,
+        storageAIPreviewModelId: String,
+        configuration: WidgetClockAIPreviewConfiguration
+    ) -> Single<WidgetClockAIPreviewStorageModel>
+    func delete(aiPreviewStorageModelId: String) -> Single<Void>
+    func fetchAIPreviewConfigurations() -> Single<[WidgetClockAIPreviewStorageModel]>
 }
 
 final class WidgetClockService {
@@ -99,6 +108,85 @@ extension WidgetClockService: WidgetClockServiceProtocol {
             guard let self else { return .error(ContentError.init(.notContent)) }
             
             let items = storage.loadAllConfigurations()
+            
+            return .just(items)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func save(name: String, configurationAIPreview: WidgetClockAIPreviewConfiguration) -> Single<WidgetClockAIPreviewStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            var items = storage.loadAllAIPreviewConfigurations()
+
+            let model = WidgetClockAIPreviewStorageModel(
+                id: UUID().uuidString,
+                name: name,
+                configuration: configurationAIPreview
+            )
+
+            items.append(model)
+            storage.persist(aiPreviewConfigurations: items)
+            
+            WidgetClockMediator.shared.saved(clockAIPreviewModel: model)
+
+            return .just(model)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func edit(
+        name: String,
+        storageAIPreviewModelId: String,
+        configuration: WidgetClockAIPreviewConfiguration
+    ) -> Single<WidgetClockAIPreviewStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllAIPreviewConfigurations()
+
+            guard let index = items.firstIndex(where: { $0.id == storageAIPreviewModelId }) else {
+                return .error(NSError(domain: "Not found", code: 404))
+            }
+
+            let edited = WidgetClockAIPreviewStorageModel(
+                id: storageAIPreviewModelId,
+                name: name,
+                configuration: configuration
+            )
+            
+            items[index] = edited
+            storage.persist(aiPreviewConfigurations: items)
+            
+            WidgetClockMediator.shared.edited(clockAIPreviewModel: edited)
+
+            return .just(edited)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func delete(aiPreviewStorageModelId: String) -> Single<Void> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllAIPreviewConfigurations()
+            items.removeAll { $0.id == aiPreviewStorageModelId }
+
+            storage.persist(aiPreviewConfigurations: items)
+            
+            WidgetClockMediator.shared.deleted(clockAIPreviewModelId: aiPreviewStorageModelId)
+            
+            return .just(())
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func fetchAIPreviewConfigurations() -> Single<[WidgetClockAIPreviewStorageModel]> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            let items = storage.loadAllAIPreviewConfigurations()
             
             return .just(items)
         }

@@ -11,4 +11,5 @@ enum WidgetPresetSelection: Hashable {
     case calendar(WidgetCalendarStorageModel)
     case weather(WidgetWeatherStorageModel)
     case clock(WidgetClockStorageModel)
+    case clockAIPreview(WidgetClockAIPreviewStorageModel)
 }

@@ -189,6 +189,17 @@
 		DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */; };
 		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
 		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
+		DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
+		DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
+		DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */; };
+		DE63A2292F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */; };
+		DE63A22D2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A22C2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift */; };
+		DE63A22F2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A22E2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift */; };
+		DE63A2332F7D499300AF71B7 /* WidgetClockAIPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2322F7D499300AF71B7 /* WidgetClockAIPreviewViewController.swift */; };
+		DE63A2352F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2342F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift */; };
+		DE63A2372F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */; };
+		DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
+		DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
@@ -613,6 +624,14 @@
 		DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundView.swift; sourceTree = "<group>"; };
 		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
 		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewConfiguration.swift; sourceTree = "<group>"; };
+		DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewStorageModel.swift; sourceTree = "<group>"; };
+		DE63A22C2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateClockAIPreviewCell.swift; sourceTree = "<group>"; };
+		DE63A22E2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockAIPreviewView.swift; sourceTree = "<group>"; };
+		DE63A2322F7D499300AF71B7 /* WidgetClockAIPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewViewController.swift; sourceTree = "<group>"; };
+		DE63A2342F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewViewModel.swift; sourceTree = "<group>"; };
+		DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewView.swift; sourceTree = "<group>"; };
+		DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockAIPreviewWidgetView.swift; sourceTree = "<group>"; };
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
@@ -1518,7 +1537,47 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DE747D9F2F752A32007C145B /* Clock */ = {
+		DE63A2222F7D2DB700AF71B7 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA6C2F73C19E0072C702 /* WidgetClockStyle.swift */,
+				DEEAAA6F2F73C1A80072C702 /* WidgetClockConfiguration.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		DE63A2232F7D2DBE00AF71B7 /* ClockAIPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */,
+			);
+			path = ClockAIPreview;
+			sourceTree = "<group>";
+		};
+		DE63A22A2F7D3CD900AF71B7 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				DEEAAA8A2F73C83C0072C702 /* AnalogClock */,
+				DEEAAA872F73C81B0072C702 /* CalendarClock */,
+				DEEAAA862F73C8150072C702 /* SplitFlap */,
+				DEEAAA852F73C8100072C702 /* DigitalClassic */,
+				DEEAAA842F73C8080072C702 /* DigitalMirror */,
+				DEEAAA832F73C8010072C702 /* DigitalStacked */,
+				DEEAAA812F73C7BE0072C702 /* ClockStyleView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		DE63A22B2F7D3D8100AF71B7 /* AIPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A22C2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift */,
+				DE63A22E2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift */,
+			);
+			path = AIPreview;
+			sourceTree = "<group>";
+		};
+		DE63A2302F7D497600AF71B7 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
 				DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */,
@@ -1528,7 +1587,17 @@
 			path = Clock;
 			sourceTree = "<group>";
 		};
-		DE747DA62F753663007C145B /* Clock */ = {
+		DE63A2312F7D498300AF71B7 /* AIPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A2322F7D499300AF71B7 /* WidgetClockAIPreviewViewController.swift */,
+				DE63A2342F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift */,
+				DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */,
+			);
+			path = AIPreview;
+			sourceTree = "<group>";
+		};
+		DE63A2382F7D574400AF71B7 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
 				DE747DA72F753717007C145B /* DigitalStackedWidgetView.swift */,
@@ -1537,6 +1606,32 @@
 				DE747DB12F7538D3007C145B /* SplitFlapWidgetView.swift */,
 				DE747DB42F75394F007C145B /* CalendarClockWidgetView.swift */,
 				DE747DB72F7539A8007C145B /* AnalogClockWidgetView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		DE63A2392F7D574C00AF71B7 /* AIPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */,
+			);
+			path = AIPreview;
+			sourceTree = "<group>";
+		};
+		DE747D9F2F752A32007C145B /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A2312F7D498300AF71B7 /* AIPreview */,
+				DE63A2302F7D497600AF71B7 /* Clock */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		DE747DA62F753663007C145B /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A2392F7D574C00AF71B7 /* AIPreview */,
+				DE63A2382F7D574400AF71B7 /* Clock */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -2420,8 +2515,8 @@
 		DEEAAA6B2F73C1880072C702 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
-				DEEAAA6C2F73C19E0072C702 /* WidgetClockStyle.swift */,
-				DEEAAA6F2F73C1A80072C702 /* WidgetClockConfiguration.swift */,
+				DE63A2232F7D2DBE00AF71B7 /* ClockAIPreview */,
+				DE63A2222F7D2DB700AF71B7 /* Clock */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -2441,6 +2536,7 @@
 			isa = PBXGroup;
 			children = (
 				DEEAAA732F73C5590072C702 /* WidgetClockStorageModel.swift */,
+				DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2448,13 +2544,8 @@
 		DEEAAA802F73C7910072C702 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
-				DEEAAA8A2F73C83C0072C702 /* AnalogClock */,
-				DEEAAA872F73C81B0072C702 /* CalendarClock */,
-				DEEAAA862F73C8150072C702 /* SplitFlap */,
-				DEEAAA852F73C8100072C702 /* DigitalClassic */,
-				DEEAAA842F73C8080072C702 /* DigitalMirror */,
-				DEEAAA832F73C8010072C702 /* DigitalStacked */,
-				DEEAAA812F73C7BE0072C702 /* ClockStyleView.swift */,
+				DE63A22B2F7D3D8100AF71B7 /* AIPreview */,
+				DE63A22A2F7D3CD900AF71B7 /* Clock */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -2827,6 +2918,7 @@
 				DE51202D2F4572280026C5CC /* TirePressureLiveActivityWidget.swift in Sources */,
 				DE51202E2F4572280026C5CC /* PowerLockScreenView.swift in Sources */,
 				DE51202F2F4572280026C5CC /* PowerProgressExpanded.swift in Sources */,
+				DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */,
 				DE51203D2F4572420026C5CC /* CarConnectWidgetBundle.swift in Sources */,
 				DE5120302F4572280026C5CC /* TirePressureDinamicIslandTrailingView.swift in Sources */,
 				DE629C072F55FFB7004F5F7E /* WidgetPresetConfigurationIntent.swift in Sources */,
@@ -2846,7 +2938,9 @@
 				DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */,
 				DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */,
+				DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
 				DE0879F82F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift in Sources */,
+				DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
 				DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */,
 				DEEB9D4E2F6A8D2A0041587F /* WidgetWeatherConfiguration.swift in Sources */,
 				DEEB9D422F6A8CDD0041587F /* WidgetWeatherStorageModel.swift in Sources */,
@@ -2917,6 +3011,7 @@
 				DEEB9D7B2F6A9C750041587F /* GeoLocationAPI.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
 				DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */,
+				DE63A22F2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift in Sources */,
 				DEEAAA822F73C7BE0072C702 /* ClockStyleView.swift in Sources */,
 				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
@@ -2988,6 +3083,7 @@
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
+				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
 				DEEB9D772F6A92530041587F /* DigitalWeatherClockView.swift in Sources */,
@@ -3002,6 +3098,7 @@
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
 				DECE31652F62AFCA0078414C /* MusicSource.swift in Sources */,
 				DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
+				DE63A2332F7D499300AF71B7 /* WidgetClockAIPreviewViewController.swift in Sources */,
 				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
@@ -3015,6 +3112,7 @@
 				DEC158832F4B629B00F2843C /* WidgetsPresetsTemplatesCollectionView.swift in Sources */,
 				DEC1588D2F4B645C00F2843C /* WidgetsPresetsTemplateQuoteLeadershipImpactCell.swift in Sources */,
 				DEC158732F4B320C00F2843C /* WidgetsPresetsTypesView.swift in Sources */,
+				DE63A2292F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */,
 				DEEAAA7E2F73C58F0072C702 /* WidgetClockMediator.swift in Sources */,
 				DEEAAA1C2F7133020072C702 /* WidgetBuilderTemperatureTypeView.swift in Sources */,
 				DE592C4D2F49BD0100ABA60E /* RequestResult.swift in Sources */,
@@ -3145,7 +3243,9 @@
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
+				DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
 				DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */,
+				DE63A2372F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift in Sources */,
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
 				DEEAAA292F71A3E80072C702 /* SelectLocationTableView.swift in Sources */,
 				DEABE6452F456CFC00089B9E /* APIRequestBody.swift in Sources */,
@@ -3169,6 +3269,7 @@
 				DE6083A82F599B860025BB2D /* WidgetCalendarService.swift in Sources */,
 				DECE317B2F62D7BE0078414C /* AppleMusicView.swift in Sources */,
 				DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
+				DE63A22D2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift in Sources */,
 				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
 				DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
@@ -3182,6 +3283,7 @@
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
 				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
 				DEA2FBDC2F6307D60034A47D /* AppleMusicLibraryRequest.swift in Sources */,
+				DE63A2352F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,

@@ -137,6 +137,15 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openClockAIPreview(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetClockAIPreviewViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetClockAIPreviewViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

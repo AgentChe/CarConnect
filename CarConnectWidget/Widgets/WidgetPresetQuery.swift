@@ -29,8 +29,12 @@ struct WidgetPresetQuery: EntityQuery {
             .map { configuration -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .clock(configuration))
             }
+        let clockAIPreviews = WidgetClockStorage.shared.loadAllAIPreviewConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .clockAIPreview(configuration))
+            }
         
-        return textQuotes + textManuallyConfigurations + calendarConfigurations + weatherConfigurations + clockConfigurations
+        return textQuotes + textManuallyConfigurations + calendarConfigurations + weatherConfigurations + clockConfigurations + clockAIPreviews
     }
     
     func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {

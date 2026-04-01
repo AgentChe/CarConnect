@@ -166,6 +166,10 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
                 cell.setup(configuration: configuration)
                 return cell
             }
+        case .clockAIPreview(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self), for: indexPath) as! WidgetsPresetsTemplateClockAIPreviewCell
+            cell.setup(configuration: configuration, date: Date())
+            return cell
         }
     }
 }
@@ -221,6 +225,7 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateDigitalClassicCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalClassicCell.self))
         register(WidgetsPresetsTemplateDigitalMirrorCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self))
         register(WidgetsPresetsTemplateDigitalStackedCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self))
+        register(WidgetsPresetsTemplateClockAIPreviewCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

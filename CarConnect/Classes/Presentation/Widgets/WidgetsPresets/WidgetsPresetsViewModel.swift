@@ -16,12 +16,15 @@ final class WidgetsPresetsViewModel {
         case openCalendarBuilder(String?, WidgetCalendarConfiguration)
         case openWeather(String?, WidgetWeatherConfiguration)
         case openClock(String?, WidgetClockConfiguration)
+        case openClockAIPreview(String?, WidgetClockAIPreviewConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
     private lazy var calendarService = WidgetCalendarService()
     private lazy var weatherService = WidgetWeatherService()
     private lazy var clockService = WidgetClockService()
+    
+    private lazy var vehicleManager = VehicleManager()
     
     private lazy var weatherFetcher = WeatherFetcher()
 }
@@ -46,6 +49,7 @@ extension WidgetsPresetsViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let widgetPreviews = makeWidgetPreviews()
         let selectedTabItem = makeSelectedTabItem(
             didSelectTabItem: input.didSelectTabItem,
             didTapGoToCatalog: input.didTapGoToCatalog
@@ -58,7 +62,8 @@ extension WidgetsPresetsViewModel {
             selectedTabItem: selectedTabItem,
             selectedPresetsType: selectedPresetsType,
             helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection),
-            weatherData: weatherFetcher.weatherData
+            weatherData: weatherFetcher.weatherData,
+            widgetPreviews: widgetPreviews
         )
         
         return Output(
@@ -133,6 +138,8 @@ private extension WidgetsPresetsViewModel {
                     return .openWeather(storageModelId, config)
                 case .clock(let storageModelId, let config):
                     return .openClock(storageModelId, config)
+                case .clockAIPreview(let storageModelId, let config):
+                    return .openClockAIPreview(storageModelId, config)
                 }
             }
         
@@ -183,11 +190,12 @@ private extension WidgetsPresetsViewModel {
         selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
         selectedPresetsType: Driver<WidgetsPresetsType>,
         helperCellWasDisplayed: Driver<Bool>,
-        weatherData: Driver<WeatherData?>
+        weatherData: Driver<WeatherData?>,
+        widgetPreviews: Driver<[VehicleWidgetPreview]>
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         return Driver
-            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed)
-            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
+            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed, widgetPreviews)
+            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed, widgetPreviews -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
                 guard let self else { return .just([]) }
                 
                 let saved = tabItem == .saved
@@ -198,7 +206,7 @@ private extension WidgetsPresetsViewModel {
                         let textElements = self.makeTextElements(isSaved: saved)
                         let calendarElements = self.makeCalendarElements(isSaved: saved)
                         let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
-                        let clockElements = self.makeClockElements(isSaved: saved)
+                        let clockElements = self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
                         
                         return Driver
                             .combineLatest(
@@ -213,7 +221,7 @@ private extension WidgetsPresetsViewModel {
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
                     case .clock:
-                        return self.makeClockElements(isSaved: saved)
+                        return self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
                     case .carLogo:
                         return .just([])
                     case .text:
@@ -236,6 +244,13 @@ private extension WidgetsPresetsViewModel {
                         return result
                     }
             }
+    }
+    
+    func makeWidgetPreviews() -> Driver<[VehicleWidgetPreview]> {
+        vehicleManager
+            .fetchWidgetPreviews()
+            .asDriver(onErrorJustReturn: [])
+            .startWith([])
     }
 }
 
@@ -589,8 +604,8 @@ private extension WidgetsPresetsViewModel {
 
 // MARK: make clock elements
 private extension WidgetsPresetsViewModel {
-    func makeClockElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
-        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+    func makeClockElements(isSaved: Bool, widgetPreviews: [VehicleWidgetPreview]) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func savedClocks() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             enum Action {
                 case initial([WidgetClockStorageModel])
                 case added(WidgetClockStorageModel)
@@ -649,9 +664,86 @@ private extension WidgetsPresetsViewModel {
                 }
         }
         
+        func savedAIPreviews() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetClockAIPreviewStorageModel])
+                case added(WidgetClockAIPreviewStorageModel)
+                case edited(WidgetClockAIPreviewStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = clockService
+                .fetchAIPreviewConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetClockMediator.shared
+                .didSavedClockAIPreviewModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetClockMediator.shared
+                .didEditedClockAIPreviewModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetClockMediator.shared
+                .didDeletedClockAIPreviewModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetClockAIPreviewStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .clockAIPreview($0.id, $0.configuration) }
+                }
+        }
+        
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Driver
+                .combineLatest(
+                    savedAIPreviews(), savedClocks()
+                )
+                .map { aiPreviews, clocks -> [WidgetsPresetsTemplatesCollectionElement] in
+                    aiPreviews + clocks
+                }
+        }
+        
         func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             Single
                 .deferred {
+                    let aiPreviews = widgetPreviews
+                        .compactMap { preview -> WidgetsPresetsTemplatesCollectionElement? in
+                            guard let url = preview.gallery.first else { return nil }
+                            
+                            let configuration = WidgetClockAIPreviewConfiguration.default(url: url)
+                            return WidgetsPresetsTemplatesCollectionElement.clockAIPreview(nil, configuration)
+                        }
+                    
                     let templates = [
                         WidgetClockConfiguration.default(for: .digitalStacked),
                         WidgetClockConfiguration.default(for: .digitalMirror),
@@ -661,7 +753,7 @@ private extension WidgetsPresetsViewModel {
                         WidgetClockConfiguration.default(for: .analogClock)
                     ]
                     
-                    let elements = templates.map { WidgetsPresetsTemplatesCollectionElement.clock(nil, $0) }
+                    let elements = aiPreviews + templates.map { WidgetsPresetsTemplatesCollectionElement.clock(nil, $0) }
                     
                     return .just(elements)
                 }

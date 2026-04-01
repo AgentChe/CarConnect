@@ -113,6 +113,8 @@ struct WidgetWithPresets: Widget {
                     case .analogClock:
                         AnalogClockWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
                     }
+                case .clockAIPreview(let model):
+                    ClockAIWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
                 }
             } else {
                 Text("Select preset")

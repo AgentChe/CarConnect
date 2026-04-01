@@ -11,6 +11,7 @@ import WidgetKit
 final class WidgetClockStorage {
     enum Constants {
         static let clockConfigurationsKey = "widget_clock_storage_configuration_key"
+        static let clockAIPreviewConfigurationsKey = "widget_clock_ai_preview_storage_configuration_key"
     }
     
     static let shared = WidgetClockStorage()
@@ -33,10 +34,26 @@ extension WidgetClockStorage {
         return decoded ?? []
     }
     
+    func loadAllAIPreviewConfigurations() -> [WidgetClockAIPreviewStorageModel] {
+        guard let data = userDefaults?.data(forKey: Constants.clockAIPreviewConfigurationsKey) else { return [] }
+        
+        let decoded = try? decoder.decode([WidgetClockAIPreviewStorageModel].self, from: data)
+        
+        return decoded ?? []
+    }
+    
     func persist(configurations: [WidgetClockStorageModel]) {
         guard let data = try? encoder.encode(configurations) else { return }
         
         userDefaults?.set(data, forKey: Constants.clockConfigurationsKey)
+        
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+    
+    func persist(aiPreviewConfigurations: [WidgetClockAIPreviewStorageModel]) {
+        guard let data = try? encoder.encode(aiPreviewConfigurations) else { return }
+        
+        userDefaults?.set(data, forKey: Constants.clockAIPreviewConfigurationsKey)
         
         WidgetCenter.shared.reloadAllTimelines()
     }

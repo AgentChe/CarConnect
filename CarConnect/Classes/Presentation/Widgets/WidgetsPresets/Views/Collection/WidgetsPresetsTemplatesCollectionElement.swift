@@ -28,4 +28,7 @@ enum WidgetsPresetsTemplatesCollectionElement {
     
     // Presets of carLogo
     case carLogo(String?, WidgetCarLogoConfiguration, Bool, Int?)
+    
+    // Presets of photo
+    case aiPhoto(String?, WidgetAIPhotoConfiguration?)
 }

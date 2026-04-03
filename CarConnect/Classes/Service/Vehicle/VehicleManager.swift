@@ -11,6 +11,7 @@ import RxCocoa
 protocol VehicleManagerProtocol {
     func fetchWidgetPreviews() -> Single<[VehicleWidgetPreview]>
     func fetchVehicleSupportLogos() -> Single<VehicleSupportLogosResponse?>
+    func vehicleAIPreviewGenerate(image: UIImage, prompt: String) -> Single<VehicleAIPreviewGenerateResult?>
 }
 
 final class VehicleManager {
@@ -41,5 +42,18 @@ extension VehicleManager: VehicleManagerProtocol {
         return restAPITransport
             .callServerApi(requestBody: request)
             .map { VehicleSupportLogosResponse(response: $0) }
+    }
+    
+    func vehicleAIPreviewGenerate(image: UIImage, prompt: String) -> Single<VehicleAIPreviewGenerateResult?> {
+        let request = VehicleAIPreviewGenerateRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            image: image,
+            prompt: prompt
+        )
+        
+        return restAPITransport
+            .callServerApi(formDataBody: request)
+            .map { VehicleAIPreviewGenerateResult(response: $0) }
     }
 }

@@ -480,6 +480,25 @@
 		DEF570992F7FD260002394B9 /* WidgetCarBrandsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570982F7FD25F002394B9 /* WidgetCarBrandsListTableView.swift */; };
 		DEF5709B2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5709A2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift */; };
 		DEF5709E2F7FD4E2002394B9 /* CarLogoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5709D2F7FD4E2002394B9 /* CarLogoWidgetView.swift */; };
+		DEF570A12F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570A02F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift */; };
+		DEF570A32F7FD9C4002394B9 /* VehicleAIPreviewGenerateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570A22F7FD9C4002394B9 /* VehicleAIPreviewGenerateResult.swift */; };
+		DEF570A62F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570A52F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift */; };
+		DEF570A72F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570A52F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift */; };
+		DEF570AB2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570AA2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift */; };
+		DEF570AC2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570AA2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift */; };
+		DEF570AE2F7FDE1E002394B9 /* WidgetPhotoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570AD2F7FDE1E002394B9 /* WidgetPhotoStorage.swift */; };
+		DEF570AF2F7FDE1E002394B9 /* WidgetPhotoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570AD2F7FDE1E002394B9 /* WidgetPhotoStorage.swift */; };
+		DEF570B12F7FDE28002394B9 /* WidgetPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570B02F7FDE28002394B9 /* WidgetPhotoService.swift */; };
+		DEF570B52F7FDE32002394B9 /* WidgetPhotoMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570B32F7FDE32002394B9 /* WidgetPhotoMediator.swift */; };
+		DEF570B92F7FE109002394B9 /* WidgetsPresetsTemplateAIPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570B82F7FE109002394B9 /* WidgetsPresetsTemplateAIPhotoCell.swift */; };
+		DEF570BB2F7FE28D002394B9 /* WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570BA2F7FE28D002394B9 /* WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift */; };
+		DEF570BF2F7FE944002394B9 /* WidgetAIPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570BE2F7FE944002394B9 /* WidgetAIPhotoViewController.swift */; };
+		DEF570C12F7FE955002394B9 /* WidgetAIPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C02F7FE955002394B9 /* WidgetAIPhotoViewModel.swift */; };
+		DEF570C32F7FE959002394B9 /* WidgetAIPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C22F7FE959002394B9 /* WidgetAIPhotoView.swift */; };
+		DEF570C62F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C52F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift */; };
+		DEF570C82F801F32002394B9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C72F801F32002394B9 /* UIImage+Extension.swift */; };
+		DEF570CB2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */; };
+		DEF570CC2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -917,6 +936,21 @@
 		DEF570982F7FD25F002394B9 /* WidgetCarBrandsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListTableView.swift; sourceTree = "<group>"; };
 		DEF5709A2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListTableCell.swift; sourceTree = "<group>"; };
 		DEF5709D2F7FD4E2002394B9 /* CarLogoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLogoWidgetView.swift; sourceTree = "<group>"; };
+		DEF570A02F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAIPreviewGenerateRequest.swift; sourceTree = "<group>"; };
+		DEF570A22F7FD9C4002394B9 /* VehicleAIPreviewGenerateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAIPreviewGenerateResult.swift; sourceTree = "<group>"; };
+		DEF570A52F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoConfiguration.swift; sourceTree = "<group>"; };
+		DEF570AA2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoStorageModel.swift; sourceTree = "<group>"; };
+		DEF570AD2F7FDE1E002394B9 /* WidgetPhotoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoStorage.swift; sourceTree = "<group>"; };
+		DEF570B02F7FDE28002394B9 /* WidgetPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoService.swift; sourceTree = "<group>"; };
+		DEF570B32F7FDE32002394B9 /* WidgetPhotoMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoMediator.swift; sourceTree = "<group>"; };
+		DEF570B82F7FE109002394B9 /* WidgetsPresetsTemplateAIPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateAIPhotoCell.swift; sourceTree = "<group>"; };
+		DEF570BA2F7FE28D002394B9 /* WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift; sourceTree = "<group>"; };
+		DEF570BE2F7FE944002394B9 /* WidgetAIPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoViewController.swift; sourceTree = "<group>"; };
+		DEF570C02F7FE955002394B9 /* WidgetAIPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoViewModel.swift; sourceTree = "<group>"; };
+		DEF570C22F7FE959002394B9 /* WidgetAIPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoView.swift; sourceTree = "<group>"; };
+		DEF570C52F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoPreviewView.swift; sourceTree = "<group>"; };
+		DEF570C72F801F32002394B9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotoWidgetView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1026,6 +1060,7 @@
 		DE1DA0422F4DDE9900742E69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DEF570BC2F7FE92D002394B9 /* Photo */,
 				DEF08FF42F7E80580066EE07 /* CarLogo */,
 				DE747D9F2F752A32007C145B /* Clock */,
 				DEEAA9FF2F6F07C00072C702 /* Weather */,
@@ -1195,6 +1230,7 @@
 		DE1DA0A42F51E12D00742E69 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				DEF570A82F7FDDD5002394B9 /* Photo */,
 				DEF08FE32F7E75020066EE07 /* CarLogo */,
 				DEEAAA722F73C5470072C702 /* Clock */,
 				DEEB9D3F2F6A8CC40041587F /* Weather */,
@@ -1525,6 +1561,7 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DEF570C92F8022D6002394B9 /* Photo */,
 				DEF5709C2F7FD4D4002394B9 /* CarLogo */,
 				DE747DA62F753663007C145B /* Clock */,
 				DEEAAA452F72918A0072C702 /* Weather */,
@@ -1915,6 +1952,7 @@
 				DEABE51E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift */,
 				DEABE51F2F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift */,
 				DEABE5202F456CFC00089B9E /* UIView+RxExtension.swift */,
+				DEF570C72F801F32002394B9 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2150,6 +2188,7 @@
 		DEC158752F4B589100F2843C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DEF570A42F7FDC8B002394B9 /* Photo */,
 				DEF08FDE2F7E74470066EE07 /* CarLogo */,
 				DEEAAA6B2F73C1880072C702 /* Clock */,
 				DEA5CF8E2F69468F0045CBC0 /* Weather */,
@@ -2181,6 +2220,7 @@
 		DEC158862F4B635300F2843C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DEF570B62F7FE0EF002394B9 /* Photo */,
 				DEF08FD92F7E73500066EE07 /* CarLogo */,
 				DEEAAA802F73C7910072C702 /* Clock */,
 				DEEB9D4F2F6A90B60041587F /* Weather */,
@@ -2557,6 +2597,7 @@
 			children = (
 				DEEAAA642F73BF5B0072C702 /* VehicleWidgetPreview.swift */,
 				DEF08FD72F7E717A0066EE07 /* VehicleSupportLogosResponse.swift */,
+				DEF570A22F7FD9C4002394B9 /* VehicleAIPreviewGenerateResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2566,6 +2607,7 @@
 			children = (
 				DEEAAA672F73C0190072C702 /* FetchVehicleWidgetPreviewsRequest.swift */,
 				DEF08FD52F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift */,
+				DEF570A02F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2862,6 +2904,85 @@
 			path = CarLogo;
 			sourceTree = "<group>";
 		};
+		DEF570A42F7FDC8B002394B9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570A52F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		DEF570A82F7FDDD5002394B9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570A92F7FDDDA002394B9 /* Model */,
+				DEF570AD2F7FDE1E002394B9 /* WidgetPhotoStorage.swift */,
+				DEF570B02F7FDE28002394B9 /* WidgetPhotoService.swift */,
+				DEF570B32F7FDE32002394B9 /* WidgetPhotoMediator.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		DEF570A92F7FDDDA002394B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570AA2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEF570B62F7FE0EF002394B9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570B72F7FE0F4002394B9 /* AI */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		DEF570B72F7FE0F4002394B9 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570B82F7FE109002394B9 /* WidgetsPresetsTemplateAIPhotoCell.swift */,
+				DEF570BA2F7FE28D002394B9 /* WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		DEF570BC2F7FE92D002394B9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570BD2F7FE931002394B9 /* AIPhoto */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		DEF570BD2F7FE931002394B9 /* AIPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570C42F7FE987002394B9 /* Views */,
+				DEF570BE2F7FE944002394B9 /* WidgetAIPhotoViewController.swift */,
+				DEF570C02F7FE955002394B9 /* WidgetAIPhotoViewModel.swift */,
+				DEF570C22F7FE959002394B9 /* WidgetAIPhotoView.swift */,
+			);
+			path = AIPhoto;
+			sourceTree = "<group>";
+		};
+		DEF570C42F7FE987002394B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570C52F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEF570C92F8022D6002394B9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3072,6 +3193,7 @@
 				DEEAAA422F727F3D0072C702 /* Page.swift in Sources */,
 				DE51202D2F4572280026C5CC /* TirePressureLiveActivityWidget.swift in Sources */,
 				DE51202E2F4572280026C5CC /* PowerLockScreenView.swift in Sources */,
+				DEF570A72F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift in Sources */,
 				DE51202F2F4572280026C5CC /* PowerProgressExpanded.swift in Sources */,
 				DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */,
 				DE51203D2F4572420026C5CC /* CarConnectWidgetBundle.swift in Sources */,
@@ -3083,6 +3205,7 @@
 				DE51204A2F4576B60026C5CC /* LiveActivitySelectionStore.swift in Sources */,
 				DE087A052F5DD32300FECBA5 /* CalendarWeekRowItemWidgetView.swift in Sources */,
 				DE51204B2F4576B60026C5CC /* VehicleImageCacheManager.swift in Sources */,
+				DEF570AB2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */,
 				DE51204D2F4576B60026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DEEAAA6E2F73C19E0072C702 /* WidgetClockStyle.swift in Sources */,
 				DE629BC22F55C741004F5F7E /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
@@ -3107,6 +3230,7 @@
 				DE629BC42F55C74A004F5F7E /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DE629C172F570517004F5F7E /* Collection+Extension.swift in Sources */,
 				DE5120312F4572280026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
+				DEF570CB2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */,
 				DEEAAA592F7299100072C702 /* WeatherConditionForecastWidgetView.swift in Sources */,
 				DE51203F2F4574800026C5CC /* String+Extension.swift in Sources */,
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,
@@ -3118,6 +3242,7 @@
 				DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DE5120322F4572280026C5CC /* PowerCompactIconView.swift in Sources */,
 				DEEAAA752F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
+				DEF570AE2F7FDE1E002394B9 /* WidgetPhotoStorage.swift in Sources */,
 				DE629BEC2F55DB68004F5F7E /* QuoteMindsetGrowthWidgetView.swift in Sources */,
 				DECB86872F588A1E00378ADC /* TextManuallyWidgetView.swift in Sources */,
 				DE629BC12F55C73C004F5F7E /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
@@ -3173,6 +3298,7 @@
 				DE63A22F2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift in Sources */,
 				DEEAAA822F73C7BE0072C702 /* ClockStyleView.swift in Sources */,
 				DE1DA0912F515FF200742E69 /* WidgetsPreviewView.swift in Sources */,
+				DEF570B52F7FDE32002394B9 /* WidgetPhotoMediator.swift in Sources */,
 				DEABE5E22F456CFC00089B9E /* Collection+Extension.swift in Sources */,
 				DEA2FBF12F6309990034A47D /* MKAuthorizationStatus.swift in Sources */,
 				DEA2FBF22F6309990034A47D /* MKCurator.swift in Sources */,
@@ -3209,12 +3335,14 @@
 				DECE31672F62BF960078414C /* DrivingModeMenuStatusView.swift in Sources */,
 				DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
+				DEF570C62F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift in Sources */,
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */,
 				DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DEF08FFA2F7E806B0066EE07 /* WidgetCarLogoView.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
+				DEF570BF2F7FE944002394B9 /* WidgetAIPhotoViewController.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEF08FE02F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
@@ -3226,6 +3354,7 @@
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
 				DEEB9D682F6A91C40041587F /* TodayTomorrowWeatherView.swift in Sources */,
 				DEA2FC0E2F630B340034A47D /* AppleMusicLibraryPlayerObserver.swift in Sources */,
+				DEF570A32F7FD9C4002394B9 /* VehicleAIPreviewGenerateResult.swift in Sources */,
 				DE629C202F572EB9004F5F7E /* WidgetBuilderTextField.swift in Sources */,
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
 				DEF090062F7EB95D0066EE07 /* WidgetCarBrandsListView.swift in Sources */,
@@ -3233,6 +3362,7 @@
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
 				DEEAAA6D2F73C19E0072C702 /* WidgetClockStyle.swift in Sources */,
 				DE1DA0592F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift in Sources */,
+				DEF570AF2F7FDE1E002394B9 /* WidgetPhotoStorage.swift in Sources */,
 				DE1DA0AD2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DEEB9D6D2F6A92140041587F /* WeatherClockView.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
@@ -3241,6 +3371,7 @@
 				DEEAAA712F73C1A80072C702 /* WidgetClockConfiguration.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
 				DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */,
+				DEF570A12F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift in Sources */,
 				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEEAA9FE2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
@@ -3324,6 +3455,7 @@
 				DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */,
 				DEEAAA122F712B210072C702 /* SelectTemperatureTypeViewController.swift in Sources */,
 				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
+				DEF570C82F801F32002394B9 /* UIImage+Extension.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEEAAA912F73FBB30072C702 /* WidgetsPresetsTemplateDigitalMirrorCell.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
@@ -3334,6 +3466,7 @@
 				DEEAAA972F73FBCA0072C702 /* WidgetsPresetsTemplateCalendarClockCell.swift in Sources */,
 				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
 				DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */,
+				DEF570B12F7FDE28002394B9 /* WidgetPhotoService.swift in Sources */,
 				DEEAAA1A2F712B560072C702 /* SelectTemperatureTypeCellButton.swift in Sources */,
 				DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
@@ -3368,6 +3501,7 @@
 				DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */,
 				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
 				DE1DA04A2F4DE42700742E69 /* WidgetBuilderFontColorItemButton.swift in Sources */,
+				DEF570C32F7FE959002394B9 /* WidgetAIPhotoView.swift in Sources */,
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEEAAA262F713BBE0072C702 /* SelectLocationView.swift in Sources */,
 				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
@@ -3375,6 +3509,7 @@
 				DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */,
 				DEEAAA792F73C5770072C702 /* WidgetClockStorage.swift in Sources */,
 				DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */,
+				DEF570AC2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */,
 				DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */,
 				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
@@ -3398,9 +3533,11 @@
 				DEF570992F7FD260002394B9 /* WidgetCarBrandsListTableView.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DE6083C32F5B20980025BB2D /* CalendarWeekRowItemView.swift in Sources */,
+				DEF570B92F7FE109002394B9 /* WidgetsPresetsTemplateAIPhotoCell.swift in Sources */,
 				DEEAAA332F71A9420072C702 /* SelectLocationSearchField.swift in Sources */,
 				DEC158492F4A1EF400F2843C /* WidgetsHelperTabView.swift in Sources */,
 				DEEAAA7C2F73C57F0072C702 /* WidgetClockService.swift in Sources */,
+				DEF570CC2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
 				DEF090042F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift in Sources */,
@@ -3441,10 +3578,12 @@
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
 				DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */,
 				DEEAAA3F2F727EFA0072C702 /* PageInfo.swift in Sources */,
+				DEF570BB2F7FE28D002394B9 /* WidgetsPresetsTemplateAIPhotoPlaceholderCell.swift in Sources */,
 				DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */,
 				DE6083B82F59DBA20025BB2D /* WidgetsPresetsTemplateStackedMonthDayWeekdayCell.swift in Sources */,
 				DE6083A82F599B860025BB2D /* WidgetCalendarService.swift in Sources */,
 				DECE317B2F62D7BE0078414C /* AppleMusicView.swift in Sources */,
+				DEF570A62F7FDC9E002394B9 /* WidgetAIPhotoConfiguration.swift in Sources */,
 				DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE63A22D2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift in Sources */,
 				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
@@ -3464,6 +3603,7 @@
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
 				DEF08FDD2F7E73AF0066EE07 /* CarLogoView.swift in Sources */,
+				DEF570C12F7FE955002394B9 /* WidgetAIPhotoViewModel.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEEAAA2B2F71A3EF0072C702 /* SelectLocationTableElement.swift in Sources */,

@@ -174,6 +174,14 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self), for: indexPath) as! WidgetsPresetsTemplateCarLogoCell
             cell.setup(configuration: configuration, isUsersLogo: isUsersLogo, catalogsCount: catalogsCount)
             return cell
+        case .aiPhoto(_, let configuration):
+            if let configuration {
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoCell.self), for: indexPath) as! WidgetsPresetsTemplateAIPhotoCell
+                cell.setup(configuration: configuration)
+                return cell
+            } else {
+                return dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoPlaceholderCell.self), for: indexPath)
+            }
         }
     }
 }
@@ -233,6 +241,10 @@ private extension WidgetsPresetsTemplatesCollectionView {
         
         // CarLogo
         register(WidgetsPresetsTemplateCarLogoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self))
+        
+        // Photo
+        register(WidgetsPresetsTemplateAIPhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoCell.self))
+        register(WidgetsPresetsTemplateAIPhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoPlaceholderCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

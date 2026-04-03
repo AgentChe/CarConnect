@@ -18,6 +18,7 @@ final class WidgetsPresetsViewModel {
         case openClock(String?, WidgetClockConfiguration)
         case openClockAIPreview(String?, WidgetClockAIPreviewConfiguration)
         case openCarLogo(String?, WidgetCarLogoConfiguration)
+        case openAIPhoto(String?, WidgetAIPhotoConfiguration?)
     }
     
     private lazy var textService = WidgetTextService()
@@ -25,6 +26,7 @@ final class WidgetsPresetsViewModel {
     private lazy var weatherService = WidgetWeatherService()
     private lazy var clockService = WidgetClockService()
     private lazy var carLogoService = WidgetCarLogoService()
+    private lazy var photoService = WidgetPhotoService()
     
     private lazy var vehicleManager = VehicleManager()
     
@@ -146,6 +148,8 @@ private extension WidgetsPresetsViewModel {
                     return .openClockAIPreview(storageModelId, config)
                 case .carLogo(let storageModelId, let config, _, _):
                     return .openCarLogo(storageModelId, config)
+                case .aiPhoto(let storageModelId, let config):
+                    return .openAIPhoto(storageModelId, config)
                 }
             }
         
@@ -215,6 +219,7 @@ private extension WidgetsPresetsViewModel {
                         let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                         let clockElements = self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
                         let carLogoElements = self.makeCarLogoElements(logos: logos, isSaved: saved)
+                        let photoElements = self.makePhotoElements(isSaved: saved)
                         
                         return Driver
                             .combineLatest(
@@ -222,10 +227,13 @@ private extension WidgetsPresetsViewModel {
                                 calendarElements,
                                 weatherElements,
                                 clockElements,
-                                carLogoElements
+                                carLogoElements,
+                                photoElements
                             )
-                            .map { texts, calendars, weathers, clocks, carLogos -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts + calendars + weathers + clocks + carLogos
+                            .map { texts, calendars, weathers, clocks, carLogos, photos -> [WidgetsPresetsTemplatesCollectionElement] in
+                                let firstGroup = texts + calendars + weathers
+                                let secondGroup = clocks + carLogos + photos
+                                return firstGroup + secondGroup
                             }
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
@@ -236,7 +244,7 @@ private extension WidgetsPresetsViewModel {
                     case .text:
                         return self.makeTextElements(isSaved: saved)
                     case .photo:
-                        return .just([])
+                        return self.makePhotoElements(isSaved: saved)
                     case .weather:
                         return self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                     }
@@ -864,6 +872,88 @@ private extension WidgetsPresetsViewModel {
                     }()
                        
                     let elements = usersBrands + catalogsBrands
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make photo elements
+private extension WidgetsPresetsViewModel {
+    func makePhotoElements(isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func savedAIPhotos() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetAIPhotoStorageModel])
+                case added(WidgetAIPhotoStorageModel)
+                case edited(WidgetAIPhotoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchAIPhotoConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedAIPhotoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedAIPhotoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedAIPhotoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetAIPhotoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .aiPhoto($0.id, $0.configuration) }
+                }
+        }
+        
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            savedAIPhotos()
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    let aiPhoto = [WidgetsPresetsTemplatesCollectionElement.aiPhoto(nil, nil)]
+                       
+                    let elements = aiPhoto
                     
                     return .just(elements)
                 }

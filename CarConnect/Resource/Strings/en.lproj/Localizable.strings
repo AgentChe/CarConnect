@@ -64,6 +64,7 @@
 "WidgetsPresets.Weather.TomorrowTemperature" = "Tomorrow\nwill be %@";
 "WidgetsPresets.CarLogo.Title" = "Car logo";
 "WidgetsPresets.CarLogo.YourLogo" = "Your logo";
+"WidgetsPresets.Photo.AIGenerate" = "AI photo generation";
 
 // MARK: WidgetsBuilders
 "WidgetsBuilders.Title" = "Widgets";
@@ -93,6 +94,10 @@
 "WidgetsBuilders.Location.MyGeo.Title" = "My geolocation (auto)";
 "WidgetsBuilders.SeeAll" = "See all";
 "WidgetsBuilders.CarLogo.Title" = "Car logo";
+"WidgetsBuilders.UploadPhoto" = "Upload your photo";
+"WidgetsBuilders.Prompt" = "Prompt";
+"WidgetsBuilders.Prompt.Placeholder" = "Example: Car in New York";
+"WidgetsBuilders.GenerateAIPhoto" = "Generate widget AI";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

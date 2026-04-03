@@ -155,6 +155,15 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openAIPhoto(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetAIPhotoViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetAIPhotoViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -42,6 +42,8 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 return .clockAIPreview(model)
             case .carLogo(let model):
                 return .carLogo(model)
+            case .aiPhoto(let model):
+                return .aiPhoto(model)
             }
         }()
 
@@ -207,6 +209,9 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
             return Timeline(entries: entries, policy: .after(reloadDate))
         case .carLogo(let configuration):
             let entry = WidgetPresetTimelineEntry(date: now, content: .carLogo(configuration))
+            return Timeline(entries: [entry], policy: .never)
+        case .aiPhoto(let configuration):
+            let entry = WidgetPresetTimelineEntry(date: now, content: .aiPhoto(configuration))
             return Timeline(entries: [entry], policy: .never)
         }
     }

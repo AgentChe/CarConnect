@@ -37,8 +37,16 @@ struct WidgetPresetQuery: EntityQuery {
             .map { configuration -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .carLogo(configuration))
             }
+        let aiPhotos = WidgetPhotoStorage.shared.loadAllAIPhotosConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .aiPhoto(configuration))
+            }
         
-        return textQuotes + textManuallyConfigurations + calendarConfigurations + weatherConfigurations + clockConfigurations + clockAIPreviews + carLogos
+        let textGroup = textQuotes + textManuallyConfigurations
+        let clockGroups = clockConfigurations + clockAIPreviews
+        let photoGroups = aiPhotos
+        
+        return textGroup + calendarConfigurations + weatherConfigurations + clockGroups + carLogos + photoGroups
     }
     
     func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {

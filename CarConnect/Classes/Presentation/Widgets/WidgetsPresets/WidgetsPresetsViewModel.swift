@@ -17,12 +17,14 @@ final class WidgetsPresetsViewModel {
         case openWeather(String?, WidgetWeatherConfiguration)
         case openClock(String?, WidgetClockConfiguration)
         case openClockAIPreview(String?, WidgetClockAIPreviewConfiguration)
+        case openCarLogo(String?, WidgetCarLogoConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
     private lazy var calendarService = WidgetCalendarService()
     private lazy var weatherService = WidgetWeatherService()
     private lazy var clockService = WidgetClockService()
+    private lazy var carLogoService = WidgetCarLogoService()
     
     private lazy var vehicleManager = VehicleManager()
     
@@ -50,6 +52,7 @@ extension WidgetsPresetsViewModel {
     
     func configure(input: Input) -> Output {
         let widgetPreviews = makeWidgetPreviews()
+        let logos = makeLogos()
         let selectedTabItem = makeSelectedTabItem(
             didSelectTabItem: input.didSelectTabItem,
             didTapGoToCatalog: input.didTapGoToCatalog
@@ -63,7 +66,8 @@ extension WidgetsPresetsViewModel {
             selectedPresetsType: selectedPresetsType,
             helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection),
             weatherData: weatherFetcher.weatherData,
-            widgetPreviews: widgetPreviews
+            widgetPreviews: widgetPreviews,
+            logos: logos
         )
         
         return Output(
@@ -140,6 +144,8 @@ private extension WidgetsPresetsViewModel {
                     return .openClock(storageModelId, config)
                 case .clockAIPreview(let storageModelId, let config):
                     return .openClockAIPreview(storageModelId, config)
+                case .carLogo(let storageModelId, let config, _, _):
+                    return .openCarLogo(storageModelId, config)
                 }
             }
         
@@ -191,11 +197,12 @@ private extension WidgetsPresetsViewModel {
         selectedPresetsType: Driver<WidgetsPresetsType>,
         helperCellWasDisplayed: Driver<Bool>,
         weatherData: Driver<WeatherData?>,
-        widgetPreviews: Driver<[VehicleWidgetPreview]>
+        widgetPreviews: Driver<[VehicleWidgetPreview]>,
+        logos: Driver<VehicleSupportLogosResponse?>
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         return Driver
-            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed, widgetPreviews)
-            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed, widgetPreviews -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
+            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed, widgetPreviews, logos)
+            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed, widgetPreviews, logos -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
                 guard let self else { return .just([]) }
                 
                 let saved = tabItem == .saved
@@ -207,23 +214,25 @@ private extension WidgetsPresetsViewModel {
                         let calendarElements = self.makeCalendarElements(isSaved: saved)
                         let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                         let clockElements = self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
+                        let carLogoElements = self.makeCarLogoElements(logos: logos, isSaved: saved)
                         
                         return Driver
                             .combineLatest(
                                 textElements,
                                 calendarElements,
                                 weatherElements,
-                                clockElements
+                                clockElements,
+                                carLogoElements
                             )
-                            .map { texts, calendars, weathers, clocks -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts + calendars + weathers + clocks
+                            .map { texts, calendars, weathers, clocks, carLogos -> [WidgetsPresetsTemplatesCollectionElement] in
+                                texts + calendars + weathers + clocks + carLogos
                             }
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
                     case .clock:
                         return self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
                     case .carLogo:
-                        return .just([])
+                        return self.makeCarLogoElements(logos: logos, isSaved: saved)
                     case .text:
                         return self.makeTextElements(isSaved: saved)
                     case .photo:
@@ -251,6 +260,13 @@ private extension WidgetsPresetsViewModel {
             .fetchWidgetPreviews()
             .asDriver(onErrorJustReturn: [])
             .startWith([])
+    }
+    
+    func makeLogos() -> Driver<VehicleSupportLogosResponse?> {
+        vehicleManager
+            .fetchVehicleSupportLogos()
+            .asDriver(onErrorJustReturn: nil)
+            .startWith(nil)
     }
 }
 
@@ -754,6 +770,100 @@ private extension WidgetsPresetsViewModel {
                     ]
                     
                     let elements = aiPreviews + templates.map { WidgetsPresetsTemplatesCollectionElement.clock(nil, $0) }
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make carLogo elements
+private extension WidgetsPresetsViewModel {
+    func makeCarLogoElements(logos: VehicleSupportLogosResponse?, isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetCarLogoStorageModel])
+                case added(WidgetCarLogoStorageModel)
+                case edited(WidgetCarLogoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = carLogoService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetCarLogoMediator.shared
+                .didSavedCarLogoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetCarLogoMediator.shared
+                .didEditedCarLogoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetCarLogoMediator.shared
+                .didDeletedCarLogoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetCarLogoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .carLogo($0.id, $0.configuration, false, nil) }
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    guard let logos else { return .just([]) }
+                    
+                    let usersBrands = logos.userBrands.map { brand -> WidgetsPresetsTemplatesCollectionElement in
+                        let mappedBrand = WidgetCarLogoBrand( logo: brand.logo, model: brand.model)
+                        let configuration = WidgetCarLogoConfiguration.default(brand: mappedBrand)
+                        return WidgetsPresetsTemplatesCollectionElement.carLogo(nil, configuration, true, nil)
+                    }
+                    
+                    let catalogsCount = logos.catalogBrands.count
+                    let catalogsBrands: [WidgetsPresetsTemplatesCollectionElement] = {
+                        guard let brand = logos.catalogBrands.first else { return [] }
+                        
+                        let mappedBrand = WidgetCarLogoBrand( logo: brand.logo, model: brand.model)
+                        let configuration = WidgetCarLogoConfiguration.default(brand: mappedBrand)
+                        let element = WidgetsPresetsTemplatesCollectionElement.carLogo(nil, configuration, false, catalogsCount)
+                        return [element]
+                    }()
+                       
+                    let elements = usersBrands + catalogsBrands
                     
                     return .just(elements)
                 }

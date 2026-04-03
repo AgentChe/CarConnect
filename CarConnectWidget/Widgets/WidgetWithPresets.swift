@@ -115,6 +115,8 @@ struct WidgetWithPresets: Widget {
                     }
                 case .clockAIPreview(let model):
                     ClockAIWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                case .carLogo(let model):
+                    CarLogoWidgetView(configuration: model.configuration)
                 }
             } else {
                 Text("Select preset")

@@ -62,6 +62,8 @@
 "WidgetsPresets.Weather.Feels" = "feels ";
 "WidgetsPresets.Weather.Today" = "Today";
 "WidgetsPresets.Weather.TomorrowTemperature" = "Tomorrow\nwill be %@";
+"WidgetsPresets.CarLogo.Title" = "Car logo";
+"WidgetsPresets.CarLogo.YourLogo" = "Your logo";
 
 // MARK: WidgetsBuilders
 "WidgetsBuilders.Title" = "Widgets";
@@ -87,8 +89,10 @@
 "WidgetsBuilders.Location.Title" = "Location";
 "WidgetsBuilders.Location.EnterName.Title" = "Enter the name of the city";
 "WidgetsBuilders.Location.EnterName.SubTitle" = "Select a city from the list";
-"WidgetsBuilders.Location.Search" = "Search";
+"WidgetsBuilders.Search" = "Search";
 "WidgetsBuilders.Location.MyGeo.Title" = "My geolocation (auto)";
+"WidgetsBuilders.SeeAll" = "See all";
+"WidgetsBuilders.CarLogo.Title" = "Car logo";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

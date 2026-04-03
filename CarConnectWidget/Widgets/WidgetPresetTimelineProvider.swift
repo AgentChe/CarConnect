@@ -40,6 +40,8 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 return .clock(model)
             case .clockAIPreview(let model):
                 return .clockAIPreview(model)
+            case .carLogo(let model):
+                return .carLogo(model)
             }
         }()
 
@@ -203,6 +205,9 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 ?? firstFutureMinute.addingTimeInterval(3600)
 
             return Timeline(entries: entries, policy: .after(reloadDate))
+        case .carLogo(let configuration):
+            let entry = WidgetPresetTimelineEntry(date: now, content: .carLogo(configuration))
+            return Timeline(entries: [entry], policy: .never)
         }
     }
 }

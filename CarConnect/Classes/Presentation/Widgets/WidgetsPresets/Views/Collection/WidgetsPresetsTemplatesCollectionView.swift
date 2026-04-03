@@ -170,6 +170,10 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self), for: indexPath) as! WidgetsPresetsTemplateClockAIPreviewCell
             cell.setup(configuration: configuration, date: Date())
             return cell
+        case let .carLogo(_, configuration, isUsersLogo, catalogsCount):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self), for: indexPath) as! WidgetsPresetsTemplateCarLogoCell
+            cell.setup(configuration: configuration, isUsersLogo: isUsersLogo, catalogsCount: catalogsCount)
+            return cell
         }
     }
 }
@@ -226,6 +230,9 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateDigitalMirrorCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self))
         register(WidgetsPresetsTemplateDigitalStackedCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self))
         register(WidgetsPresetsTemplateClockAIPreviewCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self))
+        
+        // CarLogo
+        register(WidgetsPresetsTemplateCarLogoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

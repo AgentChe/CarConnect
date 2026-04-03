@@ -453,6 +453,33 @@
 		DEEB9D792F6A942F0041587F /* WeatherStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D782F6A942F0041587F /* WeatherStyleView.swift */; };
 		DEEB9D7B2F6A9C750041587F /* GeoLocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D7A2F6A9C750041587F /* GeoLocationAPI.swift */; };
 		DEEB9D7F2F6AFBAF0041587F /* WeatherKindImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB9D7E2F6AFBAF0041587F /* WeatherKindImageView.swift */; };
+		DEF08FD62F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FD52F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift */; };
+		DEF08FD82F7E717A0066EE07 /* VehicleSupportLogosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FD72F7E717A0066EE07 /* VehicleSupportLogosResponse.swift */; };
+		DEF08FDB2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FDA2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift */; };
+		DEF08FDD2F7E73AF0066EE07 /* CarLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FDC2F7E73AF0066EE07 /* CarLogoView.swift */; };
+		DEF08FE02F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FDF2F7E74710066EE07 /* WidgetCarLogoConfiguration.swift */; };
+		DEF08FE12F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FDF2F7E74710066EE07 /* WidgetCarLogoConfiguration.swift */; };
+		DEF08FE62F7E75180066EE07 /* WidgetCarLogoStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FE52F7E75180066EE07 /* WidgetCarLogoStorageModel.swift */; };
+		DEF08FE72F7E75180066EE07 /* WidgetCarLogoStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FE52F7E75180066EE07 /* WidgetCarLogoStorageModel.swift */; };
+		DEF08FE92F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FE82F7E756D0066EE07 /* WidgetCarLogoBrand.swift */; };
+		DEF08FEA2F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FE82F7E756D0066EE07 /* WidgetCarLogoBrand.swift */; };
+		DEF08FEC2F7E759D0066EE07 /* WidgetCarLogoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FEB2F7E759D0066EE07 /* WidgetCarLogoStorage.swift */; };
+		DEF08FED2F7E759D0066EE07 /* WidgetCarLogoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FEB2F7E759D0066EE07 /* WidgetCarLogoStorage.swift */; };
+		DEF08FEF2F7E75A60066EE07 /* WidgetCarLogoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FEE2F7E75A60066EE07 /* WidgetCarLogoService.swift */; };
+		DEF08FF22F7E75AE0066EE07 /* WidgetCarLogoMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FF12F7E75AE0066EE07 /* WidgetCarLogoMediator.swift */; };
+		DEF08FF62F7E80600066EE07 /* WidgetCarLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FF52F7E80600066EE07 /* WidgetCarLogoViewController.swift */; };
+		DEF08FF82F7E80650066EE07 /* WidgetCarLogoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FF72F7E80650066EE07 /* WidgetCarLogoViewModel.swift */; };
+		DEF08FFA2F7E806B0066EE07 /* WidgetCarLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FF92F7E806B0066EE07 /* WidgetCarLogoView.swift */; };
+		DEF08FFD2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FFC2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift */; };
+		DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF08FFE2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift */; };
+		DEF090022F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF090012F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift */; };
+		DEF090042F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF090032F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift */; };
+		DEF090062F7EB95D0066EE07 /* WidgetCarBrandsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF090052F7EB95D0066EE07 /* WidgetCarBrandsListView.swift */; };
+		DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF090082F7EBC210066EE07 /* SelectBrandSearchField.swift */; };
+		DEF0900C2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0900B2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift */; };
+		DEF570992F7FD260002394B9 /* WidgetCarBrandsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570982F7FD25F002394B9 /* WidgetCarBrandsListTableView.swift */; };
+		DEF5709B2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5709A2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift */; };
+		DEF5709E2F7FD4E2002394B9 /* CarLogoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5709D2F7FD4E2002394B9 /* CarLogoWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -867,6 +894,29 @@
 		DEEB9D782F6A942F0041587F /* WeatherStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStyleView.swift; sourceTree = "<group>"; };
 		DEEB9D7A2F6A9C750041587F /* GeoLocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationAPI.swift; sourceTree = "<group>"; };
 		DEEB9D7E2F6AFBAF0041587F /* WeatherKindImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKindImageView.swift; sourceTree = "<group>"; };
+		DEF08FD52F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchVehicleSupportLogosRequest.swift; sourceTree = "<group>"; };
+		DEF08FD72F7E717A0066EE07 /* VehicleSupportLogosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSupportLogosResponse.swift; sourceTree = "<group>"; };
+		DEF08FDA2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateCarLogoCell.swift; sourceTree = "<group>"; };
+		DEF08FDC2F7E73AF0066EE07 /* CarLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLogoView.swift; sourceTree = "<group>"; };
+		DEF08FDF2F7E74710066EE07 /* WidgetCarLogoConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoConfiguration.swift; sourceTree = "<group>"; };
+		DEF08FE52F7E75180066EE07 /* WidgetCarLogoStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoStorageModel.swift; sourceTree = "<group>"; };
+		DEF08FE82F7E756D0066EE07 /* WidgetCarLogoBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoBrand.swift; sourceTree = "<group>"; };
+		DEF08FEB2F7E759D0066EE07 /* WidgetCarLogoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoStorage.swift; sourceTree = "<group>"; };
+		DEF08FEE2F7E75A60066EE07 /* WidgetCarLogoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoService.swift; sourceTree = "<group>"; };
+		DEF08FF12F7E75AE0066EE07 /* WidgetCarLogoMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoMediator.swift; sourceTree = "<group>"; };
+		DEF08FF52F7E80600066EE07 /* WidgetCarLogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoViewController.swift; sourceTree = "<group>"; };
+		DEF08FF72F7E80650066EE07 /* WidgetCarLogoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoViewModel.swift; sourceTree = "<group>"; };
+		DEF08FF92F7E806B0066EE07 /* WidgetCarLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarLogoView.swift; sourceTree = "<group>"; };
+		DEF08FFC2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCarBrandsView.swift; sourceTree = "<group>"; };
+		DEF08FFE2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCarBrandItemButton.swift; sourceTree = "<group>"; };
+		DEF090012F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListViewController.swift; sourceTree = "<group>"; };
+		DEF090032F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListViewModel.swift; sourceTree = "<group>"; };
+		DEF090052F7EB95D0066EE07 /* WidgetCarBrandsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListView.swift; sourceTree = "<group>"; };
+		DEF090082F7EBC210066EE07 /* SelectBrandSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandSearchField.swift; sourceTree = "<group>"; };
+		DEF0900B2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListTableElement.swift; sourceTree = "<group>"; };
+		DEF570982F7FD25F002394B9 /* WidgetCarBrandsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListTableView.swift; sourceTree = "<group>"; };
+		DEF5709A2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCarBrandsListTableCell.swift; sourceTree = "<group>"; };
+		DEF5709D2F7FD4E2002394B9 /* CarLogoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLogoWidgetView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -976,6 +1026,7 @@
 		DE1DA0422F4DDE9900742E69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DEF08FF42F7E80580066EE07 /* CarLogo */,
 				DE747D9F2F752A32007C145B /* Clock */,
 				DEEAA9FF2F6F07C00072C702 /* Weather */,
 				DE0879EB2F5DA92100FECBA5 /* Calendar */,
@@ -988,6 +1039,7 @@
 		DE1DA0432F4DDEA100742E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEF08FFB2F7E855F0066EE07 /* CarBrands */,
 				DEEAAA1D2F7138A80072C702 /* Location */,
 				DEEAAA0F2F712AF80072C702 /* TemperatureType */,
 				DEEAAA0C2F7121420072C702 /* TimeFormat */,
@@ -1143,6 +1195,7 @@
 		DE1DA0A42F51E12D00742E69 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				DEF08FE32F7E75020066EE07 /* CarLogo */,
 				DEEAAA722F73C5470072C702 /* Clock */,
 				DEEB9D3F2F6A8CC40041587F /* Weather */,
 				DE60839E2F599AE70025BB2D /* Calendar */,
@@ -1472,6 +1525,7 @@
 		DE629BD72F55CFE2004F5F7E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				DEF5709C2F7FD4D4002394B9 /* CarLogo */,
 				DE747DA62F753663007C145B /* Clock */,
 				DEEAAA452F72918A0072C702 /* Weather */,
 				DE0879F42F5DBBF800FECBA5 /* Calendar */,
@@ -2096,6 +2150,7 @@
 		DEC158752F4B589100F2843C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DEF08FDE2F7E74470066EE07 /* CarLogo */,
 				DEEAAA6B2F73C1880072C702 /* Clock */,
 				DEA5CF8E2F69468F0045CBC0 /* Weather */,
 				DE6083972F5999290025BB2D /* Calendar */,
@@ -2126,6 +2181,7 @@
 		DEC158862F4B635300F2843C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DEF08FD92F7E73500066EE07 /* CarLogo */,
 				DEEAAA802F73C7910072C702 /* Clock */,
 				DEEB9D4F2F6A90B60041587F /* Weather */,
 				DE6083AC2F59A0F60025BB2D /* Calendar */,
@@ -2500,6 +2556,7 @@
 			isa = PBXGroup;
 			children = (
 				DEEAAA642F73BF5B0072C702 /* VehicleWidgetPreview.swift */,
+				DEF08FD72F7E717A0066EE07 /* VehicleSupportLogosResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2508,6 +2565,7 @@
 			isa = PBXGroup;
 			children = (
 				DEEAAA672F73C0190072C702 /* FetchVehicleWidgetPreviewsRequest.swift */,
+				DEF08FD52F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2709,6 +2767,101 @@
 			path = DigitalWeatherClock;
 			sourceTree = "<group>";
 		};
+		DEF08FD92F7E73500066EE07 /* CarLogo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF08FDA2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift */,
+				DEF08FDC2F7E73AF0066EE07 /* CarLogoView.swift */,
+			);
+			path = CarLogo;
+			sourceTree = "<group>";
+		};
+		DEF08FDE2F7E74470066EE07 /* CarLogo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF08FDF2F7E74710066EE07 /* WidgetCarLogoConfiguration.swift */,
+				DEF08FE82F7E756D0066EE07 /* WidgetCarLogoBrand.swift */,
+			);
+			path = CarLogo;
+			sourceTree = "<group>";
+		};
+		DEF08FE32F7E75020066EE07 /* CarLogo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF08FE42F7E75090066EE07 /* Model */,
+				DEF08FEB2F7E759D0066EE07 /* WidgetCarLogoStorage.swift */,
+				DEF08FEE2F7E75A60066EE07 /* WidgetCarLogoService.swift */,
+				DEF08FF12F7E75AE0066EE07 /* WidgetCarLogoMediator.swift */,
+			);
+			path = CarLogo;
+			sourceTree = "<group>";
+		};
+		DEF08FE42F7E75090066EE07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEF08FE52F7E75180066EE07 /* WidgetCarLogoStorageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEF08FF42F7E80580066EE07 /* CarLogo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF08FF52F7E80600066EE07 /* WidgetCarLogoViewController.swift */,
+				DEF08FF72F7E80650066EE07 /* WidgetCarLogoViewModel.swift */,
+				DEF08FF92F7E806B0066EE07 /* WidgetCarLogoView.swift */,
+			);
+			path = CarLogo;
+			sourceTree = "<group>";
+		};
+		DEF08FFB2F7E855F0066EE07 /* CarBrands */ = {
+			isa = PBXGroup;
+			children = (
+				DEF090002F7EB9380066EE07 /* WidgetCarBrandsList */,
+				DEF08FFC2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift */,
+				DEF08FFE2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift */,
+			);
+			path = CarBrands;
+			sourceTree = "<group>";
+		};
+		DEF090002F7EB9380066EE07 /* WidgetCarBrandsList */ = {
+			isa = PBXGroup;
+			children = (
+				DEF090072F7EBBE60066EE07 /* Views */,
+				DEF090012F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift */,
+				DEF090032F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift */,
+				DEF090052F7EB95D0066EE07 /* WidgetCarBrandsListView.swift */,
+			);
+			path = WidgetCarBrandsList;
+			sourceTree = "<group>";
+		};
+		DEF090072F7EBBE60066EE07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEF0900A2F7EBCE30066EE07 /* TableView */,
+				DEF090082F7EBC210066EE07 /* SelectBrandSearchField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEF0900A2F7EBCE30066EE07 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEF0900B2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift */,
+				DEF570982F7FD25F002394B9 /* WidgetCarBrandsListTableView.swift */,
+				DEF5709A2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEF5709C2F7FD4D4002394B9 /* CarLogo */ = {
+			isa = PBXGroup;
+			children = (
+				DEF5709D2F7FD4E2002394B9 /* CarLogoWidgetView.swift */,
+			);
+			path = CarLogo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2898,6 +3051,8 @@
 				DE5120272F4572280026C5CC /* PowerProgressFill.swift in Sources */,
 				DE5120282F4572280026C5CC /* PowerDisplayIslandLeading.swift in Sources */,
 				DE087A032F5DD30F00FECBA5 /* CalendarWeekRowWidgetView.swift in Sources */,
+				DEF08FE72F7E75180066EE07 /* WidgetCarLogoStorageModel.swift in Sources */,
+				DEF5709E2F7FD4E2002394B9 /* CarLogoWidgetView.swift in Sources */,
 				DEEAAA4D2F7295AE0072C702 /* CompactWeatherForecastWidgetView.swift in Sources */,
 				DE087A002F5DBDAD00FECBA5 /* CalendarStackedMonthDayWeekdayWidgetView.swift in Sources */,
 				DEEAAA5D2F72995C0072C702 /* WeatherFourDaysItemWidgetView.swift in Sources */,
@@ -2959,6 +3114,7 @@
 				DE629BC52F55C74F004F5F7E /* WidgetTextQuote.swift in Sources */,
 				DE60839A2F59994E0025BB2D /* WidgetCalendarConfiguration.swift in Sources */,
 				DE629C042F55F669004F5F7E /* WidgetPresetQuery.swift in Sources */,
+				DEF08FE92F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */,
 				DE1DA0AE2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DE5120322F4572280026C5CC /* PowerCompactIconView.swift in Sources */,
 				DEEAAA752F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
@@ -2978,6 +3134,7 @@
 				DEEB9D452F6A8CEC0041587F /* WidgetWeatherStorage.swift in Sources */,
 				DE629BF22F55DE04004F5F7E /* QuoteLifeMeaningWidgetView.swift in Sources */,
 				DE629BD62F55CF0D004F5F7E /* Appearance.swift in Sources */,
+				DEF08FED2F7E759D0066EE07 /* WidgetCarLogoStorage.swift in Sources */,
 				DEA5CFA62F695BD70045CBC0 /* Coordinate.swift in Sources */,
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
 				DEA5CFA32F6958CD0045CBC0 /* Location.swift in Sources */,
@@ -2993,6 +3150,7 @@
 				DE5120382F4572280026C5CC /* AccessCarDeepLink.swift in Sources */,
 				DE5120392F4572280026C5CC /* AccessCarLiveActivityWidget.swift in Sources */,
 				DEEAAA502F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift in Sources */,
+				DEF08FE12F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */,
 				DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */,
 				DE51203E2F4572B00026C5CC /* GlobalDefinitions.swift in Sources */,
@@ -3009,6 +3167,7 @@
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEEAAA9B2F73FBF80072C702 /* WidgetsPresetsTemplateAnalogClockCell.swift in Sources */,
 				DEEB9D7B2F6A9C750041587F /* GeoLocationAPI.swift in Sources */,
+				DEF08FF22F7E75AE0066EE07 /* WidgetCarLogoMediator.swift in Sources */,
 				DEABE5E02F456CFC00089B9E /* NavigationControllerSettings.swift in Sources */,
 				DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */,
 				DE63A22F2F7D3DCF00AF71B7 /* ClockAIPreviewView.swift in Sources */,
@@ -3046,6 +3205,7 @@
 				DEA2FBD82F6306060034A47D /* AppleMusicAuthorization.swift in Sources */,
 				DEC158912F4B65AC00F2843C /* WidgetsPresetsTemplateTextManuallyCell.swift in Sources */,
 				DEEAAAAD2F741CAB0072C702 /* SplitFlapItemView.swift in Sources */,
+				DEF08FD62F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift in Sources */,
 				DECE31672F62BF960078414C /* DrivingModeMenuStatusView.swift in Sources */,
 				DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
@@ -3053,9 +3213,11 @@
 				DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */,
 				DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
+				DEF08FFA2F7E806B0066EE07 /* WidgetCarLogoView.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
+				DEF08FE02F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEEAAA8D2F73FB920072C702 /* WidgetsPresetsTemplateDigitalStackedCell.swift in Sources */,
 				DEEAAA302F71A4090072C702 /* SelectLocationEnterNameCell.swift in Sources */,
@@ -3066,6 +3228,7 @@
 				DEA2FC0E2F630B340034A47D /* AppleMusicLibraryPlayerObserver.swift in Sources */,
 				DE629C202F572EB9004F5F7E /* WidgetBuilderTextField.swift in Sources */,
 				DE5120572F45C49D0026C5CC /* AccessCarDeepLinkParser.swift in Sources */,
+				DEF090062F7EB95D0066EE07 /* WidgetCarBrandsListView.swift in Sources */,
 				DEC1587A2F4B5DFF00F2843C /* WidgetTextQuoteAmbitionDrive.swift in Sources */,
 				DEABE5F22F456CFC00089B9E /* RequestReview.swift in Sources */,
 				DEEAAA6D2F73C19E0072C702 /* WidgetClockStyle.swift in Sources */,
@@ -3083,9 +3246,11 @@
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
+				DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */,
 				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
+				DEF08FD82F7E717A0066EE07 /* VehicleSupportLogosResponse.swift in Sources */,
 				DEEB9D772F6A92530041587F /* DigitalWeatherClockView.swift in Sources */,
 				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
@@ -3103,6 +3268,7 @@
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DEEAAA432F727F3D0072C702 /* Page.swift in Sources */,
+				DEF08FF82F7E80650066EE07 /* WidgetCarLogoViewModel.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
@@ -3121,10 +3287,12 @@
 				DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
+				DEF08FDB2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEEAAA652F73BF5B0072C702 /* VehicleWidgetPreview.swift in Sources */,
+				DEF08FFD2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
 				DECE31792F62D7BA0078414C /* AppleMusicViewModel.swift in Sources */,
 				DECE31582F62AC930078414C /* DrivingModeView.swift in Sources */,
@@ -3140,6 +3308,7 @@
 				DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */,
 				DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */,
 				DE1DA0A72F51E14500742E69 /* WidgetTextService.swift in Sources */,
+				DEF08FEA2F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
 				DE1DA0B02F51EEEA00742E69 /* WidgetTextServiceMediator.swift in Sources */,
 				DEA5CFA52F695BD70045CBC0 /* Coordinate.swift in Sources */,
@@ -3173,6 +3342,7 @@
 				DEEB9D572F6A912E0041587F /* WidgetsPresetsTemplateCurrentWeatherSummaryCell.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */,
+				DEF5709B2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
 				DEEAAA8F2F73FBA30072C702 /* DigitalStackedView.swift in Sources */,
 				DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */,
@@ -3206,6 +3376,7 @@
 				DEEAAA792F73C5770072C702 /* WidgetClockStorage.swift in Sources */,
 				DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */,
 				DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */,
+				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				DECE31772F62D7B20078414C /* AppleMusicViewController.swift in Sources */,
 				DEEB9D722F6A92350041587F /* WeatherConditionForecastView.swift in Sources */,
@@ -3224,6 +3395,7 @@
 				DEEB9D592F6A91380041587F /* CurrentWeatherSummaryView.swift in Sources */,
 				DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */,
 				DEABE63F2F456CFC00089B9E /* UIDevice+Extension.swift in Sources */,
+				DEF570992F7FD260002394B9 /* WidgetCarBrandsListTableView.swift in Sources */,
 				DEC1586F2F4B309D00F2843C /* WidgetsPresetsType.swift in Sources */,
 				DE6083C32F5B20980025BB2D /* CalendarWeekRowItemView.swift in Sources */,
 				DEEAAA332F71A9420072C702 /* SelectLocationSearchField.swift in Sources */,
@@ -3231,10 +3403,12 @@
 				DEEAAA7C2F73C57F0072C702 /* WidgetClockService.swift in Sources */,
 				DEABE6412F456CFC00089B9E /* GradientButton.swift in Sources */,
 				DE1DA0642F4EED2400742E69 /* WidgetQuoteSliderLeadershipImpactView.swift in Sources */,
+				DEF090042F7EB9590066EE07 /* WidgetCarBrandsListViewModel.swift in Sources */,
 				DE6083A42F599B750025BB2D /* WidgetCalendarStorage.swift in Sources */,
 				DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */,
 				DECE31542F62AC880078414C /* DrivingModeViewController.swift in Sources */,
 				DEC158602F4A338A00F2843C /* WidgetsHelperScrollImageView.swift in Sources */,
+				DEF08FF62F7E80600066EE07 /* WidgetCarLogoViewController.swift in Sources */,
 				DE5120562F45C4920026C5CC /* LiveActivityType.swift in Sources */,
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,
 				DEEAAA6A2F73C07E0072C702 /* VehicleManager.swift in Sources */,
@@ -3242,8 +3416,10 @@
 				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */,
+				DEF08FEF2F7E75A60066EE07 /* WidgetCarLogoService.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
+				DEF0900C2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift in Sources */,
 				DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */,
 				DE63A2372F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift in Sources */,
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
@@ -3252,6 +3428,7 @@
 				DECE316C2F62C2910078414C /* DrivingModeBatteryView.swift in Sources */,
 				DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */,
 				DE592C5E2F49C21F00ABA60E /* MainCoordinator.swift in Sources */,
+				DEF090022F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
 				DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */,
@@ -3286,6 +3463,7 @@
 				DE63A2352F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
+				DEF08FDD2F7E73AF0066EE07 /* CarLogoView.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
 				DEABE65F2F456CFC00089B9E /* NavigationController.swift in Sources */,
 				DEEAAA2B2F71A3EF0072C702 /* SelectLocationTableElement.swift in Sources */,
@@ -3298,9 +3476,11 @@
 				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DE1DA0552F4E050900742E69 /* WidgetBuilderFontView.swift in Sources */,
 				DE1DA05E2F4ED9D400742E69 /* WidgetTextQuoteSliderView.swift in Sources */,
+				DEF08FEC2F7E759D0066EE07 /* WidgetCarLogoStorage.swift in Sources */,
 				DEEAAA242F713BB90072C702 /* SelectLocationViewModel.swift in Sources */,
 				DECE315E2F62ADED0078414C /* DrivingModeMenuView.swift in Sources */,
 				DEABE6662F456CFC00089B9E /* TextAttributes.swift in Sources */,
+				DEF08FE62F7E75180066EE07 /* WidgetCarLogoStorageModel.swift in Sources */,
 				DEA9C55A2F751DCC00B8121E /* AnalogClockFaceView.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,

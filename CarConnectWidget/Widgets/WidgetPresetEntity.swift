@@ -28,6 +28,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             return model.id
         case .clockAIPreview(let model):
             return model.id
+        case .carLogo(let model):
+            return model.id
         }
     }
     
@@ -45,6 +47,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             case .clock(let model):
                 return model.name
             case .clockAIPreview(let model):
+                return model.name
+            case .carLogo(let model):
                 return model.name
             }
         }()

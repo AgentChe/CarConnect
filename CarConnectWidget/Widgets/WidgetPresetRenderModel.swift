@@ -12,4 +12,5 @@ enum WidgetPresetRenderModel: Hashable {
     case weather(WidgetWeatherStorageModel, WeatherData)
     case clock(WidgetClockStorageModel)
     case clockAIPreview(WidgetClockAIPreviewStorageModel)
+    case carLogo(WidgetCarLogoStorageModel)
 }

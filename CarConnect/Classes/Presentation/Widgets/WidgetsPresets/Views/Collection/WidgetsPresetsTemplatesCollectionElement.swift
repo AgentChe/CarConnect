@@ -25,4 +25,7 @@ enum WidgetsPresetsTemplatesCollectionElement {
     // Presets of clock
     case clock(String?, WidgetClockConfiguration)
     case clockAIPreview(String?, WidgetClockAIPreviewConfiguration)
+    
+    // Presets of carLogo
+    case carLogo(String?, WidgetCarLogoConfiguration, Bool, Int?)
 }

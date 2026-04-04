@@ -53,7 +53,7 @@ extension WidgetBuilderPhotoView: PHPickerViewControllerDelegate {
 
 // MARK: Public
 extension WidgetBuilderPhotoView {
-    func setup(selectedPhoto: WidgetPhoto, defaultPhoto: WidgetPhoto) {
+    func setup(selectedPhoto: WidgetPhoto?, defaultPhoto: WidgetPhoto?) {
         resetButton.setup(enable: selectedPhoto != defaultPhoto)
     }
     
@@ -96,7 +96,7 @@ extension WidgetBuilderPhotoView {
         }
     }
     
-    func setup(selected: WidgetPhoto) {
+    func setup(selected: WidgetPhoto?) {
         self.selected = selected
         
         itemsButtons.forEach { button in

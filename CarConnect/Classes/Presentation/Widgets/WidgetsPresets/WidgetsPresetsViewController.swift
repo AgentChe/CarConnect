@@ -173,6 +173,15 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openPhoto(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetPhotoViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetPhotoViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

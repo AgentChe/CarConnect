@@ -20,6 +20,7 @@ final class WidgetsPresetsViewModel {
         case openCarLogo(String?, WidgetCarLogoConfiguration)
         case openAIPhoto(String?, WidgetAIPhotoConfiguration?)
         case openPhotoWihText(String?, WidgetPhotoWithTextConfiguration)
+        case openPhoto(String?, WidgetPhotoConfiguration?)
     }
     
     private lazy var textService = WidgetTextService()
@@ -153,6 +154,8 @@ private extension WidgetsPresetsViewModel {
                     return .openAIPhoto(storageModelId, config)
                 case .photoWithText(let storageModelId, let config):
                     return .openPhotoWihText(storageModelId, config)
+                case .photo(let storageModelId, let config):
+                    return .openPhoto(storageModelId, config)
                 }
             }
         
@@ -1006,15 +1009,72 @@ private extension WidgetsPresetsViewModel {
                 }
         }
         
+        func savedPhotos() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetPhotoStorageModel])
+                case added(WidgetPhotoStorageModel)
+                case edited(WidgetPhotoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchPhotoConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedPhotoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedPhotoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedPhotoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetPhotoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .photo($0.id, $0.configuration) }
+                }
+        }
+        
         func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
-            
-            
             Driver
                 .combineLatest(
-                    savedAIPhotos(), savedPhotosWithText()
+                    savedAIPhotos(), savedPhotosWithText(), savedPhotos()
                 )
-                .map { ai, withText -> [WidgetsPresetsTemplatesCollectionElement] in
-                    ai + withText
+                .map { ai, withText, photos -> [WidgetsPresetsTemplatesCollectionElement] in
+                    ai + withText + photos
                 }
         }
         
@@ -1022,9 +1082,11 @@ private extension WidgetsPresetsViewModel {
             Single
                 .deferred {
                     let aiPhoto = WidgetsPresetsTemplatesCollectionElement.aiPhoto(nil, nil)
+                    let uploadPhoto = WidgetsPresetsTemplatesCollectionElement.photo(nil, nil)
                     let photoWithText = WidgetsPresetsTemplatesCollectionElement.photoWithText(nil, WidgetPhotoWithTextConfiguration.default())
+                    let defaultPhoto = WidgetsPresetsTemplatesCollectionElement.photo(nil, WidgetPhotoConfiguration.default())
                        
-                    let elements = [aiPhoto, photoWithText]
+                    let elements = [aiPhoto, uploadPhoto, photoWithText, defaultPhoto]
                     
                     return .just(elements)
                 }

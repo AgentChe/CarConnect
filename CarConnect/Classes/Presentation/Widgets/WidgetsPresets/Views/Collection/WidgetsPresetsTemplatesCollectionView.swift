@@ -186,6 +186,14 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoWithTextCell.self), for: indexPath) as! WidgetsPresetsTemplatePhotoWithTextCell
             cell.setup(configuration: configuration)
             return cell
+        case .photo(_, let configuration):
+            if let configuration {
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoCell.self), for: indexPath) as! WidgetsPresetsTemplatePhotoCell
+                cell.setup(configuration: configuration)
+                return cell
+            } else {
+                return dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoPlaceholderCell.self), for: indexPath)
+            }
         }
     }
 }
@@ -250,6 +258,8 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateAIPhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoCell.self))
         register(WidgetsPresetsTemplateAIPhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoPlaceholderCell.self))
         register(WidgetsPresetsTemplatePhotoWithTextCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoWithTextCell.self))
+        register(WidgetsPresetsTemplatePhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoCell.self))
+        register(WidgetsPresetsTemplatePhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoPlaceholderCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

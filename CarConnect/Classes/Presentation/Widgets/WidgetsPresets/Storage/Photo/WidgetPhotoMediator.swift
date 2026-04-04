@@ -19,6 +19,10 @@ final class WidgetPhotoMediator {
     private lazy var didEditedPhotoWithTextModelTrigger = PublishRelay<WidgetPhotoWithTextStorageModel>()
     private lazy var didDeletedPhotoWithTextModelIdTrigger = PublishRelay<String>()
     
+    private lazy var didSavedPhotoModelTrigger = PublishRelay<WidgetPhotoStorageModel>()
+    private lazy var didEditedPhotoModelTrigger = PublishRelay<WidgetPhotoStorageModel>()
+    private lazy var didDeletedPhotoModelIdTrigger = PublishRelay<String>()
+    
     private init() {}
 }
 
@@ -48,6 +52,18 @@ extension WidgetPhotoMediator {
         didDeletedPhotoWithTextModelIdTrigger.accept(photoWithTextModelId)
     }
     
+    func saved(photoModel: WidgetPhotoStorageModel) {
+        didSavedPhotoModelTrigger.accept(photoModel)
+    }
+    
+    func edited(photoModel: WidgetPhotoStorageModel) {
+        didEditedPhotoModelTrigger.accept(photoModel)
+    }
+    
+    func deleted(photoModelId: String) {
+        didDeletedPhotoModelIdTrigger.accept(photoModelId)
+    }
+    
     var didSavedAIPhotoModel: Signal<WidgetAIPhotoStorageModel> {
         didSavedAIPhotoModelTrigger.asSignal()
     }
@@ -70,5 +86,17 @@ extension WidgetPhotoMediator {
     
     var didDeletedPhotoWithTextModelId: Signal<String> {
         didDeletedPhotoWithTextModelIdTrigger.asSignal()
+    }
+    
+    var didSavedPhotoModel: Signal<WidgetPhotoStorageModel> {
+        didSavedPhotoModelTrigger.asSignal()
+    }
+    
+    var didEditedPhotoModel: Signal<WidgetPhotoStorageModel> {
+        didEditedPhotoModelTrigger.asSignal()
+    }
+    
+    var didDeletedPhotoModelId: Signal<String> {
+        didDeletedPhotoModelIdTrigger.asSignal()
     }
 }

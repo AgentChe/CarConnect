@@ -12,6 +12,7 @@ final class WidgetPhotoStorage {
     enum Constants {
         static let aiPhotosConfigurationsKey = "widget_ai_photos_storage_configuration_key"
         static let photoWithTextConfigurationsKey = "widget_photo_with_text_configurations_key"
+        static let photoConfigurationsKey = "widget_photo_configurations_key"
     }
     
     static let shared = WidgetPhotoStorage()
@@ -42,6 +43,14 @@ extension WidgetPhotoStorage {
         return decoded ?? []
     }
     
+    func loadAllPhotoConfigurations() -> [WidgetPhotoStorageModel] {
+        guard let data = userDefaults?.data(forKey: Constants.photoConfigurationsKey) else { return [] }
+        
+        let decoded = try? decoder.decode([WidgetPhotoStorageModel].self, from: data)
+        
+        return decoded ?? []
+    }
+    
     func persist(aiPhotosConfigurations: [WidgetAIPhotoStorageModel]) {
         guard let data = try? encoder.encode(aiPhotosConfigurations) else { return }
         
@@ -54,6 +63,14 @@ extension WidgetPhotoStorage {
         guard let data = try? encoder.encode(photoWithTextConfigurations) else { return }
         
         userDefaults?.set(data, forKey: Constants.photoWithTextConfigurationsKey)
+        
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+    
+    func persist(photoConfigurations: [WidgetPhotoStorageModel]) {
+        guard let data = try? encoder.encode(photoConfigurations) else { return }
+        
+        userDefaults?.set(data, forKey: Constants.photoConfigurationsKey)
         
         WidgetCenter.shared.reloadAllTimelines()
     }

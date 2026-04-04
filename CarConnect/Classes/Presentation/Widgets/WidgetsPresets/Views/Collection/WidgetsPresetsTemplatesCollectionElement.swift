@@ -31,4 +31,5 @@ enum WidgetsPresetsTemplatesCollectionElement {
     
     // Presets of photo
     case aiPhoto(String?, WidgetAIPhotoConfiguration?)
+    case photoWithText(String?, WidgetPhotoWithTextConfiguration)
 }

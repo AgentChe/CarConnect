@@ -98,6 +98,8 @@
 "WidgetsBuilders.Prompt" = "Prompt";
 "WidgetsBuilders.Prompt.Placeholder" = "Example: Car in New York";
 "WidgetsBuilders.GenerateAIPhoto" = "Generate widget AI";
+"WidgetsBuilders.BackgroundPhoto" = "Background photo";
+"WidgetsBuilders.PhotoWithText.Placeholder" = "Widget text";
 
 // MARK: WidgetsPreview
 "WidgetsPreview.Title" = "Preview widget";

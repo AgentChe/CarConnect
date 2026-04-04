@@ -32,6 +32,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             return model.id
         case .aiPhoto(let model):
             return model.id
+        case .photoWithText(let model):
+            return model.id
         }
     }
     
@@ -53,6 +55,8 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             case .carLogo(let model):
                 return model.name
             case .aiPhoto(let model):
+                return model.name
+            case .photoWithText(let model):
                 return model.name
             }
         }()

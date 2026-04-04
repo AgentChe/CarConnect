@@ -41,10 +41,14 @@ struct WidgetPresetQuery: EntityQuery {
             .map { configuration -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .aiPhoto(configuration))
             }
+        let photosWithText = WidgetPhotoStorage.shared.loadAllPhotoWithTextConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .photoWithText(configuration))
+            }
         
         let textGroup = textQuotes + textManuallyConfigurations
         let clockGroups = clockConfigurations + clockAIPreviews
-        let photoGroups = aiPhotos
+        let photoGroups = aiPhotos + photosWithText
         
         return textGroup + calendarConfigurations + weatherConfigurations + clockGroups + carLogos + photoGroups
     }

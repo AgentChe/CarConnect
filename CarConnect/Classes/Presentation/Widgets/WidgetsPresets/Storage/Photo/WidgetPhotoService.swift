@@ -43,6 +43,15 @@ protocol WidgetPhotoServiceProtocol {
     ) -> Single<WidgetAIPhotoMyCarStorageModel>
     func deleteAIPhotoMyCar(storageModelId: String) -> Single<Void>
     func fetchAIPhotoMyCarConfigurations() -> Single<[WidgetAIPhotoMyCarStorageModel]>
+    
+    func savePhotoCarousel(name: String, configuration: WidgetPhotoCarouselConfiguration) -> Single<WidgetPhotoCarouselStorageModel>
+    func editPhotoCarousel(
+        name: String,
+        storageModelId: String,
+        configuration: WidgetPhotoCarouselConfiguration
+    ) -> Single<WidgetPhotoCarouselStorageModel>
+    func deletePhotoCarousel(storageModelId: String) -> Single<Void>
+    func fetchPhotoCarouselConfigurations() -> Single<[WidgetPhotoCarouselStorageModel]>
 }
 
 final class WidgetPhotoService {
@@ -363,6 +372,85 @@ extension WidgetPhotoService: WidgetPhotoServiceProtocol {
             guard let self else { return .error(ContentError.init(.notContent)) }
             
             let items = storage.loadAllAIPhotoMyCarConfigurations()
+            
+            return .just(items)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func savePhotoCarousel(name: String, configuration: WidgetPhotoCarouselConfiguration) -> Single<WidgetPhotoCarouselStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            var items = storage.loadAllPhotoCarouselConfigurations()
+
+            let model = WidgetPhotoCarouselStorageModel(
+                id: UUID().uuidString,
+                name: name,
+                configuration: configuration
+            )
+
+            items.append(model)
+            storage.persist(photoCarouselConfigurations: items)
+            
+            WidgetPhotoMediator.shared.saved(photoCarouselModel: model)
+
+            return .just(model)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func editPhotoCarousel(
+        name: String,
+        storageModelId: String,
+        configuration: WidgetPhotoCarouselConfiguration
+    ) -> Single<WidgetPhotoCarouselStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllPhotoCarouselConfigurations()
+
+            guard let index = items.firstIndex(where: { $0.id == storageModelId }) else {
+                return .error(NSError(domain: "Not found", code: 404))
+            }
+
+            let edited = WidgetPhotoCarouselStorageModel(
+                id: storageModelId,
+                name: name,
+                configuration: configuration
+            )
+            
+            items[index] = edited
+            storage.persist(photoCarouselConfigurations: items)
+            
+            WidgetPhotoMediator.shared.edited(photoCarouselModel: edited)
+
+            return .just(edited)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func deletePhotoCarousel(storageModelId: String) -> Single<Void> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllPhotoCarouselConfigurations()
+            items.removeAll { $0.id == storageModelId }
+
+            storage.persist(photoCarouselConfigurations: items)
+            
+            WidgetPhotoMediator.shared.deleted(photoCarouselModelId: storageModelId)
+            
+            return .just(())
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func fetchPhotoCarouselConfigurations() -> Single<[WidgetPhotoCarouselStorageModel]> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            let items = storage.loadAllPhotoCarouselConfigurations()
             
             return .just(items)
         }

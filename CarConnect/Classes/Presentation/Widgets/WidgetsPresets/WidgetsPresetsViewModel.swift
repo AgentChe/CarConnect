@@ -22,6 +22,7 @@ final class WidgetsPresetsViewModel {
         case openPhotoWihText(String?, WidgetPhotoWithTextConfiguration)
         case openPhoto(String?, WidgetPhotoConfiguration?)
         case openAIPhotoMyCar(String?, WidgetAIPhotoMyCarConfiguration)
+        case openPhotoCarousel(String?, WidgetPhotoCarouselConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
@@ -159,6 +160,8 @@ private extension WidgetsPresetsViewModel {
                     return .openPhoto(storageModelId, config)
                 case .aiPhotoMyCar(let storageModelId, let config):
                     return .openAIPhotoMyCar(storageModelId, config)
+                case .photoCarousel(let storageModelId, let config):
+                    return .openPhotoCarousel(storageModelId, config)
                 }
             }
         
@@ -1130,13 +1133,72 @@ private extension WidgetsPresetsViewModel {
                 }
         }
         
+        func savedPhotoCarousel() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetPhotoCarouselStorageModel])
+                case added(WidgetPhotoCarouselStorageModel)
+                case edited(WidgetPhotoCarouselStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchPhotoCarouselConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedPhotoCarouselModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedPhotoCarouselModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedPhotoCarouselModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetPhotoCarouselStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .photoCarousel($0.id, $0.configuration) }
+                }
+        }
+        
         func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
             Driver
                 .combineLatest(
-                    savedAIPhotos(), savedPhotosWithText(), savedPhotos(), savedAIPhotosMyCar()
+                    savedAIPhotos(), savedPhotosWithText(), savedPhotos(), savedAIPhotosMyCar(), savedPhotoCarousel()
                 )
-                .map { ai, withText, photos, aiPhotosMyCar -> [WidgetsPresetsTemplatesCollectionElement] in
-                    ai + withText + photos + aiPhotosMyCar
+                .map { ai, withText, photos, aiPhotosMyCar, photoCarousel -> [WidgetsPresetsTemplatesCollectionElement] in
+                    ai + withText + photos + aiPhotosMyCar + photoCarousel
                 }
         }
         
@@ -1161,6 +1223,9 @@ private extension WidgetsPresetsViewModel {
                     
                     let photoWithText = WidgetsPresetsTemplatesCollectionElement.photoWithText(nil, WidgetPhotoWithTextConfiguration.default())
                     elements.append(photoWithText)
+                    
+                    let photoCarousel = WidgetsPresetsTemplatesCollectionElement.photoCarousel(nil, WidgetPhotoCarouselConfiguration.default())
+                    elements.append(photoCarousel)
                     
                     let defaultPhoto = WidgetsPresetsTemplatesCollectionElement.photo(nil, WidgetPhotoConfiguration.default())
                     elements.append(defaultPhoto)

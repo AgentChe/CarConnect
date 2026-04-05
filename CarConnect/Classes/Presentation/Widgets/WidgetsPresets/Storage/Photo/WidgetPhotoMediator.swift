@@ -27,6 +27,10 @@ final class WidgetPhotoMediator {
     private lazy var didEditedAIPhotoMyCarModelTrigger = PublishRelay<WidgetAIPhotoMyCarStorageModel>()
     private lazy var didDeletedAIPhotoMyCarModelIdTrigger = PublishRelay<String>()
     
+    private lazy var didSavedPhotoCarouselModelTrigger = PublishRelay<WidgetPhotoCarouselStorageModel>()
+    private lazy var didEditedPhotoCarouselModelTrigger = PublishRelay<WidgetPhotoCarouselStorageModel>()
+    private lazy var didDeletedPhotoCarouselModelIdTrigger = PublishRelay<String>()
+    
     private init() {}
 }
 
@@ -80,6 +84,18 @@ extension WidgetPhotoMediator {
         didDeletedAIPhotoMyCarModelIdTrigger.accept(aiPhotoMyCarModelId)
     }
     
+    func saved(photoCarouselModel: WidgetPhotoCarouselStorageModel) {
+        didSavedPhotoCarouselModelTrigger.accept(photoCarouselModel)
+    }
+    
+    func edited(photoCarouselModel: WidgetPhotoCarouselStorageModel) {
+        didEditedPhotoCarouselModelTrigger.accept(photoCarouselModel)
+    }
+    
+    func deleted(photoCarouselModelId: String) {
+        didDeletedPhotoCarouselModelIdTrigger.accept(photoCarouselModelId)
+    }
+    
     var didSavedAIPhotoModel: Signal<WidgetAIPhotoStorageModel> {
         didSavedAIPhotoModelTrigger.asSignal()
     }
@@ -126,5 +142,17 @@ extension WidgetPhotoMediator {
     
     var didDeletedAIPhotoMyCarModelId: Signal<String> {
         didDeletedAIPhotoMyCarModelIdTrigger.asSignal()
+    }
+    
+    var didSavedPhotoCarouselModel: Signal<WidgetPhotoCarouselStorageModel> {
+        didSavedPhotoCarouselModelTrigger.asSignal()
+    }
+    
+    var didEditedPhotoCarouselModel: Signal<WidgetPhotoCarouselStorageModel> {
+        didEditedPhotoCarouselModelTrigger.asSignal()
+    }
+    
+    var didDeletedPhotoCarouselModelId: Signal<String> {
+        didDeletedPhotoCarouselModelIdTrigger.asSignal()
     }
 }

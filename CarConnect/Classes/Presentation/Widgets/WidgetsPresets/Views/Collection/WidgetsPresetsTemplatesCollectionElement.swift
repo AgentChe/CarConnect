@@ -34,4 +34,5 @@ enum WidgetsPresetsTemplatesCollectionElement {
     case photoWithText(String?, WidgetPhotoWithTextConfiguration)
     case photo(String?, WidgetPhotoConfiguration?)
     case aiPhotoMyCar(String?, WidgetAIPhotoMyCarConfiguration)
+    case photoCarousel(String?, WidgetPhotoCarouselConfiguration)
 }

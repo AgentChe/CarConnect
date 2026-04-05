@@ -378,7 +378,6 @@
 		DEDB369C2F816B0500DAF5FC /* WidgetPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB369B2F816B0500DAF5FC /* WidgetPhotoView.swift */; };
 		DEDB369F2F816B3400DAF5FC /* WidgetPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB369E2F816B3400DAF5FC /* WidgetPhotoPreviewView.swift */; };
 		DEDB36A12F8178F400DAF5FC /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36A02F8178F400DAF5FC /* PhotoWidgetView.swift */; };
-		DEDB36A22F8178F400DAF5FC /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36A02F8178F400DAF5FC /* PhotoWidgetView.swift */; };
 		DEDB36A42F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36A32F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift */; };
 		DEDB36A52F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36A32F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift */; };
 		DEDB36A72F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36A62F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift */; };
@@ -388,7 +387,16 @@
 		DEDB36B02F82545600DAF5FC /* WidgetAIPhotoMyCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36AF2F82545600DAF5FC /* WidgetAIPhotoMyCarViewModel.swift */; };
 		DEDB36B22F82545A00DAF5FC /* WidgetAIPhotoMyCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B12F82545A00DAF5FC /* WidgetAIPhotoMyCarView.swift */; };
 		DEDB36B42F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B32F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift */; };
-		DEDB36B52F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B32F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift */; };
+		DEDB36B72F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B62F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift */; };
+		DEDB36B82F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B62F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift */; };
+		DEDB36BA2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B92F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift */; };
+		DEDB36BB2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36B92F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift */; };
+		DEDB36BE2F825F7500DAF5FC /* WidgetsPresetsTemplateCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36BD2F825F7500DAF5FC /* WidgetsPresetsTemplateCarouselCell.swift */; };
+		DEDB36C02F825F8800DAF5FC /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36BF2F825F8800DAF5FC /* PhotoCarouselView.swift */; };
+		DEDB36C32F8266F600DAF5FC /* WidgetPhotoCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C22F8266F600DAF5FC /* WidgetPhotoCarouselViewController.swift */; };
+		DEDB36C52F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C42F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift */; };
+		DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */; };
+		DEDB36C92F82716A00DAF5FC /* PhotoCarouselWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */; };
 		DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA9272F6D858E0072C702 /* WeatherFetcher.swift */; };
 		DEEAA92C2F6D976E0072C702 /* WeatherFourDaysKindsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA92B2F6D976E0072C702 /* WeatherFourDaysKindsView.swift */; };
 		DEEAA92E2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */; };
@@ -886,6 +894,14 @@
 		DEDB36AF2F82545600DAF5FC /* WidgetAIPhotoMyCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoMyCarViewModel.swift; sourceTree = "<group>"; };
 		DEDB36B12F82545A00DAF5FC /* WidgetAIPhotoMyCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAIPhotoMyCarView.swift; sourceTree = "<group>"; };
 		DEDB36B32F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotoMyCarWidgetView.swift; sourceTree = "<group>"; };
+		DEDB36B62F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselConfiguration.swift; sourceTree = "<group>"; };
+		DEDB36B92F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselStorageModel.swift; sourceTree = "<group>"; };
+		DEDB36BD2F825F7500DAF5FC /* WidgetsPresetsTemplateCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateCarouselCell.swift; sourceTree = "<group>"; };
+		DEDB36BF2F825F8800DAF5FC /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
+		DEDB36C22F8266F600DAF5FC /* WidgetPhotoCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselViewController.swift; sourceTree = "<group>"; };
+		DEDB36C42F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselViewModel.swift; sourceTree = "<group>"; };
+		DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselView.swift; sourceTree = "<group>"; };
+		DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselWidgetView.swift; sourceTree = "<group>"; };
 		DEEAA9272F6D858E0072C702 /* WeatherFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcher.swift; sourceTree = "<group>"; };
 		DEEAA92B2F6D976E0072C702 /* WeatherFourDaysKindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsView.swift; sourceTree = "<group>"; };
 		DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsItemView.swift; sourceTree = "<group>"; };
@@ -2539,6 +2555,25 @@
 			path = AIPhotoMyCar;
 			sourceTree = "<group>";
 		};
+		DEDB36BC2F825F6400DAF5FC /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				DEDB36BD2F825F7500DAF5FC /* WidgetsPresetsTemplateCarouselCell.swift */,
+				DEDB36BF2F825F8800DAF5FC /* PhotoCarouselView.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		DEDB36C12F8266E400DAF5FC /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				DEDB36C22F8266F600DAF5FC /* WidgetPhotoCarouselViewController.swift */,
+				DEDB36C42F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift */,
+				DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
 		DEEAA9292F6D972D0072C702 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -3057,6 +3092,7 @@
 				DEDB366B2F813BF100DAF5FC /* WidgetPhotoWithTextConfiguration.swift */,
 				DEDB368B2F8164F000DAF5FC /* WidgetPhotoConfiguration.swift */,
 				DEDB36A32F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift */,
+				DEDB36B62F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -3079,6 +3115,7 @@
 				DEDB366E2F813C9600DAF5FC /* WidgetPhotoWIthTextStorageModel.swift */,
 				DEDB368E2F81655700DAF5FC /* WidgetPhotoStorageModel.swift */,
 				DEDB36A62F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift */,
+				DEDB36B92F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3086,6 +3123,7 @@
 		DEF570B62F7FE0EF002394B9 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				DEDB36BC2F825F6400DAF5FC /* Carousel */,
 				DEDB36A92F824E3600DAF5FC /* AIPhotoMyCar */,
 				DEDB36912F8166D600DAF5FC /* Photo */,
 				DEDB36712F813F3D00DAF5FC /* PhotoWithText */,
@@ -3106,6 +3144,7 @@
 		DEF570BC2F7FE92D002394B9 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				DEDB36C12F8266E400DAF5FC /* Carousel */,
 				DEDB36AC2F82543E00DAF5FC /* AIPhotoMyCar */,
 				DEDB36962F816AEE00DAF5FC /* Photo */,
 				DEDB36812F814A1800DAF5FC /* PhotoWithText */,
@@ -3140,6 +3179,7 @@
 				DEDB36882F81625B00DAF5FC /* PhotoWithTextWidgetView.swift */,
 				DEDB36A02F8178F400DAF5FC /* PhotoWidgetView.swift */,
 				DEDB36B32F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift */,
+				DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -3375,6 +3415,7 @@
 				DE629BC22F55C741004F5F7E /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
 				DE629BDA2F55D047004F5F7E /* QuoteAmbitionDriveWidgetView.swift in Sources */,
 				DEEAAA702F73C1A80072C702 /* WidgetClockConfiguration.swift in Sources */,
+				DEDB36B72F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift in Sources */,
 				DECB867F2F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
 				DE629BD52F55CE23004F5F7E /* Fonts.swift in Sources */,
 				DECB86822F587BC800378ADC /* WidgetBackground.swift in Sources */,
@@ -3399,6 +3440,7 @@
 				DEEAAA592F7299100072C702 /* WeatherConditionForecastWidgetView.swift in Sources */,
 				DE51203F2F4574800026C5CC /* String+Extension.swift in Sources */,
 				DE5120532F45BD270026C5CC /* UIColor+Extension.swift in Sources */,
+				DEDB36BA2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */,
 				DE629C0D2F560039004F5F7E /* WidgetWithPresets.swift in Sources */,
 				DEDB366D2F813BF100DAF5FC /* WidgetPhotoWithTextConfiguration.swift in Sources */,
 				DE629BC52F55C74F004F5F7E /* WidgetTextQuote.swift in Sources */,
@@ -3445,6 +3487,7 @@
 				DE5120392F4572280026C5CC /* AccessCarLiveActivityWidget.swift in Sources */,
 				DEEAAA502F7295D40072C702 /* WeatherFourDaysKindsWidgetView.swift in Sources */,
 				DEDB36A72F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift in Sources */,
+				DEDB36C92F82716A00DAF5FC /* PhotoCarouselWidgetView.swift in Sources */,
 				DEF08FE12F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DEDB36902F81655700DAF5FC /* WidgetPhotoStorageModel.swift in Sources */,
 				DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */,
@@ -3484,6 +3527,7 @@
 				DEEAA92E2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift in Sources */,
 				DEA2FBF72F6309990034A47D /* MKArtwork.swift in Sources */,
 				DEEB9D7F2F6AFBAF0041587F /* WeatherKindImageView.swift in Sources */,
+				DEDB36C32F8266F600DAF5FC /* WidgetPhotoCarouselViewController.swift in Sources */,
 				DEDB369F2F816B3400DAF5FC /* WidgetPhotoPreviewView.swift in Sources */,
 				DEA2FBF82F6309990034A47D /* MKTrack.swift in Sources */,
 				DEA5CF9A2F6958440045CBC0 /* TimeFormat.swift in Sources */,
@@ -3541,6 +3585,7 @@
 				DEEAAA6D2F73C19E0072C702 /* WidgetClockStyle.swift in Sources */,
 				DE1DA0592F4E0EC200742E69 /* WidgetBuilderRestoreDefaultButton.swift in Sources */,
 				DEF570AF2F7FDE1E002394B9 /* WidgetPhotoStorage.swift in Sources */,
+				DEDB36BE2F825F7500DAF5FC /* WidgetsPresetsTemplateCarouselCell.swift in Sources */,
 				DE1DA0AD2F51E53800742E69 /* CodableColor.swift in Sources */,
 				DEEB9D6D2F6A92140041587F /* WeatherClockView.swift in Sources */,
 				DEABE5F32F456CFC00089B9E /* ObservableRetrySingle.swift in Sources */,
@@ -3556,7 +3601,6 @@
 				DEC158802F4B5E2300F2843C /* WidgetTextQuoteLifeMeaning.swift in Sources */,
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */,
-				DEDB36A22F8178F400DAF5FC /* PhotoWidgetView.swift in Sources */,
 				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
@@ -3667,7 +3711,6 @@
 				DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */,
 				DEEB9D792F6A942F0041587F /* WeatherStyleView.swift in Sources */,
 				DE6083B02F59DB830025BB2D /* WidgetsPresetsTemplateWeekdayAndDayNumberLargeCell.swift in Sources */,
-				DEDB36B52F82594800DAF5FC /* AIPhotoMyCarWidgetView.swift in Sources */,
 				DE1DA09B2F51B57000742E69 /* WidgetsPreviewCarPlayView.swift in Sources */,
 				DEABE6242F456CFC00089B9E /* IAPManager.swift in Sources */,
 				DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */,
@@ -3679,6 +3722,7 @@
 				DEA2FBDA2F6307790034A47D /* AppleMusicSearchRequest.swift in Sources */,
 				DEABE6272F456CFC00089B9E /* SplashViewController.swift in Sources */,
 				DEEAAA2E2F71A4000072C702 /* SelectLocationMyGeoCell.swift in Sources */,
+				DEDB36C02F825F8800DAF5FC /* PhotoCarouselView.swift in Sources */,
 				DEABE6292F456CFC00089B9E /* ScreenSize.swift in Sources */,
 				DEDB36732F813F5700DAF5FC /* WidgetsPresetsTemplatePhotoWithTextCell.swift in Sources */,
 				DE1DA0662F4EED3E00742E69 /* WidgetQuoteSliderLifeMeaningView.swift in Sources */,
@@ -3699,6 +3743,7 @@
 				DEEAAA792F73C5770072C702 /* WidgetClockStorage.swift in Sources */,
 				DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */,
 				DEF570AC2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */,
+				DEDB36BB2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */,
 				DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */,
 				DEDB36AB2F824E4D00DAF5FC /* WidgetsPresetsTemplateAIPhotoMyCarCell.swift in Sources */,
 				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
@@ -3740,12 +3785,14 @@
 				DE592C552F49BECC00ABA60E /* TryAgainViewController.swift in Sources */,
 				DEEAAA6A2F73C07E0072C702 /* VehicleManager.swift in Sources */,
 				DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */,
+				DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */,
 				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */,
 				DEF08FEF2F7E75A60066EE07 /* WidgetCarLogoService.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
+				DEDB36C52F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift in Sources */,
 				DEDB368C2F8164F000DAF5FC /* WidgetPhotoConfiguration.swift in Sources */,
 				DEF0900C2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift in Sources */,
 				DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */,
@@ -3766,6 +3813,7 @@
 				DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */,
 				DE51205B2F45C5190026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
+				DEDB36B82F825C7400DAF5FC /* WidgetPhotoCarouselConfiguration.swift in Sources */,
 				DE592C5C2F49C20200ABA60E /* MainView.swift in Sources */,
 				DE5120542F45BF2A0026C5CC /* LiveActivitySelectionStore.swift in Sources */,
 				DEEAAA3F2F727EFA0072C702 /* PageInfo.swift in Sources */,

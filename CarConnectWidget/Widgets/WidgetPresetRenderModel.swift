@@ -17,4 +17,5 @@ enum WidgetPresetRenderModel: Hashable {
     case photoWithText(WidgetPhotoWithTextStorageModel)
     case photo(WidgetPhotoStorageModel)
     case aiPhotoMyCar(WidgetAIPhotoMyCarStorageModel)
+    case photoCarousel(WidgetPhotoCarouselStorageModel)
 }

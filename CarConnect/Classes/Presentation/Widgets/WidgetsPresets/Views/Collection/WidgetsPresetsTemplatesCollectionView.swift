@@ -198,6 +198,10 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoMyCarCell.self), for: indexPath) as! WidgetsPresetsTemplateAIPhotoMyCarCell
             cell.setup(configuration: configuration)
             return cell
+        case .photoCarousel(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCarouselCell.self), for: indexPath) as! WidgetsPresetsTemplateCarouselCell
+            cell.setup(configuration: configuration)
+            return cell
         }
     }
 }
@@ -265,6 +269,7 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplatePhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoCell.self))
         register(WidgetsPresetsTemplatePhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoPlaceholderCell.self))
         register(WidgetsPresetsTemplateAIPhotoMyCarCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoMyCarCell.self))
+        register(WidgetsPresetsTemplateCarouselCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCarouselCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

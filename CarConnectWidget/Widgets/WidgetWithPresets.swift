@@ -125,6 +125,8 @@ struct WidgetWithPresets: Widget {
                     PhotoWidgetView(configuration: model.configuration)
                 case .aiPhotoMyCar(let model):
                     AIPhotoMyCarWidgetView(configuration: model.configuration)
+                case .photoCarousel(let model):
+                    PhotoCarouselSwiftUIView(configuration: model.configuration)
                 }
             } else {
                 Text("Select preset")

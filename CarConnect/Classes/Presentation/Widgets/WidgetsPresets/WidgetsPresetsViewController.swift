@@ -182,6 +182,15 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openAIPhotoMyCar(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetAIPhotoMyCarViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetAIPhotoMyCarViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

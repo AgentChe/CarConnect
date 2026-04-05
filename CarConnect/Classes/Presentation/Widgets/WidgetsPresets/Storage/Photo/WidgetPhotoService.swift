@@ -34,6 +34,15 @@ protocol WidgetPhotoServiceProtocol {
     ) -> Single<WidgetPhotoStorageModel>
     func deletePhoto(storageModelId: String) -> Single<Void>
     func fetchPhotoConfigurations() -> Single<[WidgetPhotoStorageModel]>
+    
+    func saveAIPhotoMyCar(name: String, configuration: WidgetAIPhotoMyCarConfiguration) -> Single<WidgetAIPhotoMyCarStorageModel>
+    func editAIPhotoMyCar(
+        name: String,
+        storageModelId: String,
+        configuration: WidgetAIPhotoMyCarConfiguration
+    ) -> Single<WidgetAIPhotoMyCarStorageModel>
+    func deleteAIPhotoMyCar(storageModelId: String) -> Single<Void>
+    func fetchAIPhotoMyCarConfigurations() -> Single<[WidgetAIPhotoMyCarStorageModel]>
 }
 
 final class WidgetPhotoService {
@@ -275,6 +284,85 @@ extension WidgetPhotoService: WidgetPhotoServiceProtocol {
             guard let self else { return .error(ContentError.init(.notContent)) }
             
             let items = storage.loadAllPhotoConfigurations()
+            
+            return .just(items)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func saveAIPhotoMyCar(name: String, configuration: WidgetAIPhotoMyCarConfiguration) -> Single<WidgetAIPhotoMyCarStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            var items = storage.loadAllAIPhotoMyCarConfigurations()
+
+            let model = WidgetAIPhotoMyCarStorageModel(
+                id: UUID().uuidString,
+                name: name,
+                configuration: configuration
+            )
+
+            items.append(model)
+            storage.persist(aiPhotoMyCarConfigurations: items)
+            
+            WidgetPhotoMediator.shared.saved(aiPhotoMyCarModel: model)
+
+            return .just(model)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func editAIPhotoMyCar(
+        name: String,
+        storageModelId: String,
+        configuration: WidgetAIPhotoMyCarConfiguration
+    ) -> Single<WidgetAIPhotoMyCarStorageModel> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllAIPhotoMyCarConfigurations()
+
+            guard let index = items.firstIndex(where: { $0.id == storageModelId }) else {
+                return .error(NSError(domain: "Not found", code: 404))
+            }
+
+            let edited = WidgetAIPhotoMyCarStorageModel(
+                id: storageModelId,
+                name: name,
+                configuration: configuration
+            )
+            
+            items[index] = edited
+            storage.persist(aiPhotoMyCarConfigurations: items)
+            
+            WidgetPhotoMediator.shared.edited(aiPhotoMyCarModel: edited)
+
+            return .just(edited)
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func deleteAIPhotoMyCar(storageModelId: String) -> Single<Void> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+
+            var items = storage.loadAllAIPhotoMyCarConfigurations()
+            items.removeAll { $0.id == storageModelId }
+
+            storage.persist(aiPhotoMyCarConfigurations: items)
+            
+            WidgetPhotoMediator.shared.deleted(aiPhotoMyCarModelId: storageModelId)
+            
+            return .just(())
+        }
+        .subscribe(on: ConcurrentDispatchQueueScheduler(queue: queue))
+    }
+    
+    func fetchAIPhotoMyCarConfigurations() -> Single<[WidgetAIPhotoMyCarStorageModel]> {
+        Single.deferred { [weak self] in
+            guard let self else { return .error(ContentError.init(.notContent)) }
+            
+            let items = storage.loadAllAIPhotoMyCarConfigurations()
             
             return .just(items)
         }

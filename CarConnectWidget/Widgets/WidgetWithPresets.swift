@@ -123,6 +123,8 @@ struct WidgetWithPresets: Widget {
                     PhotoWithTextWidgetView(configuration: model.configuration)
                 case .photo(let model):
                     PhotoWidgetView(configuration: model.configuration)
+                case .aiPhotoMyCar(let model):
+                    AIPhotoMyCarWidgetView(configuration: model.configuration)
                 }
             } else {
                 Text("Select preset")

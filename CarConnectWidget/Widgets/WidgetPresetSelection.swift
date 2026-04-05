@@ -16,4 +16,5 @@ enum WidgetPresetSelection: Hashable {
     case aiPhoto(WidgetAIPhotoStorageModel)
     case photoWithText(WidgetPhotoWithTextStorageModel)
     case photo(WidgetPhotoStorageModel)
+    case aiPhotoMyCar(WidgetAIPhotoMyCarStorageModel)
 }

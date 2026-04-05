@@ -48,6 +48,8 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
                 return .photoWithText(model)
             case .photo(let model):
                 return .photo(model)
+            case .aiPhotoMyCar(let model):
+                return .aiPhotoMyCar(model)
             }
         }()
 
@@ -222,6 +224,9 @@ struct WidgetPresetTimelineProvider: AppIntentTimelineProvider {
             return Timeline(entries: [entry], policy: .never)
         case .photo(let configuration):
             let entry = WidgetPresetTimelineEntry(date: now, content: .photo(configuration))
+            return Timeline(entries: [entry], policy: .never)
+        case .aiPhotoMyCar(let configuration):
+            let entry = WidgetPresetTimelineEntry(date: now, content: .aiPhotoMyCar(configuration))
             return Timeline(entries: [entry], policy: .never)
         }
     }

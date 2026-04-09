@@ -134,5 +134,16 @@ struct WidgetWithPresets: Widget {
         }
         .supportedFamilies([.systemSmall])
         .contentMarginsDisabled()
+        .safePromptsForUserConfiguration()
+    }
+}
+
+extension WidgetConfiguration {
+    func safePromptsForUserConfiguration() -> some WidgetConfiguration {
+        if #available(iOS 18.0, *) {
+            return self.promptsForUserConfiguration()
+        } else {
+            return self
+        }
     }
 }

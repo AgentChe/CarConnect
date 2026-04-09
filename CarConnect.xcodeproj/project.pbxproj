@@ -3925,6 +3925,7 @@
 				INFOPLIST_FILE = CarConnectWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarConnectWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We use access to your Photo Library only to let you choose a photo you’ll set as the widget background.";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3965,6 +3966,7 @@
 				INFOPLIST_FILE = CarConnectWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarConnectWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We use access to your Photo Library only to let you choose a photo you’ll set as the widget background.";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

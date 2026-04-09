@@ -32,15 +32,20 @@
 "WidgetsHelper.Setup.Step2.SubTitle" = "Customise widgets in the visual editor";
 "WidgetsHelper.Setup.Step3.SubTitle" = "Some widgets also offer parameter settings in addition to the visual editor";
 "WidgetsHelper.Setup.Step4.SubTitle" = "Once you have finished editing, you can save the widget to your library.";
-"WidgetsHelper.CarPlay.Step1.SubTitle" = "Open Settings → General→ CarPlay → Select your vehicle";
-"WidgetsHelper.CarPlay.Step2.SubTitle" = "Press + Add widget button";
-"WidgetsHelper.CarPlay.Step3.SubTitle" = "Select from the list of Car Sync applications";
-"WidgetsHelper.CarPlay.Step4.SubTitle" = "Choose the added widget → Add Widget";
-"WidgetsHelper.CarPlay.Step5.SubTitle" = "You can add second widget to Stack 2";
-"WidgetsHelper.Phone.Step1.SubTitle" = "On the main screen, long press to enter editing mode";
+"WidgetsHelper.CarPlay.Step1.SubTitle" = "Open Settings → General → CarPlay → Select your vehicle";
+"WidgetsHelper.CarPlay.Step2.SubTitle" = "Go to Widgets → Press + Add widget button";
+"WidgetsHelper.CarPlay.Step3.SubTitle" = "In the widget list, find and select Car Play Sync app";
+"WidgetsHelper.CarPlay.Step4.SubTitle" = "Tap + Add Widget button to place it in the selected stack";
+"WidgetsHelper.CarPlay.Step5.SubTitle" = "Tap the added widget";
+"WidgetsHelper.CarPlay.Step6.SubTitle" = "Pick the preset you want the widget to display";
+"WidgetsHelper.CarPlay.Step7.SubTitle" = "You can add second widget to Stack 2";
+"WidgetsHelper.Phone.Step1.SubTitle" = "On the home screen, long press to enter editing mode";
 "WidgetsHelper.Phone.Step2.SubTitle" = "Press the Edit button → Add Widget";
-"WidgetsHelper.Phone.Step3.SubTitle" = "Select from the list of Car Sync applications";
-"WidgetsHelper.Phone.Step4.SubTitle" = "Choose the added widget to place on the main screen → Add Widget";
+"WidgetsHelper.Phone.Step3.SubTitle" = "In the widget list, find and select Car Play Sync app";
+"WidgetsHelper.Phone.Step4.SubTitle" = "Tap + Add Widget button to place it on your home screen";
+"WidgetsHelper.Phone.Step5.SubTitle" = "Press and hold the added widget → Tap Edit Widget";
+"WidgetsHelper.Phone.Step6.SubTitle" = "Pick the preset you want the widget to display";
+"WidgetsHelper.Phone.Step7.SubTitle" = "Add as many widgets as you like to your home screen";
 
 // MARK: WidgetsPresets
 "WidgetsPresets.Tab.Widgets" = "Widgets";

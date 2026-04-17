@@ -1,0 +1,299 @@
+//
+//  AppleMusicPlayer.swift
+//  CarConnect
+//
+//  Created by Vitaliy Zagorodnov on 07.04.2026.
+//
+
+import Foundation
+import Combine
+import MusicKit
+import UIKit
+
+// MARK: - Supporting types
+
+enum RepeatMode {
+    case none, one, all
+}
+
+enum ShuffleMode {
+    case off, on
+}
+
+// MARK: - Stream models
+
+extension AppleMusicPlayer {
+
+    /// Метаданные текущего трека — меняется только при смене трека.
+    struct TrackModel: Equatable {
+        let title: String?
+        let subtitle: String?
+        let artwork: URL?
+    }
+
+    /// Состояние воспроизведения — меняется при паузе/плее и каждые 0.5 с для прогрессбара.
+    struct PlaybackModel {
+        let currentTime: TimeInterval
+        let duration: TimeInterval
+        let isPlaying: Bool
+        let repeatMode: RepeatMode
+        let shuffleMode: ShuffleMode
+    }
+}
+
+// MARK: - AppleMusicPlayer
+
+final class AppleMusicPlayer {
+
+    static let shared = AppleMusicPlayer()
+
+    // MARK: Streams
+
+    /// Публикует метаданные трека. Новый подписчик сразу получает текущее значение.
+    let trackPublisher = CurrentValueSubject<TrackModel?, Never>(nil)
+
+    /// Публикует состояние воспроизведения. Новый подписчик сразу получает текущее значение.
+    let playbackPublisher = CurrentValueSubject<PlaybackModel?, Never>(nil)
+    
+    private var cancellable: [AnyCancellable] = []
+
+    private var isPlaybackQueueInitialized = false
+    private var playbackQueueInitializationItemID: MusicItemID?
+
+    /// Последний известный ID трека — чтобы не слать лишние события в trackStream.
+    private var lastEmittedTrackID: MusicItemID?
+
+    // MARK: Computed
+
+    private var player: ApplicationMusicPlayer { ApplicationMusicPlayer.shared }
+
+    var isPlaying: Bool { player.state.playbackStatus == .playing }
+
+    func isPlaying(track: Track) -> Bool {
+        guard let item = player.queue.currentEntry?.item else { return false }
+        switch item {
+        case .song(let song):
+            return track.artistName == song.artistName && track.title == song.title && track.albumTitle == song.albumTitle
+        case .musicVideo(let musicVideo):
+            return track.artistName == musicVideo.artistName && track.title == musicVideo.title && track.albumTitle == musicVideo.albumTitle
+        @unknown default:
+            return false
+        }
+        
+    }
+    // MARK: Init
+
+    private init() {
+        setupObserver()
+    }
+
+    // MARK: - Public API
+
+    /// Воспроизвести / поставить на паузу конкретный элемент очереди.
+    func togglePlaybackStatus<MusicItemType: PlayableMusicItem>(for item: MusicItemType) {
+        if isPlaying {
+            player.pause()
+        } else {
+            let alreadyQueued = isPlaybackQueueInitialized
+                && playbackQueueInitializationItemID == item.id
+            if alreadyQueued {
+                Task { try? await player.play() }
+            } else {
+                setQueue(for: [item])
+                isPlaybackQueueInitialized = true
+                playbackQueueInitializationItemID = item.id
+                Task {
+                    do { try await player.play() }
+                    catch { print("Failed to play \(item): \(error)") }
+                }
+            }
+        }
+    }
+
+    /// Воспроизвести / поставить на паузу текущий трек.
+    func togglePlaybackStatus() {
+        if isPlaying {
+            player.pause()
+        } else {
+            Task {
+                try? await player.play()
+            }
+        }
+    }
+    
+    func toggleShuffleMode() {
+        let current = mappedShuffleMode()
+        player.state.shuffleMode = current == .on ? .off : .songs
+    }
+    
+    func toggleRepeatMode() {
+        let current = mappedRepeatMode()
+        player.state.repeatMode = current == .all ? nil : .all
+    }
+
+    /// Воспроизвести трек из коллекции.
+    func play(_ track: Track, in trackList: MusicItemCollection<Track>?, with parentCollectionID: MusicItemID?) {
+        if let list = trackList {
+            setQueue(for: list, startingAt: track)
+        } else {
+            setQueue(for: [track])
+        }
+        
+        isPlaybackQueueInitialized = true
+        playbackQueueInitializationItemID = parentCollectionID
+
+        Task {
+            do {
+                try await player.play()
+                emitTrackModelIfNeeded()
+            }
+            catch {
+                print("Failed to play \(track): \(error)")
+            }
+        }
+    }
+
+    /// Перемотать на заданную позицию (секунды).
+    func seek(to time: TimeInterval) {
+        player.playbackTime = time
+        emitPlaybackModel()
+    }
+
+    /// Следующий трек.
+    func skipToNextEntry() {
+        Task {
+            do {
+                try await player.skipToNextEntry()
+                emitTrackModelIfNeeded()
+            } catch {
+                print("Failed to skip to next: \(error)")
+            }
+        }
+    }
+
+    /// Предыдущий трек.
+    func skipToPreviousEntry() {
+        Task {
+            do {
+                try await player.skipToPreviousEntry()
+                emitTrackModelIfNeeded()
+            }
+            catch {
+                print("Failed to skip to previous: \(error)")
+            }
+        }
+    }
+
+    // MARK: - Private helpers
+
+    private func setupObserver() {
+        player.state.objectWillChange
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                self?.handlePlaybackStateDidChange()
+            }
+            .store(in: &cancellable)
+        
+        Timer.publish(every: 0.5, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self, self.isPlaying else { return }
+                self.emitPlaybackModel()
+            }
+            .store(in: &cancellable)
+    }
+
+    private func handlePlaybackStateDidChange() {
+        emitPlaybackModel()
+        emitTrackModelIfNeeded()
+    }
+
+    private func emitPlaybackModel() {
+        let model = PlaybackModel(
+            currentTime: player.playbackTime,
+            duration: currentDuration(),
+            isPlaying: player.state.playbackStatus == .playing,
+            repeatMode: mappedRepeatMode(),
+            shuffleMode: mappedShuffleMode()
+        )
+        
+        playbackPublisher.send(model)
+    }
+
+    private func emitTrackModelIfNeeded() {
+        let entry = player.queue.currentEntry
+
+        let title = entry?.title
+        let subtitle = entry?.subtitle
+        let artworkItem = entry?.item.flatMap { artworkSource(from: $0) }
+
+        let model = TrackModel(
+            title: title,
+            subtitle: subtitle,
+            artwork: artworkItem?.url(width: 120, height: 120)
+        )
+        
+        trackPublisher.send(model)
+    }
+
+    // MARK: - Queue
+
+    private func setQueue<S: Sequence, T: PlayableMusicItem>(
+        for items: S,
+        startingAt startItem: S.Element? = nil
+    ) where S.Element == T {
+        player.queue = ApplicationMusicPlayer.Queue(for: items, startingAt: startItem)
+    }
+
+    // MARK: - Mapping helpers
+
+    private func currentDuration() -> TimeInterval {
+        switch player.queue.currentEntry?.item {
+        case .song(let song):
+            return song.duration ?? 0
+        case .musicVideo(let mv):
+            return mv.duration ?? 0
+        default:
+            return 0
+        }
+    }
+    
+    private func mappedRepeatMode() -> RepeatMode {
+        guard let mode = player.state.repeatMode else { return .none }
+        switch mode {
+        case .none:
+            return .none
+        case .one:
+            return .one
+        case .all:
+            return .all
+        @unknown default:
+            return .none
+        }
+    }
+    
+    private func mappedShuffleMode() -> ShuffleMode {
+        guard let mode = player.state.shuffleMode else { return .off }
+        switch mode {
+        case .off:
+            return .off
+        case .songs:
+            return .on
+        @unknown default:
+            return .off
+        }
+    }
+    
+    // MARK: - Artwork
+    
+    private func artworkSource(from item: MusicPlayer.Queue.Entry.Item) -> Artwork? {
+        switch item {
+        case .song(let song):
+            return song.artwork
+        case .musicVideo(let mv):
+            return mv.artwork
+        @unknown default:
+            return nil
+        }
+    }
+}

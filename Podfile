@@ -10,6 +10,8 @@ target 'CarConnect' do
   pod 'RxSwift'
   pod 'RxCocoa'
   
+  pod 'RiveRuntime'
+  
   pod 'Alamofire'
   
   pod 'SwiftyStoreKit'

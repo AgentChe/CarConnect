@@ -9,6 +9,11 @@ import UIKit
 
 final class DrivingModeViewController: UIViewController {
     private lazy var mainView = DrivingModeView()
+    
+    private lazy var coordinator = DrivingModeCoordinator(
+        parentVC: self,
+        container: mainView.container
+    )
 
     override func loadView() {
         view = mainView
@@ -25,6 +30,11 @@ final class DrivingModeViewController: UIViewController {
     override var shouldAutorotate: Bool {
         true
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        coordinator.testInitial()
+    }
 }
 
 // MARK: Public
@@ -32,4 +42,8 @@ extension DrivingModeViewController {
     static func make() -> DrivingModeViewController {
         DrivingModeViewController()
     }
+}
+
+#Preview(traits: .landscapeRight) {
+    DrivingModeViewController()
 }

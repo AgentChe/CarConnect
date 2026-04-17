@@ -103,3 +103,24 @@
 "WeatherCondition.Snowy" = "Snowy";
 "WeatherCondition.Cloudy" = "Cloudy";
 "WeatherCondition.Windy" = "Windy";
+
+// MARK: Apple Music
+"AppleMusic.Auth.Title" = "Listen to music while driving";
+"AppleMusic.Auth.Subtitle" = "Connect Apple Music to access your playlists";
+"AppleMusic.Auth.Button" = "Connect Apple Music";
+"AppleMusic.Category.Playlist" = "Playlists";
+"AppleMusic.Category.Albums" = "Albums";
+"AppleMusic.Category.Artists" = "Artists";
+"AppleMusic.Category.Songs" = "Songs";
+"AppleMusic.Section.Recents" = "Recents";
+"AppleMusic.Section.Library" = "Your library";
+"AppleMusic.RecentContent.Playlist" = "Playlist";
+"AppleMusic.RecentContent.Album" = "Album";
+"AppleMusic.RecentContent.Song" = "Song";
+"AppleMusic.RecentContent.Station" = "Station";
+"AppleMusic.EmptyLibrary.Album" = "No albums yet";
+"AppleMusic.EmptyLibrary.Playlist" = "No playlists yet";
+"AppleMusic.EmptyLibrary.Artists" = "No artists yet";
+"AppleMusic.EmptyLibrary.Songs" = "No tracks yet";
+"AppleMusic.EmptyLibrary.Subtitle" = "Add music to your Apple Music account and then they will appear here";
+

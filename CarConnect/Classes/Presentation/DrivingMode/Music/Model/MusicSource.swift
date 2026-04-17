@@ -8,3 +8,16 @@
 enum MusicSource: Codable, Hashable {
     case appleMusic, spotify, radio 
 }
+
+extension MusicSource {
+    var iconName: String {
+        switch self {
+        case .appleMusic:
+            return "DrivingMode.Music.AppleMusic"
+        case .spotify:
+            return "DrivingMode.Music.Radio"
+        case .radio:
+            return "DrivingMode.Music.Spotify"
+        }
+    }
+}

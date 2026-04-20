@@ -15,6 +15,7 @@
 "OK" = "OK";
 "Save" = "Save";
 "Delete" = "Delete";
+"SearchPlaceholder" = "Search";
 
 // MARK: Main
 "Main.Tab.Garage" = "Garage";
@@ -123,4 +124,6 @@
 "AppleMusic.EmptyLibrary.Artists" = "No artists yet";
 "AppleMusic.EmptyLibrary.Songs" = "No tracks yet";
 "AppleMusic.EmptyLibrary.Subtitle" = "Add music to your Apple Music account and then they will appear here";
+"AppleMusic.EmptySearch.Title" = "No results found";
+"AppleMusic.EmptySearch.Subtitle" = "Check the spelling or try searching for something else.";
 

@@ -27,6 +27,12 @@ final class AppleMusicLibraryEmptyView: UIView {
 extension AppleMusicLibraryEmptyView {
     func setup(for category: AppleMusicLibraryCategory) {
         titleLabel.attributedText = category.emptyTitle.attributed(with: .title)
+        subtitleLable.attributedText = "AppleMusic.EmptyLibrary.Subtitle".localized.attributed(with: .subtitle)
+    }
+    
+    func setup(for title: String, subtitle: String) {
+        titleLabel.attributedText = title.attributed(with: .title)
+        subtitleLable.attributedText = subtitle.attributed(with: .subtitle)
     }
 }
 
@@ -59,15 +65,8 @@ private extension AppleMusicLibraryEmptyView {
     }
     
     func makeSubtitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.color_FFFFFF)
-            .font(Fonts.Inter.regular(size: 18.landscapeVScale))
-            .lineHeight(24.landscapeVScale)
-            .textAlignment(.center)
-        
         let view = UILabel()
         view.numberOfLines = 0
-        view.attributedText = "AppleMusic.EmptyLibrary.Subtitle".localized.attributed(with: attrs)
         return view
     }
     
@@ -87,5 +86,11 @@ private extension TextAttributes {
         .textColor(Appearance.color_FFFFFF)
         .font(Fonts.Inter.bold(size: 24.landscapeVScale))
         .lineHeight(32.landscapeVScale)
+        .textAlignment(.center)
+    
+    static let subtitle = TextAttributes()
+        .textColor(Appearance.color_FFFFFF)
+        .font(Fonts.Inter.regular(size: 18.landscapeVScale))
+        .lineHeight(24.landscapeVScale)
         .textAlignment(.center)
 }

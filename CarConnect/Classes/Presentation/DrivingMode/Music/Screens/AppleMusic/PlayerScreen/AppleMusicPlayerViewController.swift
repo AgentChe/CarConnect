@@ -31,6 +31,9 @@ final class AppleMusicPlayerViewController: UIViewController {
         mainView.trackProgress.delegate = viewModel
         mainView.controlsView.delegate = viewModel
         
+        
+        mainView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
+        
         viewModel.onUpdateTrack = { [weak self] model in
             guard let self else { return }
             
@@ -52,5 +55,10 @@ final class AppleMusicPlayerViewController: UIViewController {
         }
         
         viewModel.start()
+    }
+    
+    
+    @objc func pop(_ button: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }

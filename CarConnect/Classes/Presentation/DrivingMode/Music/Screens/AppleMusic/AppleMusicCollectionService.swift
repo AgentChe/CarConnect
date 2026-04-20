@@ -13,7 +13,7 @@ nonisolated enum CollectionType: Identifiable, Hashable, Equatable, Sendable {
     case playlist(Playlist)
     case album(Album)
     case artist(Artist)
-    case track(Track)
+    case track(Track, isPlaying: Bool)
     
     var id: MusicItemID {
         switch self {
@@ -23,7 +23,7 @@ nonisolated enum CollectionType: Identifiable, Hashable, Equatable, Sendable {
             album.id
         case .artist(let artist):
             artist.id
-        case .track(let track):
+        case .track(let track, _):
             track.id
         }
     }
@@ -36,7 +36,7 @@ nonisolated enum CollectionType: Identifiable, Hashable, Equatable, Sendable {
             album.lastPlayedDate
         case .artist:
             nil
-        case .track(let track):
+        case .track(let track, _):
             track.lastPlayedDate
         }
     }
@@ -76,7 +76,7 @@ final class AppleMusicCollectionService {
         request.sort(by: \.title, ascending: true)
         
         let response = try await request.response()
-        return response.items.map { .track($0) }
+        return response.items.map { .track($0, isPlaying: AppleMusicPlayer.shared.isPlaying(track: $0)) }
     }
     
     func fetchArtists(limit: Int, offset: Int) async throws -> [CollectionType] {
@@ -100,12 +100,5 @@ final class AppleMusicCollectionService {
         case .songs:
             try await fetchTracks(limit: limit, offset: offset)
         }
-    }
-    
-    func search(term: String) async throws -> MusicCatalogSearchResponse {
-        var request = MusicCatalogSearchRequest(term: term, types: [Album.self, Song.self, Playlist.self, Artist.self])
-        request.limit = 10
-        
-        return try await request.response()
     }
 }

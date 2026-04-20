@@ -8,7 +8,9 @@
 import Foundation
 import MusicKit
 
-struct TrackItem: nonisolated Hashable {
+struct TrackItem: nonisolated Hashable, Identifiable {
     let track: Track
     let isPlaying: Bool
+    
+    var id: MusicItemID { track.id }
 }

@@ -13,9 +13,10 @@ protocol AppleMusicLibraryTableDelegate: AnyObject {
 }
 
 final class AppleMusicLibraryView: UIView {
-    private typealias DataSource = UITableViewDiffableDataSource<Int, CollectionType>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Int, CollectionType>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, CollectionType>
     
+    lazy var navigationView = makeNavigationView()
     private lazy var tableView = makeTableView()
     private lazy var emptyView = makeEmptyView()
     private lazy var footerSpinner = makeFooterSpinner()
@@ -24,9 +25,9 @@ final class AppleMusicLibraryView: UIView {
     weak var delgate: AppleMusicLibraryTableDelegate?
     
     private lazy var dataSource: DataSource = {
-        return DataSource(tableView: tableView) { tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
-            cell?.setup(for: item, isPlaying: false)
+        return DataSource(collectionView: tableView) { tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
+            cell?.setup(for: item)
             return cell
         }
     }()
@@ -55,12 +56,14 @@ extension AppleMusicLibraryView {
     func updateLoadingState(isLoading: Bool, isEmpty: Bool) {
         if isEmpty && isLoading {
             loaderSpinner.startAnimating()
-            tableView.tableFooterView = nil
+            // TODO: Добавить спиннер
+//            tableView.tableFooterView = nil
             emptyView.isHidden = true
         } else if !isEmpty && isLoading {
             loaderSpinner.stopAnimating()
             footerSpinner.startAnimating()
-            tableView.tableFooterView = footerSpinner
+            // TODO: Добавить спиннер
+//            tableView.tableFooterView = footerSpinner
             emptyView.isHidden = true
         } else if isEmpty {
             tableView.isHidden = true
@@ -77,7 +80,7 @@ extension AppleMusicLibraryView {
 // MARK: Private
 private extension AppleMusicLibraryView {
     func initialize() {
-        backgroundColor = .black
+        backgroundColor = Appearance.color_080A0C
     }
 }
 
@@ -85,10 +88,16 @@ private extension AppleMusicLibraryView {
 private extension AppleMusicLibraryView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -105,12 +114,12 @@ private extension AppleMusicLibraryView {
 
 // MARK: Lazy initialization
 private extension AppleMusicLibraryView {
-    func makeTableView() -> UITableView {
-        let view = UITableView()
-        view.register(AppleMusicCollectionCell.self, forCellReuseIdentifier: AppleMusicCollectionCell.resuseID)
+    func makeTableView() -> UICollectionView {
+        let view = UICollectionView.makeList()
+        
+        view.register(AppleMusicCollectionCell.self, forCellWithReuseIdentifier: AppleMusicCollectionCell.resuseID)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
-        view.separatorStyle = .none
         view.delegate = self
         addSubview(view)
         return view
@@ -137,16 +146,23 @@ private extension AppleMusicLibraryView {
         addSubview(view)
         return view
     }
+    
+    
+    func makeNavigationView() -> NavigationView {
+        let view = NavigationView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
 }
 
-extension AppleMusicLibraryView: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension AppleMusicLibraryView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         delgate?.didSelectItem(item)
     }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         delgate?.visiblePath(indexPath: indexPath)
     }
 }

@@ -71,11 +71,13 @@ private extension SearchFieldView {
             .font(Fonts.Inter.medium(size: 16.landscapeVScale))
             .textColor(Appearance.color_FFFFFF.withAlphaComponent(0.6))
             .textAlignment(.left)
+        
         tintColor = Appearance.color_FFFFFF.withAlphaComponent(0.6)
         textColor = Appearance.color_FFFFFF
-        attributedPlaceholder = "Поиск...".attributed(with: attrs)
+        attributedPlaceholder = "SearchPlaceholder".localized.attributed(with: attrs)
         layer.cornerRadius = 10.landscapeVScale
         backgroundColor = Appearance.color_FFFFFF.withAlphaComponent(0.1)
+        returnKeyType = .done
         
         setupLeftView()
         setupRightView()
@@ -85,6 +87,7 @@ private extension SearchFieldView {
         rightButton.setImage(UIImage(systemName: "multiply.circle.fill"), for: .normal)
         let size = 24.landscapeVScale
         rightButton.frame = .init(origin: .zero, size: .init(width: size, height: size))
+        rightButton.addTarget(self, action: #selector(clear), for: .touchUpInside)
         rightView = rightButton
         rightViewMode = .whileEditing
     }
@@ -96,5 +99,9 @@ private extension SearchFieldView {
         iconImageView.image = UIImage(systemName: "magnifyingglass")
         leftView = iconImageView
         leftViewMode = .always
+    }
+    
+    @objc func clear(_ button: UIButton) {
+        text = nil
     }
 }

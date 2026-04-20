@@ -28,7 +28,9 @@ final class AppleMusicTrackListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.delgate = self
-        navigationItem.title = viewModel.title
+        
+        mainView.navigationView.setTitle(viewModel.title)
+        mainView.navigationView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
         
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
@@ -36,18 +38,26 @@ final class AppleMusicTrackListViewController: UIViewController {
         }
         
         Task { await viewModel.fetchTracks() }
-        viewModel.observePlayingTrack()
+    }
+    
+    @objc func pop(_ button: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 extension AppleMusicTrackListViewController: AppleMusicTrackListTableDelegate {
     func didSelectItem(_ item: Track) {
-        let controller = AppleMusicPlayerViewController(startItem: item, trackList: viewModel.tracks, parentCollectionID: viewModel.collectionID)
+        let controller = AppleMusicPlayerViewController(
+            startItem: item,
+            trackList: viewModel.trackCollection,
+            parentCollectionID: viewModel.collectionID
+        )
+        
         navigationController?.pushViewController(controller, animated: true)
     }
     
     func visiblePath(indexPath: IndexPath) {
-        let count = viewModel.tracks.count
+        let count = viewModel.items.count
         guard count > 0, indexPath.row >= count - 5 else { return }
         
         Task { await viewModel.loadNext() }

@@ -10,7 +10,7 @@ import MusicKit
 import RiveRuntime
 import Kingfisher
 
-final class AppleMusicCollectionCell: UITableViewCell {
+final class AppleMusicCollectionCell: UICollectionViewCell {
     static let resuseID = "AppleMusicCollectionCell"
     
     private lazy var stackView = makeLabelStack()
@@ -22,8 +22,8 @@ final class AppleMusicCollectionCell: UITableViewCell {
     private lazy var animationView = makeAnimationView()
     private lazy var animationViewModel = RiveViewModel(fileName: "nowplaying")
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         makeConstraints()
         initialize()
     }
@@ -39,21 +39,21 @@ final class AppleMusicCollectionCell: UITableViewCell {
         animationViewModel.reset()
     }
     
-    func setup(for item: CollectionType, isPlaying: Bool) {
+    func setup(for item: CollectionType) {
         switch item {
         case .playlist(let playlist):
-            setup(title: playlist.name, subtitle: playlist.curatorName, isPlaying: isPlaying)
+            setup(title: playlist.name, subtitle: playlist.curatorName, isPlaying: false)
             setupArtwork(artwork: playlist.artwork, category: .playlists)
-            setupAccessory(isPlaying: isPlaying, hasMore: true)
+            setupAccessory(isPlaying: false, hasMore: true)
         case .album(let album):
-            setup(title: album.title, subtitle: album.artistName, isPlaying: isPlaying)
+            setup(title: album.title, subtitle: album.artistName, isPlaying: false)
             setupArtwork(artwork: album.artwork, category: .albums)
-            setupAccessory(isPlaying: isPlaying, hasMore: true)
+            setupAccessory(isPlaying: false, hasMore: true)
         case .artist(let artist):
-            setup(title: artist.name, subtitle: nil, isPlaying: isPlaying)
+            setup(title: artist.name, subtitle: nil, isPlaying: false)
             setupArtwork(artwork: artist.artwork, category: .artists)
-            setupAccessory(isPlaying: isPlaying, hasMore: true)
-        case .track(let track):
+            setupAccessory(isPlaying: false, hasMore: true)
+        case .track(let track, let isPlaying):
             setup(title: track.title, subtitle: track.artistName, isPlaying: isPlaying)
             setupArtwork(artwork: track.artwork, category: .songs)
             setupAccessory(isPlaying: isPlaying, hasMore: false)
@@ -90,7 +90,6 @@ private extension AppleMusicCollectionCell {
     func initialize() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
-        selectionStyle = .none
     }
     
     func setup(title: String, subtitle: String?, isPlaying: Bool) {

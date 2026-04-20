@@ -23,9 +23,16 @@ final class AppleMusicMainViewController: UIViewController {
         super.viewDidLoad()
         mainView.collectionView.delegate = self
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        mainView.searchField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+        mainView.searchField.delegate = self
+        
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
-            mainView.collectionView.apply(recentItems: viewModel.recentElements, categories: viewModel.libraryItems)
+            mainView.collectionView.apply(items: viewModel.dataSource)
+            mainView.searchResult(isEmpty: viewModel.isSearching && viewModel.dataSource.isEmpty)
+            mainView.setLoadingState(isLoading: viewModel.isLoading)
         }
         
         Task {
@@ -37,13 +44,32 @@ final class AppleMusicMainViewController: UIViewController {
         
         viewModel.loadInitial()
     }
+    
+    @objc private func textChanged(_ textField: UITextField) {
+        viewModel.search(term: textField.text ?? "", isEditing: true)
+    }
+}
+
+extension AppleMusicMainViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        viewModel.search(term: textField.text ?? "", isEditing: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewModel.search(term: textField.text ?? "", isEditing: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
     func didSelectRecentItem(_ item: AppleMusicLibraryItem) {
         let controller: UIViewController
         switch item {
-        case .recent(let item):
+        case let .recent(item), let .searchResult(item):
             switch item {
             case .playlist(let playlist):
                 controller = AppleMusicTrackListViewController(source: .playlist(playlist))
@@ -51,7 +77,7 @@ extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
                 controller = AppleMusicTrackListViewController(source: .album(album))
             case .artist(let artist):
                 controller = AppleMusicArtistLibraryViewController(artist: artist)
-            case .track(let track):
+            case .track(let track, _):
                 controller = AppleMusicPlayerViewController(startItem: track, trackList: nil, parentCollectionID: nil)
             }
             navigationController?.pushViewController(controller, animated: true)

@@ -35,6 +35,8 @@
 		86C2FF732F81575100E4BE36 /* AppleMusicCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2FF722F81575100E4BE36 /* AppleMusicCollectionCell.swift */; };
 		86C2FF752F826C6000E4BE36 /* AppleMusicCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2FF742F826C6000E4BE36 /* AppleMusicCollectionService.swift */; };
 		86D12EA62F85740700346E36 /* AppleMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D12EA52F85740700346E36 /* AppleMusicPlayer.swift */; };
+		86D4FFD52F9533AF0009BC46 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4FFD42F9533AF0009BC46 /* BackButton.swift */; };
+		86D4FFD72F969DFF0009BC46 /* AppleMusicLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4FFD62F969DFF0009BC46 /* AppleMusicLoaderView.swift */; };
 		86DFA4C12F881E7600EA9B58 /* AppleMusicArtistLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4C02F881E7600EA9B58 /* AppleMusicArtistLibraryView.swift */; };
 		86DFA4C32F881E7F00EA9B58 /* AppleMusicArtistLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4C22F881E7F00EA9B58 /* AppleMusicArtistLibraryViewController.swift */; };
 		86DFA4C52F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4C42F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift */; };
@@ -471,6 +473,8 @@
 		86C2FF722F81575100E4BE36 /* AppleMusicCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicCollectionCell.swift; sourceTree = "<group>"; };
 		86C2FF742F826C6000E4BE36 /* AppleMusicCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicCollectionService.swift; sourceTree = "<group>"; };
 		86D12EA52F85740700346E36 /* AppleMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayer.swift; sourceTree = "<group>"; };
+		86D4FFD42F9533AF0009BC46 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		86D4FFD62F969DFF0009BC46 /* AppleMusicLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicLoaderView.swift; sourceTree = "<group>"; };
 		86DFA4C02F881E7600EA9B58 /* AppleMusicArtistLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicArtistLibraryView.swift; sourceTree = "<group>"; };
 		86DFA4C22F881E7F00EA9B58 /* AppleMusicArtistLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicArtistLibraryViewController.swift; sourceTree = "<group>"; };
 		86DFA4C42F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicArtistLibraryViewModel.swift; sourceTree = "<group>"; };
@@ -875,6 +879,8 @@
 				868C1C082F70790300F63D7B /* AppleMusicAuthorizationView.swift */,
 				86A71C702F92A94B0002232A /* DropdownButtonView.swift */,
 				86A71C722F92C29E0002232A /* SearchFieldView.swift */,
+				86D4FFD42F9533AF0009BC46 /* BackButton.swift */,
+				86D4FFD62F969DFF0009BC46 /* AppleMusicLoaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2866,6 +2872,7 @@
 				DEEB9D702F6A922D0041587F /* WidgetsPresetsTemplateWeatherConditionForecastCell.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
 				DECE31652F62AFCA0078414C /* MusicSource.swift in Sources */,
+				86D4FFD52F9533AF0009BC46 /* BackButton.swift in Sources */,
 				DECB86802F587B2200378ADC /* WidgetTextManuallyStorageModel.swift in Sources */,
 				DE1DA0972F5164FF00742E69 /* WidgetsPreviewTabView.swift in Sources */,
 				DEABE5FD2F456CFC00089B9E /* RestAPITransport.swift in Sources */,
@@ -3068,6 +3075,7 @@
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
 				862BC1382F747B69000ECDC9 /* AppleMusicLibraryItem.swift in Sources */,
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,
+				86D4FFD72F969DFF0009BC46 /* AppleMusicLoaderView.swift in Sources */,
 				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

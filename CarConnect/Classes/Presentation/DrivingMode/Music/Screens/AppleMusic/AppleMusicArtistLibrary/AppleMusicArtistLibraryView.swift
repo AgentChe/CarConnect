@@ -14,9 +14,10 @@ protocol AppleMusicArtistLibraryDelegate: AnyObject {
 }
 
 final class AppleMusicArtistLibraryView: UIView {
-    private typealias DataSource = UITableViewDiffableDataSource<Int, Album>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Int, Album>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Album>
     
+    lazy var navigationView = makeNavigationView()
     private lazy var tableView = makeTableView()
     private lazy var emptyView = makeEmptyView()
     private lazy var footerSpinner = makeFooterSpinner()
@@ -25,8 +26,8 @@ final class AppleMusicArtistLibraryView: UIView {
     weak var delgate: AppleMusicArtistLibraryDelegate?
     
     private lazy var dataSource: DataSource = {
-        return DataSource(tableView: tableView) { tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
+        return DataSource(collectionView: tableView) { collectionView, indexPath, item in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
             cell?.setup(album: item)
             return cell
         }
@@ -57,7 +58,7 @@ extension AppleMusicArtistLibraryView {
 // MARK: Private
 private extension AppleMusicArtistLibraryView {
     func initialize() {
-        backgroundColor = .black
+        backgroundColor = Appearance.color_080A0C
     }
 }
 
@@ -65,10 +66,16 @@ private extension AppleMusicArtistLibraryView {
 private extension AppleMusicArtistLibraryView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -85,13 +92,20 @@ private extension AppleMusicArtistLibraryView {
 
 // MARK: Lazy initialization
 private extension AppleMusicArtistLibraryView {
-    func makeTableView() -> UITableView {
-        let view = UITableView()
-        view.register(AppleMusicCollectionCell.self, forCellReuseIdentifier: AppleMusicCollectionCell.resuseID)
+    func makeTableView() -> UICollectionView {
+        let view = UICollectionView.makeList()
+        
+        view.register(AppleMusicCollectionCell.self, forCellWithReuseIdentifier: AppleMusicCollectionCell.resuseID)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
-        view.separatorStyle = .none
         view.delegate = self
+        addSubview(view)
+        return view
+    }
+    
+    func makeNavigationView() -> NavigationView {
+        let view = NavigationView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
@@ -119,14 +133,28 @@ private extension AppleMusicArtistLibraryView {
     }
 }
 
-extension AppleMusicArtistLibraryView: UITableViewDelegate {
+extension AppleMusicArtistLibraryView: UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         delgate?.didSelectItem(item)
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         delgate?.visiblePath(indexPath: indexPath)
+    }
+}
+
+extension UICollectionView {
+    static func makeList() -> UICollectionView {
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        var separatorConfig = UIListSeparatorConfiguration(listAppearance: .plain)
+        separatorConfig.topSeparatorVisibility = .hidden
+        separatorConfig.bottomSeparatorVisibility = .hidden
+        config.separatorConfiguration = separatorConfig
+        config.backgroundColor = .clear
+        let layout = UICollectionViewCompositionalLayout.list(using: config)
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }
 }

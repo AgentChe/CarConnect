@@ -28,6 +28,7 @@ final class AppleMusicService {
             return false
         }
     }
+    
     func fetchRecentlyPlayed(limit: Int, offset: Int) async throws -> [CollectionType] {
         let recentRequest: MusicRecentlyPlayedRequest<RecentlyPlayedMusicItem> = {
             var request = MusicRecentlyPlayedRequest<RecentlyPlayedMusicItem>()
@@ -64,12 +65,24 @@ final class AppleMusicService {
         
         let tracksItems: [(lastPlayed: Date?, content: CollectionType)] = tracks.items
             .compactMap { track in
-                return (track.lastPlayedDate, .track(track))
+                return (track.lastPlayedDate, .track(track, isPlaying: false))
             }
         
         return (recentItems + tracksItems)
             .sorted { ($0.lastPlayed ?? Date.distantPast) > ($1.lastPlayed ?? Date.distantPast) }
             .map(\.content)
+    }
+    
+    
+    func search(term: String, limit: Int) async throws -> MusicCatalogSearchSuggestionsResponse {
+        var request = MusicCatalogSearchSuggestionsRequest(
+            term: term,
+            includingTopResultsOfTypes: [Album.self, Song.self, Artist.self]
+        )
+        
+        request.limit = limit
+        
+        return try await request.response()
     }
     
 //    func fetchRecentlyPlayed(limit: Int, offset: Int) async throws -> [AppleMusicLibraryRecentItem] {

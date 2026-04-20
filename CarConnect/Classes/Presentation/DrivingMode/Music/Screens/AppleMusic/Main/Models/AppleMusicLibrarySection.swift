@@ -10,6 +10,7 @@ import Foundation
 enum AppleMusicLibrarySection: Int, CaseIterable, Sendable {
     case recently
     case library
+    case searchResult
 }
 
 extension AppleMusicLibrarySection {
@@ -19,6 +20,8 @@ extension AppleMusicLibrarySection {
             "AppleMusic.Section.Recents".localized
         case .library:
             "AppleMusic.Section.Library".localized
+        case .searchResult:
+            ""
         }
     }
 }

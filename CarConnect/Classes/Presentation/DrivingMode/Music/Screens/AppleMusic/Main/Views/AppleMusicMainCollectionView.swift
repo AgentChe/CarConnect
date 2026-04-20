@@ -32,18 +32,21 @@ final class AppleMusicMainCollectionView: UIView {
                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppleMusicMainCategoryItemCell.reuseID, for: indexPath) as? AppleMusicMainCategoryItemCell
                 cell?.setup(category: category)
                 return cell
+            case let .searchResult(item):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
+                cell?.setup(for: item)
+                return cell
             }
         }
         
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
+            guard let section = dataSource.sectionIdentifier(for: indexPath.section) else { return nil }
             let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: AppleMusicMainSectionHeaderView.reuseID,
                 for: indexPath
             ) as? AppleMusicMainSectionHeaderView
-            
-            guard let section = Section(rawValue: indexPath.section) else { return nil }
             
             header?.setup(section)
             return header
@@ -64,14 +67,12 @@ final class AppleMusicMainCollectionView: UIView {
 }
 
 extension AppleMusicMainCollectionView {
-    func apply(recentItems: [CollectionType], categories: [AppleMusicLibraryCategory]) {
+    func apply(items: [AppleMusicMainDataSource]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections(Section.allCases)
-        let recenty: [Item] = recentItems.map { .recent(item: $0) }
-        let library: [Item] = categories.map { .category($0) }
-        
-        snapshot.appendItems(recenty, toSection: .recently)
-        snapshot.appendItems(library, toSection: .library)
+        snapshot.appendSections(items.map(\.section))
+        items.forEach { element in
+            snapshot.appendItems(element.items, toSection: element.section)
+        }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
@@ -79,7 +80,7 @@ extension AppleMusicMainCollectionView {
 // MARK: Private
 private extension AppleMusicMainCollectionView {
     func initialize() {
-        backgroundColor = .clear
+//        backgroundColor = Appearance.color_080A0C
     }
 }
 
@@ -89,6 +90,7 @@ private extension AppleMusicMainCollectionView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: makeLayout())
         view.backgroundColor = .clear
         view.showsVerticalScrollIndicator = false
+        view.keyboardDismissMode = .interactive
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -112,6 +114,7 @@ private extension AppleMusicMainCollectionView {
     func setupCollectionView() {
         collectionView.register(AppleMusicMainItemCell.self, forCellWithReuseIdentifier: AppleMusicMainItemCell.reuseID)
         collectionView.register(AppleMusicMainCategoryItemCell.self, forCellWithReuseIdentifier: AppleMusicMainCategoryItemCell.reuseID)
+        collectionView.register(AppleMusicCollectionCell.self, forCellWithReuseIdentifier: AppleMusicCollectionCell.resuseID)
         collectionView.register(
             AppleMusicMainSectionHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -122,14 +125,17 @@ private extension AppleMusicMainCollectionView {
 // MARK: Layout
 private extension AppleMusicMainCollectionView {
     func makeLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] index, _ in
-            guard let self, let section = Section(rawValue: index) else { return nil }
+        UICollectionViewCompositionalLayout { [weak self] index, environment in
+            
+            guard let self, let section = dataSource.sectionIdentifier(for: index) else { return nil }
         
             switch section {
             case .recently:
                 return makeRecentSection()
             case .library:
                 return makeGridSection()
+            case .searchResult:
+                return makeSearchSection(environment: environment)
             }
         }
     }
@@ -154,6 +160,7 @@ private extension AppleMusicMainCollectionView {
         section.contentInsets = .init(top: 16.landscapeVScale, leading: 0, bottom: 12.landscapeVScale, trailing: 0)
         
         section.visibleItemsInvalidationHandler = { [weak self] visibleItems, _, _ in
+            // TODO: FIX
             guard let dataSource = self?.dataSource else { return }
             let total = dataSource.snapshot().itemIdentifiers(inSection: .recently).count
             if let last = visibleItems.last, last.indexPath.item >= total - 5 {
@@ -185,6 +192,28 @@ private extension AppleMusicMainCollectionView {
         section.interGroupSpacing = 12.landscapeHScale
         section.contentInsets = .init(top: 16.landscapeVScale, leading: 0, bottom: 12.landscapeVScale, trailing: 0)
         section.boundarySupplementaryItems = [makeHeader()]
+        return section
+    }
+    
+    func makeSearchSection(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(68.landscapeVScale)
+        )
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(68.landscapeVScale)
+        )
+        
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 12.landscapeVScale
+        section.orthogonalScrollingBehavior = .none
+        section.boundarySupplementaryItems = []
         return section
     }
 

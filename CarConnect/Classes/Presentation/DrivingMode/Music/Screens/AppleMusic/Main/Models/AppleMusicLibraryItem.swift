@@ -55,7 +55,7 @@ extension AppleMusicLibraryRecentItem {
             title = artist.name
             type = .album
             artworkURL = artist.artwork?.url(width: 100, height: 100)
-        case .track(let track):
+        case .track(let track, _):
             id = track.id
             title = track.title
             type = .song
@@ -68,4 +68,5 @@ extension AppleMusicLibraryRecentItem {
 nonisolated enum AppleMusicLibraryItem: Hashable {
     case recent(item: CollectionType)
     case category(AppleMusicLibraryCategory)
+    case searchResult(item: CollectionType)
 }

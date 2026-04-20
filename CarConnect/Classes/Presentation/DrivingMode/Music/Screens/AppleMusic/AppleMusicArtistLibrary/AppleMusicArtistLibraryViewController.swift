@@ -29,14 +29,20 @@ final class AppleMusicArtistLibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.delgate = self
-        navigationItem.title = viewModel.title
+        
+        mainView.navigationView.setTitle(viewModel.title)
+        mainView.navigationView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
         
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
-            mainView.updateData(items: Array(viewModel.albums))
+            mainView.updateData(items: viewModel.items)
         }
         
         Task { await viewModel.fetchAlbums() }
+    }
+    
+    @objc func pop(_ button: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -47,7 +53,7 @@ extension AppleMusicArtistLibraryViewController: AppleMusicArtistLibraryDelegate
     }
     
     func visiblePath(indexPath: IndexPath) {
-        let count = viewModel.albums.count
+        let count = viewModel.items.count
         guard count > 0, indexPath.row >= count - 5 else { return }
         
         Task { await viewModel.loadNext() }

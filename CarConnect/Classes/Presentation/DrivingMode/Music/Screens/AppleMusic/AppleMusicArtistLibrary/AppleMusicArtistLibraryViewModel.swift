@@ -11,7 +11,8 @@ import MusicKit
 final class AppleMusicArtistLibraryModel {
     
     @MainActor let title: String
-    @MainActor private(set) var albums = MusicItemCollection<Album>([])
+    @MainActor private var albums = MusicItemCollection<Album>([])
+    @MainActor private(set) var items: [Album] = []
     @MainActor var onUpdate: (() -> Void)?
     
     private let artist: Artist
@@ -25,9 +26,10 @@ final class AppleMusicArtistLibraryModel {
     func fetchAlbums() async {
         do {
             let content = try await artist.with([.albums]).albums ?? MusicItemCollection<Album>([])
-            
+            let elements = content.map { $0 }
             await MainActor.run {
                 albums = content
+                items = elements
                 onUpdate?()
             }
         } catch {
@@ -39,13 +41,27 @@ final class AppleMusicArtistLibraryModel {
         guard albums.hasNextBatch else { return }
         do {
             guard let next = try await albums.nextBatch(limit: pageSize) else { return }
-            
+            let newItems = items.merge(new: next.map { $0 })
             await MainActor.run {
                 albums = next
+                items = newItems
                 onUpdate?()
             }
         } catch {
             
         }
+    }
+}
+
+extension Array where Element: Identifiable {
+    func merge(new: [Element]) -> Self {
+        var containsIDs: Set<Element.ID> = []
+        
+        return (self + new)
+            .compactMap { item -> Element? in
+                guard !containsIDs.contains(item.id) else { return nil }
+                containsIDs.insert(item.id)
+                return item
+            }
     }
 }

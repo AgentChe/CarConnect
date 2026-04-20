@@ -12,8 +12,10 @@ final class AppleMusicMainView: UIView {
     lazy var collectionView = makeLibraryCollection()
     lazy var dropDownButton = makeDropdownButton()
     lazy var searchField = makeSearchField()
+    private lazy var loaderView = makeLoaderView()
     private lazy var authView = makeAuthorizationView()
     private lazy var navigationStack = makeNavigationStack()
+    private lazy var searchEmptyView = makeEmptySearchView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +33,22 @@ extension AppleMusicMainView {
     func setupAuthState(isAuthorized: Bool) {
         collectionView.isHidden = !isAuthorized
         authView.isHidden = isAuthorized
+    }
+    
+    func searchResult(isEmpty: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.collectionView.isHidden = isEmpty
+            self.searchEmptyView.isHidden = !isEmpty
+        }
+    }
+    
+    func setLoadingState(isLoading: Bool) {
+        collectionView.isHidden = isLoading
+        if isLoading {
+            loaderView.startSpinningAnimation()
+        } else {
+            loaderView.stopSpinningAnimation()
+        }
     }
 }
 
@@ -65,8 +83,8 @@ private extension AppleMusicMainView {
         NSLayoutConstraint.activate([
             searchField.centerYAnchor.constraint(equalTo: dropDownButton.centerYAnchor),
             searchField.leadingAnchor.constraint(equalTo: dropDownButton.trailingAnchor, constant: 10.landscapeHScale),
-            searchField.trailingAnchor.constraint(equalTo: navigationStack.trailingAnchor),
-            searchField.heightAnchor.constraint(equalToConstant: 40.landscapeVScale)
+            searchField.trailingAnchor.constraint(equalTo: navigationStack.trailingAnchor, constant: -108.landscapeHScale),
+            searchField.heightAnchor.constraint(equalToConstant: 40.landscapeVScale),
         ])
         
         NSLayoutConstraint.activate([
@@ -74,6 +92,16 @@ private extension AppleMusicMainView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            searchEmptyView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            searchEmptyView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            loaderView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            loaderView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
         ])
     }
 }
@@ -112,6 +140,25 @@ private extension AppleMusicMainView {
     func makeAuthorizationView() -> AppleMusicAuthorizationView {
         let view = AppleMusicAuthorizationView()
         view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptySearchView() -> AppleMusicLibraryEmptyView {
+        let view = AppleMusicLibraryEmptyView()
+        view.setup(
+            for: "AppleMusic.EmptySearch.Title".localized,
+            subtitle: "AppleMusic.EmptySearch.Subtitle".localized
+        )
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeLoaderView() -> AppleMusicLoaderView {
+        let view = AppleMusicLoaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

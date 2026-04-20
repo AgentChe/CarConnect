@@ -14,9 +14,10 @@ protocol AppleMusicTrackListTableDelegate: AnyObject {
 }
 
 final class AppleMusicTrackListView: UIView {
-    private typealias DataSource = UITableViewDiffableDataSource<Int, TrackItem>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Int, TrackItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, TrackItem>
     
+    lazy var navigationView = makeNavigationView()
     private lazy var tableView = makeTableView()
     private lazy var emptyView = makeEmptyView()
     private lazy var footerSpinner = makeFooterSpinner()
@@ -25,8 +26,8 @@ final class AppleMusicTrackListView: UIView {
     weak var delgate: AppleMusicTrackListTableDelegate?
     
     private lazy var dataSource: DataSource = {
-        return DataSource(tableView: tableView) { tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
+        return DataSource(collectionView: tableView) { collectionView, indexPath, item in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
             cell?.setup(track: item.track, isPlaying: item.isPlaying)
             return cell
         }
@@ -44,6 +45,7 @@ final class AppleMusicTrackListView: UIView {
     }
 }
 
+// MARK: Public
 extension AppleMusicTrackListView {
     func updateData(items: [TrackItem]) {
         var snapshot = Snapshot()
@@ -57,7 +59,7 @@ extension AppleMusicTrackListView {
 // MARK: Private
 private extension AppleMusicTrackListView {
     func initialize() {
-        backgroundColor = .black
+        backgroundColor = Appearance.color_080A0C
     }
 }
 
@@ -65,10 +67,16 @@ private extension AppleMusicTrackListView {
 private extension AppleMusicTrackListView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.topAnchor.constraint(equalTo: topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -85,12 +93,12 @@ private extension AppleMusicTrackListView {
 
 // MARK: Lazy initialization
 private extension AppleMusicTrackListView {
-    func makeTableView() -> UITableView {
-        let view = UITableView()
-        view.register(AppleMusicCollectionCell.self, forCellReuseIdentifier: AppleMusicCollectionCell.resuseID)
+    func makeTableView() -> UICollectionView {
+        let view = UICollectionView.makeList()
+        
+        view.register(AppleMusicCollectionCell.self, forCellWithReuseIdentifier: AppleMusicCollectionCell.resuseID)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
-        view.separatorStyle = .none
         view.delegate = self
         addSubview(view)
         return view
@@ -117,16 +125,29 @@ private extension AppleMusicTrackListView {
         addSubview(view)
         return view
     }
+    
+    func makeNavigationView() -> NavigationView {
+        let view = NavigationView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
 }
 
-extension AppleMusicTrackListView: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension AppleMusicTrackListView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         delgate?.didSelectItem(item.track)
     }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         delgate?.visiblePath(indexPath: indexPath)
     }
+}
+
+private extension TextAttributes {
+    static let title = TextAttributes()
+        .font(Fonts.Inter.bold(size: 24.landscapeVScale))
+        .textAlignment(.center)
+        .textColor(Appearance.color_FFFFFF)
 }

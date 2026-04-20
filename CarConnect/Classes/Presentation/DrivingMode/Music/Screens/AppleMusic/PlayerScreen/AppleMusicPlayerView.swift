@@ -8,6 +8,8 @@
 import UIKit
 
 final class AppleMusicPlayerView: UIView {
+    
+    lazy var backButton = makeBackButton()
     lazy var trackInfo = makeTrackInfo()
     lazy var trackProgress = makeTrackProgress()
     lazy var controlsView = makePlayerControls()
@@ -35,7 +37,12 @@ private extension AppleMusicPlayerView {
 private extension AppleMusicPlayerView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            trackInfo.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8.landscapeVScale),
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 19.landscapeVScale),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            trackInfo.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8.landscapeVScale),
             trackInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
             trackInfo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.landscapeHScale)
         ])
@@ -72,6 +79,13 @@ private extension AppleMusicPlayerView {
     
     func makeTrackProgress() -> MusicPlayerProgressView {
         let view = MusicPlayerProgressView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeBackButton() -> UIButton {
+        let view = BackButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

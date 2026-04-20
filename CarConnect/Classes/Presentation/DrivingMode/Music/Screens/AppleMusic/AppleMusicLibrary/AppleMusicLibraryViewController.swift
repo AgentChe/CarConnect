@@ -33,7 +33,9 @@ final class AppleMusicLibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.delgate = self
-        navigationItem.title = viewModel.category.title
+        
+        mainView.navigationView.setTitle(viewModel.category.title)
+        mainView.navigationView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
         
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
@@ -42,6 +44,10 @@ final class AppleMusicLibraryViewController: UIViewController {
         }
         
         Task { await viewModel.loadInitialData() }
+    }
+    
+    @objc func pop(_ button: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -55,10 +61,10 @@ extension AppleMusicLibraryViewController: AppleMusicLibraryTableDelegate {
             controller = AppleMusicTrackListViewController(source: .album(album))
         case .artist(let artist):
             controller = AppleMusicArtistLibraryViewController(artist: artist)
-        case .track(let track):
+        case .track(let track, _):
             let tracks: [Track] = viewModel.items
                 .compactMap { model in
-                    guard case let .track(track) = item else { return nil }
+                    guard case let .track(track, _) = item else { return nil }
                     return track
                 }
             

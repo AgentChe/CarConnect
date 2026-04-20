@@ -13,9 +13,10 @@ final class AppleMusicTrackListViewModel {
     // MARK: - Output
 
     @MainActor let title: String
-    @MainActor private(set) var tracks = MusicItemCollection<Track>([])
+    @MainActor private(set) var trackCollection = MusicItemCollection<Track>([])
     @MainActor private(set) var items: [TrackItem] = []
     @MainActor var onUpdate: (() -> Void)?
+    
     let collectionID: MusicItemID
     
     private let source: TrackListSource
@@ -38,75 +39,58 @@ final class AppleMusicTrackListViewModel {
             title = playlist.name
             collectionID = playlist.id
         }
+        
+        observePlayingTrack()
     }
     
     func fetchTracks() async {
-        do {
-            let content: MusicItemCollection<Track>
-            switch source {
-            case .album(let album):
-                content = try await album.with(.tracks).tracks ?? MusicItemCollection<Track>([])
-            case .playlist(let playlist):
-                content = try await playlist.with(.tracks).tracks ?? MusicItemCollection<Track>([])
-            }
-            
-            let items = content.map { track in
-                return TrackItem(track: track, isPlaying: player.isPlaying(track: track))
-            }
-            await MainActor.run {
-                tracks = content
-                self.items = items
-            }
-        } catch {
-            
+        let content: MusicItemCollection<Track>
+        switch source {
+        case .album(let album):
+            content = (try? await album.with(.tracks).tracks) ?? MusicItemCollection<Track>([])
+        case .playlist(let playlist):
+            content = (try? await playlist.with(.tracks).tracks) ?? MusicItemCollection<Track>([])
         }
         
+        let elements = content.map { TrackItem(track: $0) }
+        
         await MainActor.run {
+            trackCollection = content
+            items = elements
             onUpdate?()
         }
     }
     
+    func loadNext() async {
+        guard trackCollection.hasNextBatch else { return }
+        guard let next = try? await trackCollection.nextBatch(limit: pageSize) else { return }
+        
+        let elements = next.map { TrackItem(track: $0)}
+        let newItems = items.merge(new: elements)
+        
+        await MainActor.run {
+            trackCollection = next
+            items = newItems
+            onUpdate?()
+        }
+    }
+}
+
+private extension AppleMusicTrackListViewModel {
     func observePlayingTrack() {
         cancellable = AppleMusicPlayer.shared.trackPublisher
             .receive(on: DispatchQueue.main)
-            .print()
-            .sink { [weak self] model in
+            .sink { [weak self] _ in
                 guard let self else { return }
-                
-                items = items.map {
-                    TrackItem(track: $0.track, isPlaying: self.player.isPlaying(track: $0.track))
-                }
-                
+                items = items.map { TrackItem(track: $0.track) }
                 onUpdate?()
             }
-//        guard currentTrackTask == nil || currentTrackTask?.isCancelled == true else { return }
-//        currentTrackTask = Task {
-//            for await model in AppleMusicPlayer.shared.trackPublisher.values {
-//                print("INFO: \(model)")
-//                guard let id = model?.id, let index = items.firstIndex(where: { $0.track.id.rawValue == id }) else { return }
-//                
-//                await MainActor.run {
-//                    items[index] = TrackItem(track: items[index].track, isPlaying: true)
-//                }
-//            }
-//        }
     }
-    
-    func loadNext() async {
-        guard tracks.hasNextBatch else { return }
-        do {
-            guard let next = try await tracks.nextBatch(limit: pageSize) else { return }
-            let items = next.map { track in
-                return TrackItem(track: track, isPlaying: player.isPlaying(track: track))
-            }
-            
-            await MainActor.run {
-                tracks = next
-                self.items = items
-                onUpdate?()
-            }
-        } catch {
-            
-        }
+}
+
+private extension TrackItem {
+    init(track: Track) {
+        self.track = track
+        self.isPlaying = AppleMusicPlayer.shared.isPlaying(track: track)
     }
 }

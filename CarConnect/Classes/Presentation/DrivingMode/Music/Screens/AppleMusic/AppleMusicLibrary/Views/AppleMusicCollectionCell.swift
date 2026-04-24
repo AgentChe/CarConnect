@@ -8,7 +8,6 @@
 import UIKit
 import MusicKit
 import RiveRuntime
-import Kingfisher
 
 final class AppleMusicCollectionCell: UICollectionViewCell {
     static let resuseID = "AppleMusicCollectionCell"
@@ -22,6 +21,8 @@ final class AppleMusicCollectionCell: UICollectionViewCell {
     private lazy var animationView = makeAnimationView()
     private lazy var animationViewModel = RiveViewModel(fileName: "nowplaying")
     
+    private var imageLoadTask: Task<Void, Never>?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeConstraints()
@@ -34,12 +35,11 @@ final class AppleMusicCollectionCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        contentImage.kf.cancelDownloadTask()
-        contentImage.image = nil
+        imageLoadTask?.cancel()
         animationViewModel.reset()
     }
     
-    func setup(for item: CollectionType) {
+    func setup(for item: AppleMusicCollectionType) {
         switch item {
         case .playlist(let playlist):
             setup(title: playlist.name, subtitle: playlist.curatorName, isPlaying: false)
@@ -94,6 +94,7 @@ private extension AppleMusicCollectionCell {
     
     func setup(title: String, subtitle: String?, isPlaying: Bool) {
         titleLabel.attributedText = title.attributed(with: isPlaying ? .playingTitle : .title)
+        
         if let subtitle, !subtitle.isEmpty {
             subtitleLabel.attributedText = subtitle.attributed(with: .subtitle)
         }
@@ -104,14 +105,14 @@ private extension AppleMusicCollectionCell {
     func setupArtwork(artwork: Artwork?, category: AppleMusicLibraryCategory) {
         guard let url = artwork?.url(width: 60, height: 60) else { return }
         
-        contentImage.contentMode = .center
-        contentImage.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: category.iconName),
-            options: [.transition(.fade(0.2))]
-        ) { [weak self] result in
-            if case .success = result {
-                self?.contentImage.contentMode = .scaleAspectFit
+        imageLoadTask = Task { [weak self] in
+            guard let (data, _) = try? await URLSession.shared.data(from: url),
+                  !Task.isCancelled
+            else { return }
+            
+            let image = UIImage(data: data) ?? UIImage(systemName: "music.note")
+            await MainActor.run {
+                self?.contentImage.image = image
             }
         }
     }
@@ -132,7 +133,7 @@ private extension AppleMusicCollectionCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             contentImage.heightAnchor.constraint(equalToConstant: 60.landscapeVScale),
-            contentImage.widthAnchor.constraint(equalToConstant: 60.landscapeHScale),
+            contentImage.widthAnchor.constraint(equalToConstant: 60.landscapeVScale),
             contentImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6.landscapeVScale),
             contentImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6.landscapeVScale)
@@ -153,9 +154,9 @@ private extension AppleMusicCollectionCell {
         
         NSLayoutConstraint.activate([
             animationView.heightAnchor.constraint(equalToConstant: 32.landscapeVScale),
-            animationView.widthAnchor.constraint(equalToConstant: 32.landscapeHScale),
+            animationView.widthAnchor.constraint(equalToConstant: 32.landscapeVScale),
             moreImage.heightAnchor.constraint(equalToConstant: 32.landscapeVScale),
-            moreImage.widthAnchor.constraint(equalToConstant: 32.landscapeHScale),
+            moreImage.widthAnchor.constraint(equalToConstant: 32.landscapeVScale),
         ])
     }
 }

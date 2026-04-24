@@ -40,7 +40,7 @@ final class AppleMusicLibraryViewController: UIViewController {
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
             mainView.updateData(items: viewModel.items, category: viewModel.category)
-            mainView.updateLoadingState(isLoading: viewModel.isLoading, isEmpty: viewModel.items.isEmpty)
+            mainView.updateState(isLoading: viewModel.isLoading, isEmpty: viewModel.items.isEmpty)
         }
         
         Task { await viewModel.loadInitialData() }
@@ -52,7 +52,7 @@ final class AppleMusicLibraryViewController: UIViewController {
 }
 
 extension AppleMusicLibraryViewController: AppleMusicLibraryTableDelegate {
-    func didSelectItem(_ item: CollectionType) {
+    func didSelectItem(_ item: AppleMusicCollectionType) {
         let controller: UIViewController
         switch item {
         case .playlist(let playlist):

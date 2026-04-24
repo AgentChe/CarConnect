@@ -20,8 +20,8 @@ final class AppleMusicMainViewModel {
     @MainActor private(set) var isSearching: Bool = false
     @MainActor var onUpdate: (() -> Void)?
     
-    @MainActor private var searchElements: [CollectionType] = []
-    @MainActor private var recentElements: [CollectionType] = []
+    @MainActor private var searchElements: [AppleMusicCollectionType] = []
+    @MainActor private var recentElements: [AppleMusicCollectionType] = []
     
     private let pageSize: Int = 10
     private var cancellable: AnyCancellable?
@@ -36,6 +36,8 @@ final class AppleMusicMainViewModel {
     private var currentTask: Task<Void, Never>?
     
     private let appleMusicService = AppleMusicService()
+    
+    private var currentSearchText = ""
     
     deinit {
         stateContinuation.finish()
@@ -64,10 +66,13 @@ extension AppleMusicMainViewModel {
     func search(term: String, isEditing: Bool) {
         if isEditing || !term.isEmpty {
             isSearching = true
+            guard term != currentSearchText else { return }
+            currentSearchText = term
             onUpdate?()
             stateContinuation.yield(.search(term))
         } else {
             stateContinuation.yield(.main)
+            currentSearchText = ""
             isSearching = false
             onUpdate?()
         }
@@ -124,7 +129,7 @@ private extension AppleMusicMainViewModel {
             
             let results = try await appleMusicService.search(term: term, limit: pageSize)
             var topResults = results.topResults
-            let elements = topResults.compactMap(CollectionType.init(topResult:))
+            let elements = topResults.compactMap(AppleMusicCollectionType.init(topResult:))
             let section = AppleMusicMainDataSource(section: .searchResult, items: elements.map { .searchResult(item: $0) })
             
             try Task.checkCancellation()
@@ -144,7 +149,7 @@ private extension AppleMusicMainViewModel {
                 guard !isLoadingProgress, topResults.hasNextBatch else { return }
                 isLoadingProgress = true
                 guard let next = try await topResults.nextBatch(limit: pageSize) else { return }
-                let elements = searchElements.merge(new: next.compactMap(CollectionType.init(topResult:)))
+                let elements = searchElements.merge(new: next.compactMap(AppleMusicCollectionType.init(topResult:)))
                 
                 let section = AppleMusicMainDataSource(section: .searchResult, items: elements.map { .searchResult(item: $0) })
                 
@@ -213,10 +218,9 @@ private extension AppleMusicMainViewModel {
         } catch { }
     }
     
-    func mainSetup(items: [CollectionType], offset: inout Int, hasMore: inout Bool) async throws {
+    func mainSetup(items: [AppleMusicCollectionType], offset: inout Int, hasMore: inout Bool) async throws {
         offset += pageSize
         hasMore = items.count >= pageSize && offset < 50
-        // Эпл может вернуть дубли, из-за них крашится DiffableDataSource
         
         let newItems = recentElements.merge(new: items)
         
@@ -252,7 +256,7 @@ private extension AppleMusicMainViewModel {
     }
 }
 
-private extension CollectionType {
+private extension AppleMusicCollectionType {
     init?(topResult: MusicCatalogSearchResponse.TopResult) {
         switch topResult {
         case .album(let album):

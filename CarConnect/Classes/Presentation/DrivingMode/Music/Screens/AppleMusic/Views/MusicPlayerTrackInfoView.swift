@@ -7,12 +7,13 @@
 
 import UIKit
 import Foundation
-import Kingfisher
 
 class MusicPlayerTrackInfoView: UIView {
     private lazy var imageView = makeImageView()
     private lazy var titleLabel = makeTitleLabel()
     private lazy var subtitleLabel = makeSubtitleLabel()
+    
+    private var imageLoadTask: Task<Void, Never>?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,16 +32,18 @@ extension MusicPlayerTrackInfoView {
         titleLabel.attributedText = title?.attributed(with: .playerTitle)
         subtitleLabel.attributedText = subtitle?.attributed(with: .playerSubtitle)
         let placeholder = UIImage(named: AppleMusicLibraryCategory.songs.iconName)
-        imageView.contentMode = .center
+        imageLoadTask?.cancel()
+        imageView.image = placeholder
         
         if let url = image {
-            imageView.kf.setImage(
-                with: url,
-                placeholder: placeholder,
-                options: [.transition(.fade(0.2))]
-            ) { [weak self] result in
-                if case .success = result {
-                    self?.imageView.contentMode = .scaleAspectFit
+            imageLoadTask = Task { [weak self] in
+                guard let (data, _) = try? await URLSession.shared.data(from: url),
+                      !Task.isCancelled
+                else { return }
+                
+                let image = UIImage(data: data) ?? placeholder
+                await MainActor.run {
+                    self?.imageView.image = image
                 }
             }
         } else {

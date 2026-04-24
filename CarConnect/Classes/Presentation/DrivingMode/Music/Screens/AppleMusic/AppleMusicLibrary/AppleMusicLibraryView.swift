@@ -8,25 +8,24 @@
 import UIKit
 
 protocol AppleMusicLibraryTableDelegate: AnyObject {
-    @MainActor func didSelectItem(_ item: CollectionType)
+    @MainActor func didSelectItem(_ item: AppleMusicCollectionType)
     func visiblePath(indexPath: IndexPath)
 }
 
 final class AppleMusicLibraryView: UIView {
-    private typealias DataSource = UICollectionViewDiffableDataSource<Int, CollectionType>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, CollectionType>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Int, AppleMusicCollectionType>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, AppleMusicCollectionType>
     
     lazy var navigationView = makeNavigationView()
-    private lazy var tableView = makeTableView()
+    private lazy var collectionView = makeCollectionView()
     private lazy var emptyView = makeEmptyView()
-    private lazy var footerSpinner = makeFooterSpinner()
-    private lazy var loaderSpinner = makeLoadingSpinner()
+    private lazy var loaderView = makeLoaderView()
     
     weak var delgate: AppleMusicLibraryTableDelegate?
     
     private lazy var dataSource: DataSource = {
-        return DataSource(collectionView: tableView) { tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
+        return DataSource(collectionView: collectionView) { collectionView, indexPath, item in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppleMusicCollectionCell.resuseID, for: indexPath) as? AppleMusicCollectionCell
             cell?.setup(for: item)
             return cell
         }
@@ -45,7 +44,7 @@ final class AppleMusicLibraryView: UIView {
 }
 
 extension AppleMusicLibraryView {
-    func updateData(items: [CollectionType], category: AppleMusicLibraryCategory) {
+    func updateData(items: [AppleMusicCollectionType], category: AppleMusicLibraryCategory) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(items, toSection: 0)
@@ -53,25 +52,16 @@ extension AppleMusicLibraryView {
         emptyView.setup(for: category)
     }
     
-    func updateLoadingState(isLoading: Bool, isEmpty: Bool) {
-        if isEmpty && isLoading {
-            loaderSpinner.startAnimating()
-            // TODO: Добавить спиннер
-//            tableView.tableFooterView = nil
-            emptyView.isHidden = true
-        } else if !isEmpty && isLoading {
-            loaderSpinner.stopAnimating()
-            footerSpinner.startAnimating()
-            // TODO: Добавить спиннер
-//            tableView.tableFooterView = footerSpinner
-            emptyView.isHidden = true
-        } else if isEmpty {
-            tableView.isHidden = true
-            emptyView.isHidden = false
-        } else {
-            tableView.isHidden = false
-            emptyView.isHidden = true
-            loaderSpinner.stopAnimating()
+    func updateState(isLoading: Bool, isEmpty: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.collectionView.isHidden = isLoading || isEmpty
+            self.emptyView.isHidden = isLoading || !isEmpty
+            
+            if isLoading {
+                self.loaderView.startSpinningAnimation()
+            } else  {
+                self.loaderView.stopSpinningAnimation()
+            }
         }
     }
 
@@ -94,27 +84,27 @@ private extension AppleMusicLibraryView {
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            emptyView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            emptyView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            loaderSpinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loaderSpinner.centerYAnchor.constraint(equalTo: centerYAnchor)
+            loaderView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            loaderView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension AppleMusicLibraryView {
-    func makeTableView() -> UICollectionView {
+    func makeCollectionView() -> UICollectionView {
         let view = UICollectionView.makeList()
         
         view.register(AppleMusicCollectionCell.self, forCellWithReuseIdentifier: AppleMusicCollectionCell.resuseID)
@@ -133,23 +123,16 @@ private extension AppleMusicLibraryView {
         return view
     }
     
-    func makeFooterSpinner() -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: .medium)
-        view.frame = .init(origin: .zero, size: .init(width: tableView.bounds.width, height: 52))
-        return view
-    }
-    
-    func makeLoadingSpinner() -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: .medium)
-        view.hidesWhenStopped = true
+    func makeNavigationView() -> NavigationView {
+        let view = NavigationView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
     
-    func makeNavigationView() -> NavigationView {
-        let view = NavigationView()
+    func makeLoaderView() -> AppleMusicLoaderView {
+        let view = AppleMusicLoaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

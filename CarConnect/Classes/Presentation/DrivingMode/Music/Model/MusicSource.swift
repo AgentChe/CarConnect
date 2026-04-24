@@ -20,4 +20,15 @@ extension MusicSource {
             return "DrivingMode.Music.Spotify"
         }
     }
+    
+    var title: String {
+        switch self {
+        case .appleMusic:
+            "AppleMusic".localized
+        case .spotify:
+            "Spotify".localized
+        case .radio:
+            "Radio".localized
+        }
+    }
 }

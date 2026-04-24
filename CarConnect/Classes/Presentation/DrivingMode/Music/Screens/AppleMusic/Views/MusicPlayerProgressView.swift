@@ -43,8 +43,9 @@ extension MusicPlayerProgressView {
     func setup(current: TimeInterval, duration: TimeInterval) {
         progressSlider.minimumValue = 0
         progressSlider.maximumValue = Float(duration)
+        
         if !progressSlider.isTracking {
-            progressSlider.setValue(Float(current), animated: true)
+            progressSlider.setValue(Float(current), animated: false)
         }
         
         currentLabel.attributedText = Duration.seconds(current).formatted(current.timeFormat).attributed(with: .time)

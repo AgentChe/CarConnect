@@ -127,3 +127,7 @@
 "AppleMusic.EmptySearch.Title" = "No results found";
 "AppleMusic.EmptySearch.Subtitle" = "Check the spelling or try searching for something else.";
 
+// MARK: Music Source
+"AppleMusic" = "Apple Music";
+"Spotify" = "Spotify";
+"Radio" = "FM-Radio";

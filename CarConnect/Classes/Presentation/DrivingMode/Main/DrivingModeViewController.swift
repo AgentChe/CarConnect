@@ -43,7 +43,3 @@ extension DrivingModeViewController {
         DrivingModeViewController()
     }
 }
-
-#Preview(traits: .landscapeRight) {
-    DrivingModeViewController()
-}

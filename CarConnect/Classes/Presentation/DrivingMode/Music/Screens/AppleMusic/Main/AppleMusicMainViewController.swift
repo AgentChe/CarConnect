@@ -28,6 +28,8 @@ final class AppleMusicMainViewController: UIViewController {
         mainView.searchField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         mainView.searchField.delegate = self
         
+        mainView.dropDownButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+        
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
             mainView.collectionView.apply(items: viewModel.dataSource)
@@ -37,16 +39,24 @@ final class AppleMusicMainViewController: UIViewController {
         
         Task {
             let isAuthorizied = await viewModel.checkAuthorization()
+            if isAuthorizied {
+                viewModel.loadInitial()
+            }
             await MainActor.run {
                 mainView.setupAuthState(isAuthorized: isAuthorizied)
             }
         }
-        
-        viewModel.loadInitial()
     }
     
     @objc private func textChanged(_ textField: UITextField) {
         viewModel.search(term: textField.text ?? "", isEditing: true)
+    }
+    
+    @objc private func openMenu(_ button: DropdownButtonView) {
+        let controller = MusicSourceMenuViewController(actionFrame: mainView.dropDownButton.frame)
+        
+        controller.modalPresentationStyle = .currentContext
+        present(controller, animated: false)
     }
 }
 
@@ -106,5 +116,79 @@ extension AppleMusicMainViewController {
         controller.navigationBar.standardAppearance = appearance
         controller.navigationBar.scrollEdgeAppearance = appearance
         return controller
+    }
+}
+
+extension AppleMusicMainViewController: UIViewControllerTransitioningDelegate {
+    // Возвращаем аниматор для презентации
+        func animationController(forPresented presented: UIViewController,
+                                 presenting: UIViewController,
+                                 source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return FadeAnimator(isPresenting: true)
+        }
+
+        // Возвращаем аниматор для исчезновения
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return FadeAnimator(isPresenting: false)
+        }
+}
+
+import UIKit
+
+class FadeAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+
+    // Определяем, презентация это или исчезновение
+    let isPresenting: Bool
+
+    init(isPresenting: Bool) {
+        self.isPresenting = isPresenting
+        super.init()
+    }
+
+    // 1. Длительность анимации
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.35 // 0.35 секунды
+    }
+
+    // 2. Логика анимации
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        if isPresenting {
+            animatePresentation(using: transitionContext)
+        } else {
+            animateDismissal(using: transitionContext)
+        }
+    }
+
+    // Презентация: Плавное появление
+    private func animatePresentation(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toView = transitionContext.view(forKey: .to) else { return }
+
+        let containerView = transitionContext.containerView
+        containerView.addSubview(toView)
+
+        // Исходное состояние: полностью прозрачный
+        toView.alpha = 0.0
+
+        // Анимация к целевому состоянию: полностью видимый
+        UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                       animations: {
+            toView.alpha = 1.0
+        }) { _ in
+            // Важно: сообщить системе, что переход завершен
+            transitionContext.completeTransition(true)
+        }
+    }
+
+    // Скрытие: Плавное исчезновение
+    private func animateDismissal(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromView = transitionContext.view(forKey: .from) else { return }
+
+        UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                       animations: {
+            fromView.alpha = 0.0
+        }) { _ in
+            fromView.removeFromSuperview()
+            transitionContext.completeTransition(true)
+        }
     }
 }

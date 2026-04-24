@@ -33,6 +33,10 @@ extension AppleMusicMainView {
     func setupAuthState(isAuthorized: Bool) {
         collectionView.isHidden = !isAuthorized
         authView.isHidden = isAuthorized
+        searchField.isHidden = !isAuthorized
+        if !isAuthorized {
+            loaderView.stopSpinningAnimation()
+        }
     }
     
     func searchResult(isEmpty: Bool) {

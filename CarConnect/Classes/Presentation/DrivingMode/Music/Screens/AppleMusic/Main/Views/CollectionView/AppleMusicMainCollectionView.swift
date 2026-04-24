@@ -158,7 +158,7 @@ private extension AppleMusicMainCollectionView {
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 12.landscapeHScale
         section.contentInsets = .init(top: 16.landscapeVScale, leading: 0, bottom: 12.landscapeVScale, trailing: 0)
-        
+        section.boundarySupplementaryItems = [makeHeader()]
         section.visibleItemsInvalidationHandler = { [weak self] visibleItems, _, _ in
             // TODO: FIX
             guard let dataSource = self?.dataSource else { return }
@@ -167,8 +167,6 @@ private extension AppleMusicMainCollectionView {
                 self?.delegate?.loadNext()
             }
         }
-        
-        section.boundarySupplementaryItems = [makeHeader()]
         return section
     }
     
@@ -214,6 +212,14 @@ private extension AppleMusicMainCollectionView {
         section.interGroupSpacing = 12.landscapeVScale
         section.orthogonalScrollingBehavior = .none
         section.boundarySupplementaryItems = []
+        section.visibleItemsInvalidationHandler = { [weak self] visibleItems, _, _ in
+            // TODO: FIX
+            guard let dataSource = self?.dataSource else { return }
+            let total = dataSource.snapshot().itemIdentifiers(inSection: .searchResult).count
+            if let last = visibleItems.last, last.indexPath.item >= total - 5 {
+                self?.delegate?.loadNext()
+            }
+        }
         return section
     }
 

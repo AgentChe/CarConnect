@@ -15,21 +15,16 @@ final class AppleMusicTrackListViewModel {
     @MainActor let title: String
     @MainActor private(set) var trackCollection = MusicItemCollection<Track>([])
     @MainActor private(set) var items: [TrackItem] = []
+    @MainActor private(set) var isLoading: Bool = false
     @MainActor var onUpdate: (() -> Void)?
     
     let collectionID: MusicItemID
     
-    private let source: TrackListSource
-    
-    private let pageSize: Int = 10
-    
-    private var currentTrackTask: Task<Void, Never>?
-    
+    private let source: AppleMusicTrackListSource
+    private let player = AppleMusicPlayer.shared
     private var cancellable: AnyCancellable?
     
-    private let player = AppleMusicPlayer.shared
-    
-    init(source: TrackListSource) {
+    init(source: AppleMusicTrackListSource) {
         self.source = source
         switch source {
         case .album(let album):
@@ -44,6 +39,10 @@ final class AppleMusicTrackListViewModel {
     }
     
     func fetchTracks() async {
+        await MainActor.run {
+            isLoading = true
+            onUpdate?()
+        }
         let content: MusicItemCollection<Track>
         switch source {
         case .album(let album):
@@ -57,13 +56,14 @@ final class AppleMusicTrackListViewModel {
         await MainActor.run {
             trackCollection = content
             items = elements
+            isLoading = false
             onUpdate?()
         }
     }
     
     func loadNext() async {
         guard trackCollection.hasNextBatch else { return }
-        guard let next = try? await trackCollection.nextBatch(limit: pageSize) else { return }
+        guard let next = try? await trackCollection.nextBatch(limit: 10) else { return }
         
         let elements = next.map { TrackItem(track: $0)}
         let newItems = items.merge(new: elements)

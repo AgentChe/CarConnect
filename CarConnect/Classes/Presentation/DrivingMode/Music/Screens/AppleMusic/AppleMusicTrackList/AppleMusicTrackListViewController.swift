@@ -12,7 +12,7 @@ final class AppleMusicTrackListViewController: UIViewController {
     private lazy var mainView = AppleMusicTrackListView()
     private let viewModel: AppleMusicTrackListViewModel
     
-    init(source: TrackListSource) {
+    init(source: AppleMusicTrackListSource) {
         viewModel = AppleMusicTrackListViewModel(source: source)
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,6 +35,7 @@ final class AppleMusicTrackListViewController: UIViewController {
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
             mainView.updateData(items: viewModel.items)
+            mainView.setLoadingState(isLoading: viewModel.isLoading)
         }
         
         Task { await viewModel.fetchTracks() }

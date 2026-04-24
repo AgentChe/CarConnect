@@ -38,7 +38,7 @@ extension AppleMusicLibraryRecentItem.ContentType {
 }
 
 extension AppleMusicLibraryRecentItem {
-    init(collection: CollectionType) {
+    init(collection: AppleMusicCollectionType) {
         switch collection {
         case .playlist(let playlist):
             id = playlist.id
@@ -66,7 +66,7 @@ extension AppleMusicLibraryRecentItem {
 
 // TODO: Разобраться с nonisolated
 nonisolated enum AppleMusicLibraryItem: Hashable {
-    case recent(item: CollectionType)
+    case recent(item: AppleMusicCollectionType)
     case category(AppleMusicLibraryCategory)
-    case searchResult(item: CollectionType)
+    case searchResult(item: AppleMusicCollectionType)
 }

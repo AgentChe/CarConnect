@@ -47,6 +47,7 @@ final class AppleMusicPlayerViewController: UIViewController {
                 current: model.currentTime,
                 duration: model.duration
             )
+            
             mainView.controlsView.setup(
                 isPlaying: model.isPlaying,
                 repeatMode: model.repeatMode,

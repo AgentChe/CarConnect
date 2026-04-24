@@ -143,13 +143,7 @@ final class AppleMusicPlayer {
         playbackQueueInitializationItemID = parentCollectionID
 
         Task {
-            do {
-                try await player.play()
-                emitTrackModelIfNeeded()
-            }
-            catch {
-                print("Failed to play \(track): \(error)")
-            }
+            try? await player.play()
         }
     }
 
@@ -162,25 +156,14 @@ final class AppleMusicPlayer {
     /// Следующий трек.
     func skipToNextEntry() {
         Task {
-            do {
-                try await player.skipToNextEntry()
-                emitTrackModelIfNeeded()
-            } catch {
-                print("Failed to skip to next: \(error)")
-            }
+            try? await player.skipToNextEntry()
         }
     }
 
     /// Предыдущий трек.
     func skipToPreviousEntry() {
         Task {
-            do {
-                try await player.skipToPreviousEntry()
-                emitTrackModelIfNeeded()
-            }
-            catch {
-                print("Failed to skip to previous: \(error)")
-            }
+            try? await player.skipToPreviousEntry()
         }
     }
 
@@ -190,8 +173,27 @@ final class AppleMusicPlayer {
         player.state.objectWillChange
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                self?.handlePlaybackStateDidChange()
+                self?.emitPlaybackModel()
             }
+            .store(in: &cancellable)
+        
+        player.queue.objectWillChange
+            .receive(on: DispatchQueue.main)
+            .map { [weak self] in
+                let entry = self?.player.queue.currentEntry
+
+                let title = entry?.title
+                let subtitle = entry?.subtitle
+                let artworkItem = entry?.item.flatMap { self?.artworkSource(from: $0) }
+
+                return TrackModel(
+                    title: title,
+                    subtitle: subtitle,
+                    artwork: artworkItem?.url(width: 120, height: 120)
+                )
+                
+            }
+            .subscribe(trackPublisher)
             .store(in: &cancellable)
         
         Timer.publish(every: 0.5, on: .main, in: .common)
@@ -201,11 +203,6 @@ final class AppleMusicPlayer {
                 self.emitPlaybackModel()
             }
             .store(in: &cancellable)
-    }
-
-    private func handlePlaybackStateDidChange() {
-        emitPlaybackModel()
-        emitTrackModelIfNeeded()
     }
 
     private func emitPlaybackModel() {
@@ -218,22 +215,6 @@ final class AppleMusicPlayer {
         )
         
         playbackPublisher.send(model)
-    }
-
-    private func emitTrackModelIfNeeded() {
-        let entry = player.queue.currentEntry
-
-        let title = entry?.title
-        let subtitle = entry?.subtitle
-        let artworkItem = entry?.item.flatMap { artworkSource(from: $0) }
-
-        let model = TrackModel(
-            title: title,
-            subtitle: subtitle,
-            artwork: artworkItem?.url(width: 120, height: 120)
-        )
-        
-        trackPublisher.send(model)
     }
 
     // MARK: - Queue

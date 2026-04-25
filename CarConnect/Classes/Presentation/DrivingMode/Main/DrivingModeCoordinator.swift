@@ -25,6 +25,7 @@ final class DrivingModeCoordinator {
 
 // MARK: Public
 extension DrivingModeCoordinator {
+    // TODO: Добавить логику переключения
     func testInitial() {
         changeVC(on: musicVC)
     }

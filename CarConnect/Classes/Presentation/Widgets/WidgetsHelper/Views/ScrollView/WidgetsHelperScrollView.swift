@@ -196,7 +196,7 @@ private extension WidgetsHelperScrollView {
             step2ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             step2ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             step2ImageView.topAnchor.constraint(equalTo: step2TextView.bottomAnchor, constant: 12.scale),
-            step2ImageView.heightAnchor.constraint(equalToConstant: 280.scale)
+            step2ImageView.heightAnchor.constraint(equalToConstant: 226.scale)
         ])
         
         let step3TextView = WidgetsHelperScrollTextView(step: 3, subTitle: "WidgetsHelper.CarPlay.Step3.SubTitle".localized)
@@ -238,7 +238,7 @@ private extension WidgetsHelperScrollView {
             step4ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             step4ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             step4ImageView.topAnchor.constraint(equalTo: step4TextView.bottomAnchor, constant: 12.scale),
-            step4ImageView.heightAnchor.constraint(equalToConstant: 623.scale)
+            step4ImageView.heightAnchor.constraint(equalToConstant: 614.scale)
         ])
         
         let step5TextView = WidgetsHelperScrollTextView(step: 5, subTitle: "WidgetsHelper.CarPlay.Step5.SubTitle".localized)
@@ -259,7 +259,49 @@ private extension WidgetsHelperScrollView {
             step5ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             step5ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             step5ImageView.topAnchor.constraint(equalTo: step5TextView.bottomAnchor, constant: 12.scale),
-            step5ImageView.heightAnchor.constraint(equalToConstant: 283.scale)
+            step5ImageView.heightAnchor.constraint(equalToConstant: 242.scale)
+        ])
+        
+        let step6TextView = WidgetsHelperScrollTextView(step: 6, subTitle: "WidgetsHelper.CarPlay.Step6.SubTitle".localized)
+        step6TextView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step6TextView)
+        
+        NSLayoutConstraint.activate([
+            step6TextView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step6TextView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step6TextView.topAnchor.constraint(equalTo: step5ImageView.bottomAnchor, constant: 16.scale)
+        ])
+        
+        let step6ImageView = WidgetsHelperScrollImageView(imageName: "WidgetsHelper.CarPlay.Step6")
+        step6ImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step6ImageView)
+        
+        NSLayoutConstraint.activate([
+            step6ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step6ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step6ImageView.topAnchor.constraint(equalTo: step6TextView.bottomAnchor, constant: 12.scale),
+            step6ImageView.heightAnchor.constraint(equalToConstant: 283.scale)
+        ])
+        
+        let step7TextView = WidgetsHelperScrollTextView(step: 7, subTitle: "WidgetsHelper.CarPlay.Step7.SubTitle".localized)
+        step7TextView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step7TextView)
+        
+        NSLayoutConstraint.activate([
+            step7TextView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step7TextView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step7TextView.topAnchor.constraint(equalTo: step6ImageView.bottomAnchor, constant: 16.scale)
+        ])
+        
+        let step7ImageView = WidgetsHelperScrollImageView(imageName: "WidgetsHelper.CarPlay.Step7")
+        step7ImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step7ImageView)
+        
+        NSLayoutConstraint.activate([
+            step7ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step7ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step7ImageView.topAnchor.constraint(equalTo: step7TextView.bottomAnchor, constant: 12.scale),
+            step7ImageView.heightAnchor.constraint(equalToConstant: 225.scale)
         ])
         
         let acceptButton = WidgetsHelperScrollAcceptButton()
@@ -273,7 +315,7 @@ private extension WidgetsHelperScrollView {
         NSLayoutConstraint.activate([
             acceptButton.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             acceptButton.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            acceptButton.topAnchor.constraint(equalTo: step5ImageView.bottomAnchor, constant: 16.scale),
+            acceptButton.topAnchor.constraint(equalTo: step7ImageView.bottomAnchor, constant: 16.scale),
             acceptButton.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             acceptButton.heightAnchor.constraint(equalToConstant: 50.scale)
         ])
@@ -361,7 +403,70 @@ private extension WidgetsHelperScrollView {
             step4ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             step4ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             step4ImageView.topAnchor.constraint(equalTo: step4TextView.bottomAnchor, constant: 12.scale),
-            step4ImageView.heightAnchor.constraint(equalToConstant: 623.scale)
+            step4ImageView.heightAnchor.constraint(equalToConstant: 614.scale)
+        ])
+        
+        let step5TextView = WidgetsHelperScrollTextView(step: 5, subTitle: "WidgetsHelper.Phone.Step5.SubTitle".localized)
+        step5TextView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step5TextView)
+        
+        NSLayoutConstraint.activate([
+            step5TextView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step5TextView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step5TextView.topAnchor.constraint(equalTo: step4ImageView.bottomAnchor, constant: 16.scale)
+        ])
+        
+        let step5ImageView = WidgetsHelperScrollImageView(imageName: "WidgetsHelper.Phone.Step5")
+        step5ImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step5ImageView)
+        
+        NSLayoutConstraint.activate([
+            step5ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step5ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step5ImageView.topAnchor.constraint(equalTo: step5TextView.bottomAnchor, constant: 12.scale),
+            step5ImageView.heightAnchor.constraint(equalToConstant: 283.scale)
+        ])
+        
+        let step6TextView = WidgetsHelperScrollTextView(step: 6, subTitle: "WidgetsHelper.Phone.Step6.SubTitle".localized)
+        step6TextView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step6TextView)
+        
+        NSLayoutConstraint.activate([
+            step6TextView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step6TextView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step6TextView.topAnchor.constraint(equalTo: step5ImageView.bottomAnchor, constant: 16.scale)
+        ])
+        
+        let step6ImageView = WidgetsHelperScrollImageView(imageName: "WidgetsHelper.Phone.Step6")
+        step6ImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step6ImageView)
+        
+        NSLayoutConstraint.activate([
+            step6ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step6ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step6ImageView.topAnchor.constraint(equalTo: step6TextView.bottomAnchor, constant: 12.scale),
+            step6ImageView.heightAnchor.constraint(equalToConstant: 283.scale)
+        ])
+        
+        let step7TextView = WidgetsHelperScrollTextView(step: 7, subTitle: "WidgetsHelper.Phone.Step7.SubTitle".localized)
+        step7TextView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step7TextView)
+        
+        NSLayoutConstraint.activate([
+            step7TextView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step7TextView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step7TextView.topAnchor.constraint(equalTo: step6ImageView.bottomAnchor, constant: 16.scale)
+        ])
+        
+        let step7ImageView = WidgetsHelperScrollImageView(imageName: "WidgetsHelper.Phone.Step7")
+        step7ImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(step7ImageView)
+        
+        NSLayoutConstraint.activate([
+            step7ImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            step7ImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            step7ImageView.topAnchor.constraint(equalTo: step7TextView.bottomAnchor, constant: 12.scale),
+            step7ImageView.heightAnchor.constraint(equalToConstant: 283.scale)
         ])
         
         let acceptButton = WidgetsHelperScrollAcceptButton()
@@ -375,7 +480,7 @@ private extension WidgetsHelperScrollView {
         NSLayoutConstraint.activate([
             acceptButton.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             acceptButton.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            acceptButton.topAnchor.constraint(equalTo: step4ImageView.bottomAnchor, constant: 16.scale),
+            acceptButton.topAnchor.constraint(equalTo: step7ImageView.bottomAnchor, constant: 16.scale),
             acceptButton.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             acceptButton.heightAnchor.constraint(equalToConstant: 50.scale)
         ])

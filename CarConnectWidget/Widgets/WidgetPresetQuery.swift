@@ -25,8 +25,44 @@ struct WidgetPresetQuery: EntityQuery {
             .map { configuration -> WidgetPresetEntity in
                 WidgetPresetEntity(preset: .weather(configuration))
             }
+        let clockConfigurations = WidgetClockStorage.shared.loadAllConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .clock(configuration))
+            }
+        let clockAIPreviews = WidgetClockStorage.shared.loadAllAIPreviewConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .clockAIPreview(configuration))
+            }
+        let carLogos = WidgetCarLogoStorage.shared.loadAllConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .carLogo(configuration))
+            }
+        let aiPhotos = WidgetPhotoStorage.shared.loadAllAIPhotosConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .aiPhoto(configuration))
+            }
+        let photosWithText = WidgetPhotoStorage.shared.loadAllPhotoWithTextConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .photoWithText(configuration))
+            }
+        let photos = WidgetPhotoStorage.shared.loadAllPhotoConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .photo(configuration))
+            }
+        let aiPhotosMyCar = WidgetPhotoStorage.shared.loadAllAIPhotoMyCarConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .aiPhotoMyCar(configuration))
+            }
+        let photoCarousel = WidgetPhotoStorage.shared.loadAllPhotoCarouselConfigurations()
+            .map { configuration -> WidgetPresetEntity in
+                WidgetPresetEntity(preset: .photoCarousel(configuration))
+            }
         
-        return textQuotes + textManuallyConfigurations + calendarConfigurations + weatherConfigurations
+        let textGroup = textQuotes + textManuallyConfigurations
+        let clockGroups = clockConfigurations + clockAIPreviews
+        let photoGroups = aiPhotos + photosWithText + photos + aiPhotosMyCar + photoCarousel
+        
+        return textGroup + calendarConfigurations + weatherConfigurations + clockGroups + carLogos + photoGroups
     }
     
     func entities(for identifiers: [String]) async throws -> [WidgetPresetEntity] {

@@ -24,6 +24,22 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             return model.id
         case .weather(let model):
             return model.id
+        case .clock(let model):
+            return model.id
+        case .clockAIPreview(let model):
+            return model.id
+        case .carLogo(let model):
+            return model.id
+        case .aiPhoto(let model):
+            return model.id
+        case .photoWithText(let model):
+            return model.id
+        case .photo(let model):
+            return model.id
+        case .aiPhotoMyCar(let model):
+            return model.id
+        case .photoCarousel(let model):
+            return model.id
         }
     }
     
@@ -37,6 +53,22 @@ struct WidgetPresetEntity: AppEntity, Identifiable, Hashable {
             case .calendar(let model):
                 return model.name
             case .weather(let model):
+                return model.name
+            case .clock(let model):
+                return model.name
+            case .clockAIPreview(let model):
+                return model.name
+            case .carLogo(let model):
+                return model.name
+            case .aiPhoto(let model):
+                return model.name
+            case .photoWithText(let model):
+                return model.name
+            case .photo(let model):
+                return model.name
+            case .aiPhotoMyCar(let model):
+                return model.name
+            case .photoCarousel(let model):
                 return model.name
             }
         }()

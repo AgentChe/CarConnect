@@ -139,6 +139,69 @@ extension WidgetsPresetsTemplatesCollectionView: UICollectionViewDataSource {
                 cell.setup(configuration: configuration, weatherData: weatherData)
                 return cell
             }
+        case .clock(_, let configuration):
+            switch configuration.style {
+            case .digitalStacked:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalStackedCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .digitalMirror:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalMirrorCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .digitalClassic:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalClassicCell.self), for: indexPath) as! WidgetsPresetsTemplateDigitalClassicCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .splitFlap:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateSplitFlapCell.self), for: indexPath) as! WidgetsPresetsTemplateSplitFlapCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .calendarClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCalendarClockCell.self), for: indexPath) as! WidgetsPresetsTemplateCalendarClockCell
+                cell.setup(configuration: configuration)
+                return cell
+            case .analogClock:
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAnalogClockCell.self), for: indexPath) as! WidgetsPresetsTemplateAnalogClockCell
+                cell.setup(configuration: configuration)
+                return cell
+            }
+        case .clockAIPreview(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self), for: indexPath) as! WidgetsPresetsTemplateClockAIPreviewCell
+            cell.setup(configuration: configuration, date: Date())
+            return cell
+        case let .carLogo(_, configuration, isUsersLogo, catalogsCount):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self), for: indexPath) as! WidgetsPresetsTemplateCarLogoCell
+            cell.setup(configuration: configuration, isUsersLogo: isUsersLogo, catalogsCount: catalogsCount)
+            return cell
+        case .aiPhoto(_, let configuration):
+            if let configuration {
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoCell.self), for: indexPath) as! WidgetsPresetsTemplateAIPhotoCell
+                cell.setup(configuration: configuration)
+                return cell
+            } else {
+                return dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoPlaceholderCell.self), for: indexPath)
+            }
+        case .photoWithText(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoWithTextCell.self), for: indexPath) as! WidgetsPresetsTemplatePhotoWithTextCell
+            cell.setup(configuration: configuration)
+            return cell
+        case .photo(_, let configuration):
+            if let configuration {
+                let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoCell.self), for: indexPath) as! WidgetsPresetsTemplatePhotoCell
+                cell.setup(configuration: configuration)
+                return cell
+            } else {
+                return dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoPlaceholderCell.self), for: indexPath)
+            }
+        case .aiPhotoMyCar(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoMyCarCell.self), for: indexPath) as! WidgetsPresetsTemplateAIPhotoMyCarCell
+            cell.setup(configuration: configuration)
+            return cell
+        case .photoCarousel(_, let configuration):
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: WidgetsPresetsTemplateCarouselCell.self), for: indexPath) as! WidgetsPresetsTemplateCarouselCell
+            cell.setup(configuration: configuration)
+            return cell
         }
     }
 }
@@ -186,6 +249,27 @@ private extension WidgetsPresetsTemplatesCollectionView {
         register(WidgetsPresetsTemplateLocationTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateLocationTemperatureCell.self))
         register(WidgetsPresetsTemplateCurrentWeatherSummaryCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCurrentWeatherSummaryCell.self))
         register(WidgetsPresetsTemplateWeatherIconTemperatureCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateWeatherIconTemperatureCell.self))
+        
+        // Clock
+        register(WidgetsPresetsTemplateAnalogClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAnalogClockCell.self))
+        register(WidgetsPresetsTemplateCalendarClockCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCalendarClockCell.self))
+        register(WidgetsPresetsTemplateSplitFlapCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateSplitFlapCell.self))
+        register(WidgetsPresetsTemplateDigitalClassicCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalClassicCell.self))
+        register(WidgetsPresetsTemplateDigitalMirrorCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalMirrorCell.self))
+        register(WidgetsPresetsTemplateDigitalStackedCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateDigitalStackedCell.self))
+        register(WidgetsPresetsTemplateClockAIPreviewCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateClockAIPreviewCell.self))
+        
+        // CarLogo
+        register(WidgetsPresetsTemplateCarLogoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCarLogoCell.self))
+        
+        // Photo
+        register(WidgetsPresetsTemplateAIPhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoCell.self))
+        register(WidgetsPresetsTemplateAIPhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoPlaceholderCell.self))
+        register(WidgetsPresetsTemplatePhotoWithTextCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoWithTextCell.self))
+        register(WidgetsPresetsTemplatePhotoCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoCell.self))
+        register(WidgetsPresetsTemplatePhotoPlaceholderCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplatePhotoPlaceholderCell.self))
+        register(WidgetsPresetsTemplateAIPhotoMyCarCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateAIPhotoMyCarCell.self))
+        register(WidgetsPresetsTemplateCarouselCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsTemplateCarouselCell.self))
         
         // Helper
         register(WidgetsPresetsCollectionHelperCell.self, forCellWithReuseIdentifier: String(describing: WidgetsPresetsCollectionHelperCell.self))

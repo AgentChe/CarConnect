@@ -10,4 +10,12 @@ enum WidgetPresetSelection: Hashable {
     case textManually(WidgetTextManuallyStorageModel)
     case calendar(WidgetCalendarStorageModel)
     case weather(WidgetWeatherStorageModel)
+    case clock(WidgetClockStorageModel)
+    case clockAIPreview(WidgetClockAIPreviewStorageModel)
+    case carLogo(WidgetCarLogoStorageModel)
+    case aiPhoto(WidgetAIPhotoStorageModel)
+    case photoWithText(WidgetPhotoWithTextStorageModel)
+    case photo(WidgetPhotoStorageModel)
+    case aiPhotoMyCar(WidgetAIPhotoMyCarStorageModel)
+    case photoCarousel(WidgetPhotoCarouselStorageModel)
 }

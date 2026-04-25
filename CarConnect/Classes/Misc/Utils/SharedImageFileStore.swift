@@ -8,6 +8,8 @@
 import UIKit
 import ImageIO
 import MobileCoreServices
+import UniformTypeIdentifiers
+import CryptoKit
 
 final class SharedImageFileStore {
     enum Constants {
@@ -26,6 +28,38 @@ final class SharedImageFileStore {
 
 // MARK: Public
 extension SharedImageFileStore {
+    func save(url: URL) -> String? {
+        guard let folder = sharedFolderURL() else { return nil }
+        guard let imageData = try? Data(contentsOf: url), !imageData.isEmpty else { return nil }
+
+        let fileExtension: String
+        let dataToWrite: Data
+
+        if let detectedExtension = imageFileExtension(from: imageData) {
+            fileExtension = detectedExtension
+            dataToWrite = imageData
+        } else {
+            guard let image = UIImage(data: imageData),
+                  let jpegData = image.jpegData(compressionQuality: 0.9) else {
+                return nil
+            }
+
+            fileExtension = "jpg"
+            dataToWrite = jpegData
+        }
+
+        let baseName = fileBaseName(for: url)
+        let fileName = "\(baseName).\(fileExtension)"
+        let fileURL = folder.appendingPathComponent(fileName, isDirectory: false)
+
+        do {
+            try dataToWrite.write(to: fileURL, options: [.atomic])
+            return fileName
+        } catch {
+            return nil
+        }
+    }
+    
     func save(image: UIImage, format: Format = .jpeg(quality: 0.9)) -> String? {
         guard let folder = sharedFolderURL() else { return nil }
 
@@ -55,6 +89,24 @@ extension SharedImageFileStore {
         }
 
         return fileName
+    }
+    
+    func loadImage(url: URL) -> UIImage? {
+        guard let folder = sharedFolderURL() else { return nil }
+
+        let baseName = fileBaseName(for: url)
+        let possibleExtensions = ["png", "jpg", "gif", "heic"]
+
+        for ext in possibleExtensions {
+            let fileURL = folder.appendingPathComponent("\(baseName).\(ext)", isDirectory: false)
+            if FileManager.default.fileExists(atPath: fileURL.path),
+               let data = try? Data(contentsOf: fileURL),
+               let image = UIImage(data: data) {
+                return image
+            }
+        }
+
+        return nil
     }
 
     func loadImage(fileName: String) -> UIImage? {
@@ -131,5 +183,37 @@ private extension SharedImageFileStore {
             .joined(separator: "_")
             .trimmingCharacters(in: .whitespacesAndNewlines)
         return cleaned.isEmpty ? UUID().uuidString : cleaned
+    }
+    
+    func imageFileExtension(from data: Data) -> String? {
+        guard
+            let source = CGImageSourceCreateWithData(data as CFData, nil),
+            let typeIdentifier = CGImageSourceGetType(source) as String?,
+            let type = UTType(typeIdentifier)
+        else { return nil }
+
+        if type.conforms(to: .png) {
+            return "png"
+        }
+
+        if type.conforms(to: .jpeg) {
+            return "jpg"
+        }
+
+        if type.conforms(to: .gif) {
+            return "gif"
+        }
+
+        if type.conforms(to: .heic) {
+            return "heic"
+        }
+
+        return nil
+    }
+    
+    func fileBaseName(for url: URL) -> String {
+        let string = url.absoluteString
+        let digest = SHA256.hash(data: Data(string.utf8))
+        return digest.map { String(format: "%02x", $0) }.joined()
     }
 }

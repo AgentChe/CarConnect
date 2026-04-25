@@ -98,6 +98,35 @@ struct WidgetWithPresets: Widget {
                             date: Date()
                         )
                     }
+                case .clock(let model):
+                    switch model.configuration.style {
+                    case .digitalStacked:
+                        DigitalStackedWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .digitalMirror:
+                        DigitalMirrorWidgetView(configuration: model.configuration, metrics: .small, date: entry.date)
+                    case .digitalClassic:
+                        DigitalClassicWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .splitFlap:
+                        SplitFlapWidgetView(metrics: .large, configuration: model.configuration, date: entry.date)
+                    case .calendarClock:
+                        CalendarClockWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    case .analogClock:
+                        AnalogClockWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                    }
+                case .clockAIPreview(let model):
+                    ClockAIWidgetView(configuration: model.configuration, metrics: .large, date: entry.date)
+                case .carLogo(let model):
+                    CarLogoWidgetView(configuration: model.configuration)
+                case .aiPhoto(let model):
+                    AIPhotoWidgetView(configuration: model.configuration)
+                case .photoWithText(let model):
+                    PhotoWithTextWidgetView(configuration: model.configuration)
+                case .photo(let model):
+                    PhotoWidgetView(configuration: model.configuration)
+                case .aiPhotoMyCar(let model):
+                    AIPhotoMyCarWidgetView(configuration: model.configuration)
+                case .photoCarousel(let model):
+                    PhotoCarouselSwiftUIView(configuration: model.configuration)
                 }
             } else {
                 Text("Select preset")
@@ -105,5 +134,16 @@ struct WidgetWithPresets: Widget {
         }
         .supportedFamilies([.systemSmall])
         .contentMarginsDisabled()
+        .safePromptsForUserConfiguration()
+    }
+}
+
+extension WidgetConfiguration {
+    func safePromptsForUserConfiguration() -> some WidgetConfiguration {
+        if #available(iOS 18.0, *) {
+            return self.promptsForUserConfiguration()
+        } else {
+            return self
+        }
     }
 }

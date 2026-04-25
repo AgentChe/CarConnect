@@ -33,6 +33,8 @@ struct Appearance {
     static let color_30343F = UIColor(integralRed: 48, green: 52, blue: 63)
     static let color_2D303A = UIColor(integralRed: 45, green: 48, blue: 58)
     static let color_1B1C1D = UIColor(integralRed: 27, green: 28, blue: 29)
+    static let color_40434D = UIColor(integralRed: 64, green: 67, blue: 77)
+    static let color_D71921 = UIColor(integralRed: 215, green: 25, blue: 33)
     static let color_FFFFFF = UIColor.white
     static let color_000000 = UIColor.black
     static let color_FA4159 = UIColor(integralRed: 250, green: 65, blue: 89)

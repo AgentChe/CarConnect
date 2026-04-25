@@ -15,11 +15,24 @@ final class WidgetsPresetsViewModel {
         case openTextQuoteBuilder(String?, WidgetTextQuote, WidgetTextQuoteConfiguration)
         case openCalendarBuilder(String?, WidgetCalendarConfiguration)
         case openWeather(String?, WidgetWeatherConfiguration)
+        case openClock(String?, WidgetClockConfiguration)
+        case openClockAIPreview(String?, WidgetClockAIPreviewConfiguration)
+        case openCarLogo(String?, WidgetCarLogoConfiguration)
+        case openAIPhoto(String?, WidgetAIPhotoConfiguration?)
+        case openPhotoWihText(String?, WidgetPhotoWithTextConfiguration)
+        case openPhoto(String?, WidgetPhotoConfiguration?)
+        case openAIPhotoMyCar(String?, WidgetAIPhotoMyCarConfiguration)
+        case openPhotoCarousel(String?, WidgetPhotoCarouselConfiguration)
     }
     
     private lazy var textService = WidgetTextService()
     private lazy var calendarService = WidgetCalendarService()
     private lazy var weatherService = WidgetWeatherService()
+    private lazy var clockService = WidgetClockService()
+    private lazy var carLogoService = WidgetCarLogoService()
+    private lazy var photoService = WidgetPhotoService()
+    
+    private lazy var vehicleManager = VehicleManager()
     
     private lazy var weatherFetcher = WeatherFetcher()
 }
@@ -44,6 +57,8 @@ extension WidgetsPresetsViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let widgetPreviews = makeWidgetPreviews()
+        let logos = makeLogos()
         let selectedTabItem = makeSelectedTabItem(
             didSelectTabItem: input.didSelectTabItem,
             didTapGoToCatalog: input.didTapGoToCatalog
@@ -56,7 +71,9 @@ extension WidgetsPresetsViewModel {
             selectedTabItem: selectedTabItem,
             selectedPresetsType: selectedPresetsType,
             helperCellWasDisplayed: makeHelperCellWasDisplayed(didTapOpenHelperFromCollection: input.didTapOpenHelperFromCollection),
-            weatherData: weatherFetcher.weatherData
+            weatherData: weatherFetcher.weatherData,
+            widgetPreviews: widgetPreviews,
+            logos: logos
         )
         
         return Output(
@@ -129,6 +146,22 @@ private extension WidgetsPresetsViewModel {
                     return .openCalendarBuilder(storageModelId, config)
                 case .weather(let storageModelId, let config, _):
                     return .openWeather(storageModelId, config)
+                case .clock(let storageModelId, let config):
+                    return .openClock(storageModelId, config)
+                case .clockAIPreview(let storageModelId, let config):
+                    return .openClockAIPreview(storageModelId, config)
+                case .carLogo(let storageModelId, let config, _, _):
+                    return .openCarLogo(storageModelId, config)
+                case .aiPhoto(let storageModelId, let config):
+                    return .openAIPhoto(storageModelId, config)
+                case .photoWithText(let storageModelId, let config):
+                    return .openPhotoWihText(storageModelId, config)
+                case .photo(let storageModelId, let config):
+                    return .openPhoto(storageModelId, config)
+                case .aiPhotoMyCar(let storageModelId, let config):
+                    return .openAIPhotoMyCar(storageModelId, config)
+                case .photoCarousel(let storageModelId, let config):
+                    return .openPhotoCarousel(storageModelId, config)
                 }
             }
         
@@ -179,11 +212,13 @@ private extension WidgetsPresetsViewModel {
         selectedTabItem: Driver<WidgetsPresetsTabView.TabItem>,
         selectedPresetsType: Driver<WidgetsPresetsType>,
         helperCellWasDisplayed: Driver<Bool>,
-        weatherData: Driver<WeatherData?>
+        weatherData: Driver<WeatherData?>,
+        widgetPreviews: Driver<[VehicleWidgetPreview]>,
+        logos: Driver<VehicleSupportLogosResponse?>
     ) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
         return Driver
-            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed)
-            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
+            .combineLatest(selectedTabItem, selectedPresetsType, helperCellWasDisplayed, widgetPreviews, logos)
+            .flatMapLatest { [weak self] tabItem, presetsType, helperCellWasDisplayed, widgetPreviews, logos -> Driver<[WidgetsPresetsTemplatesCollectionElement]> in
                 guard let self else { return .just([]) }
                 
                 let saved = tabItem == .saved
@@ -194,26 +229,34 @@ private extension WidgetsPresetsViewModel {
                         let textElements = self.makeTextElements(isSaved: saved)
                         let calendarElements = self.makeCalendarElements(isSaved: saved)
                         let weatherElements = self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
+                        let clockElements = self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
+                        let carLogoElements = self.makeCarLogoElements(logos: logos, isSaved: saved)
+                        let photoElements = self.makePhotoElements(isSaved: saved, widgetPreviews: widgetPreviews)
                         
                         return Driver
                             .combineLatest(
                                 textElements,
                                 calendarElements,
-                                weatherElements
+                                weatherElements,
+                                clockElements,
+                                carLogoElements,
+                                photoElements
                             )
-                            .map { texts, calendars, weathers -> [WidgetsPresetsTemplatesCollectionElement] in
-                                texts + calendars + weathers
+                            .map { texts, calendars, weathers, clocks, carLogos, photos -> [WidgetsPresetsTemplatesCollectionElement] in
+                                let firstGroup = texts + calendars + weathers
+                                let secondGroup = clocks + carLogos + photos
+                                return firstGroup + secondGroup
                             }
                     case .calendar:
                         return self.makeCalendarElements(isSaved: saved)
                     case .clock:
-                        return .just([])
+                        return self.makeClockElements(isSaved: saved, widgetPreviews: widgetPreviews)
                     case .carLogo:
-                        return .just([])
+                        return self.makeCarLogoElements(logos: logos, isSaved: saved)
                     case .text:
                         return self.makeTextElements(isSaved: saved)
                     case .photo:
-                        return .just([])
+                        return self.makePhotoElements(isSaved: saved, widgetPreviews: widgetPreviews)
                     case .weather:
                         return self.makeWeatherElements(weatherData: weatherData, isSaved: saved)
                     }
@@ -230,6 +273,20 @@ private extension WidgetsPresetsViewModel {
                         return result
                     }
             }
+    }
+    
+    func makeWidgetPreviews() -> Driver<[VehicleWidgetPreview]> {
+        vehicleManager
+            .fetchWidgetPreviews()
+            .asDriver(onErrorJustReturn: [])
+            .startWith([])
+    }
+    
+    func makeLogos() -> Driver<VehicleSupportLogosResponse?> {
+        vehicleManager
+            .fetchVehicleSupportLogos()
+            .asDriver(onErrorJustReturn: nil)
+            .startWith(nil)
     }
 }
 
@@ -575,6 +632,607 @@ private extension WidgetsPresetsViewModel {
                     templates.map { WidgetsPresetsTemplatesCollectionElement.weather(nil, $0, weatherData) }
                 }
                 .startWith([])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make clock elements
+private extension WidgetsPresetsViewModel {
+    func makeClockElements(isSaved: Bool, widgetPreviews: [VehicleWidgetPreview]) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func savedClocks() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetClockStorageModel])
+                case added(WidgetClockStorageModel)
+                case edited(WidgetClockStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = clockService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetClockMediator.shared
+                .didSavedClockModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetClockMediator.shared
+                .didEditedClockModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetClockMediator.shared
+                .didDeletedClockModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetClockStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .clock($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedAIPreviews() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetClockAIPreviewStorageModel])
+                case added(WidgetClockAIPreviewStorageModel)
+                case edited(WidgetClockAIPreviewStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = clockService
+                .fetchAIPreviewConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetClockMediator.shared
+                .didSavedClockAIPreviewModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetClockMediator.shared
+                .didEditedClockAIPreviewModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetClockMediator.shared
+                .didDeletedClockAIPreviewModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetClockAIPreviewStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .clockAIPreview($0.id, $0.configuration) }
+                }
+        }
+        
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Driver
+                .combineLatest(
+                    savedAIPreviews(), savedClocks()
+                )
+                .map { aiPreviews, clocks -> [WidgetsPresetsTemplatesCollectionElement] in
+                    aiPreviews + clocks
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    let aiPreviews = widgetPreviews
+                        .compactMap { preview -> WidgetsPresetsTemplatesCollectionElement? in
+                            guard let url = preview.gallery.first else { return nil }
+                            
+                            let configuration = WidgetClockAIPreviewConfiguration.default(url: url)
+                            return WidgetsPresetsTemplatesCollectionElement.clockAIPreview(nil, configuration)
+                        }
+                    
+                    let templates = [
+                        WidgetClockConfiguration.default(for: .digitalStacked),
+                        WidgetClockConfiguration.default(for: .digitalMirror),
+                        WidgetClockConfiguration.default(for: .digitalClassic),
+                        WidgetClockConfiguration.default(for: .splitFlap),
+                        WidgetClockConfiguration.default(for: .calendarClock),
+                        WidgetClockConfiguration.default(for: .analogClock)
+                    ]
+                    
+                    let elements = aiPreviews + templates.map { WidgetsPresetsTemplatesCollectionElement.clock(nil, $0) }
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make carLogo elements
+private extension WidgetsPresetsViewModel {
+    func makeCarLogoElements(logos: VehicleSupportLogosResponse?, isSaved: Bool) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetCarLogoStorageModel])
+                case added(WidgetCarLogoStorageModel)
+                case edited(WidgetCarLogoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = carLogoService
+                .fetchConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetCarLogoMediator.shared
+                .didSavedCarLogoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetCarLogoMediator.shared
+                .didEditedCarLogoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetCarLogoMediator.shared
+                .didDeletedCarLogoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetCarLogoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .carLogo($0.id, $0.configuration, false, nil) }
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    guard let logos else { return .just([]) }
+                    
+                    let usersBrands = logos.userBrands.map { brand -> WidgetsPresetsTemplatesCollectionElement in
+                        let mappedBrand = WidgetCarLogoBrand( logo: brand.logo, model: brand.model)
+                        let configuration = WidgetCarLogoConfiguration.default(brand: mappedBrand)
+                        return WidgetsPresetsTemplatesCollectionElement.carLogo(nil, configuration, true, nil)
+                    }
+                    
+                    let catalogsCount = logos.catalogBrands.count
+                    let catalogsBrands: [WidgetsPresetsTemplatesCollectionElement] = {
+                        guard let brand = logos.catalogBrands.first else { return [] }
+                        
+                        let mappedBrand = WidgetCarLogoBrand( logo: brand.logo, model: brand.model)
+                        let configuration = WidgetCarLogoConfiguration.default(brand: mappedBrand)
+                        let element = WidgetsPresetsTemplatesCollectionElement.carLogo(nil, configuration, false, catalogsCount)
+                        return [element]
+                    }()
+                       
+                    let elements = usersBrands + catalogsBrands
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
+        }
+        
+        return isSaved ? saved() : templates()
+    }
+}
+
+// MARK: make photo elements
+private extension WidgetsPresetsViewModel {
+    func makePhotoElements(isSaved: Bool, widgetPreviews: [VehicleWidgetPreview]) -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+        func savedAIPhotos() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetAIPhotoStorageModel])
+                case added(WidgetAIPhotoStorageModel)
+                case edited(WidgetAIPhotoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchAIPhotoConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedAIPhotoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedAIPhotoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedAIPhotoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetAIPhotoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .aiPhoto($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedPhotosWithText() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetPhotoWithTextStorageModel])
+                case added(WidgetPhotoWithTextStorageModel)
+                case edited(WidgetPhotoWithTextStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchPhotoWithTextConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedPhotoWithTextModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedPhotoWithTextModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedPhotoWithTextModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetPhotoWithTextStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .photoWithText($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedPhotos() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetPhotoStorageModel])
+                case added(WidgetPhotoStorageModel)
+                case edited(WidgetPhotoStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchPhotoConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedPhotoModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedPhotoModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedPhotoModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetPhotoStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .photo($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedAIPhotosMyCar() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetAIPhotoMyCarStorageModel])
+                case added(WidgetAIPhotoMyCarStorageModel)
+                case edited(WidgetAIPhotoMyCarStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchAIPhotoMyCarConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedAIPhotoMyCarModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedAIPhotoMyCarModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedAIPhotoMyCarModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetAIPhotoMyCarStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .aiPhotoMyCar($0.id, $0.configuration) }
+                }
+        }
+        
+        func savedPhotoCarousel() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            enum Action {
+                case initial([WidgetPhotoCarouselStorageModel])
+                case added(WidgetPhotoCarouselStorageModel)
+                case edited(WidgetPhotoCarouselStorageModel)
+                case deleted(String)
+            }
+            
+            let initial = photoService
+                .fetchPhotoCarouselConfigurations()
+                .map { Action.initial($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let added = WidgetPhotoMediator.shared
+                .didSavedPhotoCarouselModel
+                .map { Action.added($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let edited = WidgetPhotoMediator.shared
+                .didEditedPhotoCarouselModel
+                .map { Action.edited($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let deleted = WidgetPhotoMediator.shared
+                .didDeletedPhotoCarouselModelId
+                .map { Action.deleted($0) }
+                .asDriver(onErrorDriveWith: .never())
+            
+            let action = Driver
+                .merge(initial, added, edited, deleted)
+            
+            let models = action
+                .scan([]) { models, action -> [WidgetPhotoCarouselStorageModel] in
+                    switch action {
+                    case .initial(let models):
+                        return models
+                    case .added(let model):
+                        var result = models
+                        result.append(model)
+                        return result
+                    case .edited(let model):
+                        var result = models
+                        if let index = result.firstIndex(where: { $0.id == model.id }) {
+                            result[index] = model
+                        }
+                        return result
+                    case .deleted(let id):
+                        var result = models
+                        result.removeAll(where: { $0.id == id })
+                        return result
+                    }
+                }
+            
+            return models
+                .map { models -> [WidgetsPresetsTemplatesCollectionElement] in
+                    models.map { .photoCarousel($0.id, $0.configuration) }
+                }
+        }
+        
+        func saved() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Driver
+                .combineLatest(
+                    savedAIPhotos(), savedPhotosWithText(), savedPhotos(), savedAIPhotosMyCar(), savedPhotoCarousel()
+                )
+                .map { ai, withText, photos, aiPhotosMyCar, photoCarousel -> [WidgetsPresetsTemplatesCollectionElement] in
+                    ai + withText + photos + aiPhotosMyCar + photoCarousel
+                }
+        }
+        
+        func templates() -> Driver<[WidgetsPresetsTemplatesCollectionElement]> {
+            Single
+                .deferred {
+                    var elements = [WidgetsPresetsTemplatesCollectionElement]()
+                    
+                    let aiPhoto = WidgetsPresetsTemplatesCollectionElement.aiPhoto(nil, nil)
+                    elements.append(aiPhoto)
+                    
+                    let uploadPhoto = WidgetsPresetsTemplatesCollectionElement.photo(nil, nil)
+                    elements.append(uploadPhoto)
+                    
+                    widgetPreviews.forEach { preview in
+                        guard let url = preview.gallery.first else { return }
+                        
+                        let configuration = WidgetAIPhotoMyCarConfiguration(url: url)
+                        let element = WidgetsPresetsTemplatesCollectionElement.aiPhotoMyCar(nil, configuration)
+                        elements.append(element)
+                    }
+                    
+                    let photoWithText = WidgetsPresetsTemplatesCollectionElement.photoWithText(nil, WidgetPhotoWithTextConfiguration.default())
+                    elements.append(photoWithText)
+                    
+                    let photoCarousel = WidgetsPresetsTemplatesCollectionElement.photoCarousel(nil, WidgetPhotoCarouselConfiguration.default())
+                    elements.append(photoCarousel)
+                    
+                    let defaultPhoto = WidgetsPresetsTemplatesCollectionElement.photo(nil, WidgetPhotoConfiguration.default())
+                    elements.append(defaultPhoto)
+                    
+                    return .just(elements)
+                }
+                .asDriver(onErrorJustReturn: [])
         }
         
         return isSaved ? saved() : templates()

@@ -128,6 +128,78 @@ private extension WidgetsPresetsViewController {
                 }
             }()
             navigationController?.pushViewController(vc, animated: true)
+        case .openClock(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetClockViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetClockViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openClockAIPreview(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetClockAIPreviewViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetClockAIPreviewViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openCarLogo(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetCarLogoViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetCarLogoViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openAIPhoto(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetAIPhotoViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetAIPhotoViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openPhotoWihText(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetPhotoWithTextViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetPhotoWithTextViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openPhoto(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetPhotoViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetPhotoViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openAIPhotoMyCar(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetAIPhotoMyCarViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetAIPhotoMyCarViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
+        case .openPhotoCarousel(let storageModelId, let config):
+            let vc: UIViewController = {
+                if let storageModelId {
+                    return WidgetPhotoCarouselViewController.edit(storageModelId: storageModelId, configuration: config)
+                } else {
+                    return WidgetPhotoCarouselViewController.create(configuration: config)
+                }
+            }()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

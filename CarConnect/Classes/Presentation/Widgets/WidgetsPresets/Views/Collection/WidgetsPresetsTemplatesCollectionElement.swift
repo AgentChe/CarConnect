@@ -21,4 +21,18 @@ enum WidgetsPresetsTemplatesCollectionElement {
     
     // Presets of weather
     case weather(String?, WidgetWeatherConfiguration, WeatherData)
+    
+    // Presets of clock
+    case clock(String?, WidgetClockConfiguration)
+    case clockAIPreview(String?, WidgetClockAIPreviewConfiguration)
+    
+    // Presets of carLogo
+    case carLogo(String?, WidgetCarLogoConfiguration, Bool, Int?)
+    
+    // Presets of photo
+    case aiPhoto(String?, WidgetAIPhotoConfiguration?)
+    case photoWithText(String?, WidgetPhotoWithTextConfiguration)
+    case photo(String?, WidgetPhotoConfiguration?)
+    case aiPhotoMyCar(String?, WidgetAIPhotoMyCarConfiguration)
+    case photoCarousel(String?, WidgetPhotoCarouselConfiguration)
 }

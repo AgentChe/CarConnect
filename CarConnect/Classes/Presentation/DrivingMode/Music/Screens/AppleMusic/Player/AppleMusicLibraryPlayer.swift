@@ -105,16 +105,16 @@ final class AppleMusicLibraryPlayer {
         player.endSeeking()
     }
 
-    var queue: [MKQueueEntry] {
-        player.queue.entries.compactMap { entry -> MKQueueEntry? in
-            MKQueueEntry(entry: entry, position: player.queue.entries.firstIndex(of: entry))
-        }
-    }
-    
-    var currentEntry: MKQueueEntry? {
-        let currentEntry = player.queue.currentEntry
-        return currentEntry.map { MKQueueEntry(entry: $0, position: player.queue.entries.firstIndex(of: $0)) }
-    }
+//    var queue: [MKQueueEntry] {
+//        player.queue.entries.compactMap { entry -> MKQueueEntry? in
+//            MKQueueEntry(entry: entry, position: player.queue.entries.firstIndex(of: entry))
+//        }
+//    }
+//    
+//    var currentEntry: MKQueueEntry? {
+//        let currentEntry = player.queue.currentEntry
+//        return currentEntry.map { MKQueueEntry(entry: $0, position: player.queue.entries.firstIndex(of: $0)) }
+//    }
     
     func setRepeat() {
         if !isRepeated {

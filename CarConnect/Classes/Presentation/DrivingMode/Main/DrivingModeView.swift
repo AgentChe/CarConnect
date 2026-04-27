@@ -8,6 +8,7 @@
 import UIKit
 
 final class DrivingModeView: UIView {
+    lazy var container = makeContainer()
     lazy var backgroundView = makeBackgroundView()
     lazy var menuView = makeMenuView()
     
@@ -46,6 +47,13 @@ private extension DrivingModeView {
             menuView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20.landscapeVScale),
             menuView.widthAnchor.constraint(equalToConstant: 84.landscapeHScale)
         ])
+        
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: menuView.trailingAnchor, constant: 16.landscapeHScale),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+            container.topAnchor.constraint(equalTo: topAnchor),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }
 
@@ -62,6 +70,14 @@ private extension DrivingModeView {
     
     func makeMenuView() -> DrivingModeMenuView {
         let view = DrivingModeMenuView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

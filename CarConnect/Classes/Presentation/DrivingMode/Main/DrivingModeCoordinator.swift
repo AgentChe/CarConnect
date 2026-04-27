@@ -9,7 +9,7 @@ import UIKit
 
 final class DrivingModeCoordinator {
     private lazy var mapVC = UIViewController()
-    private lazy var musicVC = UIViewController()
+    private lazy var musicVC = AppleMusicMainViewController.make()
     private lazy var phoneVC = UIViewController()
     
     private weak var parentVC: UIViewController?
@@ -25,7 +25,10 @@ final class DrivingModeCoordinator {
 
 // MARK: Public
 extension DrivingModeCoordinator {
-    
+    // TODO: Добавить логику переключения
+    func testInitial() {
+        changeVC(on: musicVC)
+    }
 }
 
 // MARK: Private
@@ -43,6 +46,7 @@ private extension DrivingModeCoordinator {
     
         parentVC.addChild(vc)
         vc.view.frame = container.bounds
+        vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         container.addSubview(vc.view)
         vc.willMove(toParent: parentVC)
     }

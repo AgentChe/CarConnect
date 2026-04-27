@@ -77,14 +77,7 @@ private extension DrivingModeRouteItemButton.Item {
         case .map:
             return "DrivingMode.Menu.MapItem"
         case .music(let musicSource):
-            switch musicSource {
-            case .appleMusic:
-                return "DrivingMode.Music.AppleMusic"
-            case .spotify:
-                return "DrivingMode.Music.Radio"
-            case .radio:
-                return "DrivingMode.Music.Spotify"
-            }
+            return musicSource.iconName
         case .phone:
             return "DrivingMode.Menu.PhoneItem"
         }

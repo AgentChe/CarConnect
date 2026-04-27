@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.11.1)
   - Kingfisher (8.6.2)
   - OtterScaleiOS (1.27)
+  - RiveRuntime (6.17.0)
   - RxCocoa (6.9.0):
     - RxRelay (= 6.9.0)
     - RxSwift (= 6.9.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Alamofire
   - Kingfisher
   - OtterScaleiOS (from `https://github.com/AgentChe/OtterScaleiOS.git`)
+  - RiveRuntime
   - RxCocoa
   - RxSwift
   - SwiftyStoreKit
@@ -22,6 +24,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Kingfisher
+    - RiveRuntime
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -40,11 +43,12 @@ SPEC CHECKSUMS:
   Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
   Kingfisher: 23d18f54677d973b713e54ce6a8f5eef6e7056ba
   OtterScaleiOS: 341aacbd2ec68dd1b909ffa8fb00f6a0ae99d9b5
+  RiveRuntime: 1c18823e5fd2b88f09666cf7c7ba14da7b8d52a4
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: e5d5983b0b1c0b92d630b9df4e8d46c2d69e47ba
+PODFILE CHECKSUM: 431bc495de8b9b18ff1c769eb7ca2e9ea3c34df6
 
 COCOAPODS: 1.16.2

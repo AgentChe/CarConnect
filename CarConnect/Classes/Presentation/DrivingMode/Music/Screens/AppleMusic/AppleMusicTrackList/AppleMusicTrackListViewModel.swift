@@ -52,10 +52,11 @@ final class AppleMusicTrackListViewModel {
         }
         
         let elements = content.map { TrackItem(track: $0) }
+        let newItems = items.merge(new: elements)
         
         await MainActor.run {
             trackCollection = content
-            items = elements
+            items = newItems
             isLoading = false
             onUpdate?()
         }

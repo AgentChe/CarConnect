@@ -31,7 +31,6 @@ final class AppleMusicPlayerViewModel {
     func start() {
         player.trackPublisher
             .receive(on: DispatchQueue.main)
-            .print()
             .sink { [weak self] model in
                 guard let model else { return }
                 self?.onUpdateTrack?(model)

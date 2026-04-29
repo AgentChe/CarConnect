@@ -129,6 +129,7 @@ private extension AppleMusicMainViewModel {
             
             let results = try await appleMusicService.search(term: term, limit: pageSize)
             var topResults = results.topResults
+            
             let elements = topResults.compactMap(AppleMusicCollectionType.init(topResult:))
             let section = AppleMusicMainDataSource(section: .searchResult, items: elements.map { .searchResult(item: $0) })
             

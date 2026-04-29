@@ -79,11 +79,13 @@ final class AppleMusicLibraryViewModel {
                 limit: limit,
                 offset: offset
             )
+            
+            let newItems = items.merge(new: elements)
         
             await MainActor.run {
                 offset += limit
                 hasMore = elements.count == limit
-                items += elements
+                items = newItems
                 isPaginationLoading = false
                 onUpdate?()
             }

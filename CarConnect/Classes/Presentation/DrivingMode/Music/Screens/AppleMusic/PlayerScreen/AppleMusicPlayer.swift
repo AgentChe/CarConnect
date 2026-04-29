@@ -57,12 +57,6 @@ final class AppleMusicPlayer {
     
     private var cancellable: [AnyCancellable] = []
 
-    private var isPlaybackQueueInitialized = false
-    private var playbackQueueInitializationItemID: MusicItemID?
-
-    /// Последний известный ID трека — чтобы не слать лишние события в trackStream.
-    private var lastEmittedTrackID: MusicItemID?
-
     // MARK: Computed
 
     private var player: ApplicationMusicPlayer { ApplicationMusicPlayer.shared }
@@ -85,29 +79,6 @@ final class AppleMusicPlayer {
 
     private init() {
         setupObserver()
-    }
-
-    // MARK: - Public API
-
-    /// Воспроизвести / поставить на паузу конкретный элемент очереди.
-    func togglePlaybackStatus<MusicItemType: PlayableMusicItem>(for item: MusicItemType) {
-        if isPlaying {
-            player.pause()
-        } else {
-            let alreadyQueued = isPlaybackQueueInitialized
-                && playbackQueueInitializationItemID == item.id
-            if alreadyQueued {
-                Task { try? await player.play() }
-            } else {
-                setQueue(for: [item])
-                isPlaybackQueueInitialized = true
-                playbackQueueInitializationItemID = item.id
-                Task {
-                    do { try await player.play() }
-                    catch { print("Failed to play \(item): \(error)") }
-                }
-            }
-        }
     }
 
     /// Воспроизвести / поставить на паузу текущий трек.
@@ -139,9 +110,6 @@ final class AppleMusicPlayer {
             setQueue(for: [track])
         }
         
-        isPlaybackQueueInitialized = true
-        playbackQueueInitializationItemID = parentCollectionID
-
         Task {
             try? await player.play()
         }

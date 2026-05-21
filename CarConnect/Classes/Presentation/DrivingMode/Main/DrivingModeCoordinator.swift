@@ -25,9 +25,15 @@ final class DrivingModeCoordinator {
 
 // MARK: Public
 extension DrivingModeCoordinator {
-    // TODO: Добавить логику переключения
-    func testInitial() {
-        changeVC(on: musicVC)
+    func tap(on item: DrivingModeRouteItemButton.Item) {
+        switch item {
+        case .map:
+            changeVC(on: mapVC)
+        case .music:
+            changeVC(on: musicVC)
+        case .phone:
+            changeVC(on: phoneVC)
+        }
     }
 }
 

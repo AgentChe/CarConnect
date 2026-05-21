@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class DrivingModeViewController: UIViewController {
     private lazy var mainView = DrivingModeView()
+    
+    private lazy var disposeBag = DisposeBag()
     
     private lazy var coordinator = DrivingModeCoordinator(
         parentVC: self,
@@ -33,7 +37,29 @@ final class DrivingModeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator.testInitial()
+        
+        rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
+            .take(1)
+            .bind(to: Binder(self) { base, _ in
+                base.coordinator.tap(on: .map)
+                base.mainView.menuView.setup(selectedItem: .map)
+            })
+            .disposed(by: disposeBag)
+        
+        Observable
+            .merge([
+                mainView.menuView.mapItemButton
+                    .rx.tap.map { DrivingModeRouteItemButton.Item.map },
+                mainView.menuView.musicItemButton
+                    .rx.tap.map { DrivingModeRouteItemButton.Item.music(.appleMusic) }, // TODO: брать актуальный (выбранный) источник музыки
+                mainView.menuView.phoneItemButton
+                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone }
+            ])
+            .bind(to: Binder(self) { base, item in
+                base.coordinator.tap(on: item)
+                base.mainView.menuView.setup(selectedItem: item)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

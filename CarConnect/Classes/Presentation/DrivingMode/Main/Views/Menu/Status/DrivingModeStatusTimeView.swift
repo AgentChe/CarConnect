@@ -23,7 +23,7 @@ final class DrivingModeStatusTimeView: UIView {
     
     private lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
+        formatter.dateFormat = "hh:mm"
         return formatter
     }()
     

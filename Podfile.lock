@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (5.11.1)
+  - GoogleMaps (10.12.0):
+    - GoogleMaps/Maps (= 10.12.0)
+  - GoogleMaps/Maps (10.12.0)
+  - GoogleNavigation (10.12.0):
+    - GoogleMaps (= 10.12.0)
   - Kingfisher (8.6.2)
   - OtterScaleiOS (1.27)
   - RiveRuntime (6.17.0)
@@ -13,6 +18,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleMaps
+  - GoogleNavigation
   - Kingfisher
   - OtterScaleiOS (from `https://github.com/AgentChe/OtterScaleiOS.git`)
   - RiveRuntime
@@ -23,6 +30,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - GoogleMaps
+    - GoogleNavigation
     - Kingfisher
     - RiveRuntime
     - RxCocoa
@@ -41,6 +50,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
+  GoogleMaps: 52bbc0302f08e6d8bafb818c331b36f75875bc10
+  GoogleNavigation: c12e171c483b0107c905be4be0461cc2ecdfad39
   Kingfisher: 23d18f54677d973b713e54ce6a8f5eef6e7056ba
   OtterScaleiOS: 341aacbd2ec68dd1b909ffa8fb00f6a0ae99d9b5
   RiveRuntime: 1c18823e5fd2b88f09666cf7c7ba14da7b8d52a4
@@ -49,6 +60,6 @@ SPEC CHECKSUMS:
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 431bc495de8b9b18ff1c769eb7ca2e9ea3c34df6
+PODFILE CHECKSUM: 474c8e27babf3c05cc58f85a1bbbf11d503ad87f
 
 COCOAPODS: 1.16.2

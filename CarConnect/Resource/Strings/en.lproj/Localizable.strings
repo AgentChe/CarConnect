@@ -147,3 +147,6 @@
 "AppleMusic" = "Apple Music";
 "Spotify" = "Spotify";
 "Radio" = "FM-Radio";
+
+// MARK: Navigator
+"Navigator.Weather.NotAvailable" = "Not available";

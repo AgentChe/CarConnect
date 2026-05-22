@@ -239,6 +239,11 @@
 		DE63A2372F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */; };
 		DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
 		DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
+		DE6F50022FC06C2F00EA1743 /* NavigatorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */; };
+		DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */; };
+		DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */; };
+		DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */; };
+		DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */; };
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
@@ -252,6 +257,9 @@
 		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */; };
 		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
 		DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */; };
+		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
+		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
+		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
 		DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2FC0B2F630B1C0034A47D /* AppleMusicPlayerState.swift */; };
 		DEA2FC0E2F630B340034A47D /* AppleMusicLibraryPlayerObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2FC0D2F630B340034A47D /* AppleMusicLibraryPlayerObserver.swift */; };
 		DEA2FC102F630B740034A47D /* AppleMusicLibraryPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2FC0F2F630B740034A47D /* AppleMusicLibraryPlayer.swift */; };
@@ -775,6 +783,11 @@
 		DE63A2342F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewViewModel.swift; sourceTree = "<group>"; };
 		DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewView.swift; sourceTree = "<group>"; };
 		DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockAIPreviewWidgetView.swift; sourceTree = "<group>"; };
+		DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorMapView.swift; sourceTree = "<group>"; };
+		DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorDashboardInfoPanelView.swift; sourceTree = "<group>"; };
+		DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherView.swift; sourceTree = "<group>"; };
+		DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherNotAvailableView.swift; sourceTree = "<group>"; };
+		DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherInfoView.swift; sourceTree = "<group>"; };
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
@@ -788,6 +801,9 @@
 		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
 		DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedMonthDayWeekdayView.swift; sourceTree = "<group>"; };
+		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
+		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
+		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		DEA2FC0B2F630B1C0034A47D /* AppleMusicPlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayerState.swift; sourceTree = "<group>"; };
 		DEA2FC0D2F630B340034A47D /* AppleMusicLibraryPlayerObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicLibraryPlayerObserver.swift; sourceTree = "<group>"; };
 		DEA2FC0F2F630B740034A47D /* AppleMusicLibraryPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicLibraryPlayer.swift; sourceTree = "<group>"; };
@@ -1978,6 +1994,34 @@
 			path = AIPreview;
 			sourceTree = "<group>";
 		};
+		DE6F50002FC0696300EA1743 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */,
+				DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */,
+				DE6F50082FC076B200EA1743 /* Weather */,
+			);
+			path = DashboardInfoPanel;
+			sourceTree = "<group>";
+		};
+		DE6F50082FC076B200EA1743 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */,
+				DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */,
+				DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		DE747D9F2F752A32007C145B /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -2030,6 +2074,17 @@
 				DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */,
 			);
 			path = StackedMonthDayWeekday;
+			sourceTree = "<group>";
+		};
+		DE97326C2FBF63A7002F032E /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50002FC0696300EA1743 /* Views */,
+				DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */,
+				DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */,
+				DE9732712FBF63DB002F032E /* NavigatorView.swift */,
+			);
+			path = Navigator;
 			sourceTree = "<group>";
 		};
 		DEA2FBD62F6305FA0034A47D /* Service */ = {
@@ -2517,6 +2572,7 @@
 		DECE31522F62AC7B0078414C /* DrivingMode */ = {
 			isa = PBXGroup;
 			children = (
+				DE97326C2FBF63A7002F032E /* Navigator */,
 				DECE31622F62AFBF0078414C /* Music */,
 				DECE31612F62AF040078414C /* Main */,
 			);
@@ -3467,9 +3523,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3484,9 +3544,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3743,6 +3807,7 @@
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */,
 				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
+				DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
 				DEF08FD82F7E717A0066EE07 /* VehicleSupportLogosResponse.swift in Sources */,
@@ -3794,6 +3859,7 @@
 				86A71C712F92A94B0002232A /* DropdownButtonView.swift in Sources */,
 				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
 				DEEB9D5C2F6A91500041587F /* WidgetsPresetsTemplateLocationTemperatureCell.swift in Sources */,
+				DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */,
 				DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
@@ -3847,6 +3913,7 @@
 				DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */,
 				DEEAAA742F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
 				DEEAAAA32F73FC2F0072C702 /* SplitFlapView.swift in Sources */,
+				DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */,
 				DEEAAA972F73FBCA0072C702 /* WidgetsPresetsTemplateCalendarClockCell.swift in Sources */,
 				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
 				DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */,
@@ -3859,6 +3926,8 @@
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
+				DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */,
+				DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */,
 				DEEB9D572F6A912E0041587F /* WidgetsPresetsTemplateCurrentWeatherSummaryCell.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */,
@@ -3886,6 +3955,7 @@
 				866DDCFD2F7C412E000D6CE3 /* AppleMusicTrackListViewModel.swift in Sources */,
 				DEEAAA932F73FBBB0072C702 /* WidgetsPresetsTemplateDigitalClassicCell.swift in Sources */,
 				DE51205A2F45C5140026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
+				DE6F50022FC06C2F00EA1743 /* NavigatorMapView.swift in Sources */,
 				860BE5602F73147400311032 /* AppleMusicPlayerView.swift in Sources */,
 				DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */,
 				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
@@ -3974,6 +4044,7 @@
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
 				DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */,
+				DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */,
 				DEEAAAAF2F741E0D0072C702 /* SplitFlapDividerView.swift in Sources */,
 				DEEB9D6B2F6A92090041587F /* WidgetsPresetsTemplateWeatherClockCell.swift in Sources */,
 				DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */,
@@ -4004,6 +4075,7 @@
 				DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
 				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
+				DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */,
 				DE63A2352F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift in Sources */,
 				DEDB369C2F816B0500DAF5FC /* WidgetPhotoView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,

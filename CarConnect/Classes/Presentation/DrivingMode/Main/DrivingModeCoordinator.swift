@@ -8,7 +8,7 @@
 import UIKit
 
 final class DrivingModeCoordinator {
-    private lazy var mapVC = UIViewController()
+    private lazy var mapVC = NavigatorViewController.make()
     private lazy var musicVC = AppleMusicMainViewController.make()
     private lazy var phoneVC = UIViewController()
     

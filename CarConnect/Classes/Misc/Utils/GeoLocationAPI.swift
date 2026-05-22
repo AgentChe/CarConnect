@@ -26,6 +26,10 @@ final class GeoLocationAPI: NSObject {
 
 // MARK: Public
 extension GeoLocationAPI {
+    func authorizationStatus() -> CLAuthorizationStatus {
+        locationManager.authorizationStatus
+    }
+    
     func requestMyLocation(completion: @escaping (Location?) -> Void) {
         clearCompletions()
         

@@ -8,11 +8,20 @@
 import UIKit
 
 final class NavigatorWeatherNotAvailableView: GradientView {
+    enum Reason {
+        case locationAccessNeeded
+        case notAvailable
+    }
+    
     lazy var notAvailableLabel = makeNotAvailableLabel()
     lazy var dottedLineLabel = makeDottedLineLabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let reason: Reason
+    
+    init(reason: Reason) {
+        self.reason = reason
+        
+        super.init(frame: .zero)
         
         makeConstraints()
         initialize()
@@ -27,17 +36,25 @@ final class NavigatorWeatherNotAvailableView: GradientView {
 private extension NavigatorWeatherNotAvailableView {
     func initialize() {
         layer.cornerRadius = 10.landscapeHScale
+        gradientLayer.backgroundColor = Appearance.color_4178F6.cgColor
         gradientLayer.cornerRadius = 10.landscapeHScale
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        gradientLayer.locations = [
-            NSNumber(value: 0),
-            NSNumber(value: 1)
-        ]
-        gradientLayer.colors = [
-            Appearance.color_9EBAFA.withAlphaComponent(0).cgColor,
-            Appearance.color_0943C8.cgColor
-        ]
+        gradientLayer.colors = {
+            let isDay = Date.isDay(Date())
+            
+            if isDay {
+                return [
+                    Appearance.color_9EBAFA.withAlphaComponent(0).cgColor,
+                    Appearance.color_0943C8.cgColor
+                ]
+            } else {
+                return [
+                    Appearance.color_031236.withAlphaComponent(0.4).cgColor,
+                    Appearance.color_031236.cgColor
+                ]
+            }
+        }()
     }
 }
 
@@ -64,8 +81,17 @@ private extension NavigatorWeatherNotAvailableView {
             .font(Fonts.Inter.medium(size: 16.landscapeHScale))
             .textAlignment(.left)
         
+        let title: String = {
+            switch reason {
+            case .locationAccessNeeded:
+                return "Navigator.Weather.LocationAccessNeeded".localized
+            case .notAvailable:
+                return "Navigator.Weather.NotAvailable".localized
+            }
+        }()
+        
         let view = UILabel()
-        view.attributedText = "Navigator.Weather.NotAvailable".localized.attributed(with: attrs)
+        view.attributedText = title.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

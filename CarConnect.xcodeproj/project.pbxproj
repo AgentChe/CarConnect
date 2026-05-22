@@ -244,6 +244,7 @@
 		DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */; };
 		DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */; };
 		DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */; };
+		DE6F500E2FC09A1900EA1743 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */; };
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
@@ -788,6 +789,7 @@
 		DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherView.swift; sourceTree = "<group>"; };
 		DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherNotAvailableView.swift; sourceTree = "<group>"; };
 		DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherInfoView.swift; sourceTree = "<group>"; };
+		DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
@@ -2242,6 +2244,7 @@
 				DEABE51F2F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift */,
 				DEABE5202F456CFC00089B9E /* UIView+RxExtension.swift */,
 				DEF570C72F801F32002394B9 /* UIImage+Extension.swift */,
+				DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -4109,6 +4112,7 @@
 				DEA9C55A2F751DCC00B8121E /* AnalogClockFaceView.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
 				862BC1382F747B69000ECDC9 /* AppleMusicLibraryItem.swift in Sources */,
+				DE6F500E2FC09A1900EA1743 /* Date+Extension.swift in Sources */,
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,
 				86D4FFD72F969DFF0009BC46 /* AppleMusicLoaderView.swift in Sources */,
 				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,

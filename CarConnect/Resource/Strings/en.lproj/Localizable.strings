@@ -149,4 +149,14 @@
 "Radio" = "FM-Radio";
 
 // MARK: Navigator
+"Navigator.Weather.LocationAccessNeeded" = "Location access needed";
 "Navigator.Weather.NotAvailable" = "Not available";
+"Navigator.Weather.Kind.ClearSky" = "Clear sky";
+"Navigator.Weather.Kind.FewClouds" = "Few clouds";
+"Navigator.Weather.Kind.BrokenClouds" = "Broken clouds";
+"Navigator.Weather.Kind.ScatteredClouds" = "Scattered clouds";
+"Navigator.Weather.Kind.Rain" = "Rain";
+"Navigator.Weather.Kind.ShowerRain" = "Shower rain";
+"Navigator.Weather.Kind.Mist" = "Mist";
+"Navigator.Weather.Kind.Snow" = "Snow";
+"Navigator.Weather.Kind.Thunderstorm" = "Thunderstorm";

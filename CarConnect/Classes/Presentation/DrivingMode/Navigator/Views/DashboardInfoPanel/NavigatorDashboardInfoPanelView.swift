@@ -54,7 +54,7 @@ private extension NavigatorDashboardInfoPanelView {
     // TODO: заменить на умную UIView, которую сделает Виталя
     func makeMusicPlayerView() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor.red.withAlphaComponent(0.3) // TODO: delete
+        view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

@@ -44,6 +44,9 @@ final class SplashViewController: UIViewController {
         sdkInitialize.observe { [weak self] in
             self?.didSDKConfiguredTrigger.accept(Void())
         }
+        
+        // TODO: delete
+        action(.openMain)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -23,11 +23,15 @@ struct WeatherSummary: Sendable, Hashable {
 }
 
 enum WeatherKind: String, Sendable {
-    case sunny
-    case rainy
-    case snowy
-    case cloudy
-    case windy
+    case clearSky
+    case fewClouds
+    case brokenClouds
+    case scatteredClouds
+    case rain
+    case showerRain
+    case mist
+    case snow
+    case thunderstorm
 }
 
 enum WeatherManagerError: LocalizedError {
@@ -144,33 +148,47 @@ private extension WeatherAPI {
     
     func mapCondition(_ condition: WeatherCondition) -> WeatherKind {
         switch condition {
-        case .clear, .mostlyClear, .hot:
-            return .sunny
-        case .cloudy, .mostlyCloudy, .partlyCloudy, .foggy, .haze, .smoky:
-            return .cloudy
+        case .clear, .hot:
+            return .clearSky
+        case .mostlyClear:
+            return .fewClouds
+        case .partlyCloudy:
+            return .scatteredClouds
+        case .cloudy, .mostlyCloudy:
+            return .brokenClouds
+        case .foggy, .haze, .smoky, .blowingDust:
+            return .mist
         case .drizzle,
+             .sunShowers:
+            return .showerRain
+        case .hail,
              .rain,
              .heavyRain,
-             .isolatedThunderstorms,
+             .freezingDrizzle,
+             .freezingRain:
+            return .rain
+        case .isolatedThunderstorms,
              .scatteredThunderstorms,
              .strongStorms,
              .thunderstorms,
-             .hail:
-            return .rainy
+             .hurricane,
+             .tropicalStorm:
+            return .thunderstorm
         case .snow,
              .heavySnow,
              .flurries,
              .sleet,
-             .freezingDrizzle,
-             .freezingRain,
              .wintryMix,
              .blizzard,
-             .blowingSnow:
-            return .snowy
-        case .windy:
-            return .windy
+             .blowingSnow,
+             .sunFlurries,
+             .frigid:
+            return .snow
+        case .breezy,
+             .windy:
+            return .mist
         default:
-            return .cloudy
+            return .brokenClouds
         }
     }
 }

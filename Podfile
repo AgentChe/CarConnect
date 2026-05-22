@@ -15,6 +15,9 @@ target 'CarConnect' do
   pod 'Alamofire'
   
   pod 'SwiftyStoreKit'
+  
+  pod 'GoogleMaps'
+  pod 'GoogleNavigation'
 
   pod 'OtterScaleiOS', :git => "https://github.com/AgentChe/OtterScaleiOS.git"
 end

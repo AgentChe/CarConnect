@@ -9,7 +9,6 @@ import UIKit
 
 final class DrivingModeView: UIView {
     lazy var container = makeContainer()
-    lazy var backgroundView = makeBackgroundView()
     lazy var menuView = makeMenuView()
     
     override init(frame: CGRect) {
@@ -27,20 +26,13 @@ final class DrivingModeView: UIView {
 // MARK: Private
 private extension DrivingModeView {
     func initialize() {
-        backgroundColor = Appearance.color_1B1C1D
+        backgroundColor = Appearance.color_080A0C
     }
 }
 
 // MARK: Make constraints
 private extension DrivingModeView {
     func makeConstraints() {
-        NSLayoutConstraint.activate([
-            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-        
         NSLayoutConstraint.activate([
             menuView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56.landscapeHScale),
             menuView.topAnchor.constraint(equalTo: topAnchor, constant: 20.landscapeVScale),
@@ -59,15 +51,6 @@ private extension DrivingModeView {
 
 // MARK: Lazy initialization
 private extension DrivingModeView {
-    func makeBackgroundView() -> UIImageView {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "DrivingMode.Background")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeMenuView() -> DrivingModeMenuView {
         let view = DrivingModeMenuView()
         view.translatesAutoresizingMaskIntoConstraints = false

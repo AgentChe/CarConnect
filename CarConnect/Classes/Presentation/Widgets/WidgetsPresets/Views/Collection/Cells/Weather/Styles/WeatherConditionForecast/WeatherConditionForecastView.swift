@@ -77,15 +77,15 @@ final class WeatherConditionForecastView: WeatherStyleView {
             
             let kindLocalized: String = {
                 switch weatherData.current.condition {
-                case .sunny:
+                case .clearSky:
                     return "WeatherCondition.Sunny".localized
-                case .rainy:
+                case .rain, .showerRain, .thunderstorm:
                     return "WeatherCondition.Rainy".localized
-                case .snowy:
+                case .snow:
                     return "WeatherCondition.Snowy".localized
-                case .cloudy:
+                case .fewClouds, .brokenClouds, .scatteredClouds:
                     return "WeatherCondition.Cloudy".localized
-                case .windy:
+                case .mist:
                     return "WeatherCondition.Windy".localized
                 }
             }()

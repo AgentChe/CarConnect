@@ -167,15 +167,15 @@ private extension WeatherIconTemperatureWidgetView {
     func iconImage(for kind: WeatherKind) -> UIImage {
         let imageName: String = {
             switch kind {
-            case .sunny:
+            case .clearSky:
                 return "Weather.Icon.Sunny"
-            case .rainy:
+            case .rain, .showerRain, .thunderstorm:
                 return "Weather.Icon.Rainy"
-            case .snowy:
+            case .snow:
                 return "Weather.Icon.Snowy"
-            case .cloudy:
+            case .fewClouds, .brokenClouds, .scatteredClouds:
                 return "Weather.Icon.Cloudy"
-            case .windy:
+            case .mist:
                 return "Weather.Icon.Windy"
             }
         }()
@@ -186,15 +186,15 @@ private extension WeatherIconTemperatureWidgetView {
     func backgroundImage(for kind: WeatherKind) -> UIImage {
         let imageName: String = {
             switch kind {
-            case .sunny:
+            case .clearSky:
                 return "Weather.Background.Sunny"
-            case .rainy:
+            case .rain, .showerRain, .thunderstorm:
                 return "Weather.Background.Rainy"
-            case .snowy:
+            case .snow:
                 return "Weather.Background.Snowy"
-            case .cloudy:
+            case .fewClouds, .brokenClouds, .scatteredClouds:
                 return "Weather.Background.Cloudy"
-            case .windy:
+            case .mist:
                 return "Weather.Background.Windy"
             }
         }()

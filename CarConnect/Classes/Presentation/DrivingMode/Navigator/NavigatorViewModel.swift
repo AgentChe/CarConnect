@@ -17,7 +17,7 @@ extension NavigatorViewModel {
     }
     
     struct Output {
-        let mapPresentationState: Driver<NavigatorMapView.MapPresentationState>
+        let mapPresentationState: Driver<NavigatorResizableMapView.MapPresentationState>
     }
     
     func configure(input: Input) -> Output {
@@ -29,9 +29,9 @@ extension NavigatorViewModel {
 
 // MARK: Private
 private extension NavigatorViewModel {
-    func makeMapPresentationState(didTapResizeMap: Signal<Void>) -> Driver<NavigatorMapView.MapPresentationState> {
+    func makeMapPresentationState(didTapResizeMap: Signal<Void>) -> Driver<NavigatorResizableMapView.MapPresentationState> {
         didTapResizeMap
-            .scan(.compact) { current, _ -> NavigatorMapView.MapPresentationState in
+            .scan(.compact) { current, _ -> NavigatorResizableMapView.MapPresentationState in
                 switch current {
                 case .compact:
                     return .expanded

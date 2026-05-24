@@ -24,7 +24,7 @@ final class NavigatorViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: NavigatorViewModel.Input(
-            didTapResizeMap: mainView.mapView.resizeButton.rx.tap.asSignal()
+            didTapResizeMap: mainView.mapView.didTapResize
         ))
         
         output.mapPresentationState

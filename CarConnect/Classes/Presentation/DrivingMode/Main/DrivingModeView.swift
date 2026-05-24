@@ -8,13 +8,9 @@
 import UIKit
 
 final class DrivingModeView: UIView {
-    enum Constants {
-        static let menuWidth = 84.landscapeHScale
-        static let menuLeading = 56.landscapeHScale
-    }
-    
-    lazy var container = makeContainer()
+    lazy var backgroundView = makeBackgroundView()
     lazy var menuView = makeMenuView()
+    lazy var container = makeContainer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,26 +35,34 @@ private extension DrivingModeView {
 private extension DrivingModeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: trailingAnchor),
-            container.topAnchor.constraint(equalTo: topAnchor),
-            container.bottomAnchor.constraint(equalTo: bottomAnchor)
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            menuView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.menuLeading),
+            menuView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56.landscapeHScale),
             menuView.topAnchor.constraint(equalTo: topAnchor, constant: 20.landscapeVScale),
             menuView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20.landscapeVScale),
-            menuView.widthAnchor.constraint(equalToConstant: Constants.menuWidth)
+            menuView.widthAnchor.constraint(equalToConstant: 84.landscapeHScale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: menuView.trailingAnchor, constant: 16.landscapeHScale),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+            container.topAnchor.constraint(equalTo: topAnchor),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DrivingModeView {
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
+    func makeBackgroundView() -> UIImageView {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.image = UIImage(named: "DrivingMode.NavigatorBackground")
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -66,6 +70,14 @@ private extension DrivingModeView {
     
     func makeMenuView() -> DrivingModeMenuView {
         let view = DrivingModeMenuView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

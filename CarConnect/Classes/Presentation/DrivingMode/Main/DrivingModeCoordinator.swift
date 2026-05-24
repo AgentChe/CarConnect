@@ -16,6 +16,8 @@ final class DrivingModeCoordinator {
     private weak var container: UIView?
     
     private var previousVC: UIViewController?
+    // TODO: Поправить логику хранения координатора или делегата внутри координатора
+    private var playerCoordinator: PlayerAccessCoordinator?
     
     init(parentVC: UIViewController, container: UIView) {
         self.parentVC = parentVC
@@ -27,7 +29,11 @@ final class DrivingModeCoordinator {
 extension DrivingModeCoordinator {
     // TODO: Добавить логику переключения
     func testInitial() {
-        changeVC(on: musicVC)
+        let navigationController = UINavigationController()
+        let coordinator = PlayerAccessCoordinator(navigationController: navigationController, source: .spotify)
+        playerCoordinator = coordinator
+        coordinator.start()
+        changeVC(on: navigationController)
     }
 }
 

@@ -29,6 +29,10 @@ final class AppleMusicService {
         }
     }
     
+    func checkAuthorization() -> Bool {
+        return MusicAuthorization.currentStatus == .authorized
+    }
+    
     func fetchRecentlyPlayed(limit: Int, offset: Int) async throws -> [AppleMusicCollectionType] {
         let recentRequest: MusicRecentlyPlayedRequest<RecentlyPlayedMusicItem> = {
             var request = MusicRecentlyPlayedRequest<RecentlyPlayedMusicItem>()

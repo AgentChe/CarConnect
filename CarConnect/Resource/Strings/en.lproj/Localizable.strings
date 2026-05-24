@@ -143,6 +143,11 @@
 "AppleMusic.EmptySearch.Title" = "No results found";
 "AppleMusic.EmptySearch.Subtitle" = "Check the spelling or try searching for something else.";
 
+// MARK: Spotify
+"Spotify.Auth.Title" = "Listen to music while driving";
+"Spotify.Auth.Subtitle" = "Connect Spotify to access your playlists";
+"Spotify.Auth.Button" = "Connect Spotify";
+
 // MARK: Music Source
 "AppleMusic" = "Apple Music";
 "Spotify" = "Spotify";

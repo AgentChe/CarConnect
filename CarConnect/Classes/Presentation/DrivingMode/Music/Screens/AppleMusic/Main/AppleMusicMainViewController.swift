@@ -37,15 +37,7 @@ final class AppleMusicMainViewController: UIViewController {
             mainView.setLoadingState(isLoading: viewModel.isLoading)
         }
         
-        Task {
-            let isAuthorizied = await viewModel.checkAuthorization()
-            if isAuthorizied {
-                viewModel.loadInitial()
-            }
-            await MainActor.run {
-                mainView.setupAuthState(isAuthorized: isAuthorizied)
-            }
-        }
+        viewModel.loadInitial()
     }
     
     @objc private func textChanged(_ textField: UITextField) {
@@ -88,7 +80,9 @@ extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
             case .artist(let artist):
                 controller = AppleMusicArtistLibraryViewController(artist: artist)
             case .track(let track, _):
-                controller = AppleMusicPlayerViewController(startItem: track, trackList: nil, parentCollectionID: nil)
+                controller = AppleMusicPlayerViewController(
+                    source: .appleMusic(startItem: track, trackList: nil, parentCollectionID: nil)
+                )
             }
             navigationController?.pushViewController(controller, animated: true)
         case .category(let category):
@@ -112,9 +106,9 @@ extension AppleMusicMainViewController {
             .font: Fonts.Inter.bold(size: 24.landscapeVScale),
             .foregroundColor: Appearance.color_FFFFFF
         ]
-        let controller = UINavigationController(rootViewController: AppleMusicMainViewController())
-        controller.navigationBar.standardAppearance = appearance
-        controller.navigationBar.scrollEdgeAppearance = appearance
+        let controller = AppleMusicMainViewController()
+        controller.navigationController?.navigationBar.standardAppearance = appearance
+        controller.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         return controller
     }
 }

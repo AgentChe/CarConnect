@@ -68,7 +68,9 @@ extension AppleMusicLibraryViewController: AppleMusicLibraryTableDelegate {
                     return track
                 }
             
-            controller = AppleMusicPlayerViewController(startItem: track, trackList: .init(tracks), parentCollectionID: nil)
+            controller = AppleMusicPlayerViewController(
+                source: .appleMusic(startItem: track, trackList: .init(tracks), parentCollectionID: nil)
+            )
         }
         
         navigationController?.pushViewController(controller, animated: true)

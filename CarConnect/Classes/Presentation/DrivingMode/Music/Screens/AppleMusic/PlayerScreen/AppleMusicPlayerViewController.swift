@@ -12,8 +12,9 @@ final class AppleMusicPlayerViewController: UIViewController {
     private lazy var mainView = AppleMusicPlayerView()
     private let viewModel: AppleMusicPlayerViewModel
     
-    init(startItem: Track, trackList: MusicItemCollection<Track>?, parentCollectionID: MusicItemID?) {
-        viewModel = AppleMusicPlayerViewModel(startItem: startItem, trackList: trackList, parentCollectionID: parentCollectionID)
+    init(source: AppleMusicPlayerViewModel.Source) {
+        viewModel = AppleMusicPlayerViewModel(source: source)
+        
         super.init(nibName: nil, bundle: nil)
     }
     

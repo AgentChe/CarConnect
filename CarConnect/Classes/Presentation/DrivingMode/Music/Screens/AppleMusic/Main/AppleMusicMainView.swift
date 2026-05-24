@@ -13,7 +13,6 @@ final class AppleMusicMainView: UIView {
     lazy var dropDownButton = makeDropdownButton()
     lazy var searchField = makeSearchField()
     private lazy var loaderView = makeLoaderView()
-    private lazy var authView = makeAuthorizationView()
     private lazy var navigationStack = makeNavigationStack()
     private lazy var searchEmptyView = makeEmptySearchView()
     
@@ -30,15 +29,6 @@ final class AppleMusicMainView: UIView {
 }
 
 extension AppleMusicMainView {
-    func setupAuthState(isAuthorized: Bool) {
-        collectionView.isHidden = !isAuthorized
-        authView.isHidden = isAuthorized
-        searchField.isHidden = !isAuthorized
-        if !isAuthorized {
-            loaderView.stopSpinningAnimation()
-        }
-    }
-    
     func searchResult(isEmpty: Bool) {
         UIView.animate(withDuration: 0.2) {
             self.collectionView.isHidden = isEmpty
@@ -67,11 +57,6 @@ private extension AppleMusicMainView {
 // MARK: Make constraints
 private extension AppleMusicMainView {
     func makeConstraints() {
-        NSLayoutConstraint.activate([
-            authView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            authView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
         NSLayoutConstraint.activate([
             navigationStack.topAnchor.constraint(equalTo: topAnchor),
             navigationStack.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -136,14 +121,6 @@ private extension AppleMusicMainView {
     
     func makeLibraryCollection() -> AppleMusicMainCollectionView {
         let view = AppleMusicMainCollectionView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeAuthorizationView() -> AppleMusicAuthorizationView {
-        let view = AppleMusicAuthorizationView()
-        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

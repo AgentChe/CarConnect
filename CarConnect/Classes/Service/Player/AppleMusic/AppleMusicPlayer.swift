@@ -20,25 +20,20 @@ enum ShuffleMode {
     case off, on
 }
 
-// MARK: - Stream models
+/// Метаданные текущего трека — меняется только при смене трека.
+struct TrackModel: Equatable {
+    let title: String?
+    let subtitle: String?
+    let artwork: URL?
+}
 
-extension AppleMusicPlayer {
-
-    /// Метаданные текущего трека — меняется только при смене трека.
-    struct TrackModel: Equatable {
-        let title: String?
-        let subtitle: String?
-        let artwork: URL?
-    }
-
-    /// Состояние воспроизведения — меняется при паузе/плее и каждые 0.5 с для прогрессбара.
-    struct PlaybackModel {
-        let currentTime: TimeInterval
-        let duration: TimeInterval
-        let isPlaying: Bool
-        let repeatMode: RepeatMode
-        let shuffleMode: ShuffleMode
-    }
+/// Состояние воспроизведения — меняется при паузе/плее и каждые 0.5 с для прогрессбара.
+struct PlaybackModel {
+    let currentTime: TimeInterval
+    let duration: TimeInterval
+    let isPlaying: Bool
+    let repeatMode: RepeatMode
+    let shuffleMode: ShuffleMode
 }
 
 // MARK: - AppleMusicPlayer
@@ -93,12 +88,12 @@ final class AppleMusicPlayer {
     }
     
     func toggleShuffleMode() {
-        let current = mappedShuffleMode()
+        let current = ShuffleMode(appleMode: player.state.shuffleMode)
         player.state.shuffleMode = current == .on ? .off : .songs
     }
     
     func toggleRepeatMode() {
-        let current = mappedRepeatMode()
+        let current = RepeatMode(appleMode: player.state.repeatMode)
         player.state.repeatMode = current == .all ? nil : .all
     }
 
@@ -164,7 +159,7 @@ final class AppleMusicPlayer {
             .subscribe(trackPublisher)
             .store(in: &cancellable)
         
-        Timer.publish(every: 0.5, on: .main, in: .common)
+        Timer.publish(every: 0.25, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self, self.isPlaying else { return }
@@ -178,8 +173,8 @@ final class AppleMusicPlayer {
             currentTime: player.playbackTime,
             duration: currentDuration(),
             isPlaying: player.state.playbackStatus == .playing,
-            repeatMode: mappedRepeatMode(),
-            shuffleMode: mappedShuffleMode()
+            repeatMode: .init(appleMode: player.state.repeatMode),
+            shuffleMode: .init(appleMode: player.state.shuffleMode)
         )
         
         playbackPublisher.send(model)
@@ -207,32 +202,6 @@ final class AppleMusicPlayer {
         }
     }
     
-    private func mappedRepeatMode() -> RepeatMode {
-        guard let mode = player.state.repeatMode else { return .none }
-        switch mode {
-        case .none:
-            return .none
-        case .one:
-            return .one
-        case .all:
-            return .all
-        @unknown default:
-            return .none
-        }
-    }
-    
-    private func mappedShuffleMode() -> ShuffleMode {
-        guard let mode = player.state.shuffleMode else { return .off }
-        switch mode {
-        case .off:
-            return .off
-        case .songs:
-            return .on
-        @unknown default:
-            return .off
-        }
-    }
-    
     // MARK: - Artwork
     
     private func artworkSource(from item: MusicPlayer.Queue.Entry.Item) -> Artwork? {
@@ -243,6 +212,42 @@ final class AppleMusicPlayer {
             return mv.artwork
         @unknown default:
             return nil
+        }
+    }
+}
+
+
+extension ShuffleMode {
+    init(appleMode: MusicPlayer.ShuffleMode?) {
+        switch appleMode {
+        case .off:
+            self = .off
+        case .songs:
+            self = .on
+        case .none:
+            self = .off
+        @unknown default:
+            self = .off
+        }
+    }
+}
+
+extension RepeatMode {
+    init(appleMode: MusicPlayer.RepeatMode?) {
+        guard let appleMode else {
+            self = .none
+            return
+        }
+        
+        switch appleMode {
+        case .none:
+            self = .none
+        case .one:
+            self = .one
+        case .all:
+            self = .all
+        @unknown default:
+            self = .none
         }
     }
 }

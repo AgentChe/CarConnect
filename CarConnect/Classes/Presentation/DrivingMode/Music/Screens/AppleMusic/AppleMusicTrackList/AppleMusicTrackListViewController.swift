@@ -49,9 +49,7 @@ final class AppleMusicTrackListViewController: UIViewController {
 extension AppleMusicTrackListViewController: AppleMusicTrackListTableDelegate {
     func didSelectItem(_ item: Track) {
         let controller = AppleMusicPlayerViewController(
-            startItem: item,
-            trackList: viewModel.trackCollection,
-            parentCollectionID: viewModel.collectionID
+            source: .appleMusic(startItem: item, trackList: viewModel.trackCollection, parentCollectionID: viewModel.collectionID)
         )
         
         navigationController?.pushViewController(controller, animated: true)

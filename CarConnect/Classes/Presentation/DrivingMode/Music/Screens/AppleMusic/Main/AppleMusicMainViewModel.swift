@@ -49,10 +49,6 @@ final class AppleMusicMainViewModel {
 // MARK: Public
 extension AppleMusicMainViewModel {
     
-    func checkAuthorization() async -> Bool {
-        await appleMusicService.requestAuthorization()
-    }
-    
     func loadInitial() {
         Task { await main() }
         Task { await start() }
@@ -84,11 +80,6 @@ private extension AppleMusicMainViewModel {
     enum State {
         case search(String)
         case main
-    }
-    
-    func loadInitialData() async {
-        guard await appleMusicService.requestAuthorization() else { return }
-        // TODO: Добавить логику
     }
     
     func observePlayingTrack() {

@@ -25,7 +25,6 @@ final class NavigatorViewController: UIViewController {
         
         let output = viewModel.configure(input: NavigatorViewModel.Input(
             didTapResizeMap: mainView.mapView.didTapResize,
-            didTapMyGeo: mainView.mapView.didTapMyGeo,
             didTapBuildRoute: mainView.mapView.didTapBuildRoute,
             didTapUnlockLocationTracking: mainView.mapView.didTapUnlockLocationTracking
         ))

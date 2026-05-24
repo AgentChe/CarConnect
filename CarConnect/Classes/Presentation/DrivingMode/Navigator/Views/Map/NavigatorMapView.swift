@@ -6,25 +6,32 @@
 //
 
 import UIKit
+import GoogleMaps
 
 final class NavigatorMapView: UIView {
     var didTapResize: (() -> Void)?
-    var didTapMyGeo: (() -> Void)?
     var didTapBuildRoute: (() -> Void)?
-    
+
+    lazy var googleMapView = makeGoogleMapView()
     lazy var resizeButton = makeResizeButton()
     lazy var myGeoButton = makeMyGeoButton()
     lazy var buildRouteButton = makeBuildRouteButton()
-    
+
+    private var myLocationObservation: NSKeyValueObservation?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         makeConstraints()
         initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        myLocationObservation = nil
     }
 }
 
@@ -39,30 +46,44 @@ extension NavigatorMapView {
                 return "Navigator.Compact"
             }
         }()
-        let image = UIImage(named: imageName)
-        resizeButton.setImage(image, for: .normal)
+        resizeButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
 
 // MARK: Private
 private extension NavigatorMapView {
     func initialize() {
-        backgroundColor = UIColor.red // TODO: 
+        backgroundColor = .clear
+        layer.cornerRadius = 10.landscapeHScale
+
+        centerOnUserLocationOnce()
     }
-    
+
+    func centerOnUserLocationOnce() {
+        myLocationObservation = googleMapView.observe(\.myLocation, options: .new) { [weak self] mapView, change in
+            guard let self, let location = change.newValue ?? nil else { return }
+            
+            self.myLocationObservation = nil
+            
+            mapView.animate(to: GMSCameraPosition(target: location.coordinate, zoom: 15))
+        }
+    }
+
     @objc
     func resizeTapped() {
         didTapResize?()
     }
-    
+
     @objc
     func myGeoTapped() {
-        didTapResize?()
+        guard let coordinate = googleMapView.myLocation?.coordinate else { return }
+        
+        googleMapView.animate(to: GMSCameraPosition(target: coordinate, zoom: 15))
     }
-    
+
     @objc
     func buildRouteTapped() {
-        didTapResize?()
+        didTapBuildRoute?()
     }
 }
 
@@ -70,19 +91,26 @@ private extension NavigatorMapView {
 private extension NavigatorMapView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
+            googleMapView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            googleMapView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            googleMapView.topAnchor.constraint(equalTo: topAnchor),
+            googleMapView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
             resizeButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
             resizeButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
             resizeButton.topAnchor.constraint(equalTo: topAnchor, constant: 12.landscapeVScale),
             resizeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
         ])
-        
+
         NSLayoutConstraint.activate([
             myGeoButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
             myGeoButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
             myGeoButton.bottomAnchor.constraint(equalTo: buildRouteButton.topAnchor, constant: -12.landscapeVScale),
             myGeoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
         ])
-        
+
         NSLayoutConstraint.activate([
             buildRouteButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
             buildRouteButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
@@ -94,6 +122,20 @@ private extension NavigatorMapView {
 
 // MARK: Lazy initialization
 private extension NavigatorMapView {
+    func makeGoogleMapView() -> GMSMapView {
+        let options = GMSMapViewOptions()
+        options.camera = GMSCameraPosition(latitude: 0, longitude: 0, zoom: 2)
+        
+        let view = GMSMapView(options: options)
+        view.layer.cornerRadius = 10.landscapeHScale
+        view.isMyLocationEnabled = true
+        view.settings.myLocationButton = false
+        view.settings.compassButton = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+
     func makeResizeButton() -> UIButton {
         let view = TapAreaButton()
         view.addTarget(self, action: #selector(resizeTapped), for: .touchUpInside)
@@ -101,7 +143,7 @@ private extension NavigatorMapView {
         addSubview(view)
         return view
     }
-    
+
     func makeMyGeoButton() -> UIButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: "Navigator.MyGeo"), for: .normal)
@@ -110,7 +152,7 @@ private extension NavigatorMapView {
         addSubview(view)
         return view
     }
-    
+
     func makeBuildRouteButton() -> UIButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: "Navigator.BuildRoute"), for: .normal)

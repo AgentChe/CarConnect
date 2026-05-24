@@ -7,10 +7,13 @@
 
 import UIKit
 import OtterScaleiOS
+import GoogleMaps
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        GMSServices.provideAPIKey(GlobalDefinitions.googleMapsApiKey)
+
         NumberLaunches().launch()
         
         OtterScale.shared.initialize(host: GlobalDefinitions.otterScaleHost, apiKey: GlobalDefinitions.otterScaleApiKey)

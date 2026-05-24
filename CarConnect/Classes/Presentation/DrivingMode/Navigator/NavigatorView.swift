@@ -65,7 +65,7 @@ private extension NavigatorView {
     func makeConstraints() {
         mapViewTrailingConstraint = mapView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -280.landscapeHScale)
         NSLayoutConstraint.activate([
-            mapView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: DrivingModeView.Constants.menuLeading + DrivingModeView.Constants.menuWidth + 16.landscapeHScale),
             mapView.topAnchor.constraint(equalTo: topAnchor, constant: 20.landscapeVScale),
             mapView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20.landscapeVScale),
             mapViewTrailingConstraint

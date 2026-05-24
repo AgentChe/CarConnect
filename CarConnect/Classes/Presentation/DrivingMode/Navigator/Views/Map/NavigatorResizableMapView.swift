@@ -17,7 +17,6 @@ final class NavigatorResizableMapView: UIView {
     }
     
     private lazy var didTapResizeTrigger = PublishRelay<Void>()
-    private lazy var didTapMyGeoTrigger = PublishRelay<Void>()
     private lazy var didTapBuildRouteTrigger = PublishRelay<Void>()
     private lazy var didTapUnlockLocationTrackingTrigger = PublishRelay<Void>()
     
@@ -52,10 +51,6 @@ extension NavigatorResizableMapView {
         didTapResizeTrigger.asSignal()
     }
     
-    var didTapMyGeo: Signal<Void> {
-        didTapMyGeoTrigger.asSignal()
-    }
-    
     var didTapBuildRoute: Signal<Void> {
         didTapBuildRouteTrigger.asSignal()
     }
@@ -69,6 +64,7 @@ extension NavigatorResizableMapView {
 private extension NavigatorResizableMapView {
     func initialize() {
         backgroundColor = UIColor.clear
+        layer.cornerRadius = 10.landscapeHScale
         
         geoLocationAPI.didChangeAuthorizationStatus = { [weak self] status in
             self?.displayGeoState(status: status)
@@ -92,10 +88,6 @@ private extension NavigatorResizableMapView {
             
             view.didTapResize = { [weak self] in
                 self?.didTapResizeTrigger.accept(Void())
-            }
-            
-            view.didTapMyGeo = { [weak self] in
-                self?.didTapMyGeoTrigger.accept(Void())
             }
             
             view.didTapBuildRoute = { [weak self] in

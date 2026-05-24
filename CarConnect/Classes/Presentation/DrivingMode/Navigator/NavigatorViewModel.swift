@@ -18,7 +18,6 @@ final class NavigatorViewModel {
 extension NavigatorViewModel {
     struct Input {
         let didTapResizeMap: Signal<Void>
-        let didTapMyGeo: Signal<Void>
         let didTapBuildRoute: Signal<Void>
         let didTapUnlockLocationTracking: Signal<Void>
     }

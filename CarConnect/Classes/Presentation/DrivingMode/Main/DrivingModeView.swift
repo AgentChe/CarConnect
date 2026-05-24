@@ -8,6 +8,11 @@
 import UIKit
 
 final class DrivingModeView: UIView {
+    enum Constants {
+        static let menuWidth = 84.landscapeHScale
+        static let menuLeading = 56.landscapeHScale
+    }
+    
     lazy var container = makeContainer()
     lazy var menuView = makeMenuView()
     
@@ -34,33 +39,33 @@ private extension DrivingModeView {
 private extension DrivingModeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            menuView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56.landscapeHScale),
-            menuView.topAnchor.constraint(equalTo: topAnchor, constant: 20.landscapeVScale),
-            menuView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20.landscapeVScale),
-            menuView.widthAnchor.constraint(equalToConstant: 84.landscapeHScale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: menuView.trailingAnchor, constant: 16.landscapeHScale),
+            container.leadingAnchor.constraint(equalTo: leadingAnchor),
             container.trailingAnchor.constraint(equalTo: trailingAnchor),
             container.topAnchor.constraint(equalTo: topAnchor),
             container.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            menuView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.menuLeading),
+            menuView.topAnchor.constraint(equalTo: topAnchor, constant: 20.landscapeVScale),
+            menuView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20.landscapeVScale),
+            menuView.widthAnchor.constraint(equalToConstant: Constants.menuWidth)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension DrivingModeView {
-    func makeMenuView() -> DrivingModeMenuView {
-        let view = DrivingModeMenuView()
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
+    func makeMenuView() -> DrivingModeMenuView {
+        let view = DrivingModeMenuView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

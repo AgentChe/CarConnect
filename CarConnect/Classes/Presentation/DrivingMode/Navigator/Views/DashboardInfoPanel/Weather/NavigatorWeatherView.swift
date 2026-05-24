@@ -21,6 +21,7 @@ final class NavigatorWeatherView: UIView {
         super.init(frame: frame)
         
         initialize()
+        displayWeatherState()
     }
     
     required init?(coder: NSCoder) {
@@ -33,7 +34,15 @@ private extension NavigatorWeatherView {
     func initialize() {
         layer.cornerRadius = 10.landscapeHScale
         
-        switch geoLocationAPI.authorizationStatus() {
+        geoLocationAPI.didChangeAuthorizationStatus = { [weak self] status in
+            self?.displayWeatherState(status: status)
+        }
+    }
+    
+    func displayWeatherState(status: CLAuthorizationStatus? = nil) {
+        let status = status ?? geoLocationAPI.authorizationStatus()
+        
+        switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             display(NavigatorWeatherNotAvailableView(reason: .notAvailable))
             requestWeatherData()
@@ -48,7 +57,7 @@ private extension NavigatorWeatherView {
     }
     
     func requestWeatherData() {
-        let weatherFetcher = WeatherFetcher(useDefaultLocation: false)
+        let weatherFetcher = WeatherFetcher(useDefaultLocation: false, includeDailyForecast: false)
         self.weatherFetcher = weatherFetcher
         
         weatherFetcher.weatherData

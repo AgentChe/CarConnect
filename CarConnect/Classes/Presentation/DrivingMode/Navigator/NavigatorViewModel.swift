@@ -8,30 +8,39 @@
 import RxSwift
 import RxCocoa
 
-final class NavigatorViewModel {}
+final class NavigatorViewModel {
+    enum Action {
+        case openSettings
+    }
+}
 
 // MARK: Public
 extension NavigatorViewModel {
     struct Input {
         let didTapResizeMap: Signal<Void>
+        let didTapMyGeo: Signal<Void>
+        let didTapBuildRoute: Signal<Void>
+        let didTapUnlockLocationTracking: Signal<Void>
     }
     
     struct Output {
-        let mapPresentationState: Driver<NavigatorMapView.MapPresentationState>
+        let mapPresentationState: Driver<NavigatorResizableMapView.MapPresentationState>
+        let action: Driver<Action>
     }
     
     func configure(input: Input) -> Output {
         Output(
-            mapPresentationState: makeMapPresentationState(didTapResizeMap: input.didTapResizeMap)
+            mapPresentationState: makeMapPresentationState(didTapResizeMap: input.didTapResizeMap),
+            action: makeAction(didTapUnlockLocationTracking: input.didTapUnlockLocationTracking)
         )
     }
 }
 
 // MARK: Private
 private extension NavigatorViewModel {
-    func makeMapPresentationState(didTapResizeMap: Signal<Void>) -> Driver<NavigatorMapView.MapPresentationState> {
+    func makeMapPresentationState(didTapResizeMap: Signal<Void>) -> Driver<NavigatorResizableMapView.MapPresentationState> {
         didTapResizeMap
-            .scan(.compact) { current, _ -> NavigatorMapView.MapPresentationState in
+            .scan(.compact) { current, _ -> NavigatorResizableMapView.MapPresentationState in
                 switch current {
                 case .compact:
                     return .expanded
@@ -42,5 +51,16 @@ private extension NavigatorViewModel {
             .startWith(.compact)
             .distinctUntilChanged()
             .asDriver(onErrorDriveWith: .never())
+    }
+    
+    func makeAction(
+        didTapUnlockLocationTracking: Signal<Void>
+    ) -> Driver<Action> {
+        let openSettings = didTapUnlockLocationTracking
+            .map { Action.openSettings }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(openSettings)
     }
 }

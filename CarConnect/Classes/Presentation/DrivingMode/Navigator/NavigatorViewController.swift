@@ -24,8 +24,17 @@ final class NavigatorViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: NavigatorViewModel.Input(
-            didTapResizeMap: mainView.mapView.resizeButton.rx.tap.asSignal()
+            didTapResizeMap: mainView.mapView.didTapResize,
+            didTapMyGeo: mainView.mapView.didTapMyGeo,
+            didTapBuildRoute: mainView.mapView.didTapBuildRoute,
+            didTapUnlockLocationTracking: mainView.mapView.didTapUnlockLocationTracking
         ))
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
+            })
+            .disposed(by: disposeBag)
         
         output.mapPresentationState
             .drive(Binder(mainView) { base, state in
@@ -44,5 +53,18 @@ extension NavigatorViewController {
 
 // MARK: Private
 private extension NavigatorViewController {
+    func action(_ action: NavigatorViewModel.Action) {
+        switch action {
+        case .openSettings:
+            openSettings()
+        }
+    }
     
+    func openSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        UIApplication.shared.open(settingsURL)
+    }
 }

@@ -8,10 +8,9 @@
 import UIKit
 
 final class NavigatorMapView: UIView {
-    enum MapPresentationState {
-        case compact
-        case expanded
-    }
+    var didTapResize: (() -> Void)?
+    var didTapMyGeo: (() -> Void)?
+    var didTapBuildRoute: (() -> Void)?
     
     lazy var resizeButton = makeResizeButton()
     lazy var myGeoButton = makeMyGeoButton()
@@ -31,7 +30,7 @@ final class NavigatorMapView: UIView {
 
 // MARK: Public
 extension NavigatorMapView {
-    func setup(mapPresentationState: MapPresentationState) {
+    func setup(mapPresentationState: NavigatorResizableMapView.MapPresentationState) {
         let imageName: String = {
             switch mapPresentationState {
             case .compact:
@@ -48,7 +47,22 @@ extension NavigatorMapView {
 // MARK: Private
 private extension NavigatorMapView {
     func initialize() {
-        backgroundColor = UIColor.red.withAlphaComponent(0.3) // TODO: clear
+        backgroundColor = UIColor.red // TODO: 
+    }
+    
+    @objc
+    func resizeTapped() {
+        didTapResize?()
+    }
+    
+    @objc
+    func myGeoTapped() {
+        didTapResize?()
+    }
+    
+    @objc
+    func buildRouteTapped() {
+        didTapResize?()
     }
 }
 
@@ -82,6 +96,7 @@ private extension NavigatorMapView {
 private extension NavigatorMapView {
     func makeResizeButton() -> UIButton {
         let view = TapAreaButton()
+        view.addTarget(self, action: #selector(resizeTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -90,6 +105,7 @@ private extension NavigatorMapView {
     func makeMyGeoButton() -> UIButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: "Navigator.MyGeo"), for: .normal)
+        view.addTarget(self, action: #selector(myGeoTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -98,6 +114,7 @@ private extension NavigatorMapView {
     func makeBuildRouteButton() -> UIButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: "Navigator.BuildRoute"), for: .normal)
+        view.addTarget(self, action: #selector(buildRouteTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

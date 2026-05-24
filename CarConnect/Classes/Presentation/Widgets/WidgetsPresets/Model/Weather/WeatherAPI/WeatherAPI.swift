@@ -43,13 +43,23 @@ final class WeatherAPI {
     private lazy var service = WeatherService.shared
     private lazy var calendar = Calendar.current
     
-    func fetchWeather(location: Location) async throws -> WeatherData {
+    func fetchWeather(location: Location, includeDailyForecast: Bool = true) async throws -> WeatherData {
         let coordinate = CLLocation(
             latitude: location.coordinate.latitude,
             longitude: location.coordinate.longitude
         )
         
         async let currentTask = service.weather(for: coordinate, including: .current)
+
+        guard includeDailyForecast else {
+            let currentWeather = try await currentTask
+            return WeatherData(
+                location: location,
+                current: makeCurrentSummary(from: currentWeather),
+                daily: []
+            )
+        }
+
         async let dailyTask = service.weather(for: coordinate, including: .daily)
         async let hourlyTask = service.weather(for: coordinate, including: .hourly)
         
@@ -61,29 +71,7 @@ final class WeatherAPI {
         guard !targetDays.isEmpty else {
             throw WeatherManagerError.noDailyForecast
         }
-        
-        let temperature: Temperature = {
-            Temperature(
-                celsius: currentWeather.temperature.converted(to: .celsius).value,
-                fahrenheit: currentWeather.temperature.converted(to: .fahrenheit).value
-            )
-        }()
-        
-        let feelsLike: Temperature = {
-            Temperature(
-                celsius: currentWeather.apparentTemperature.converted(to: .celsius).value,
-                fahrenheit: currentWeather.apparentTemperature.converted(to: .fahrenheit).value
-            )
-        }()
-        
-        let current = WeatherSummary(
-            date: currentWeather.date,
-            temperature: temperature,
-            feelsLike: feelsLike,
-            condition: mapCondition(currentWeather.condition),
-            symbolName: currentWeather.symbolName
-        )
-        
+
         let daily = try buildDailySummaries(
             days: targetDays,
             hourlyForecast: Array(hourlyForecast.forecast)
@@ -91,7 +79,7 @@ final class WeatherAPI {
         
         return WeatherData(
             location: location,
-            current: current,
+            current: makeCurrentSummary(from: currentWeather),
             daily: daily
         )
     }
@@ -99,6 +87,26 @@ final class WeatherAPI {
 
 // MARK: Private
 private extension WeatherAPI {
+    func makeCurrentSummary(from currentWeather: CurrentWeather) -> WeatherSummary {
+        let temperature = Temperature(
+            celsius: currentWeather.temperature.converted(to: .celsius).value,
+            fahrenheit: currentWeather.temperature.converted(to: .fahrenheit).value
+        )
+
+        let feelsLike = Temperature(
+            celsius: currentWeather.apparentTemperature.converted(to: .celsius).value,
+            fahrenheit: currentWeather.apparentTemperature.converted(to: .fahrenheit).value
+        )
+
+        return WeatherSummary(
+            date: currentWeather.date,
+            temperature: temperature,
+            feelsLike: feelsLike,
+            condition: mapCondition(currentWeather.condition),
+            symbolName: currentWeather.symbolName
+        )
+    }
+
     func buildDailySummaries(
         days: [DayWeather],
         hourlyForecast: [HourWeather]

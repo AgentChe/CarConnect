@@ -160,3 +160,6 @@
 "Navigator.Weather.Kind.Mist" = "Mist";
 "Navigator.Weather.Kind.Snow" = "Snow";
 "Navigator.Weather.Kind.Thunderstorm" = "Thunderstorm";
+"Navigator.UnlockGeo.Title" = "Unlock location tracking";
+"Navigator.UnlockGeo.SubTitle" = "To use this feature, please enable it";
+"Navigator.UnlockGeo.Action" = "Go to Settings";

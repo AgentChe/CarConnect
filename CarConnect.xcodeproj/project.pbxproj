@@ -245,6 +245,8 @@
 		DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */; };
 		DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */; };
 		DE6F500E2FC09A1900EA1743 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */; };
+		DE6F50112FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */; };
+		DE6F50132FC0A46A00EA1743 /* NavigatorResizableMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */; };
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
@@ -790,6 +792,8 @@
 		DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherNotAvailableView.swift; sourceTree = "<group>"; };
 		DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherInfoView.swift; sourceTree = "<group>"; };
 		DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorMapUnlockGeoView.swift; sourceTree = "<group>"; };
+		DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorResizableMapView.swift; sourceTree = "<group>"; };
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
@@ -1999,8 +2003,8 @@
 		DE6F50002FC0696300EA1743 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE6F500F2FC0A0D500EA1743 /* Map */,
 				DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */,
-				DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2008,8 +2012,8 @@
 		DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */ = {
 			isa = PBXGroup;
 			children = (
-				DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */,
 				DE6F50082FC076B200EA1743 /* Weather */,
+				DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */,
 			);
 			path = DashboardInfoPanel;
 			sourceTree = "<group>";
@@ -2022,6 +2026,16 @@
 				DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		DE6F500F2FC0A0D500EA1743 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */,
+				DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */,
+				DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		DE747D9F2F752A32007C145B /* Clock */ = {
@@ -3884,6 +3898,7 @@
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
+				DE6F50112FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
 				DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */,
 				862BC1342F747B44000ECDC9 /* AppleMusicLibraryCategory.swift in Sources */,
@@ -3968,6 +3983,7 @@
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEEAAA262F713BBE0072C702 /* SelectLocationView.swift in Sources */,
 				86A71C732F92C29E0002232A /* SearchFieldView.swift in Sources */,
+				DE6F50132FC0A46A00EA1743 /* NavigatorResizableMapView.swift in Sources */,
 				86D4FFDB2F9A88250009BC46 /* MusicSourceMenuView.swift in Sources */,
 				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,

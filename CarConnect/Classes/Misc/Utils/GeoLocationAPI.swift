@@ -8,6 +8,8 @@
 import CoreLocation
 
 final class GeoLocationAPI: NSObject {
+    var didChangeAuthorizationStatus: ((CLAuthorizationStatus) -> Void)?
+    
     private lazy var locationManager = CLLocationManager()
     private lazy var geocoder = CLGeocoder()
     
@@ -52,6 +54,8 @@ extension GeoLocationAPI {
 // MARK: CLLocationManagerDelegate
 extension GeoLocationAPI: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        didChangeAuthorizationStatus?(manager.authorizationStatus)
+        
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             manager.requestLocation()

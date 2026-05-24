@@ -20,7 +20,7 @@ final class WeatherFetcher {
         trigger.asDriver()
     }
     
-    init(location: Location) {
+    init(location: Location, includeDailyForecast: Bool = true) {
         Observable<WeatherData?>.create { [weak self] observer in
             guard let self else {
                 observer.onNext(nil)
@@ -29,7 +29,10 @@ final class WeatherFetcher {
             }
             
             let task = Task {
-                let weather = try? await self.weatherAPI.fetchWeather(location: location)
+                let weather = try? await self.weatherAPI.fetchWeather(
+                    location: location,
+                    includeDailyForecast: includeDailyForecast
+                )
                 
                 if !Task.isCancelled {
                     observer.onNext(weather)
@@ -48,7 +51,7 @@ final class WeatherFetcher {
         .disposed(by: disposeBag)
     }
     
-    init(useDefaultLocation: Bool = true) {
+    init(useDefaultLocation: Bool = true, includeDailyForecast: Bool = true) {
         Single<Location?>
             .create { [weak self] single in
                 guard let self else { return Disposables.create() }
@@ -69,7 +72,10 @@ final class WeatherFetcher {
                     }
                     
                     let task = Task {
-                        let weather = try? await self.weatherAPI.fetchWeather(location: location)
+                        let weather = try? await self.weatherAPI.fetchWeather(
+                            location: location,
+                            includeDailyForecast: includeDailyForecast
+                        )
                         
                         if !Task.isCancelled {
                             observer.onNext(weather)

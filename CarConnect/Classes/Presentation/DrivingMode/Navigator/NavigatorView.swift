@@ -27,7 +27,7 @@ final class NavigatorView: UIView {
 
 // MARK: Public
 extension NavigatorView {
-    func setup(mapPresentationState: NavigatorMapView.MapPresentationState) {
+    func setup(mapPresentationState: NavigatorResizableMapView.MapPresentationState) {
         mapViewTrailingConstraint.isActive = false
         mapViewTrailingConstraint.constant = {
             switch mapPresentationState {
@@ -82,8 +82,8 @@ private extension NavigatorView {
 
 // MARK: Lazy initialization
 private extension NavigatorView {
-    func makeMapView() -> NavigatorMapView {
-        let view = NavigatorMapView()
+    func makeMapView() -> NavigatorResizableMapView {
+        let view = NavigatorResizableMapView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

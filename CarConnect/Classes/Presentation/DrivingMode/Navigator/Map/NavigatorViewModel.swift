@@ -11,6 +11,7 @@ import RxCocoa
 final class NavigatorViewModel {
     enum Action {
         case openSettings
+        case showRouteBuilder(Coordinate)
     }
 }
 
@@ -18,7 +19,7 @@ final class NavigatorViewModel {
 extension NavigatorViewModel {
     struct Input {
         let didTapResizeMap: Signal<Void>
-        let didTapBuildRoute: Signal<Void>
+        let didTapBuildRoute: Signal<Coordinate>
         let didTapUnlockLocationTracking: Signal<Void>
     }
     
@@ -30,7 +31,10 @@ extension NavigatorViewModel {
     func configure(input: Input) -> Output {
         Output(
             mapPresentationState: makeMapPresentationState(didTapResizeMap: input.didTapResizeMap),
-            action: makeAction(didTapUnlockLocationTracking: input.didTapUnlockLocationTracking)
+            action: makeAction(
+                didTapUnlockLocationTracking: input.didTapUnlockLocationTracking,
+                didTapBuildRoute: input.didTapBuildRoute
+            )
         )
     }
 }
@@ -53,13 +57,17 @@ private extension NavigatorViewModel {
     }
     
     func makeAction(
-        didTapUnlockLocationTracking: Signal<Void>
+        didTapUnlockLocationTracking: Signal<Void>,
+        didTapBuildRoute: Signal<Coordinate>
     ) -> Driver<Action> {
         let openSettings = didTapUnlockLocationTracking
             .map { Action.openSettings }
             .asDriver(onErrorDriveWith: .never())
-        
-        return Driver
-            .merge(openSettings)
+
+        let showRouteBuilder = didTapBuildRoute
+            .map { Action.showRouteBuilder($0) }
+            .asDriver(onErrorDriveWith: .never())
+
+        return Driver.merge(openSettings, showRouteBuilder)
     }
 }

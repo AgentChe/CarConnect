@@ -60,6 +60,18 @@ final class DrivingModeViewController: UIViewController {
                 base.mainView.menuView.setup(selectedItem: item)
             })
             .disposed(by: disposeBag)
+        
+        Observable
+            .merge([
+                mainView.menuView.mapItemButton
+                    .rx.tap.map { false },
+                mainView.menuView.musicItemButton
+                    .rx.tap.map {true },
+                mainView.menuView.phoneItemButton
+                    .rx.tap.map { true }
+            ])
+            .bind(to: mainView.backgroundView.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 }
 

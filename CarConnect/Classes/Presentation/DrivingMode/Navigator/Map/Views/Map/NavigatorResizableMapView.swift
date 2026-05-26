@@ -17,7 +17,7 @@ final class NavigatorResizableMapView: UIView {
     }
     
     private lazy var didTapResizeTrigger = PublishRelay<Void>()
-    private lazy var didTapBuildRouteTrigger = PublishRelay<Void>()
+    private lazy var didTapBuildRouteTrigger = PublishRelay<Coordinate>()
     private lazy var didTapUnlockLocationTrackingTrigger = PublishRelay<Void>()
     
     private lazy var geoLocationAPI = GeoLocationAPI()
@@ -46,12 +46,12 @@ extension NavigatorResizableMapView {
         
         mapView?.setup(mapPresentationState: mapPresentationState)
     }
-    
+
     var didTapResize: Signal<Void> {
         didTapResizeTrigger.asSignal()
     }
     
-    var didTapBuildRoute: Signal<Void> {
+    var didTapBuildRoute: Signal<Coordinate> {
         didTapBuildRouteTrigger.asSignal()
     }
     
@@ -90,8 +90,8 @@ private extension NavigatorResizableMapView {
                 self?.didTapResizeTrigger.accept(Void())
             }
             
-            view.didTapBuildRoute = { [weak self] in
-                self?.didTapBuildRouteTrigger.accept(Void())
+            view.didTapBuildRoute = { [weak self] coordinate in
+                self?.didTapBuildRouteTrigger.accept(coordinate)
             }
             
             self.mapView = view

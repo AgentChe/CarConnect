@@ -44,7 +44,7 @@ private extension NavigatorWeatherView {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            display(NavigatorWeatherNotAvailableView(reason: .notAvailable))
+            display(NavigatorWeatherPreloaderView())
             requestWeatherData()
         case .notDetermined:
             display(NavigatorWeatherNotAvailableView(reason: .locationAccessNeeded))

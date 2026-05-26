@@ -245,6 +245,7 @@
 		DE62B4092FC6059C00AF529A /* SearchPlaceTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */; };
 		DE62B40C2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */; };
 		DE62B40E2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */; };
+		DE62B4102FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */; };
 		DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */; };
@@ -810,6 +811,7 @@
 		DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableElement.swift; sourceTree = "<group>"; };
 		DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePresetCell.swift; sourceTree = "<group>"; };
 		DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePlaceCell.swift; sourceTree = "<group>"; };
+		DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherPreloaderView.swift; sourceTree = "<group>"; };
 		DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceDirectionsRequest.swift; sourceTree = "<group>"; };
 		DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewConfiguration.swift; sourceTree = "<group>"; };
 		DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewStorageModel.swift; sourceTree = "<group>"; };
@@ -2149,6 +2151,7 @@
 				DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */,
 				DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */,
 				DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */,
+				DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -4007,6 +4010,7 @@
 				DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
+				DE62B4102FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift in Sources */,
 				DEDB36832F814A2B00DAF5FC /* WidgetPhotoWithTextViewController.swift in Sources */,
 				DEF08FDB2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,

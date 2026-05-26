@@ -16,6 +16,8 @@ final class NavigatorViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var routeBuilder = RouteBuilder(container: mainView.mapView)
+    
     override func loadView() {
         view = mainView
     }
@@ -56,14 +58,13 @@ private extension NavigatorViewController {
         switch action {
         case .openSettings:
             openSettings()
+        case .showRouteBuilder(let coordinate):
+            routeBuilder.buildRoute(currentLocation: coordinate)
         }
     }
-    
+
     func openSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
-        
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(settingsURL)
     }
 }

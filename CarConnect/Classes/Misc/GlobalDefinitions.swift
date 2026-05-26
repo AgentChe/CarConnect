@@ -17,6 +17,7 @@ final class GlobalDefinitions {
     static let appGroupId = "group.mobile.carconnect"
 
     static let googleMapsApiKey = "AIzaSyDUMmebW3UkmsKAH7iLgs_r6Ws9VrAj0nQ"
+    static let googleMapsNewApiKey = "AIzaSyDmyg4gAcNsTlOPRLvGpq6M-LYrE2BobaY"
     
     enum Metrics {
         static let psi = 0.145038

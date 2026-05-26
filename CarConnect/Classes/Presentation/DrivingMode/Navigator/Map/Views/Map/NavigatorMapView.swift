@@ -10,7 +10,7 @@ import GoogleMaps
 
 final class NavigatorMapView: UIView {
     var didTapResize: (() -> Void)?
-    var didTapBuildRoute: (() -> Void)?
+    var didTapBuildRoute: ((Coordinate) -> Void)?
 
     lazy var googleMapView = makeGoogleMapView()
     lazy var resizeButton = makeResizeButton()
@@ -83,7 +83,11 @@ private extension NavigatorMapView {
 
     @objc
     func buildRouteTapped() {
-        didTapBuildRoute?()
+        guard let locationCoordinate = googleMapView.myLocation?.coordinate else { return }
+        
+        let coordinate = Coordinate(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+        
+        didTapBuildRoute?(coordinate)
     }
 }
 

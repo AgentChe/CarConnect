@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */; };
+		4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */; };
+		6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */; };
+		79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */; };
 		860BE5582F72FA7000311032 /* MusicPlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */; };
 		860BE55A2F72FB2B00311032 /* MusicPlayerTrackInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */; };
 		860BE55C2F72FB9F00311032 /* MusicPlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */; };
@@ -47,6 +51,7 @@
 		86DFA4C82F8829D600EA9B58 /* nowplaying.riv in Resources */ = {isa = PBXBuildFile; fileRef = 86DFA4C72F8829D600EA9B58 /* nowplaying.riv */; };
 		86DFA4CB2F8A470F00EA9B58 /* TrackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */; };
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
+		BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */; };
 		DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */; };
 		DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */; };
 		DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879EC2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift */; };
@@ -103,6 +108,10 @@
 		DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */; };
 		DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */; };
 		DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */; };
+		DE376D752FC5D94700EB9BE7 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */; };
+		DE376D792FC5DB8D00EB9BE7 /* NavigatorPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */; };
+		DE376D7B2FC5DBD800EB9BE7 /* NavigatorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */; };
+		DE376D7F2FC5DC8300EB9BE7 /* RouteBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -228,6 +237,14 @@
 		DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */; };
 		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
 		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
+		DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */; };
+		DE62B4012FC5FB8A00AF529A /* SearchPlaceRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */; };
+		DE62B4032FC5FF8F00AF529A /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */; };
+		DE62B4052FC6004300AF529A /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4042FC6004300AF529A /* SearchPlaceView.swift */; };
+		DE62B4072FC6059600AF529A /* SearchPlaceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */; };
+		DE62B4092FC6059C00AF529A /* SearchPlaceTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */; };
+		DE62B40C2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */; };
+		DE62B40E2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */; };
 		DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */; };
@@ -595,6 +612,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceAutocompleteRequest.swift; sourceTree = "<group>"; };
+		65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceNearbyRequest.swift; sourceTree = "<group>"; };
+		6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigatorRoute.swift; sourceTree = "<group>"; };
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerControlsView.swift; sourceTree = "<group>"; };
 		860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerTrackInfoView.swift; sourceTree = "<group>"; };
@@ -691,6 +711,10 @@
 		DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBuilderRemoveButton.swift; sourceTree = "<group>"; };
 		DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmView.swift; sourceTree = "<group>"; };
 		DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmViewController.swift; sourceTree = "<group>"; };
+		DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorPlace.swift; sourceTree = "<group>"; };
+		DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorPreset.swift; sourceTree = "<group>"; };
+		DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderManager.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -778,6 +802,15 @@
 		DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundView.swift; sourceTree = "<group>"; };
 		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
 		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceField.swift; sourceTree = "<group>"; };
+		DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceRootView.swift; sourceTree = "<group>"; };
+		DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
+		DE62B4042FC6004300AF529A /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableView.swift; sourceTree = "<group>"; };
+		DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableElement.swift; sourceTree = "<group>"; };
+		DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePresetCell.swift; sourceTree = "<group>"; };
+		DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePlaceCell.swift; sourceTree = "<group>"; };
+		DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceDirectionsRequest.swift; sourceTree = "<group>"; };
 		DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewConfiguration.swift; sourceTree = "<group>"; };
 		DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewStorageModel.swift; sourceTree = "<group>"; };
 		DE63A22C2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateClockAIPreviewCell.swift; sourceTree = "<group>"; };
@@ -1082,6 +1115,7 @@
 		DEF570C72F801F32002394B9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotoWidgetView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceDetailsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1569,6 +1603,69 @@
 			path = RemoveConfirm;
 			sourceTree = "<group>";
 		};
+		DE376D6B2FC3402100EB9BE7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50002FC0696300EA1743 /* Views */,
+				DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */,
+				DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */,
+				DE9732712FBF63DB002F032E /* NavigatorView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		DE376D732FC5D8DC00EB9BE7 /* RouteBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D762FC5DA7D00EB9BE7 /* SearchPlace */,
+				DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */,
+			);
+			path = RouteBuilder;
+			sourceTree = "<group>";
+		};
+		DE376D762FC5DA7D00EB9BE7 /* SearchPlace */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B3FC2FC5FAE300AF529A /* View */,
+				DE376D7C2FC5DC7200EB9BE7 /* API */,
+				DE376D772FC5DB6900EB9BE7 /* Model */,
+				DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */,
+				DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */,
+				DE62B4042FC6004300AF529A /* SearchPlaceView.swift */,
+			);
+			path = SearchPlace;
+			sourceTree = "<group>";
+		};
+		DE376D772FC5DB6900EB9BE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */,
+				DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */,
+				6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE376D7C2FC5DC7200EB9BE7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D7D2FC5DC7500EB9BE7 /* Request */,
+				DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DE376D7D2FC5DC7500EB9BE7 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */,
+				65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */,
+				DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */,
+				FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1919,6 +2016,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DE62B3FC2FC5FAE300AF529A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B3FD2FC5FAEF00AF529A /* TableView */,
+				DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE62B3FD2FC5FAEF00AF529A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B40A2FC6059F00AF529A /* Cell */,
+				DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */,
+				DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE62B40A2FC6059F00AF529A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */,
+				DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DE63A2222F7D2DB700AF71B7 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -2095,10 +2220,8 @@
 		DE97326C2FBF63A7002F032E /* Navigator */ = {
 			isa = PBXGroup;
 			children = (
-				DE6F50002FC0696300EA1743 /* Views */,
-				DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */,
-				DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */,
-				DE9732712FBF63DB002F032E /* NavigatorView.swift */,
+				DE376D732FC5D8DC00EB9BE7 /* RouteBuilder */,
+				DE376D6B2FC3402100EB9BE7 /* Map */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -3778,6 +3901,7 @@
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */,
 				DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */,
+				DE62B4092FC6059C00AF529A /* SearchPlaceTableElement.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DEF08FFA2F7E806B0066EE07 /* WidgetCarLogoView.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
@@ -3789,6 +3913,7 @@
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEEAAA8D2F73FB920072C702 /* WidgetsPresetsTemplateDigitalStackedCell.swift in Sources */,
 				DEEAAA302F71A4090072C702 /* SelectLocationEnterNameCell.swift in Sources */,
+				DE376D7B2FC5DBD800EB9BE7 /* NavigatorPreset.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
@@ -3814,6 +3939,7 @@
 				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
 				DEEAAA712F73C1A80072C702 /* WidgetClockConfiguration.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
+				DE62B4052FC6004300AF529A /* SearchPlaceView.swift in Sources */,
 				86B2EDD52F7951BE006C0F3A /* MusicLibraryItem.swift in Sources */,
 				DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */,
 				DEF570A12F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift in Sources */,
@@ -3827,6 +3953,7 @@
 				DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
+				DE376D792FC5DB8D00EB9BE7 /* NavigatorPlace.swift in Sources */,
 				DEF08FD82F7E717A0066EE07 /* VehicleSupportLogosResponse.swift in Sources */,
 				DEDB367D2F8146D000DAF5FC /* WidgetBuilderPhotoView.swift in Sources */,
 				DEEB9D772F6A92530041587F /* DigitalWeatherClockView.swift in Sources */,
@@ -3883,6 +4010,7 @@
 				DEDB36832F814A2B00DAF5FC /* WidgetPhotoWithTextViewController.swift in Sources */,
 				DEF08FDB2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
+				DE62B40E2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
 				DEEAAA652F73BF5B0072C702 /* VehicleWidgetPreview.swift in Sources */,
@@ -3897,6 +4025,7 @@
 				DEEAAAA52F73FC400072C702 /* CalendarClockView.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */,
+				DE376D7F2FC5DC8300EB9BE7 /* RouteBuilderManager.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
 				DE6F50112FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
@@ -3931,6 +4060,7 @@
 				DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */,
 				DEEAAA742F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
 				DEEAAAA32F73FC2F0072C702 /* SplitFlapView.swift in Sources */,
+				DE376D752FC5D94700EB9BE7 /* RouteBuilder.swift in Sources */,
 				DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */,
 				DEEAAA972F73FBCA0072C702 /* WidgetsPresetsTemplateCalendarClockCell.swift in Sources */,
 				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
@@ -3997,6 +4127,7 @@
 				DEF570AC2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */,
 				DEDB36BB2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */,
 				DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */,
+				DE62B40C2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift in Sources */,
 				DEDB36AB2F824E4D00DAF5FC /* WidgetsPresetsTemplateAIPhotoMyCarCell.swift in Sources */,
 				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
@@ -4013,6 +4144,7 @@
 				DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */,
 				DEEB9D482F6A8CF20041587F /* WidgetWeatherService.swift in Sources */,
 				DEDB36702F813C9600DAF5FC /* WidgetPhotoWIthTextStorageModel.swift in Sources */,
+				DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
@@ -4044,6 +4176,7 @@
 				DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */,
 				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
+				DE62B4012FC5FB8A00AF529A /* SearchPlaceRootView.swift in Sources */,
 				DEA2FC0C2F630B1C0034A47D /* AppleMusicPlayerState.swift in Sources */,
 				DEF08FEF2F7E75A60066EE07 /* WidgetCarLogoService.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
@@ -4085,6 +4218,7 @@
 				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
 				DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
+				DE62B4072FC6059600AF529A /* SearchPlaceTableView.swift in Sources */,
 				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,
 				DEEAA92C2F6D976E0072C702 /* WeatherFourDaysKindsView.swift in Sources */,
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
@@ -4113,6 +4247,7 @@
 				DEA5CFA22F6958C90045CBC0 /* Location.swift in Sources */,
 				DEDB36952F81676300DAF5FC /* WidgetsPresetsTemplatePhotoPlaceholderCell.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE62B4032FC5FF8F00AF529A /* SearchPlaceViewModel.swift in Sources */,
 				DE6083B42F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift in Sources */,
 				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DEDB36A82F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift in Sources */,
@@ -4132,6 +4267,11 @@
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,
 				86D4FFD72F969DFF0009BC46 /* AppleMusicLoaderView.swift in Sources */,
 				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,
+				4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */,
+				39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */,
+				79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */,
+				BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */,
+				6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

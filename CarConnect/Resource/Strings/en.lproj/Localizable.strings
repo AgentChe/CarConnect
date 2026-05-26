@@ -163,3 +163,11 @@
 "Navigator.UnlockGeo.Title" = "Unlock location tracking";
 "Navigator.UnlockGeo.SubTitle" = "To use this feature, please enable it";
 "Navigator.UnlockGeo.Action" = "Go to Settings";
+"Navigator.Preset.Parking" = "Parking";
+"Navigator.Preset.GasStation" = "Gas Station";
+"Navigator.Preset.CarRepair" = "Car Repair";
+"Navigator.Preset.ATM" = "ATM";
+"Navigator.Preset.Hospital" = "Hospital";
+"Navigator.Preset.Pharmacy" = "Pharmacy";
+"Navigator.Preset.Restaurant" = "Restaurant";
+"Navigator.RouteBuilder.Search" = "Search";

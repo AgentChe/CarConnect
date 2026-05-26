@@ -32,8 +32,6 @@
 		86B2EDCF2F7822A2006C0F3A /* AppleMusicLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2EDCE2F7822A2006C0F3A /* AppleMusicLibraryViewController.swift */; };
 		86B2EDD52F7951BE006C0F3A /* MusicLibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2EDD42F7951BE006C0F3A /* MusicLibraryItem.swift */; };
 		86B2EDD72F7963CA006C0F3A /* AppleMusicLibraryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2EDD62F7963CA006C0F3A /* AppleMusicLibraryEmptyView.swift */; };
-		86BACAF72FA90DB9000C6D9D /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BACAF62FA90DB9000C6D9D /* SpotifyiOS.xcframework */; };
-		86BACAF82FA90DB9000C6D9D /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86BACAF62FA90DB9000C6D9D /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86C2FF732F81575100E4BE36 /* AppleMusicCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2FF722F81575100E4BE36 /* AppleMusicCollectionCell.swift */; };
 		86D0B4EB2FC30D5E00CAF155 /* SpotifyConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0B4EA2FC30D5E00CAF155 /* SpotifyConnectionService.swift */; };
 		86D0B4ED2FC328AC00CAF155 /* PlayerAccessCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0B4EC2FC328AC00CAF155 /* PlayerAccessCoordinator.swift */; };
@@ -52,6 +50,8 @@
 		86DFA4C52F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4C42F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift */; };
 		86DFA4C82F8829D600EA9B58 /* nowplaying.riv in Resources */ = {isa = PBXBuildFile; fileRef = 86DFA4C72F8829D600EA9B58 /* nowplaying.riv */; };
 		86DFA4CB2F8A470F00EA9B58 /* TrackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */; };
+		86F5D58F2FC61E820016963B /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; };
+		86F5D5902FC61E820016963B /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
 		DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */; };
 		DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */; };
@@ -579,7 +579,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				86BACAF82FA90DB9000C6D9D /* SpotifyiOS.xcframework in Embed Frameworks */,
+				86F5D5902FC61E820016963B /* SpotifyiOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,7 +624,6 @@
 		86B2EDCE2F7822A2006C0F3A /* AppleMusicLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicLibraryViewController.swift; sourceTree = "<group>"; };
 		86B2EDD42F7951BE006C0F3A /* MusicLibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibraryItem.swift; sourceTree = "<group>"; };
 		86B2EDD62F7963CA006C0F3A /* AppleMusicLibraryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicLibraryEmptyView.swift; sourceTree = "<group>"; };
-		86BACAF62FA90DB9000C6D9D /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = "../../../Downloads/ios-sdk-5.0.1/SpotifyiOS.xcframework"; sourceTree = "<group>"; };
 		86C2FF722F81575100E4BE36 /* AppleMusicCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicCollectionCell.swift; sourceTree = "<group>"; };
 		86D0B4EA2FC30D5E00CAF155 /* SpotifyConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnectionService.swift; sourceTree = "<group>"; };
 		86D0B4EC2FC328AC00CAF155 /* PlayerAccessCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAccessCoordinator.swift; sourceTree = "<group>"; };
@@ -643,6 +642,7 @@
 		86DFA4C42F881E8500EA9B58 /* AppleMusicArtistLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicArtistLibraryViewModel.swift; sourceTree = "<group>"; };
 		86DFA4C72F8829D600EA9B58 /* nowplaying.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = nowplaying.riv; sourceTree = "<group>"; };
 		86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackItem.swift; sourceTree = "<group>"; };
+		86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpotifyiOS.xcframework; sourceTree = "<group>"; };
 		B63F950CACCE70681AC75B2E /* Pods-CarConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.release.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.release.xcconfig"; sourceTree = "<group>"; };
 		DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderEnterNameView.swift; sourceTree = "<group>"; };
 		DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderEnterNameViewController.swift; sourceTree = "<group>"; };
@@ -1092,7 +1092,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86BACAF72FA90DB9000C6D9D /* SpotifyiOS.xcframework in Frameworks */,
+				86F5D58F2FC61E820016963B /* SpotifyiOS.xcframework in Frameworks */,
 				95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1103,7 +1103,7 @@
 		41D1262DBDA31F020DC58D12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86BACAF62FA90DB9000C6D9D /* SpotifyiOS.xcframework */,
+				86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */,
 				DEABE4DC2F456B4300089B9E /* Products */,
 				7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */,
 				DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */,
@@ -2086,13 +2086,6 @@
 			path = StackedMonthDayWeekday;
 			sourceTree = "<group>";
 		};
-		DEA2FBD62F6305FA0034A47D /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		DEA5CF8E2F69468F0045CBC0 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -2651,7 +2644,6 @@
 				860BE55E2F7313E300311032 /* PlayerScreen */,
 				860BE55D2F7313DA00311032 /* Main */,
 				868C1C072F7078DB00F63D7B /* Views */,
-				DEA2FBD62F6305FA0034A47D /* Service */,
 			);
 			path = AppleMusic;
 			sourceTree = "<group>";

@@ -171,3 +171,13 @@
 "Navigator.Preset.Pharmacy" = "Pharmacy";
 "Navigator.Preset.Restaurant" = "Restaurant";
 "Navigator.RouteBuilder.Search" = "Search";
+"Navigator.RouteOptions.Title" = "Route options";
+"Navigator.RouteOptions.AvoidTolls" = "Avoid tolls";
+"Navigator.RouteOptions.AvoidHighways" = "Avoid highways";
+"Navigator.RouteOptions.Police" = "Police";
+"Navigator.RouteOptions.SpeedCameras" = "Speed cameras";
+"Navigator.RouteOptions.Traffic" = "Traffic";
+"Navigator.RouteBuilderMenu.Title" = "Direction";
+"Navigator.RouteBuilderMenu.AddStop" = "Add stop";
+"Navigator.RouteBuilderMenu.RouteOptions" = "Route options";
+"Navigator.RouteBuilderMenu.SetDepartureTime" = "Set departure time";

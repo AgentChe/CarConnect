@@ -18,14 +18,6 @@ protocol RouteBuilderManagerProtocol {
         coordinate: Coordinate
     ) -> Single<[NavigatorPlace]>
     func fetchPlaceDetails(placeId: String) -> Single<NavigatorPlace?>
-    func fetchDirections(
-        destination: NavigatorPlace,
-        originCoordinate: Coordinate,
-        waypoints: [NavigatorPlace],
-        avoidTolls: Bool,
-        avoidHighways: Bool,
-        departureTime: Date?
-    ) -> Single<NavigatorRoute?>
 }
 
 final class RouteBuilderManager {
@@ -58,47 +50,9 @@ extension RouteBuilderManager: RouteBuilderManagerProtocol {
 
     func fetchPlaceDetails(placeId: String) -> Single<NavigatorPlace?> {
         let request = SearchPlaceDetailsRequest(placeId: placeId)
-
+        
         return restAPITransport
             .callServerApi(requestBody: request)
             .map { NavigatorPlace.mapDetails(response: $0) }
-    }
-
-    func fetchDirections(
-        destination: NavigatorPlace,
-        originCoordinate: Coordinate,
-        waypoints: [NavigatorPlace] = [],
-        avoidTolls: Bool = false,
-        avoidHighways: Bool = false,
-        departureTime: Date? = nil
-    ) -> Single<NavigatorRoute?> {
-        let waypointCoords = waypoints.map {
-            (latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
-        }
-
-        let request = SearchPlaceDirectionsRequest(
-            originCoordinate: originCoordinate,
-            destinationCoordinate: Coordinate(
-                latitude: destination.coordinate.latitude,
-                longitude: destination.coordinate.longitude
-            ),
-            waypointCoordinates: waypointCoords,
-            avoidTolls: avoidTolls,
-            avoidHighways: avoidHighways,
-            departureTime: departureTime
-        )
-
-        return restAPITransport
-            .callServerApi(requestBody: request)
-            .map {
-                NavigatorRoute(
-                    destination: destination,
-                    waypoints: waypoints,
-                    avoidTolls: avoidTolls,
-                    avoidHighways: avoidHighways,
-                    departureTime: departureTime,
-                    response: $0
-                )
-            }
     }
 }

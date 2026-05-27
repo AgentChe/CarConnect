@@ -35,12 +35,14 @@ struct NavigatorRoute {
 
 // MARK: Public
 extension NavigatorRoute {
-    init?(destination: NavigatorPlace,
-          waypoints: [NavigatorPlace] = [],
-          avoidTolls: Bool = false,
-          avoidHighways: Bool = false,
-          departureTime: Date? = nil,
-          response: Any) {
+    init?(
+        response: Any,
+        destination: NavigatorPlace,
+        waypoints: [NavigatorPlace] = [],
+        avoidTolls: Bool = false,
+        avoidHighways: Bool = false,
+        departureTime: Date? = nil
+    ) {
         guard
             let json = response as? [String: Any],
             let routes = json["routes"] as? [[String: Any]],

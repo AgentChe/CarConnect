@@ -39,6 +39,8 @@ extension RouteBuilder {
         
         searchPlaceView.didSelectPlace = { [weak self, weak searchPlaceView] place in
             self?.hideSearchPlaceView(searchPlaceView)
+            
+            self?.showMenu(in: container) // TODO:
         }
 
         showSearchPlaceView(searchPlaceView, in: container)
@@ -76,6 +78,55 @@ private extension RouteBuilder {
             view.alpha = 0
         } completion: { _ in
             view.removeFromSuperview()
+        }
+    }
+    
+    func showMenu(in container: UIView) {
+        let view = RouteBuilderMenuView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            view.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            view.heightAnchor.constraint(equalToConstant: 230.landscapeVScale)
+        ])
+        
+        view.didClose = { [weak view] in
+            view?.removeFromSuperview()
+        }
+        
+        view.didAddStop = { [weak view] in
+            view?.removeFromSuperview()
+        }
+        
+        view.didRouteOptions = { [weak view] in
+            view?.removeFromSuperview()
+            
+            let routeOptions = RouteOptionsStorage.shared.options
+            self.showRouteOptions(options: routeOptions, in: container)
+        }
+        
+        view.didSetDepartureTime = { [weak view] in
+            view?.removeFromSuperview()
+        }
+    }
+    
+    func showRouteOptions(options: RouteOptions, in container: UIView) {
+        let view = RouteOptionsView(options: options)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            view.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            view.heightAnchor.constraint(equalToConstant: 182.landscapeVScale)
+        ])
+        
+        view.didClose = { [weak view] routeOptions in
+            view?.removeFromSuperview()
         }
     }
 }

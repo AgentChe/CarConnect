@@ -112,7 +112,7 @@ private extension SelectTemperatureTypeView {
         return view
     }
     
-    func makeItemButton(temperatureType: TemperatureType) -> SelectTemperatureTypeCellButton {
+    func makeItemButton(temperatureType: TemperatureUnit) -> SelectTemperatureTypeCellButton {
         let view = SelectTemperatureTypeCellButton(temperatureType: temperatureType)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)

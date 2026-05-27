@@ -13,9 +13,9 @@ final class SelectTemperatureTypeCellButton: UIButton {
     lazy var label = makeLabel()
     lazy var iconView = makeIconView()
     
-    private let temperatureType: TemperatureType
+    private let temperatureType: TemperatureUnit
     
-    init(temperatureType: TemperatureType) {
+    init(temperatureType: TemperatureUnit) {
         self.temperatureType = temperatureType
         
         super.init(frame: .zero)
@@ -31,7 +31,7 @@ final class SelectTemperatureTypeCellButton: UIButton {
 
 // MARK: Public
 extension SelectTemperatureTypeCellButton {
-    var didTap: Signal<TemperatureType> {
+    var didTap: Signal<TemperatureUnit> {
         rx.tap
             .compactMap { [weak self] in self?.temperatureType }
             .asSignal(onErrorSignalWith: .never())

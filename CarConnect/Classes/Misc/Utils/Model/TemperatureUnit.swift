@@ -5,7 +5,7 @@
 //  Created by Андрей Чернышев on 17.03.2026.
 //
 
-enum TemperatureType: Codable, Hashable {
+enum TemperatureUnit: String, Codable, Hashable {
     case celsius, fahrenheit
 }
 

@@ -16,7 +16,7 @@ final class NavigatorWeatherInfoView: UIView {
     
     private let weatherData: WeatherData
     
-    private lazy var temperatureType = TemperatureType.celsius // TODO: получать из настроек (стореджа)
+    private lazy var temperatureType = SettingsEnvironment.shared.temperatureUnit
     
     init(weatherData: WeatherData) {
         self.weatherData = weatherData

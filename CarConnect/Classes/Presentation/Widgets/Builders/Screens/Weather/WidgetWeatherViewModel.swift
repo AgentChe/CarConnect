@@ -41,7 +41,7 @@ extension WidgetWeatherViewModel {
         let didSelectFontColor: Signal<UIColor>
         let didEnableChangedTwentyFourHour: Signal<Bool>
         let didSelectLocation: Signal<Location>
-        let didSelectTemperatureType: Signal<TemperatureType>
+        let didSelectTemperatureType: Signal<TemperatureUnit>
         let didTapRestoreDefault: Signal<Void>
         let didTapOpenPreview: Signal<Void>
         let didTapSave: Signal<Void>
@@ -164,7 +164,7 @@ extension WidgetWeatherViewModel {
         didSelectFontColor: Signal<UIColor>,
         didEnableChangedTwentyFourHour: Signal<Bool>,
         didSelectLocation: Signal<Location>,
-        didSelectTemperatureType: Signal<TemperatureType>,
+        didSelectTemperatureType: Signal<TemperatureUnit>,
         didTapRestoreDefault: Signal<Void>
     ) -> Driver<WidgetWeatherConfiguration> {
         let font = Driver<WidgetsFonts>
@@ -229,7 +229,7 @@ extension WidgetWeatherViewModel {
                     .asDriver(onErrorDriveWith: .never())
             )
         
-        let temperatureType = Driver<TemperatureType>
+        let temperatureType = Driver<TemperatureUnit>
             .merge(
                 initialConfiguration.map { $0.temperatureType },
                 

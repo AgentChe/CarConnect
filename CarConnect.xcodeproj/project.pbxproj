@@ -278,6 +278,10 @@
 		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */; };
 		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
 		DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */; };
+		DE90F68F2FC6E24D00F5278D /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */; };
+		DE90F6902FC6E24D00F5278D /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */; };
+		DE90F6922FC6E3A900F5278D /* SettingsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */; };
+		DE90F6932FC6E3AA00F5278D /* SettingsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */; };
 		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
 		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
 		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
@@ -289,8 +293,8 @@
 		DEA5CF962F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF952F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift */; };
 		DEA5CF9A2F6958440045CBC0 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF992F6958440045CBC0 /* TimeFormat.swift */; };
 		DEA5CF9B2F6958580045CBC0 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF992F6958440045CBC0 /* TimeFormat.swift */; };
-		DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* Temperature.swift */; };
-		DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* Temperature.swift */; };
+		DEA5CF9D2F6958700045CBC0 /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */; };
+		DEA5CF9E2F6958700045CBC0 /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */; };
 		DEA5CFA22F6958C90045CBC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA12F6958C90045CBC0 /* Location.swift */; };
 		DEA5CFA32F6958CD0045CBC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA12F6958C90045CBC0 /* Location.swift */; };
 		DEA5CFA52F695BD70045CBC0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA42F695BD70045CBC0 /* Coordinate.swift */; };
@@ -842,6 +846,8 @@
 		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
 		DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedMonthDayWeekdayView.swift; sourceTree = "<group>"; };
+		DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceUnit.swift; sourceTree = "<group>"; };
+		DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnvironment.swift; sourceTree = "<group>"; };
 		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
 		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
 		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -852,7 +858,7 @@
 		DEA5CF932F6955190045CBC0 /* WidgetWeatherStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherStyle.swift; sourceTree = "<group>"; };
 		DEA5CF952F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherConfiguration.swift; sourceTree = "<group>"; };
 		DEA5CF992F6958440045CBC0 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
-		DEA5CF9C2F6958700045CBC0 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnit.swift; sourceTree = "<group>"; };
 		DEA5CFA12F6958C90045CBC0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DEA5CFA42F695BD70045CBC0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		DEA9C5592F751DCC00B8121E /* AnalogClockFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockFaceView.swift; sourceTree = "<group>"; };
@@ -2271,7 +2277,9 @@
 			children = (
 				DEEAAA3D2F727EF40072C702 /* Page */,
 				DEA5CF992F6958440045CBC0 /* TimeFormat.swift */,
-				DEA5CF9C2F6958700045CBC0 /* Temperature.swift */,
+				DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */,
+				DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */,
+				DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3785,6 +3793,7 @@
 				DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
+				DE90F68F2FC6E24D00F5278D /* DistanceUnit.swift in Sources */,
 				DE0879F82F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift in Sources */,
 				DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
 				DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */,
@@ -3854,8 +3863,9 @@
 				DEF08FE12F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DEDB36902F81655700DAF5FC /* WidgetPhotoStorageModel.swift in Sources */,
 				DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */,
-				DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */,
+				DEA5CF9D2F6958700045CBC0 /* TemperatureUnit.swift in Sources */,
 				DE51203E2F4572B00026C5CC /* GlobalDefinitions.swift in Sources */,
+				DE90F6932FC6E3AA00F5278D /* SettingsEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4027,6 +4037,7 @@
 				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DEEB9D542F6A91070041587F /* WeatherIconTemperatureView.swift in Sources */,
 				DEEAAAA52F73FC400072C702 /* CalendarClockView.swift in Sources */,
+				DE90F6902FC6E24D00F5278D /* DistanceUnit.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */,
 				DE376D7F2FC5DC8300EB9BE7 /* RouteBuilderManager.swift in Sources */,
@@ -4199,6 +4210,7 @@
 				DEF090022F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
+				DE90F6922FC6E3A900F5278D /* SettingsEnvironment.swift in Sources */,
 				DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */,
 				DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */,
 				DEEAAAAF2F741E0D0072C702 /* SplitFlapDividerView.swift in Sources */,
@@ -4220,7 +4232,7 @@
 				DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE63A22D2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift in Sources */,
 				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
-				DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */,
+				DEA5CF9E2F6958700045CBC0 /* TemperatureUnit.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
 				DE62B4072FC6059600AF529A /* SearchPlaceTableView.swift in Sources */,
 				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,

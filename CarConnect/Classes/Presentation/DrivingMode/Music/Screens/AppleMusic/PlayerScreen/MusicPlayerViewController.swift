@@ -1,5 +1,5 @@
 //
-//  AppleMusicPlayerViewController.swift
+//  MusicPlayerViewController.swift
 //  CarConnect
 //
 //  Created by Vitaliy Zagorodnov on 24.03.2026.
@@ -8,7 +8,7 @@
 import UIKit
 import MusicKit
 
-final class AppleMusicPlayerViewController: UIViewController {
+final class MusicPlayerViewController: UIViewController {
     private lazy var mainView = AppleMusicPlayerView()
     private let viewModel: AppleMusicPlayerViewModel
     
@@ -32,6 +32,8 @@ final class AppleMusicPlayerViewController: UIViewController {
         mainView.trackProgress.delegate = viewModel
         mainView.controlsView.delegate = viewModel
         
+        
+        mainView.backButton.isHidden = (navigationController?.viewControllers.count ?? 1) <= 1
         
         mainView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
         

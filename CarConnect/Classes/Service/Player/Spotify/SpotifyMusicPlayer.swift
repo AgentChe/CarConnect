@@ -65,7 +65,11 @@ final class SpotifyMusicPlayer: NSObject {
     /// Воспроизвести / поставить на паузу текущий трек.
     func togglePlaybackStatus() {
         guard let api = appRemote?.playerAPI else { return }
-        isPlaying ? api.pause(nil) : api.resume(nil)
+        if appRemote?.isConnected == false {
+            SpotifyConnectionService.shared.autorize()
+        } else {
+            isPlaying ? api.pause(nil) : api.resume(nil)
+        }
     }
 
     func toggleShuffleMode() {
@@ -121,16 +125,16 @@ final class SpotifyMusicPlayer: NSObject {
         overridePosition: TimeInterval? = nil
     ) {
         let basePosition = TimeInterval(state.playbackPosition) / 1000.0
-        let elapsed      = Date().timeIntervalSince(lastStateReceivedAt)
-        let currentTime  = overridePosition ?? (state.isPaused ? basePosition : basePosition + elapsed)
-        let duration     = TimeInterval(state.track.duration) / 1000.0
+        let elapsed = Date().timeIntervalSince(lastStateReceivedAt)
+        let currentTime = overridePosition ?? (state.isPaused ? basePosition : basePosition + elapsed)
+        let duration = TimeInterval(state.track.duration) / 1000.0
 
         let model = PlaybackModel(
-            currentTime:  min(currentTime, duration),
-            duration:     duration,
-            isPlaying:    !state.isPaused,
-            repeatMode:   RepeatMode(spotifyMode: state.playbackOptions.repeatMode),
-            shuffleMode:  state.playbackOptions.isShuffling ? .on : .off
+            currentTime: min(currentTime, duration),
+            duration: duration,
+            isPlaying: !state.isPaused,
+            repeatMode: RepeatMode(spotifyMode: state.playbackOptions.repeatMode),
+            shuffleMode: state.playbackOptions.isShuffling ? .on : .off
         )
         playbackPublisher.send(model)
     }
@@ -148,9 +152,9 @@ final class SpotifyMusicPlayer: NSObject {
                 artworkURL = tmp
             }
             self?.trackPublisher.send(TrackModel(
-                title:    track.name,
+                title: track.name,
                 subtitle: track.artist.name,
-                artwork:  artworkURL
+                artwork: artworkURL
             ))
         }
     }
@@ -163,8 +167,8 @@ final class SpotifyMusicPlayer: NSObject {
 extension SpotifyMusicPlayer: SPTAppRemotePlayerStateDelegate {
 
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-        let previousURI    = lastPlayerState?.track.uri
-        lastPlayerState    = playerState
+        let previousURI = lastPlayerState?.track.uri
+        lastPlayerState = playerState
         lastStateReceivedAt = Date()
 
         emitPlaybackModel(from: playerState)
@@ -180,9 +184,12 @@ extension SpotifyMusicPlayer: SPTAppRemotePlayerStateDelegate {
 private extension RepeatMode {
     init(spotifyMode: SPTAppRemotePlaybackOptionsRepeatMode) {
         switch spotifyMode {
-        case .off:     self = .none
-        case .track:   self = .one
-        case .context: self = .all
+        case .off:
+            self = .none
+        case .track:
+            self = .one
+        case .context:
+            self = .all
         @unknown default: self = .none
         }
     }

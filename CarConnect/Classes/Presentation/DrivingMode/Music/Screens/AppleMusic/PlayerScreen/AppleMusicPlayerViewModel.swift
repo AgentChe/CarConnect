@@ -91,7 +91,6 @@ extension AppleMusicPlayerViewModel: MusicPlayerProgressDelegate {
         case .spotify:
             SpotifyMusicPlayer.shared.seek(to: value)
         }
-        
     }
 }
 

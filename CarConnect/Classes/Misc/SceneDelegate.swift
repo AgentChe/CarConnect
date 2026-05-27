@@ -31,7 +31,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SpotifyConnectionService.shared.connect()
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
+    func sceneWillResignActive(_ scene: UIScene) {
         // Корректно отключаемся, иначе Spotify не узнает что можно освободить соединение.
         SpotifyConnectionService.shared.disconnect()
     }

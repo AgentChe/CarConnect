@@ -7,9 +7,10 @@
 
 import Foundation
 import Combine
+import StoreKit
 
 final class PlayerSourceAccessService {
-    let source: MusicSource
+    private let source: MusicSource
     private let appleMusicService: AppleMusicService
     private let spotifyConnectionService: SpotifyConnectionService
     
@@ -25,12 +26,8 @@ final class PlayerSourceAccessService {
         return appleMusicService.isAuthorized
     }
     
-    func checkAccessSpotify(handle: @escaping @MainActor (SpotifyConnectionState) -> Void) {
-        spotifyConnectionService.checkSpotifyAvailability()
-        
-        spotifyStateCancellable = spotifyConnectionService.statePublisher
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: handle)
+    func checkAccessSpotify() -> Bool {
+        return spotifyConnectionService.checkSpotifyAvailability()
     }
     
     func requestAuthorizationAppleMusic() async -> Bool {
@@ -39,30 +36,17 @@ final class PlayerSourceAccessService {
     }
     
     func requestAuthorizationSpotify() {
-        let value = spotifyConnectionService.statePublisher.value
-        
-        switch value {
-        case .spotifyNotInstalled:
-            spotifyConnectionService.openSpotifyInAppStore()
-        case .notAuthorized, .idle:
-            spotifyConnectionService.authorize()
-        case .authorizing, .connecting, .connected, .disconnected, .failed:
-            break
-        }
+        spotifyConnectionService.autorize()
     }
 }
 
 import UIKit
 import MusicKit
 
-final class PlayerAccessCoordinator {
+final class PlayerAccessCoordinator: NSObject {
     private let navigationController: UINavigationController
     private let source: MusicSource
     private let accessService: PlayerSourceAccessService
-    
-    // Храним слабую ссылку на текущий «корневой» контроллер этого flow,
-    // чтобы не дублировать его при повторных вызовах
-    private weak var currentRootVC: UIViewController?
     
     init(navigationController: UINavigationController, source: MusicSource) {
         self.navigationController = navigationController
@@ -77,50 +61,13 @@ final class PlayerAccessCoordinator {
                 ? setRoot(AppleMusicMainViewController.make(), animated: true)
                 : showAuthorizationRequired()
         case .spotify:
-            accessService.checkAccessSpotify { [weak self] in
-                self?.handleState($0)
-            }
+            accessService.checkAccessSpotify()
+                ? setRoot(MusicPlayerViewController(source: .spotify), animated: true)
+                : showAuthorizationRequired()
         case .radio:
             break
         }
         
-    }
-    
-    @MainActor
-    private func handleState(_ state: SpotifyConnectionState) {
-        switch state {
-
-        case .spotifyNotInstalled:
-            // Показать: "Spotify не установлен. Установить?"
-            // Кнопка «Установить» вызывает:
-            // SpotifyConnectionService.shared.openSpotifyInAppStore()
-            showAuthorizationRequired()
-
-        case .notAuthorized:
-            // Показать: "Войдите в Spotify для воспроизведения"
-            // Кнопка «Войти» вызывает:
-            // SpotifyConnectionService.shared.authorize()
-            showAuthorizationRequired()
-
-        case .authorizing, .connecting:
-            // Показать лоадер
-            break
-
-        case .connected:
-            // Показать полноценный плеер
-            setRoot(AppleMusicPlayerViewController(source: .spotify), animated: true)
-
-        case .disconnected:
-            // Соединение прервалось (Spotify ушёл в фон).
-            // Можно показать "Нет соединения" или тихо переподключиться:
-             SpotifyConnectionService.shared.connect()
-
-        case .failed:
-            showAuthorizationRequired()
-
-        case .idle:
-            showAuthorizationRequired()
-        }
     }
     
     private func showAuthorizationRequired() {
@@ -130,11 +77,9 @@ final class PlayerAccessCoordinator {
     }
     
     private func setRoot(_ viewController: UIViewController, animated: Bool) {
-        currentRootVC = viewController
         navigationController.setViewControllers([viewController], animated: animated)
     }
 }
-
 extension PlayerAccessCoordinator: AuthorizationRequiredViewControllerDelegate {
     func didTapButton() {
         switch source {

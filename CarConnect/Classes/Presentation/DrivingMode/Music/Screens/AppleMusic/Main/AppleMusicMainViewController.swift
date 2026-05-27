@@ -80,7 +80,7 @@ extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
             case .artist(let artist):
                 controller = AppleMusicArtistLibraryViewController(artist: artist)
             case .track(let track, _):
-                controller = AppleMusicPlayerViewController(
+                controller = MusicPlayerViewController(
                     source: .appleMusic(startItem: track, trackList: nil, parentCollectionID: nil)
                 )
             }

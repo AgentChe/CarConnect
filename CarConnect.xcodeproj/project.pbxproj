@@ -12,7 +12,7 @@
 		860BE55C2F72FB9F00311032 /* MusicPlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */; };
 		860BE5602F73147400311032 /* AppleMusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE55F2F73147400311032 /* AppleMusicPlayerView.swift */; };
 		860BE5642F73148500311032 /* AppleMusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5632F73148500311032 /* AppleMusicPlayerViewModel.swift */; };
-		860BE5662F73161700311032 /* AppleMusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5652F73161700311032 /* AppleMusicPlayerViewController.swift */; };
+		860BE5662F73161700311032 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5652F73161700311032 /* MusicPlayerViewController.swift */; };
 		860BE56B2F74702100311032 /* AppleMusicMainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE56A2F74702100311032 /* AppleMusicMainCollectionView.swift */; };
 		860BE56D2F74712000311032 /* AppleMusicMainItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE56C2F74712000311032 /* AppleMusicMainItemCell.swift */; };
 		860BE56F2F74740100311032 /* AppleMusicMainCategoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE56E2F74740100311032 /* AppleMusicMainCategoryItemCell.swift */; };
@@ -604,7 +604,7 @@
 		860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerProgressView.swift; sourceTree = "<group>"; };
 		860BE55F2F73147400311032 /* AppleMusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayerView.swift; sourceTree = "<group>"; };
 		860BE5632F73148500311032 /* AppleMusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayerViewModel.swift; sourceTree = "<group>"; };
-		860BE5652F73161700311032 /* AppleMusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayerViewController.swift; sourceTree = "<group>"; };
+		860BE5652F73161700311032 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		860BE56A2F74702100311032 /* AppleMusicMainCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicMainCollectionView.swift; sourceTree = "<group>"; };
 		860BE56C2F74712000311032 /* AppleMusicMainItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicMainItemCell.swift; sourceTree = "<group>"; };
 		860BE56E2F74740100311032 /* AppleMusicMainCategoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicMainCategoryItemCell.swift; sourceTree = "<group>"; };
@@ -1136,7 +1136,7 @@
 		860BE55E2F7313E300311032 /* PlayerScreen */ = {
 			isa = PBXGroup;
 			children = (
-				860BE5652F73161700311032 /* AppleMusicPlayerViewController.swift */,
+				860BE5652F73161700311032 /* MusicPlayerViewController.swift */,
 				860BE55F2F73147400311032 /* AppleMusicPlayerView.swift */,
 				860BE5632F73148500311032 /* AppleMusicPlayerViewModel.swift */,
 			);
@@ -4060,7 +4060,7 @@
 				DEABE6622F456CFC00089B9E /* Scalable.swift in Sources */,
 				86B2EDCD2F78229A006C0F3A /* AppleMusicLibraryViewModel.swift in Sources */,
 				862BC1362F747B57000ECDC9 /* AppleMusicLibrarySection.swift in Sources */,
-				860BE5662F73161700311032 /* AppleMusicPlayerViewController.swift in Sources */,
+				860BE5662F73161700311032 /* MusicPlayerViewController.swift in Sources */,
 				DE1DA0522F4E005E00742E69 /* WidgetBuilderFontColorCustomButton.swift in Sources */,
 				DE6083AA2F599B8D0025BB2D /* WidgetCalendarMediator.swift in Sources */,
 				DEA5CFA22F6958C90045CBC0 /* Location.swift in Sources */,

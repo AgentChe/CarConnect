@@ -110,6 +110,8 @@ private extension RouteBuilder {
         
         view.didSetDepartureTime = { [weak view] in
             view?.removeFromSuperview()
+            
+            self.showDepartureTime(date: nil, in: container)
         }
     }
     
@@ -126,6 +128,31 @@ private extension RouteBuilder {
         ])
         
         view.didClose = { [weak view] routeOptions in
+            view?.removeFromSuperview()
+        }
+    }
+    
+    func showDepartureTime(date: Date?, in container: UIView) {
+        let view = RouteBuilderDepartureTimeView(date: date)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            view.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            view.heightAnchor.constraint(equalToConstant: 290.landscapeVScale)
+        ])
+        
+        view.didClose = { [weak view] in
+            view?.removeFromSuperview()
+        }
+        
+        view.didReset = { [weak view] in
+            view?.removeFromSuperview()
+        }
+        
+        view.didDone = { [weak view] date in
             view?.removeFromSuperview()
         }
     }

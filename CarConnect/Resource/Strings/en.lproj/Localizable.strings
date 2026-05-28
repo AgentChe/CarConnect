@@ -181,3 +181,5 @@
 "Navigator.RouteBuilderMenu.AddStop" = "Add stop";
 "Navigator.RouteBuilderMenu.RouteOptions" = "Route options";
 "Navigator.RouteBuilderMenu.SetDepartureTime" = "Set departure time";
+"Navigator.RouteBuilderDepartureTime.Title" = "Departure time";
+"Navigator.RouteBuilderDepartureTime.Reset" = "Reset";

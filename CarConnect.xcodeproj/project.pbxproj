@@ -294,6 +294,10 @@
 		DE90F6BE2FC7515800F5278D /* RouteBuilderMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6BD2FC7515800F5278D /* RouteBuilderMenuViewModel.swift */; };
 		DE90F6C02FC7516000F5278D /* RouteBuilderMenuRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6BF2FC7516000F5278D /* RouteBuilderMenuRootView.swift */; };
 		DE90F6C32FC7533300F5278D /* RouteBuilderMenuOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */; };
+		DE90F6C62FC7692200F5278D /* RouteBuilderDepartureTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */; };
+		DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */; };
+		DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */; };
+		DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */; };
 		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
 		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
 		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
@@ -872,6 +876,10 @@
 		DE90F6BD2FC7515800F5278D /* RouteBuilderMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuViewModel.swift; sourceTree = "<group>"; };
 		DE90F6BF2FC7516000F5278D /* RouteBuilderMenuRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuRootView.swift; sourceTree = "<group>"; };
 		DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuOptionButton.swift; sourceTree = "<group>"; };
+		DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeView.swift; sourceTree = "<group>"; };
+		DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeViewModel.swift; sourceTree = "<group>"; };
+		DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeRootView.swift; sourceTree = "<group>"; };
+		DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewView.swift; sourceTree = "<group>"; };
 		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
 		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
 		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -1649,6 +1657,7 @@
 		DE376D732FC5D8DC00EB9BE7 /* RouteBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				DE90F6C42FC7690F00F5278D /* DepartureTime */,
 				DE90F6BA2FC7513F00F5278D /* RouteBuilderMenu */,
 				DE90F6AD2FC6F80C00F5278D /* RouteOptions */,
 				DE90F69E2FC6EA7500F5278D /* RouteBuilderPreview */,
@@ -2258,6 +2267,7 @@
 				DE90F6A52FC6EC5400F5278D /* API */,
 				DE90F69F2FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift */,
 				DE90F6A12FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift */,
+				DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */,
 			);
 			path = RouteBuilderPreview;
 			sourceTree = "<group>";
@@ -2332,6 +2342,16 @@
 				DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DE90F6C42FC7690F00F5278D /* DepartureTime */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */,
+				DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */,
+				DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */,
+			);
+			path = DepartureTime;
 			sourceTree = "<group>";
 		};
 		DE97326C2FBF63A7002F032E /* Navigator */ = {
@@ -4108,6 +4128,7 @@
 				DE592C502F49BD1800ABA60E /* ProfileBindingRequest.swift in Sources */,
 				DEEAAA432F727F3D0072C702 /* Page.swift in Sources */,
 				DEF08FF82F7E80650066EE07 /* WidgetCarLogoViewModel.swift in Sources */,
+				DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
@@ -4159,6 +4180,7 @@
 				DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */,
 				862BC1342F747B44000ECDC9 /* AppleMusicLibraryCategory.swift in Sources */,
 				DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */,
+				DE90F6C62FC7692200F5278D /* RouteBuilderDepartureTimeView.swift in Sources */,
 				DE1DA0A72F51E14500742E69 /* WidgetTextService.swift in Sources */,
 				DEF08FEA2F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
@@ -4276,7 +4298,9 @@
 				DEEB9D752F6A924C0041587F /* WidgetsPresetsTemplateDigitalWeatherClockCell.swift in Sources */,
 				DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */,
 				DEEB9D482F6A8CF20041587F /* WidgetWeatherService.swift in Sources */,
+				DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */,
 				DEDB36702F813C9600DAF5FC /* WidgetPhotoWIthTextStorageModel.swift in Sources */,
+				DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */,
 				DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,

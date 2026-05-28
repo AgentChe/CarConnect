@@ -19,35 +19,375 @@ final class RouteBuilder {
 
 // MARK: Public
 extension RouteBuilder {
-    func buildRoute(currentLocation: Coordinate) {
-        guard let container else { return }
+    // TODO: рисовать маршрут в момент превью
+    func buildRoute(
+        departureLocation: Coordinate,
+        didCancel: (() -> Void)? = nil,
+        didStart: ((NavigatorRoute) -> Void)? = nil
+    ) {
+        searchDestinationPlace(departureLocation: departureLocation, didClose: {
+            didCancel?()
+        }, searchedPlace: { [weak self] destinationPlace in
+            self?.showRoutePreview(
+                departureLocation: departureLocation,
+                destinationPlace: destinationPlace,
+                didClose: {
+                    didCancel?()
+                },
+                didStart: { route in
+                    didStart?(route)
+                }
+            )
+        })
+    }
+}
 
-        let searchPlaceView = SearchPlaceView(coordinate: currentLocation)
+// MARK: Private
+private extension RouteBuilder {
+    func searchDestinationPlace(
+        departureLocation: Coordinate,
+        didClose: (() -> Void)? = nil,
+        searchedPlace: @escaping (NavigatorPlace) -> Void
+    ) {
+        guard let container else { return }
+        
+        let searchPlaceView = SearchPlaceView(coordinate: departureLocation)
         searchPlaceView.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(searchPlaceView)
-
+        
         NSLayoutConstraint.activate([
             searchPlaceView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
             searchPlaceView.topAnchor.constraint(equalTo: container.topAnchor, constant: 16.landscapeVScale),
             searchPlaceView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             searchPlaceView.widthAnchor.constraint(equalToConstant: 356.landscapeHScale)
         ])
-
+        
         searchPlaceView.didClose = { [weak self, weak searchPlaceView] in
-            self?.hideSearchPlaceView(searchPlaceView)
+            self?.animateHide(view: searchPlaceView) {
+                didClose?()
+            }
         }
         
         searchPlaceView.didSelectPlace = { [weak self, weak searchPlaceView] place in
-            self?.hideSearchPlaceView(searchPlaceView)
+            self?.animateHide(view: searchPlaceView) {
+                searchedPlace(place)
+            }
         }
-
-        showSearchPlaceView(searchPlaceView, in: container)
+        
+        animateShow(view: searchPlaceView, in: container)
     }
-}
-
-// MARK: Private
-private extension RouteBuilder {
-    func showSearchPlaceView(_ view: SearchPlaceView, in container: UIView) {
+    
+    func showRoutePreview(
+        departureLocation: Coordinate,
+        destinationPlace: NavigatorPlace,
+        routeOptions: RouteOptions = RouteOptionsStorage.shared.options,
+        waypoints: [NavigatorPlace] = [],
+        departureTime: Date? = nil,
+        didClose: (() -> Void)? = nil,
+        didStart: ((NavigatorRoute) -> Void)? = nil
+    ) {
+        guard let container else { return }
+        
+        let routePreviewView = RouteBuilderPreviewView(
+            departureCoordinate: departureLocation,
+            destinationPlace: destinationPlace,
+            routeOptions: routeOptions,
+            waypoints: waypoints,
+            departureTime: departureTime
+        )
+        routePreviewView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(routePreviewView)
+        
+        NSLayoutConstraint.activate([
+            routePreviewView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            routePreviewView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            routePreviewView.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            routePreviewView.heightAnchor.constraint(equalToConstant: 136.landscapeHScale)
+        ])
+        
+        routePreviewView.didClose = { [weak self, weak routePreviewView] in
+            self?.animateHide(view: routePreviewView) {
+                didClose?()
+            }
+        }
+        
+        routePreviewView.didTapMenu = { [weak self, weak routePreviewView] in
+            self?.animateHide(view: routePreviewView) {
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClose,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        routePreviewView.didTapAddStop = { [weak self, weak routePreviewView] in
+            self?.animateHide(view: routePreviewView) {
+                self?.searchDestinationPlace(
+                    departureLocation: departureLocation,
+                    didClose: {
+                        self?.showRoutePreview(
+                            departureLocation: departureLocation,
+                            destinationPlace: destinationPlace,
+                            routeOptions: routeOptions,
+                            waypoints: waypoints,
+                            departureTime: departureTime,
+                            didClose: didClose,
+                            didStart: didStart
+                        )
+                    },
+                    searchedPlace: { waypoint in
+                        self?.showRoutePreview(
+                            departureLocation: departureLocation,
+                            destinationPlace: destinationPlace,
+                            routeOptions: routeOptions,
+                            waypoints: waypoints + [waypoint],
+                            departureTime: departureTime,
+                            didClose: didClose,
+                            didStart: didStart
+                        )
+                    }
+                )
+            }
+        }
+        
+        routePreviewView.didTapStart = { [weak self, weak routePreviewView] route in
+            self?.animateHide(view: routePreviewView) {
+                didStart?(route)
+            }
+        }
+        
+        animateShow(view: routePreviewView, in: container)
+    }
+    
+    func showMenu(
+        departureLocation: Coordinate,
+        destinationPlace: NavigatorPlace,
+        routeOptions: RouteOptions,
+        waypoints: [NavigatorPlace],
+        departureTime: Date?,
+        didClosePreview: (() -> Void)?,
+        didStart: ((NavigatorRoute) -> Void)?
+    ) {
+        guard let container else { return }
+        
+        let menuView = RouteBuilderMenuView()
+        menuView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(menuView)
+        
+        NSLayoutConstraint.activate([
+            menuView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            menuView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            menuView.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            menuView.heightAnchor.constraint(equalToConstant: 246.landscapeHScale)
+        ])
+        
+        menuView.didClose = { [weak self, weak menuView] in
+            self?.animateHide(view: menuView) {
+                self?.showRoutePreview(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClose: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        menuView.didAddStop = { [weak self, weak menuView] in
+            self?.animateHide(view: menuView) {
+                self?.addStopFromMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        menuView.didRouteOptions = { [weak self, weak menuView] in
+            self?.animateHide(view: menuView) {
+                self?.routeOptions(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        menuView.didSetDepartureTime = { [weak self, weak menuView] in
+            self?.animateHide(view: menuView) {
+                self?.setDepartureTime(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        animateShow(view: menuView, in: container)
+    }
+    
+    func addStopFromMenu(
+        departureLocation: Coordinate,
+        destinationPlace: NavigatorPlace,
+        routeOptions: RouteOptions,
+        waypoints: [NavigatorPlace],
+        departureTime: Date?,
+        didClosePreview: (() -> Void)?,
+        didStart: ((NavigatorRoute) -> Void)?
+    ) {
+        searchDestinationPlace(
+            departureLocation: departureLocation,
+            didClose: { [weak self] in
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            },
+            searchedPlace: { [weak self] waypoint in
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints + [waypoint],
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        )
+    }
+    
+    func routeOptions(
+        departureLocation: Coordinate,
+        destinationPlace: NavigatorPlace,
+        routeOptions: RouteOptions,
+        waypoints: [NavigatorPlace],
+        departureTime: Date?,
+        didClosePreview: (() -> Void)?,
+        didStart: ((NavigatorRoute) -> Void)?
+    ) {
+        guard let container else { return }
+        
+        let routeOptionsView = RouteOptionsView(options: routeOptions)
+        routeOptionsView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(routeOptionsView)
+        
+        NSLayoutConstraint.activate([
+            routeOptionsView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            routeOptionsView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            routeOptionsView.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            routeOptionsView.heightAnchor.constraint(equalToConstant: 210.landscapeHScale)
+        ])
+        
+        routeOptionsView.didClose = { [weak self, weak routeOptionsView] options in
+            self?.animateHide(view: routeOptionsView) {
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: options,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        animateShow(view: routeOptionsView, in: container)
+    }
+    
+    func setDepartureTime(
+        departureLocation: Coordinate,
+        destinationPlace: NavigatorPlace,
+        routeOptions: RouteOptions,
+        waypoints: [NavigatorPlace],
+        departureTime: Date?,
+        didClosePreview: (() -> Void)?,
+        didStart: ((NavigatorRoute) -> Void)?
+    ) {
+        guard let container else { return }
+        
+        let setDepartureTimeView = RouteBuilderDepartureTimeView(date: departureTime)
+        setDepartureTimeView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(setDepartureTimeView)
+        
+        NSLayoutConstraint.activate([
+            setDepartureTimeView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.landscapeHScale),
+            setDepartureTimeView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            setDepartureTimeView.widthAnchor.constraint(equalToConstant: 325.landscapeHScale),
+            setDepartureTimeView.heightAnchor.constraint(equalToConstant: 290.landscapeHScale)
+        ])
+        
+        setDepartureTimeView.didClose = { [weak self, weak setDepartureTimeView] in
+            self?.animateHide(view: setDepartureTimeView) {
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: departureTime,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        setDepartureTimeView.didReset = { [weak self, weak setDepartureTimeView] in
+            self?.animateHide(view: setDepartureTimeView) {
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: nil,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        setDepartureTimeView.didDone = { [weak self, weak setDepartureTimeView] date in
+            self?.animateHide(view: setDepartureTimeView) {
+                self?.showMenu(
+                    departureLocation: departureLocation,
+                    destinationPlace: destinationPlace,
+                    routeOptions: routeOptions,
+                    waypoints: waypoints,
+                    departureTime: date,
+                    didClosePreview: didClosePreview,
+                    didStart: didStart
+                )
+            }
+        }
+        
+        animateShow(view: setDepartureTimeView, in: container)
+    }
+    
+    func animateShow(view: UIView, in container: UIView) {
         let offset = container.bounds.height
         view.transform = CGAffineTransform(translationX: 0, y: offset)
         view.alpha = 0
@@ -64,11 +404,11 @@ private extension RouteBuilder {
         }
     }
 
-    func hideSearchPlaceView(_ view: SearchPlaceView?) {
+    func animateHide(view: UIView?, completion: (() -> Void)? = nil) {
         guard let view, let container = view.superview else { return }
 
         UIView.animate(
-            withDuration: 0.25,
+            withDuration: 0.3,
             delay: 0,
             options: .curveEaseIn
         ) {
@@ -76,6 +416,8 @@ private extension RouteBuilder {
             view.alpha = 0
         } completion: { _ in
             view.removeFromSuperview()
+            
+            completion?()
         }
     }
 }

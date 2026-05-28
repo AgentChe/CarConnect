@@ -13,7 +13,7 @@ struct WidgetWeatherConfiguration: Codable, Hashable {
     @CodableColor var textColor: UIColor
     let timeFormat: TimeFormat
     let location: Location
-    let temperatureType: TemperatureType
+    let temperatureType: TemperatureUnit
     
     static func `default`(for style: WidgetWeatherStyle) -> WidgetWeatherConfiguration {
         let textColor: UIColor = {
@@ -31,7 +31,7 @@ struct WidgetWeatherConfiguration: Codable, Hashable {
             textColor: textColor,
             timeFormat: TimeFormat.twentyFourHour,
             location: Location.newYork(),
-            temperatureType: TemperatureType.celsius
+            temperatureType: TemperatureUnit.celsius
         )
     }
 }

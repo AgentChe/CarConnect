@@ -14,10 +14,10 @@ final class SelectTemperatureTypeViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private let initialTemperatureType: TemperatureType
-    private let didSelect: (TemperatureType) -> Void
+    private let initialTemperatureType: TemperatureUnit
+    private let didSelect: (TemperatureUnit) -> Void
     
-    private init(temperatureType: TemperatureType, didSelect: @escaping (TemperatureType) -> Void) {
+    private init(temperatureType: TemperatureUnit, didSelect: @escaping (TemperatureUnit) -> Void) {
         self.initialTemperatureType = temperatureType
         self.didSelect = didSelect
         
@@ -60,7 +60,7 @@ final class SelectTemperatureTypeViewController: UIViewController {
 
 // MARK: Make
 extension SelectTemperatureTypeViewController {
-    static func make(temperatureType: TemperatureType, didSelect: @escaping (TemperatureType) -> Void) -> SelectTemperatureTypeViewController {
+    static func make(temperatureType: TemperatureUnit, didSelect: @escaping (TemperatureUnit) -> Void) -> SelectTemperatureTypeViewController {
         SelectTemperatureTypeViewController(temperatureType: temperatureType, didSelect: didSelect)
     }
 }

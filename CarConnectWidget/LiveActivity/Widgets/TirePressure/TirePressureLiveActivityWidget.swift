@@ -11,7 +11,7 @@ import SwiftUI
 
 struct TirePressureLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
-        let isMetric = true // TODO: в дальнейшем заменить на реальное значение propsUnitsPressure (метрика, выбранная юзером в настройках)
+        let isMetric = SettingsEnvironment.shared.distanceUnit == .metric
         
         return ActivityConfiguration(for: TirePressureLiveActivityAttributes.self) { context in
             let view = TirePressureLockScreenView(context: context, isMetric: isMetric)

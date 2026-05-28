@@ -16,31 +16,18 @@ struct NavigatorRoute {
     var avoidTolls: Bool
     var avoidHighways: Bool
     var departureTime: Date?
-
-    var formattedDuration: String {
-        let totalMinutes = durationSeconds / 60
-        let hours = totalMinutes / 60
-        let minutes = totalMinutes % 60
-        if hours > 0 {
-            return "\(hours) hr \(minutes) min"
-        }
-        return "\(minutes) min"
-    }
-
-    var formattedDistance: String {
-        let km = Double(distanceMeters) / 1000.0
-        return String(format: "%.1f km", km)
-    }
 }
 
 // MARK: Public
 extension NavigatorRoute {
-    init?(destination: NavigatorPlace,
-          waypoints: [NavigatorPlace] = [],
-          avoidTolls: Bool = false,
-          avoidHighways: Bool = false,
-          departureTime: Date? = nil,
-          response: Any) {
+    init?(
+        response: Any,
+        destination: NavigatorPlace,
+        waypoints: [NavigatorPlace] = [],
+        avoidTolls: Bool = false,
+        avoidHighways: Bool = false,
+        departureTime: Date? = nil
+    ) {
         guard
             let json = response as? [String: Any],
             let routes = json["routes"] as? [[String: Any]],

@@ -298,6 +298,7 @@
 		DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */; };
 		DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */; };
 		DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */; };
+		DE90F6CF2FC893A400F5278D /* RBPIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */; };
 		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
 		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
 		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
@@ -880,6 +881,7 @@
 		DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeViewModel.swift; sourceTree = "<group>"; };
 		DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeRootView.swift; sourceTree = "<group>"; };
 		DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewView.swift; sourceTree = "<group>"; };
+		DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPIconButton.swift; sourceTree = "<group>"; };
 		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
 		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
 		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -2263,6 +2265,7 @@
 		DE90F69E2FC6EA7500F5278D /* RouteBuilderPreview */ = {
 			isa = PBXGroup;
 			children = (
+				DE90F6CD2FC8937300F5278D /* View */,
 				DE90F6A92FC6ED3F00F5278D /* Model */,
 				DE90F6A52FC6EC5400F5278D /* API */,
 				DE90F69F2FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift */,
@@ -2352,6 +2355,14 @@
 				DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */,
 			);
 			path = DepartureTime;
+			sourceTree = "<group>";
+		};
+		DE90F6CD2FC8937300F5278D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE97326C2FBF63A7002F032E /* Navigator */ = {
@@ -4104,6 +4115,7 @@
 				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
 				DE6083AE2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift in Sources */,
+				DE90F6CF2FC893A400F5278D /* RBPIconButton.swift in Sources */,
 				860BE5712F7476A000311032 /* AppleMusicMainSectionHeaderView.swift in Sources */,
 				860BE5642F73148500311032 /* AppleMusicPlayerViewModel.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,

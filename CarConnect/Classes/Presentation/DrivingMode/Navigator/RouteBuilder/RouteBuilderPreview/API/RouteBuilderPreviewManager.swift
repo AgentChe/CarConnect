@@ -10,11 +10,14 @@ import RxSwift
 protocol RouteBuilderPreviewManagerProtocol {
     func fetchDirections(
         destination: NavigatorPlace,
-        originCoordinate: Coordinate,
+        departureCoordinate: Coordinate,
         waypoints: [NavigatorPlace],
         avoidTolls: Bool,
         avoidHighways: Bool,
-        departureTime: Date?
+        departureTime: Date?,
+        police: Bool,
+        speedCameras: Bool,
+        traffic: Bool
     ) -> Single<NavigatorRoute?>
 }
 
@@ -26,18 +29,21 @@ final class RouteBuilderPreviewManager {
 extension RouteBuilderPreviewManager: RouteBuilderPreviewManagerProtocol {
     func fetchDirections(
         destination: NavigatorPlace,
-        originCoordinate: Coordinate,
+        departureCoordinate: Coordinate,
         waypoints: [NavigatorPlace] = [],
         avoidTolls: Bool = false,
         avoidHighways: Bool = false,
-        departureTime: Date? = nil
+        departureTime: Date? = nil,
+        police: Bool = false,
+        speedCameras: Bool = false,
+        traffic: Bool = false
     ) -> Single<NavigatorRoute?> {
         let waypointCoords = waypoints.map {
             (latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
         }
 
         let request = SearchPlaceDirectionsRequest(
-            originCoordinate: originCoordinate,
+            originCoordinate: departureCoordinate,
             destinationCoordinate: Coordinate(
                 latitude: destination.coordinate.latitude,
                 longitude: destination.coordinate.longitude
@@ -45,7 +51,10 @@ extension RouteBuilderPreviewManager: RouteBuilderPreviewManagerProtocol {
             waypointCoordinates: waypointCoords,
             avoidTolls: avoidTolls,
             avoidHighways: avoidHighways,
-            departureTime: departureTime
+            departureTime: departureTime,
+            police: police,
+            speedCameras: speedCameras,
+            traffic: traffic
         )
 
         return restAPITransport

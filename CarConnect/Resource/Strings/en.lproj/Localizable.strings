@@ -16,6 +16,12 @@
 "Save" = "Save";
 "Delete" = "Delete";
 "SearchPlaceholder" = "Search";
+"hr" = "hr";
+"min" = "min";
+"km" = "km";
+"mi" = "mi";
+"km/h" = "km/h";
+"mph" = "mph";
 
 // MARK: Main
 "Main.Tab.Garage" = "Garage";
@@ -183,3 +189,6 @@
 "Navigator.RouteBuilderMenu.SetDepartureTime" = "Set departure time";
 "Navigator.RouteBuilderDepartureTime.Title" = "Departure time";
 "Navigator.RouteBuilderDepartureTime.Reset" = "Reset";
+"Navigator.RouteBuilderPreview.AddStop" = "Add stop";
+"Navigator.RouteBuilderPreview.Start" = "Start";
+"Navigator.RouteBuilderPreview.Info" = "%@ ∙ %@";

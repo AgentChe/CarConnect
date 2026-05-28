@@ -14,6 +14,9 @@ struct SearchPlaceDirectionsRequest: APIRequestBody {
     let avoidTolls: Bool
     let avoidHighways: Bool
     let departureTime: Date?
+    let police: Bool // TODO:
+    let speedCameras: Bool // TODO:
+    let traffic: Bool // TODO: 
 
     var url: String {
         "https://maps.googleapis.com/maps/api/directions/json"

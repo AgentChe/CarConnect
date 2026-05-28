@@ -59,7 +59,7 @@ private extension NavigatorViewController {
         case .openSettings:
             openSettings()
         case .showRouteBuilder(let coordinate):
-            routeBuilder.buildRoute(currentLocation: coordinate)
+            routeBuilder.buildRoute(departureLocation: coordinate)
         }
     }
 

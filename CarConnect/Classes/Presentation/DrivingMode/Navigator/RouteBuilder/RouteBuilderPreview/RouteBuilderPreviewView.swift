@@ -14,6 +14,7 @@ final class RouteBuilderPreviewView: UIView {
     var didTapMenu: (() -> Void)?
     var didTapAddStop: (() -> Void)?
     var didTapStart: ((NavigatorRoute) -> Void)?
+    var didReceiveRoute: ((NavigatorRoute?) -> Void)?
     
     private lazy var rootView = makeRootView()
     
@@ -77,8 +78,10 @@ private extension RouteBuilderPreviewView {
             .disposed(by: disposeBag)
         
         output.route
-            .drive(Binder(rootView) { base, route in
-                base.setup(route: route)
+            .drive(Binder(self) { base, route in
+                base.rootView.setup(route: route)
+                
+                base.didReceiveRoute?(route)
             })
             .disposed(by: disposeBag)
     }

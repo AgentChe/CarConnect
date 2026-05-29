@@ -19,12 +19,12 @@ final class RouteBuilder {
 
 // MARK: Public
 extension RouteBuilder {
-    // TODO: рисовать маршрут в момент превью
     func buildRoute(
         departureLocation: Coordinate,
         didCancel: (() -> Void)? = nil,
         didStart: ((NavigatorRoute) -> Void)? = nil,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)? = nil
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)? = nil,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)? = nil
     ) {
         searchDestinationPlace(
             departureLocation: departureLocation,
@@ -41,7 +41,8 @@ extension RouteBuilder {
                     didStart: { route in
                         didStart?(route)
                     },
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             },
             didLookingAtPresetPlaces: didLookingAtPresetPlaces
@@ -101,7 +102,8 @@ private extension RouteBuilder {
         departureTime: Date? = nil,
         didClose: (() -> Void)? = nil,
         didStart: ((NavigatorRoute) -> Void)? = nil,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)?
     ) {
         guard let container else { return }
         
@@ -123,6 +125,8 @@ private extension RouteBuilder {
         ])
         
         routePreviewView.didClose = { [weak self, weak routePreviewView] in
+            didReceiveRoute?(nil)
+            
             self?.animateHide(view: routePreviewView) {
                 didClose?()
             }
@@ -138,7 +142,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClose,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -156,7 +161,8 @@ private extension RouteBuilder {
                             departureTime: departureTime,
                             didClose: didClose,
                             didStart: didStart,
-                            didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                            didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                            didReceiveRoute: didReceiveRoute
                         )
                     },
                     searchedPlace: { waypoint in
@@ -168,7 +174,8 @@ private extension RouteBuilder {
                             departureTime: departureTime,
                             didClose: didClose,
                             didStart: didStart,
-                            didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                            didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                            didReceiveRoute: didReceiveRoute
                         )
                     },
                     didLookingAtPresetPlaces: didLookingAtPresetPlaces
@@ -182,6 +189,10 @@ private extension RouteBuilder {
             }
         }
         
+        routePreviewView.didReceiveRoute = { route in
+            didReceiveRoute?(route)
+        }
+        
         animateShow(view: routePreviewView, in: container)
     }
     
@@ -193,7 +204,8 @@ private extension RouteBuilder {
         departureTime: Date?,
         didClosePreview: (() -> Void)?,
         didStart: ((NavigatorRoute) -> Void)?,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)?
     ) {
         guard let container else { return }
         
@@ -218,7 +230,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClose: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -233,7 +246,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -248,7 +262,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -263,7 +278,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -279,7 +295,8 @@ private extension RouteBuilder {
         departureTime: Date?,
         didClosePreview: (() -> Void)?,
         didStart: ((NavigatorRoute) -> Void)?,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)?
     ) {
         searchDestinationPlace(
             departureLocation: departureLocation,
@@ -292,7 +309,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             },
             searchedPlace: { [weak self] waypoint in
@@ -304,7 +322,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             },
             didLookingAtPresetPlaces: didLookingAtPresetPlaces
@@ -319,7 +338,8 @@ private extension RouteBuilder {
         departureTime: Date?,
         didClosePreview: (() -> Void)?,
         didStart: ((NavigatorRoute) -> Void)?,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)?
     ) {
         guard let container else { return }
         
@@ -344,7 +364,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -360,7 +381,8 @@ private extension RouteBuilder {
         departureTime: Date?,
         didClosePreview: (() -> Void)?,
         didStart: ((NavigatorRoute) -> Void)?,
-        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?
+        didLookingAtPresetPlaces: (([NavigatorPlace]?) -> Void)?,
+        didReceiveRoute: ((NavigatorRoute?) -> Void)?
     ) {
         guard let container else { return }
         
@@ -385,7 +407,8 @@ private extension RouteBuilder {
                     departureTime: departureTime,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -400,7 +423,8 @@ private extension RouteBuilder {
                     departureTime: nil,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }
@@ -415,7 +439,8 @@ private extension RouteBuilder {
                     departureTime: date,
                     didClosePreview: didClosePreview,
                     didStart: didStart,
-                    didLookingAtPresetPlaces: didLookingAtPresetPlaces
+                    didLookingAtPresetPlaces: didLookingAtPresetPlaces,
+                    didReceiveRoute: didReceiveRoute
                 )
             }
         }

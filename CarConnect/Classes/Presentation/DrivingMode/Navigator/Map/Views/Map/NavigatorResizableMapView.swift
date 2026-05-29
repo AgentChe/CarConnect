@@ -54,6 +54,10 @@ extension NavigatorResizableMapView {
     func setupMarkers(places: [NavigatorPlace]?) {
         mapView?.drawMarkers(places: places)
     }
+    
+    func drawRoute(_ route: NavigatorRoute?) {
+        mapView?.drawRoute(route)
+    }
 
     var didTapResize: Signal<Void> {
         didTapResizeTrigger.asSignal()

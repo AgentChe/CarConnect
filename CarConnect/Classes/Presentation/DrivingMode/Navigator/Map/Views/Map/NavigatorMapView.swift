@@ -52,6 +52,21 @@ extension NavigatorMapView {
         }
     }
     
+    func drawRoute(_ route: NavigatorRoute?) {
+        googleMapView.clear()
+        
+        guard let route, let path = GMSPath(fromEncodedPath: route.encodedPolyline) else { return }
+        
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 4
+        polyline.strokeColor = Appearance.color_4178F6
+        polyline.map = googleMapView
+        
+        let bounds = GMSCoordinateBounds(path: path)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 40)
+        googleMapView.animate(with: update)
+    }
+    
     func setup(mapPresentationState: NavigatorResizableMapView.MapPresentationState) {
         let imageName: String = {
             switch mapPresentationState {

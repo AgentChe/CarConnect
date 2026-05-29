@@ -65,12 +65,19 @@ private extension NavigatorViewController {
                 departureLocation: coordinate,
                 didCancel: { [weak self] in
                     self?.mainView.mapView.setup(buildRouteHidden: false)
+                    self?.mainView.mapView.setupMarkers(places: nil)
+                    self?.mainView.mapView.drawRoute(nil)
                 },
                 didStart: { [weak self] route in
                     self?.mainView.mapView.setup(buildRouteHidden: false)
+                    self?.mainView.mapView.setupMarkers(places: nil)
+                    self?.mainView.mapView.drawRoute(nil)
                 },
                 didLookingAtPresetPlaces: { [weak self] places in
                     self?.mainView.mapView.setupMarkers(places: places)
+                },
+                didReceiveRoute: { [weak self] route in
+                    self?.mainView.mapView.drawRoute(route)
                 }
             )
         }

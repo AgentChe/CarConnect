@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 import GoogleMaps
 
 final class NavigatorMapView: UIView {
@@ -37,6 +38,20 @@ final class NavigatorMapView: UIView {
 
 // MARK: Public
 extension NavigatorMapView {
+    func drawMarkers(places: [NavigatorPlace]?) {
+        googleMapView.clear()
+
+        places?.forEach { place in
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(
+                latitude: place.coordinate.latitude,
+                longitude: place.coordinate.longitude
+            )
+            marker.title = place.name
+            marker.map = googleMapView
+        }
+    }
+    
     func setup(mapPresentationState: NavigatorResizableMapView.MapPresentationState) {
         let imageName: String = {
             switch mapPresentationState {

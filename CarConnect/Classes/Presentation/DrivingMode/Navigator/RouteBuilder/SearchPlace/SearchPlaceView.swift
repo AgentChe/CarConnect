@@ -9,10 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// TODO: отображать маркеры на карте
 final class SearchPlaceView: UIView {
     var didClose: (() -> Void)?
     var didSelectPlace: ((NavigatorPlace) -> Void)?
+    var didLookingAtPresetPlaces: (([NavigatorPlace]) -> Void)?
     
     private lazy var rootView = makeRootView()
     
@@ -52,8 +52,23 @@ private extension SearchPlaceView {
             .disposed(by: disposeBag)
         
         output.elements
-            .drive(Binder(rootView.tableView) { base, elements in
-                base.setup(elements: elements)
+            .drive(Binder(self) { base, elements in
+                base.rootView.tableView.setup(elements: elements)
+                
+                let presetPlaces = elements.compactMap { element -> NavigatorPlace? in
+                    switch element {
+                    case .preset:
+                        return nil
+                    case .place(let element):
+                        switch element {
+                        case .fromPreset(let place):
+                            return place
+                        case .searched:
+                            return nil
+                        }
+                    }
+                }
+                base.didLookingAtPresetPlaces?(presetPlaces)
             })
             .disposed(by: disposeBag)
         

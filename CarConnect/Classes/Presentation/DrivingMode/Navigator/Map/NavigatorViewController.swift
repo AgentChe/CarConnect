@@ -68,6 +68,9 @@ private extension NavigatorViewController {
                 },
                 didStart: { [weak self] route in
                     self?.mainView.mapView.setup(buildRouteHidden: false)
+                },
+                didLookingAtPresetPlaces: { [weak self] places in
+                    self?.mainView.mapView.setupMarkers(places: places)
                 }
             )
         }

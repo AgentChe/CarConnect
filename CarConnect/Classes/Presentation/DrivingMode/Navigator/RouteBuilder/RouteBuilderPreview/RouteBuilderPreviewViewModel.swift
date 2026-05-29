@@ -48,6 +48,7 @@ extension RouteBuilderPreviewViewModel {
         let didTapMenu: Signal<Void>
         let didTapAddStop: Signal<Void>
         let didTapStart: Signal<Void>
+        let didTapTryAgain: Signal<Void>
     }
     
     struct Output {
@@ -58,6 +59,7 @@ extension RouteBuilderPreviewViewModel {
     
     func configure(input: Input) -> Output {
         let route = makeRoute(
+            didTapTryAgain: input.didTapTryAgain,
             departureCoordinate: departureCoordinate,
             destinationPlace: destinationPlace,
             routeOptions: routeOptions,
@@ -111,23 +113,30 @@ private extension RouteBuilderPreviewViewModel {
     }
     
     func makeRoute(
+        didTapTryAgain: Signal<Void>,
         departureCoordinate: Driver<Coordinate>,
         destinationPlace: Driver<NavigatorPlace>,
         routeOptions: Driver<RouteOptions>,
         waypoints: Driver<[NavigatorPlace]>,
         departureTime: Driver<Date?>
     ) -> Driver<NavigatorRoute?> {
-        Driver
-            .combineLatest(
-                departureCoordinate,
-                destinationPlace,
-                routeOptions,
-                waypoints,
-                departureTime
-            )
+        let params = Driver.combineLatest(
+            departureCoordinate,
+            destinationPlace,
+            routeOptions,
+            waypoints,
+            departureTime
+        )
+
+        let trigger = Signal
+            .merge(.just(()), didTapTryAgain)
+            .asDriver(onErrorDriveWith: .never())
+
+        return trigger
+            .withLatestFrom(params)
             .flatMapLatest { [weak self] departureCoordinate, destinationPlace, routeOptions, waypoints, departureTime -> Driver<NavigatorRoute?> in
                 guard let self else { return .never() }
-                
+
                 return manager
                     .fetchDirections(
                         destination: destinationPlace,

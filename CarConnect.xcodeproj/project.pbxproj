@@ -299,6 +299,8 @@
 		DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */; };
 		DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */; };
 		DE90F6CF2FC893A400F5278D /* RBPIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */; };
+		DE90F6D12FC9BAB100F5278D /* RBPErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */; };
+		DE90F6D32FC9BF8000F5278D /* RBPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */; };
 		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
 		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
 		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
@@ -882,6 +884,8 @@
 		DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeRootView.swift; sourceTree = "<group>"; };
 		DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewView.swift; sourceTree = "<group>"; };
 		DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPIconButton.swift; sourceTree = "<group>"; };
+		DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPErrorView.swift; sourceTree = "<group>"; };
+		DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPInfoView.swift; sourceTree = "<group>"; };
 		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
 		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
 		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -2361,6 +2365,8 @@
 			isa = PBXGroup;
 			children = (
 				DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */,
+				DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */,
+				DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3813,9 +3819,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3830,9 +3840,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4089,6 +4103,7 @@
 				86B2EDD52F7951BE006C0F3A /* MusicLibraryItem.swift in Sources */,
 				DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */,
 				DEF570A12F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift in Sources */,
+				DE90F6D12FC9BAB100F5278D /* RBPErrorView.swift in Sources */,
 				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEEAA9FE2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
@@ -4212,6 +4227,7 @@
 				DEEAAA912F73FBB30072C702 /* WidgetsPresetsTemplateDigitalMirrorCell.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
+				DE90F6D32FC9BF8000F5278D /* RBPInfoView.swift in Sources */,
 				DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */,
 				DEEAAA742F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
 				DEEAAAA32F73FC2F0072C702 /* SplitFlapView.swift in Sources */,

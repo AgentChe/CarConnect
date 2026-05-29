@@ -54,10 +54,11 @@ private extension RouteBuilderPreviewView {
         backgroundColor = UIColor.clear
         
         let output = viewModel.configure(input: RouteBuilderPreviewViewModel.Input(
-            didTapClose: rootView.closeButton.rx.tap.asSignal(),
-            didTapMenu: rootView.menuButton.rx.tap.asSignal(),
-            didTapAddStop: rootView.addStopButton.rx.tap.asSignal(),
-            didTapStart: rootView.startButton.rx.tap.asSignal(),
+            didTapClose: rootView.didTapClose,
+            didTapMenu: rootView.didTapMenu,
+            didTapAddStop: rootView.didTapAddStop,
+            didTapStart: rootView.didTapStart,
+            didTapTryAgain: rootView.didTapTryAgain
         ))
         
         output.action
@@ -68,12 +69,7 @@ private extension RouteBuilderPreviewView {
         
         output.activity
             .drive(Binder(rootView) { base, activity in
-                activity ? base.preloader.startAnimating() : base.preloader.stopAnimating()
-                
-                base.label.isHidden = activity
-                base.menuButton.isHidden = activity
-                base.addStopButton.isHidden = activity
-                base.startButton.isHidden = activity
+                base.preloader(activity: activity)
             })
             .disposed(by: disposeBag)
         

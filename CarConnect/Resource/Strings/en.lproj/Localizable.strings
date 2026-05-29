@@ -192,3 +192,5 @@
 "Navigator.RouteBuilderPreview.AddStop" = "Add stop";
 "Navigator.RouteBuilderPreview.Start" = "Start";
 "Navigator.RouteBuilderPreview.Info" = "%@ ∙ %@";
+"Navigator.RouteBuilderPreview.Error.Title" = "Something went wrong";
+"Navigator.RouteBuilderPreview.Error.Action" = "Try again";

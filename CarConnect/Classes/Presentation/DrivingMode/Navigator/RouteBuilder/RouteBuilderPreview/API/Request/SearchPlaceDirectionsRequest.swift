@@ -14,9 +14,9 @@ struct SearchPlaceDirectionsRequest: APIRequestBody {
     let avoidTolls: Bool
     let avoidHighways: Bool
     let departureTime: Date?
-    let police: Bool // TODO:
-    let speedCameras: Bool // TODO:
-    let traffic: Bool // TODO: 
+    let police: Bool
+    let speedCameras: Bool
+    let traffic: Bool
 
     var url: String {
         "https://maps.googleapis.com/maps/api/directions/json"
@@ -50,7 +50,10 @@ struct SearchPlaceDirectionsRequest: APIRequestBody {
                 .joined(separator: "|")
         }
 
-        if let dt = departureTime {
+        if traffic {
+            params["departure_time"] = departureTime.map { Int($0.timeIntervalSince1970) } ?? "now"
+            params["traffic_model"] = "best_guess"
+        } else if let dt = departureTime {
             params["departure_time"] = Int(dt.timeIntervalSince1970)
         }
 

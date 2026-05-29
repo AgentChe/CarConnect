@@ -66,7 +66,10 @@ extension RouteBuilderPreviewManager: RouteBuilderPreviewManagerProtocol {
                     waypoints: waypoints,
                     avoidTolls: avoidTolls,
                     avoidHighways: avoidHighways,
-                    departureTime: departureTime
+                    departureTime: departureTime,
+                    police: police,
+                    speedCameras: speedCameras,
+                    traffic: traffic
                 )
             }
     }

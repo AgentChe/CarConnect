@@ -59,7 +59,17 @@ private extension NavigatorViewController {
         case .openSettings:
             openSettings()
         case .showRouteBuilder(let coordinate):
-            routeBuilder.buildRoute(departureLocation: coordinate)
+            mainView.mapView.setup(buildRouteHidden: true)
+            
+            routeBuilder.buildRoute(
+                departureLocation: coordinate,
+                didCancel: { [weak self] in
+                    self?.mainView.mapView.setup(buildRouteHidden: false)
+                },
+                didStart: { [weak self] route in
+                    self?.mainView.mapView.setup(buildRouteHidden: false)
+                }
+            )
         }
     }
 

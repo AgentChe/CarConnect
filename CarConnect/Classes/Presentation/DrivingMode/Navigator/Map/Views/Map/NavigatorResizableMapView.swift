@@ -46,6 +46,10 @@ extension NavigatorResizableMapView {
         
         mapView?.setup(mapPresentationState: mapPresentationState)
     }
+    
+    func setup(buildRouteHidden: Bool) {
+        mapView?.buildRouteButton.isHidden = buildRouteHidden
+    }
 
     var didTapResize: Signal<Void> {
         didTapResizeTrigger.asSignal()

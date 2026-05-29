@@ -14,8 +14,8 @@ final class NavigatorMapView: UIView {
 
     lazy var googleMapView = makeGoogleMapView()
     lazy var resizeButton = makeResizeButton()
-    lazy var myGeoButton = makeMyGeoButton()
     lazy var buildRouteButton = makeBuildRouteButton()
+    lazy var myGeoButton = makeMyGeoButton()
 
     private var myLocationObservation: NSKeyValueObservation?
 
@@ -109,17 +109,17 @@ private extension NavigatorMapView {
         ])
 
         NSLayoutConstraint.activate([
-            myGeoButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
-            myGeoButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
-            myGeoButton.bottomAnchor.constraint(equalTo: buildRouteButton.topAnchor, constant: -12.landscapeVScale),
-            myGeoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
-        ])
-
-        NSLayoutConstraint.activate([
             buildRouteButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
             buildRouteButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
-            buildRouteButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.landscapeVScale),
+            buildRouteButton.bottomAnchor.constraint(equalTo: myGeoButton.topAnchor, constant: -12.landscapeVScale),
             buildRouteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            myGeoButton.widthAnchor.constraint(equalToConstant: 40.landscapeHScale),
+            myGeoButton.heightAnchor.constraint(equalToConstant: 40.landscapeHScale),
+            myGeoButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.landscapeVScale),
+            myGeoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
         ])
     }
 }
@@ -147,20 +147,20 @@ private extension NavigatorMapView {
         addSubview(view)
         return view
     }
-
-    func makeMyGeoButton() -> UIButton {
+    
+    func makeBuildRouteButton() -> UIButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Navigator.MyGeo"), for: .normal)
-        view.addTarget(self, action: #selector(myGeoTapped), for: .touchUpInside)
+        view.setImage(UIImage(named: "Navigator.BuildRoute"), for: .normal)
+        view.addTarget(self, action: #selector(buildRouteTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
 
-    func makeBuildRouteButton() -> UIButton {
+    func makeMyGeoButton() -> UIButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Navigator.BuildRoute"), for: .normal)
-        view.addTarget(self, action: #selector(buildRouteTapped), for: .touchUpInside)
+        view.setImage(UIImage(named: "Navigator.MyGeo"), for: .normal)
+        view.addTarget(self, action: #selector(myGeoTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

@@ -10,7 +10,6 @@ import UIKit
 final class MainCoordinator {
     private lazy var garageVC = UIViewController()
     private lazy var widgetsVC = WidgetsPresetsViewController.make()
-    private lazy var drivingModeVC = DrivingModeViewController.make()
     
     private weak var parentVC: UIViewController?
     private weak var container: UIView?
@@ -32,8 +31,9 @@ extension MainCoordinator {
         case .widgets:
             changeVC(on: widgetsVC)
         case .drivingMode:
-            guard let parentVC else { return }
+            guard let parentVC, parentVC.presentedViewController == nil else { return }
 
+            let drivingModeVC = DrivingModeViewController.make()
             drivingModeVC.modalPresentationStyle = .fullScreen
 
             if let windowScene = parentVC.view.window?.windowScene {
@@ -64,6 +64,6 @@ private extension MainCoordinator {
         parentVC.addChild(vc)
         vc.view.frame = container.bounds
         container.addSubview(vc.view)
-        vc.willMove(toParent: parentVC)
+        vc.didMove(toParent: parentVC)
     }
 }

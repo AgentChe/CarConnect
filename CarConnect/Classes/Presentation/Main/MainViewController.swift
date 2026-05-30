@@ -19,9 +19,14 @@ final class MainViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private let deepLinkIntent: DeepLinkIntent?
     private let requestReview: Bool
     
-    private init(requestReview: Bool) {
+    private init(
+        deepLinkIntent: DeepLinkIntent?,
+        requestReview: Bool
+    ) {
+        self.deepLinkIntent = deepLinkIntent
         self.requestReview = requestReview
 
         super.init(nibName: nil, bundle: nil)
@@ -41,8 +46,10 @@ final class MainViewController: UIViewController {
         rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
             .take(1)
             .bind(to: Binder(self) { base, _ in
-                base.coordinator.tap(on: .garage)
-                base.mainView.tabView.select(tabItem: .garage)
+                let tabItem: TabView.TabItem = base.deepLinkIntent == .openDrivingModeNavigator ? .drivingMode : .garage
+                
+                base.coordinator.tap(on: tabItem)
+                base.mainView.tabView.select(tabItem: tabItem)
             })
             .disposed(by: disposeBag)
         
@@ -55,8 +62,8 @@ final class MainViewController: UIViewController {
                 mainView.tabView.drivingModeButton
                     .rx.tap.map { TabView.TabItem.drivingMode }
             ])
-            .bind(to: Binder(self) { base, tappedItem in
-                base.coordinator.tap(on: tappedItem)
+            .bind(to: Binder(coordinator) { base, tappedItem in
+                base.tap(on: tappedItem)
             })
             .disposed(by: disposeBag)
         
@@ -72,6 +79,13 @@ final class MainViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        SceneDelegateMediator.shared.didOpenURLContexts
+            .filter { $0.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) }
+            .emit(to: Binder(coordinator) { base, _ in
+                base.tap(on: .drivingMode)
+            })
+            .disposed(by: disposeBag)
+        
         if requestReview {
             RequestReview.request()
         }
@@ -80,8 +94,14 @@ final class MainViewController: UIViewController {
 
 // MARK: Public
 extension MainViewController {
-    static func make(requestReview: Bool) -> NavigationController {
-        let vc = MainViewController(requestReview: requestReview)
+    static func make(
+        deepLinkIntent: DeepLinkIntent? = nil,
+        requestReview: Bool
+    ) -> NavigationController {
+        let vc = MainViewController(
+            deepLinkIntent: deepLinkIntent,
+            requestReview: requestReview
+        )
         vc.navigationItem.backButtonTitle = " "
         return NavigationController(rootViewController: vc)
     }

@@ -16,6 +16,12 @@
 "Save" = "Save";
 "Delete" = "Delete";
 "SearchPlaceholder" = "Search";
+"hr" = "hr";
+"min" = "min";
+"km" = "km";
+"mi" = "mi";
+"km/h" = "km/h";
+"mph" = "mph";
 
 // MARK: Main
 "Main.Tab.Garage" = "Garage";
@@ -155,3 +161,44 @@
 "AppleMusic" = "Apple Music";
 "Spotify" = "Spotify";
 "Radio" = "FM-Radio";
+
+// MARK: Navigator
+"Navigator.Weather.LocationAccessNeeded" = "Location access needed";
+"Navigator.Weather.NotAvailable" = "Not available";
+"Navigator.Weather.Kind.ClearSky" = "Clear sky";
+"Navigator.Weather.Kind.FewClouds" = "Few clouds";
+"Navigator.Weather.Kind.BrokenClouds" = "Broken clouds";
+"Navigator.Weather.Kind.ScatteredClouds" = "Scattered clouds";
+"Navigator.Weather.Kind.Rain" = "Rain";
+"Navigator.Weather.Kind.ShowerRain" = "Shower rain";
+"Navigator.Weather.Kind.Mist" = "Mist";
+"Navigator.Weather.Kind.Snow" = "Snow";
+"Navigator.Weather.Kind.Thunderstorm" = "Thunderstorm";
+"Navigator.UnlockGeo.Title" = "Unlock location tracking";
+"Navigator.UnlockGeo.SubTitle" = "To use this feature, please enable it";
+"Navigator.UnlockGeo.Action" = "Go to Settings";
+"Navigator.Preset.Parking" = "Parking";
+"Navigator.Preset.GasStation" = "Gas Station";
+"Navigator.Preset.CarRepair" = "Car Repair";
+"Navigator.Preset.ATM" = "ATM";
+"Navigator.Preset.Hospital" = "Hospital";
+"Navigator.Preset.Pharmacy" = "Pharmacy";
+"Navigator.Preset.Restaurant" = "Restaurant";
+"Navigator.RouteBuilder.Search" = "Search";
+"Navigator.RouteOptions.Title" = "Route options";
+"Navigator.RouteOptions.AvoidTolls" = "Avoid tolls";
+"Navigator.RouteOptions.AvoidHighways" = "Avoid highways";
+"Navigator.RouteOptions.Police" = "Police";
+"Navigator.RouteOptions.SpeedCameras" = "Speed cameras";
+"Navigator.RouteOptions.Traffic" = "Traffic";
+"Navigator.RouteBuilderMenu.Title" = "Direction";
+"Navigator.RouteBuilderMenu.AddStop" = "Add stop";
+"Navigator.RouteBuilderMenu.RouteOptions" = "Route options";
+"Navigator.RouteBuilderMenu.SetDepartureTime" = "Set departure time";
+"Navigator.RouteBuilderDepartureTime.Title" = "Departure time";
+"Navigator.RouteBuilderDepartureTime.Reset" = "Reset";
+"Navigator.RouteBuilderPreview.AddStop" = "Add stop";
+"Navigator.RouteBuilderPreview.Start" = "Start";
+"Navigator.RouteBuilderPreview.Info" = "%@ ∙ %@";
+"Navigator.RouteBuilderPreview.Error.Title" = "Something went wrong";
+"Navigator.RouteBuilderPreview.Error.Action" = "Try again";

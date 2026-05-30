@@ -13,13 +13,18 @@ protocol PlayerSourceDelegate: AnyObject {
     func didSelectSource(_ newSource: MusicSource)
 }
 
+protocol PlayerCoordinator: AnyObject {
+    var rootController: UIViewController { get }
+    func start(source: MusicSource)
+}
 
-final class PlayerAccessCoordinator: NSObject {
-    private let navigationController: UINavigationController
+final class PlayerAccessCoordinator: PlayerCoordinator {
+    var rootController: UIViewController { navigationController }
+    
+    private let navigationController = UINavigationController()
     private let accessService: PlayerSourceAccessService
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    private init() {
         self.accessService = PlayerSourceAccessService()
     }
     
@@ -49,6 +54,7 @@ final class PlayerAccessCoordinator: NSObject {
         navigationController.setViewControllers([viewController], animated: animated)
     }
 }
+
 extension PlayerAccessCoordinator: AuthorizationRequiredViewControllerDelegate {
     func didTapButton(source: MusicSource) {
         Task { @MainActor in
@@ -67,5 +73,11 @@ extension PlayerAccessCoordinator: AuthorizationRequiredViewControllerDelegate {
                 break
             }
         }
+    }
+}
+
+extension PlayerAccessCoordinator {
+    static func make() -> PlayerCoordinator {
+        PlayerAccessCoordinator()
     }
 }

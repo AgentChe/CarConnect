@@ -8,9 +8,9 @@
 import UIKit
 
 final class DrivingModeView: UIView {
-    lazy var container = makeContainer()
     lazy var backgroundView = makeBackgroundView()
     lazy var menuView = makeMenuView()
+    lazy var container = makeContainer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ final class DrivingModeView: UIView {
 // MARK: Private
 private extension DrivingModeView {
     func initialize() {
-        backgroundColor = Appearance.color_1B1C1D
+        backgroundColor = Appearance.color_080A0C
     }
 }
 
@@ -62,7 +62,7 @@ private extension DrivingModeView {
     func makeBackgroundView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "DrivingMode.Background")
+        view.image = UIImage(named: "DrivingMode.NavigatorBackground")
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

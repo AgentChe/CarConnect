@@ -26,6 +26,22 @@ final class DrivingModeMenuView: UIView {
     }
 }
 
+// MARK: Public
+extension DrivingModeMenuView {
+    func setup(selectedItem: DrivingModeRouteItemButton.Item) {
+        mapItemButton.setup(selected: selectedItem == .map)
+        musicItemButton.setup(selected: {
+            switch selectedItem {
+            case .music:
+                return true
+            default:
+                return false
+            }
+        }())
+        phoneItemButton.setup(selected: selectedItem == .phone)
+    }
+}
+
 // MARK: Private
 private extension DrivingModeMenuView {
     func initialize() {

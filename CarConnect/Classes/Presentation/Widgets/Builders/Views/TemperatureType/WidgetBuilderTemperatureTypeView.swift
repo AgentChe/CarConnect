@@ -16,7 +16,7 @@ final class WidgetBuilderTemperatureTypeView: UIView {
     lazy var valueLabel = makeLabel()
     lazy var arrowView = makeArrowView()
     
-    private var temperatureType: TemperatureType?
+    private var temperatureType: TemperatureUnit?
     
     private lazy var valueAttrs = TextAttributes()
         .textColor(Appearance.color_FFFFFF)
@@ -26,7 +26,7 @@ final class WidgetBuilderTemperatureTypeView: UIView {
     
     private lazy var disposeBag = DisposeBag()
     
-    private lazy var didSelectTemperatureTypeTrigger = PublishRelay<TemperatureType>()
+    private lazy var didSelectTemperatureTypeTrigger = PublishRelay<TemperatureUnit>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ final class WidgetBuilderTemperatureTypeView: UIView {
 
 // MARK: Public
 extension WidgetBuilderTemperatureTypeView {
-    func setup(temperatureType: TemperatureType) {
+    func setup(temperatureType: TemperatureUnit) {
         self.temperatureType = temperatureType
         
         let value: String = {
@@ -56,7 +56,7 @@ extension WidgetBuilderTemperatureTypeView {
         valueLabel.attributedText = value.attributed(with: valueAttrs)
     }
     
-    var didSelectTemperatureType: Signal<TemperatureType> {
+    var didSelectTemperatureType: Signal<TemperatureUnit> {
         didSelectTemperatureTypeTrigger.asSignal()
     }
 }

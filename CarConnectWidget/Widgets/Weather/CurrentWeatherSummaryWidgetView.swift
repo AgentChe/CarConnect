@@ -121,15 +121,15 @@ private extension CurrentWeatherSummaryWidgetView {
 
     var localizedConditionText: String {
         switch weatherData.current.condition {
-        case .sunny:
+        case .clearSky:
             return "WeatherCondition.Sunny".localized
-        case .rainy:
+        case .rain, .showerRain, .thunderstorm:
             return "WeatherCondition.Rainy".localized
-        case .snowy:
+        case .snow:
             return "WeatherCondition.Snowy".localized
-        case .cloudy:
+        case .fewClouds, .brokenClouds, .scatteredClouds:
             return "WeatherCondition.Cloudy".localized
-        case .windy:
+        case .mist:
             return "WeatherCondition.Windy".localized
         }
     }
@@ -227,15 +227,15 @@ private extension CurrentWeatherSummaryWidgetView {
     func iconImage(for kind: WeatherKind) -> UIImage {
         let imageName: String = {
             switch kind {
-            case .sunny:
+            case .clearSky:
                 return "Weather.Icon.Sunny"
-            case .rainy:
+            case .rain, .showerRain, .thunderstorm:
                 return "Weather.Icon.Rainy"
-            case .snowy:
+            case .snow:
                 return "Weather.Icon.Snowy"
-            case .cloudy:
+            case .fewClouds, .brokenClouds, .scatteredClouds:
                 return "Weather.Icon.Cloudy"
-            case .windy:
+            case .mist:
                 return "Weather.Icon.Windy"
             }
         }()
@@ -246,15 +246,15 @@ private extension CurrentWeatherSummaryWidgetView {
     func backgroundImage(for kind: WeatherKind) -> UIImage {
         let imageName: String = {
             switch kind {
-            case .sunny:
+            case .clearSky:
                 return "Weather.Background.Sunny"
-            case .rainy:
+            case .rain, .showerRain, .thunderstorm:
                 return "Weather.Background.Rainy"
-            case .snowy:
+            case .snow:
                 return "Weather.Background.Snowy"
-            case .cloudy:
+            case .fewClouds, .brokenClouds, .scatteredClouds:
                 return "Weather.Background.Cloudy"
-            case .windy:
+            case .mist:
                 return "Weather.Background.Windy"
             }
         }()

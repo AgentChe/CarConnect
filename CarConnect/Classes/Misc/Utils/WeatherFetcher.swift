@@ -20,7 +20,7 @@ final class WeatherFetcher {
         trigger.asDriver()
     }
     
-    init(location: Location) {
+    init(location: Location, includeDailyForecast: Bool = true) {
         Observable<WeatherData?>.create { [weak self] observer in
             guard let self else {
                 observer.onNext(nil)
@@ -29,7 +29,10 @@ final class WeatherFetcher {
             }
             
             let task = Task {
-                let weather = try? await self.weatherAPI.fetchWeather(location: location)
+                let weather = try? await self.weatherAPI.fetchWeather(
+                    location: location,
+                    includeDailyForecast: includeDailyForecast
+                )
                 
                 if !Task.isCancelled {
                     observer.onNext(weather)
@@ -48,13 +51,13 @@ final class WeatherFetcher {
         .disposed(by: disposeBag)
     }
     
-    init() {
-        Single<Location>
+    init(useDefaultLocation: Bool = true, includeDailyForecast: Bool = true) {
+        Single<Location?>
             .create { [weak self] single in
                 guard let self else { return Disposables.create() }
                 
                 self.geoLocationAPI.requestMyLocation { location in
-                    single(.success(location ?? Location.newYork()))
+                    single(.success(location ?? (useDefaultLocation ? Location.newYork() : nil)))
                 }
                 
                 return Disposables.create()
@@ -62,14 +65,17 @@ final class WeatherFetcher {
             .asDriver(onErrorDriveWith: .never())
             .flatMapLatest { [weak self] location -> Driver<WeatherData?> in
                 Observable<WeatherData?>.create { observer in
-                    guard let self else {
+                    guard let self, let location else {
                         observer.onNext(nil)
                         observer.onCompleted()
                         return Disposables.create()
                     }
                     
                     let task = Task {
-                        let weather = try? await self.weatherAPI.fetchWeather(location: location)
+                        let weather = try? await self.weatherAPI.fetchWeather(
+                            location: location,
+                            includeDailyForecast: includeDailyForecast
+                        )
                         
                         if !Task.isCancelled {
                             observer.onNext(weather)

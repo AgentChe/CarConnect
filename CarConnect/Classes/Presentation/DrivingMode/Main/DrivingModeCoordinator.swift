@@ -8,8 +8,8 @@
 import UIKit
 
 final class DrivingModeCoordinator {
-    private lazy var mapVC = UIViewController()
-    private lazy var musicVC = AppleMusicMainViewController.make()
+    private lazy var mapVC = NavigatorViewController.make()
+    private lazy var musicCoordinator: PlayerCoordinator = PlayerAccessCoordinator.make()
     private lazy var phoneVC = UIViewController()
     
     private weak var parentVC: UIViewController?
@@ -29,11 +29,17 @@ final class DrivingModeCoordinator {
 extension DrivingModeCoordinator {
     // TODO: Добавить логику переключения
     func testInitial() {
-        let navigationController = UINavigationController()
-        let coordinator = PlayerAccessCoordinator(navigationController: navigationController)
-        playerCoordinator = coordinator
-        coordinator.start(source: .appleMusic)
-        changeVC(on: navigationController)
+    }
+    func tap(on item: DrivingModeRouteItemButton.Item) {
+        switch item {
+        case .map:
+            changeVC(on: mapVC)
+        case .music:
+            changeVC(on: musicCoordinator.rootController)
+            musicCoordinator.start(source: .appleMusic)
+        case .phone:
+            changeVC(on: phoneVC)
+        }
     }
 }
 

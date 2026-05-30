@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */; };
+		4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */; };
+		6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */; };
+		79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */; };
 		860BE5582F72FA7000311032 /* MusicPlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */; };
 		860BE55A2F72FB2B00311032 /* MusicPlayerTrackInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */; };
 		860BE55C2F72FB9F00311032 /* MusicPlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */; };
@@ -55,6 +59,7 @@
 		86F5D58F2FC61E820016963B /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; };
 		86F5D5902FC61E820016963B /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
+		BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */; };
 		DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */; };
 		DE0879EA2F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E92F5D95F300FECBA5 /* WidgetBuilderEnterNameViewController.swift */; };
 		DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879EC2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift */; };
@@ -111,6 +116,10 @@
 		DE1DA0B22F51F97300742E69 /* WidgetsBuilderRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */; };
 		DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */; };
 		DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */; };
+		DE376D752FC5D94700EB9BE7 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */; };
+		DE376D792FC5DB8D00EB9BE7 /* NavigatorPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */; };
+		DE376D7B2FC5DBD800EB9BE7 /* NavigatorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */; };
+		DE376D7F2FC5DC8300EB9BE7 /* RouteBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */; };
 		DE511FEF2F4571AF0026C5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */; };
 		DE511FF12F4571AF0026C5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE511FF02F4571AF0026C5CC /* SwiftUI.framework */; };
 		DE511FFC2F4571B00026C5CC /* CarConnectWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -236,6 +245,15 @@
 		DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */; };
 		DE629C252F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */; };
 		DE629C282F573BA4004F5F7E /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE629C272F573BA4004F5F7E /* WidgetBackground.swift */; };
+		DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */; };
+		DE62B4012FC5FB8A00AF529A /* SearchPlaceRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */; };
+		DE62B4032FC5FF8F00AF529A /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */; };
+		DE62B4052FC6004300AF529A /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4042FC6004300AF529A /* SearchPlaceView.swift */; };
+		DE62B4072FC6059600AF529A /* SearchPlaceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */; };
+		DE62B4092FC6059C00AF529A /* SearchPlaceTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */; };
+		DE62B40C2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */; };
+		DE62B40E2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */; };
+		DE62B4102FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */; };
 		DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */; };
 		DE63A2282F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */; };
@@ -247,6 +265,14 @@
 		DE63A2372F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */; };
 		DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
 		DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */; };
+		DE6F50022FC06C2F00EA1743 /* NavigatorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */; };
+		DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */; };
+		DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */; };
+		DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */; };
+		DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */; };
+		DE6F500E2FC09A1900EA1743 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */; };
+		DE6F50112FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */; };
+		DE6F50132FC0A46A00EA1743 /* NavigatorResizableMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */; };
 		DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */; };
 		DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */; };
 		DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE747DA42F752A5A007C145B /* WidgetClockView.swift */; };
@@ -260,13 +286,39 @@
 		DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */; };
 		DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */; };
 		DE8881452F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */; };
+		DE90F68F2FC6E24D00F5278D /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */; };
+		DE90F6902FC6E24D00F5278D /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */; };
+		DE90F6922FC6E3A900F5278D /* SettingsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */; };
+		DE90F6932FC6E3AA00F5278D /* SettingsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */; };
+		DE90F6A02FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F69F2FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift */; };
+		DE90F6A22FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6A12FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift */; };
+		DE90F6A82FC6ECFF00F5278D /* RouteBuilderPreviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6A72FC6ECFF00F5278D /* RouteBuilderPreviewManager.swift */; };
+		DE90F6AF2FC6F81600F5278D /* RouteOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6AE2FC6F81600F5278D /* RouteOptionsView.swift */; };
+		DE90F6B12FC6F81B00F5278D /* RouteOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6B02FC6F81B00F5278D /* RouteOptionsViewModel.swift */; };
+		DE90F6B32FC6F82200F5278D /* RouteOptionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6B22FC6F82200F5278D /* RouteOptionsRootView.swift */; };
+		DE90F6B72FC6F8CD00F5278D /* RouteOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6B62FC6F8CD00F5278D /* RouteOptions.swift */; };
+		DE90F6B92FC6FC0800F5278D /* RouteOptionsItemSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6B82FC6FC0800F5278D /* RouteOptionsItemSelectView.swift */; };
+		DE90F6BC2FC7515200F5278D /* RouteBuilderMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6BB2FC7515200F5278D /* RouteBuilderMenuView.swift */; };
+		DE90F6BE2FC7515800F5278D /* RouteBuilderMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6BD2FC7515800F5278D /* RouteBuilderMenuViewModel.swift */; };
+		DE90F6C02FC7516000F5278D /* RouteBuilderMenuRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6BF2FC7516000F5278D /* RouteBuilderMenuRootView.swift */; };
+		DE90F6C32FC7533300F5278D /* RouteBuilderMenuOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */; };
+		DE90F6C62FC7692200F5278D /* RouteBuilderDepartureTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */; };
+		DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */; };
+		DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */; };
+		DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */; };
+		DE90F6CF2FC893A400F5278D /* RBPIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */; };
+		DE90F6D12FC9BAB100F5278D /* RBPErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */; };
+		DE90F6D32FC9BF8000F5278D /* RBPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */; };
+		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
+		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
+		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
 		DEA5CF922F69483D0045CBC0 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF902F69483D0045CBC0 /* WeatherAPI.swift */; };
 		DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF932F6955190045CBC0 /* WidgetWeatherStyle.swift */; };
 		DEA5CF962F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF952F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift */; };
 		DEA5CF9A2F6958440045CBC0 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF992F6958440045CBC0 /* TimeFormat.swift */; };
 		DEA5CF9B2F6958580045CBC0 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF992F6958440045CBC0 /* TimeFormat.swift */; };
-		DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* Temperature.swift */; };
-		DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* Temperature.swift */; };
+		DEA5CF9D2F6958700045CBC0 /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */; };
+		DEA5CF9E2F6958700045CBC0 /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */; };
 		DEA5CFA22F6958C90045CBC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA12F6958C90045CBC0 /* Location.swift */; };
 		DEA5CFA32F6958CD0045CBC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA12F6958C90045CBC0 /* Location.swift */; };
 		DEA5CFA52F695BD70045CBC0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA5CFA42F695BD70045CBC0 /* Coordinate.swift */; };
@@ -600,6 +652,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceAutocompleteRequest.swift; sourceTree = "<group>"; };
+		65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceNearbyRequest.swift; sourceTree = "<group>"; };
+		6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigatorRoute.swift; sourceTree = "<group>"; };
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerControlsView.swift; sourceTree = "<group>"; };
 		860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerTrackInfoView.swift; sourceTree = "<group>"; };
@@ -703,6 +758,10 @@
 		DE1DA0B12F51F97300742E69 /* WidgetsBuilderRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBuilderRemoveButton.swift; sourceTree = "<group>"; };
 		DE1DA0B42F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmView.swift; sourceTree = "<group>"; };
 		DE1DA0B62F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderRemoveConfirmViewController.swift; sourceTree = "<group>"; };
+		DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorPlace.swift; sourceTree = "<group>"; };
+		DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorPreset.swift; sourceTree = "<group>"; };
+		DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderManager.swift; sourceTree = "<group>"; };
 		DE511FE82F456F0F0026C5CC /* CarConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarConnect.entitlements; sourceTree = "<group>"; };
 		DE511FED2F4571AF0026C5CC /* CarConnectWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarConnectWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE511FEE2F4571AF0026C5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -790,6 +849,16 @@
 		DE629C222F573A82004F5F7E /* WidgetBuilderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundView.swift; sourceTree = "<group>"; };
 		DE629C242F573AAE004F5F7E /* WidgetBuilderBackgroundPhotoItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderBackgroundPhotoItemButton.swift; sourceTree = "<group>"; };
 		DE629C272F573BA4004F5F7E /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceField.swift; sourceTree = "<group>"; };
+		DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceRootView.swift; sourceTree = "<group>"; };
+		DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
+		DE62B4042FC6004300AF529A /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableView.swift; sourceTree = "<group>"; };
+		DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableElement.swift; sourceTree = "<group>"; };
+		DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePresetCell.swift; sourceTree = "<group>"; };
+		DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTablePlaceCell.swift; sourceTree = "<group>"; };
+		DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherPreloaderView.swift; sourceTree = "<group>"; };
+		DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceDirectionsRequest.swift; sourceTree = "<group>"; };
 		DE63A2242F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewConfiguration.swift; sourceTree = "<group>"; };
 		DE63A2272F7D2E4E00AF71B7 /* WidgetClockAIPreviewStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewStorageModel.swift; sourceTree = "<group>"; };
 		DE63A22C2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPresetsTemplateClockAIPreviewCell.swift; sourceTree = "<group>"; };
@@ -798,6 +867,14 @@
 		DE63A2342F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewViewModel.swift; sourceTree = "<group>"; };
 		DE63A2362F7D49A700AF71B7 /* WidgetClockAIPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockAIPreviewView.swift; sourceTree = "<group>"; };
 		DE63A23A2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockAIPreviewWidgetView.swift; sourceTree = "<group>"; };
+		DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorMapView.swift; sourceTree = "<group>"; };
+		DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorDashboardInfoPanelView.swift; sourceTree = "<group>"; };
+		DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherView.swift; sourceTree = "<group>"; };
+		DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherNotAvailableView.swift; sourceTree = "<group>"; };
+		DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorWeatherInfoView.swift; sourceTree = "<group>"; };
+		DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorMapUnlockGeoView.swift; sourceTree = "<group>"; };
+		DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorResizableMapView.swift; sourceTree = "<group>"; };
 		DE747DA02F752A4C007C145B /* WidgetClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewController.swift; sourceTree = "<group>"; };
 		DE747DA22F752A55007C145B /* WidgetClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockViewModel.swift; sourceTree = "<group>"; };
 		DE747DA42F752A5A007C145B /* WidgetClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetClockView.swift; sourceTree = "<group>"; };
@@ -811,11 +888,35 @@
 		DE88813E2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAbbrevAndDayNumberLargeView.swift; sourceTree = "<group>"; };
 		DE8881412F5C283600E59393 /* MonthDayAndWeekdayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayAndWeekdayTextView.swift; sourceTree = "<group>"; };
 		DE8881442F5C9A3700E59393 /* StackedMonthDayWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedMonthDayWeekdayView.swift; sourceTree = "<group>"; };
+		DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceUnit.swift; sourceTree = "<group>"; };
+		DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnvironment.swift; sourceTree = "<group>"; };
+		DE90F69F2FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewRootView.swift; sourceTree = "<group>"; };
+		DE90F6A12FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewViewModel.swift; sourceTree = "<group>"; };
+		DE90F6A72FC6ECFF00F5278D /* RouteBuilderPreviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewManager.swift; sourceTree = "<group>"; };
+		DE90F6AE2FC6F81600F5278D /* RouteOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOptionsView.swift; sourceTree = "<group>"; };
+		DE90F6B02FC6F81B00F5278D /* RouteOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOptionsViewModel.swift; sourceTree = "<group>"; };
+		DE90F6B22FC6F82200F5278D /* RouteOptionsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOptionsRootView.swift; sourceTree = "<group>"; };
+		DE90F6B62FC6F8CD00F5278D /* RouteOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOptions.swift; sourceTree = "<group>"; };
+		DE90F6B82FC6FC0800F5278D /* RouteOptionsItemSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOptionsItemSelectView.swift; sourceTree = "<group>"; };
+		DE90F6BB2FC7515200F5278D /* RouteBuilderMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuView.swift; sourceTree = "<group>"; };
+		DE90F6BD2FC7515800F5278D /* RouteBuilderMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuViewModel.swift; sourceTree = "<group>"; };
+		DE90F6BF2FC7516000F5278D /* RouteBuilderMenuRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuRootView.swift; sourceTree = "<group>"; };
+		DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderMenuOptionButton.swift; sourceTree = "<group>"; };
+		DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeView.swift; sourceTree = "<group>"; };
+		DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeViewModel.swift; sourceTree = "<group>"; };
+		DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderDepartureTimeRootView.swift; sourceTree = "<group>"; };
+		DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderPreviewView.swift; sourceTree = "<group>"; };
+		DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPIconButton.swift; sourceTree = "<group>"; };
+		DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPErrorView.swift; sourceTree = "<group>"; };
+		DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPInfoView.swift; sourceTree = "<group>"; };
+		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
+		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
+		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		DEA5CF902F69483D0045CBC0 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		DEA5CF932F6955190045CBC0 /* WidgetWeatherStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherStyle.swift; sourceTree = "<group>"; };
 		DEA5CF952F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWeatherConfiguration.swift; sourceTree = "<group>"; };
 		DEA5CF992F6958440045CBC0 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
-		DEA5CF9C2F6958700045CBC0 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnit.swift; sourceTree = "<group>"; };
 		DEA5CFA12F6958C90045CBC0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DEA5CFA42F695BD70045CBC0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		DEA9C5592F751DCC00B8121E /* AnalogClockFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockFaceView.swift; sourceTree = "<group>"; };
@@ -1080,6 +1181,7 @@
 		DEF570C72F801F32002394B9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotoWidgetView.swift; sourceTree = "<group>"; };
 		E18A4FB2C150D393A2A2C835 /* Pods-CarConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarConnect.debug.xcconfig"; path = "Target Support Files/Pods-CarConnect/Pods-CarConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceDetailsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1212,6 +1314,9 @@
 			isa = PBXGroup;
 			children = (
 				864BB76F2FC89DC5006F429F /* SpotifyCapabilitiesMessageView.swift */,
+				860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */,
+				860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */,
+				860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1225,16 +1330,6 @@
 				866DDCFC2F7C412E000D6CE3 /* AppleMusicTrackListViewModel.swift */,
 			);
 			path = AppleMusicTrackList;
-			sourceTree = "<group>";
-		};
-		868C1C072F7078DB00F63D7B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				860BE5592F72FB2B00311032 /* MusicPlayerTrackInfoView.swift */,
-				860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */,
-				860BE55B2F72FB9F00311032 /* MusicPlayerProgressView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		86B2EDC92F782275006C0F3A /* AppleMusicLibrary */ = {
@@ -1623,6 +1718,71 @@
 			path = RemoveConfirm;
 			sourceTree = "<group>";
 		};
+		DE376D6B2FC3402100EB9BE7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50002FC0696300EA1743 /* Views */,
+				DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */,
+				DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */,
+				DE9732712FBF63DB002F032E /* NavigatorView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		DE376D732FC5D8DC00EB9BE7 /* RouteBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6C42FC7690F00F5278D /* DepartureTime */,
+				DE90F6BA2FC7513F00F5278D /* RouteBuilderMenu */,
+				DE90F6AD2FC6F80C00F5278D /* RouteOptions */,
+				DE90F69E2FC6EA7500F5278D /* RouteBuilderPreview */,
+				DE376D762FC5DA7D00EB9BE7 /* SearchPlace */,
+				DE376D742FC5D94700EB9BE7 /* RouteBuilder.swift */,
+			);
+			path = RouteBuilder;
+			sourceTree = "<group>";
+		};
+		DE376D762FC5DA7D00EB9BE7 /* SearchPlace */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B3FC2FC5FAE300AF529A /* View */,
+				DE376D7C2FC5DC7200EB9BE7 /* API */,
+				DE376D772FC5DB6900EB9BE7 /* Model */,
+				DE62B4002FC5FB8A00AF529A /* SearchPlaceRootView.swift */,
+				DE62B4022FC5FF8F00AF529A /* SearchPlaceViewModel.swift */,
+				DE62B4042FC6004300AF529A /* SearchPlaceView.swift */,
+			);
+			path = SearchPlace;
+			sourceTree = "<group>";
+		};
+		DE376D772FC5DB6900EB9BE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D782FC5DB8D00EB9BE7 /* NavigatorPlace.swift */,
+				DE376D7A2FC5DBD800EB9BE7 /* NavigatorPreset.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE376D7C2FC5DC7200EB9BE7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D7D2FC5DC7500EB9BE7 /* Request */,
+				DE376D7E2FC5DC8300EB9BE7 /* RouteBuilderManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DE376D7D2FC5DC7500EB9BE7 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */,
+				65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */,
+				FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		DE5120062F4571B60026C5CC /* CarConnectWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1973,6 +2133,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DE62B3FC2FC5FAE300AF529A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B3FD2FC5FAEF00AF529A /* TableView */,
+				DE62B3FE2FC5FB0200AF529A /* SearchPlaceField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE62B3FD2FC5FAEF00AF529A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B40A2FC6059F00AF529A /* Cell */,
+				DE62B4062FC6059600AF529A /* SearchPlaceTableView.swift */,
+				DE62B4082FC6059C00AF529A /* SearchPlaceTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE62B40A2FC6059F00AF529A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B40B2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift */,
+				DE62B40D2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DE63A2222F7D2DB700AF71B7 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -2054,6 +2242,45 @@
 			path = AIPreview;
 			sourceTree = "<group>";
 		};
+		DE6F50002FC0696300EA1743 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F500F2FC0A0D500EA1743 /* Map */,
+				DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE6F50072FC0768C00EA1743 /* DashboardInfoPanel */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50082FC076B200EA1743 /* Weather */,
+				DE6F50032FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift */,
+			);
+			path = DashboardInfoPanel;
+			sourceTree = "<group>";
+		};
+		DE6F50082FC076B200EA1743 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50052FC074A600EA1743 /* NavigatorWeatherView.swift */,
+				DE6F50092FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift */,
+				DE6F500B2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift */,
+				DE62B40F2FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		DE6F500F2FC0A0D500EA1743 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DE6F50122FC0A46A00EA1743 /* NavigatorResizableMapView.swift */,
+				DE6F50012FC06C2F00EA1743 /* NavigatorMapView.swift */,
+				DE6F50102FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		DE747D9F2F752A32007C145B /* Clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -2108,6 +2335,120 @@
 			path = StackedMonthDayWeekday;
 			sourceTree = "<group>";
 		};
+		DE90F69E2FC6EA7500F5278D /* RouteBuilderPreview */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6CD2FC8937300F5278D /* View */,
+				DE90F6A92FC6ED3F00F5278D /* Model */,
+				DE90F6A52FC6EC5400F5278D /* API */,
+				DE90F69F2FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift */,
+				DE90F6A12FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift */,
+				DE90F6CB2FC773A600F5278D /* RouteBuilderPreviewView.swift */,
+			);
+			path = RouteBuilderPreview;
+			sourceTree = "<group>";
+		};
+		DE90F6A52FC6EC5400F5278D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6A62FC6EC5800F5278D /* Request */,
+				DE90F6A72FC6ECFF00F5278D /* RouteBuilderPreviewManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DE90F6A62FC6EC5800F5278D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DE90F6A92FC6ED3F00F5278D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE90F6AD2FC6F80C00F5278D /* RouteOptions */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6B52FC6F8B000F5278D /* Model */,
+				DE90F6B42FC6F8AA00F5278D /* View */,
+				DE90F6AE2FC6F81600F5278D /* RouteOptionsView.swift */,
+				DE90F6B02FC6F81B00F5278D /* RouteOptionsViewModel.swift */,
+				DE90F6B22FC6F82200F5278D /* RouteOptionsRootView.swift */,
+			);
+			path = RouteOptions;
+			sourceTree = "<group>";
+		};
+		DE90F6B42FC6F8AA00F5278D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6B82FC6FC0800F5278D /* RouteOptionsItemSelectView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE90F6B52FC6F8B000F5278D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6B62FC6F8CD00F5278D /* RouteOptions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE90F6BA2FC7513F00F5278D /* RouteBuilderMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6C12FC7532600F5278D /* View */,
+				DE90F6BB2FC7515200F5278D /* RouteBuilderMenuView.swift */,
+				DE90F6BD2FC7515800F5278D /* RouteBuilderMenuViewModel.swift */,
+				DE90F6BF2FC7516000F5278D /* RouteBuilderMenuRootView.swift */,
+			);
+			path = RouteBuilderMenu;
+			sourceTree = "<group>";
+		};
+		DE90F6C12FC7532600F5278D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6C22FC7533300F5278D /* RouteBuilderMenuOptionButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE90F6C42FC7690F00F5278D /* DepartureTime */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6C52FC7692200F5278D /* RouteBuilderDepartureTimeView.swift */,
+				DE90F6C72FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift */,
+				DE90F6C92FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift */,
+			);
+			path = DepartureTime;
+			sourceTree = "<group>";
+		};
+		DE90F6CD2FC8937300F5278D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE90F6CE2FC893A400F5278D /* RBPIconButton.swift */,
+				DE90F6D02FC9BAB000F5278D /* RBPErrorView.swift */,
+				DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE97326C2FBF63A7002F032E /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				DE376D732FC5D8DC00EB9BE7 /* RouteBuilder */,
+				DE376D6B2FC3402100EB9BE7 /* Map */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
 		DEA5CF8E2F69468F0045CBC0 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -2131,7 +2472,9 @@
 			children = (
 				DEEAAA3D2F727EF40072C702 /* Page */,
 				DEA5CF992F6958440045CBC0 /* TimeFormat.swift */,
-				DEA5CF9C2F6958700045CBC0 /* Temperature.swift */,
+				DEA5CF9C2F6958700045CBC0 /* TemperatureUnit.swift */,
+				DE90F68E2FC6E24D00F5278D /* DistanceUnit.swift */,
+				DE90F6912FC6E3A900F5278D /* SettingsEnvironment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2244,6 +2587,7 @@
 				DEABE51F2F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift */,
 				DEABE5202F456CFC00089B9E /* UIView+RxExtension.swift */,
 				DEF570C72F801F32002394B9 /* UIImage+Extension.swift */,
+				DE6F500D2FC09A1900EA1743 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2575,6 +2919,7 @@
 		DECE31522F62AC7B0078414C /* DrivingMode */ = {
 			isa = PBXGroup;
 			children = (
+				DE97326C2FBF63A7002F032E /* Navigator */,
 				DECE31622F62AFBF0078414C /* Music */,
 				DECE31612F62AF040078414C /* Main */,
 			);
@@ -2650,6 +2995,7 @@
 		DECE31722F62D7880078414C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				860BE55E2F7313E300311032 /* PlayerScreen */,
 				86D0B4EE2FC3390500CAF155 /* AuthorizationMusic */,
 				86D4FFDC2F9BDE1F0009BC46 /* MusicMenu */,
 				DECE31732F62D79B0078414C /* AppleMusic */,
@@ -2663,9 +3009,7 @@
 				86DFA4BF2F881E5C00EA9B58 /* AppleMusicArtistLibrary */,
 				866DDCF72F7C3C86000D6CE3 /* AppleMusicTrackList */,
 				86B2EDC92F782275006C0F3A /* AppleMusicLibrary */,
-				860BE55E2F7313E300311032 /* PlayerScreen */,
 				860BE55D2F7313DA00311032 /* Main */,
-				868C1C072F7078DB00F63D7B /* Views */,
 			);
 			path = AppleMusic;
 			sourceTree = "<group>";
@@ -3644,6 +3988,7 @@
 				DECB86812F587BB800378ADC /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE629BF62F55F34D004F5F7E /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DE63A2262F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
+				DE90F68F2FC6E24D00F5278D /* DistanceUnit.swift in Sources */,
 				DE0879F82F5DBD6000FECBA5 /* CalendarDayNumberWithMonthGridWidgetView.swift in Sources */,
 				DE63A23B2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
 				DE51204E2F4576B60026C5CC /* LiveActivityType.swift in Sources */,
@@ -3713,8 +4058,9 @@
 				DEF08FE12F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DEDB36902F81655700DAF5FC /* WidgetPhotoStorageModel.swift in Sources */,
 				DE629BF52F55F33D004F5F7E /* WidgetTextStorage.swift in Sources */,
-				DEA5CF9D2F6958700045CBC0 /* Temperature.swift in Sources */,
+				DEA5CF9D2F6958700045CBC0 /* TemperatureUnit.swift in Sources */,
 				DE51203E2F4572B00026C5CC /* GlobalDefinitions.swift in Sources */,
+				DE90F6932FC6E3AA00F5278D /* SettingsEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3763,6 +4109,7 @@
 				DE629C132F56D828004F5F7E /* WidgetsPresetsCollectionHelperCell.swift in Sources */,
 				DEEAA9FC2F6EFB560072C702 /* WeatherFourDaysView.swift in Sources */,
 				DEEAAA012F6F07CF0072C702 /* WidgetWeatherViewController.swift in Sources */,
+				DE62B4092FC6059C00AF529A /* SearchPlaceTableElement.swift in Sources */,
 				DEC158412F4A1ABB00F2843C /* WidgetsHelperViewController.swift in Sources */,
 				DEF08FFA2F7E806B0066EE07 /* WidgetCarLogoView.swift in Sources */,
 				DE1DA0932F51633200742E69 /* WidgetsPreviewViewModel.swift in Sources */,
@@ -3771,9 +4118,11 @@
 				DEDB36752F813F6000DAF5FC /* PhotoWithTextView.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEF08FE02F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
+				DE90F6AF2FC6F81600F5278D /* RouteOptionsView.swift in Sources */,
 				DEABE5E92F456CFC00089B9E /* NetworkError.swift in Sources */,
 				DEEAAA8D2F73FB920072C702 /* WidgetsPresetsTemplateDigitalStackedCell.swift in Sources */,
 				DEEAAA302F71A4090072C702 /* SelectLocationEnterNameCell.swift in Sources */,
+				DE376D7B2FC5DBD800EB9BE7 /* NavigatorPreset.swift in Sources */,
 				DEABE5EC2F456CFC00089B9E /* RxActivityIndicator.swift in Sources */,
 				DEABE5F02F456CFC00089B9E /* SignError.swift in Sources */,
 				DEC1586A2F4B29D200F2843C /* WidgetsPresetsHeaderView.swift in Sources */,
@@ -3799,9 +4148,12 @@
 				DE1DA0622F4EED0000742E69 /* WidgetQuoteSliderMindsetGrowthView.swift in Sources */,
 				DEEAAA712F73C1A80072C702 /* WidgetClockConfiguration.swift in Sources */,
 				DEABE5F62F456CFC00089B9E /* IAPActionResult.swift in Sources */,
+				DE62B4052FC6004300AF529A /* SearchPlaceView.swift in Sources */,
+				DE90F6A82FC6ECFF00F5278D /* RouteBuilderPreviewManager.swift in Sources */,
 				86B2EDD52F7951BE006C0F3A /* MusicLibraryItem.swift in Sources */,
 				DECE31712F62CA170078414C /* SignalBarsView.swift in Sources */,
 				DEF570A12F7FD96B002394B9 /* VehicleAIPreviewGenerateRequest.swift in Sources */,
+				DE90F6D12FC9BAB100F5278D /* RBPErrorView.swift in Sources */,
 				DECB867A2F585C0200378ADC /* WidgetTextManuallyResultView.swift in Sources */,
 				DEEAA9FE2F6EFB5E0072C702 /* WeatherFourDaysItemView.swift in Sources */,
 				DEC158892F4B63A700F2843C /* WidgetsPresetsTemplateQuoteAmbitionDriveCell.swift in Sources */,
@@ -3809,8 +4161,10 @@
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */,
 				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
+				DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
+				DE376D792FC5DB8D00EB9BE7 /* NavigatorPlace.swift in Sources */,
 				DEF08FD82F7E717A0066EE07 /* VehicleSupportLogosResponse.swift in Sources */,
 				DEDB367D2F8146D000DAF5FC /* WidgetBuilderPhotoView.swift in Sources */,
 				DEEB9D772F6A92530041587F /* DigitalWeatherClockView.swift in Sources */,
@@ -3818,10 +4172,12 @@
 				DE88813F2F5C24D600E59393 /* MonthAbbrevAndDayNumberLargeView.swift in Sources */,
 				DE1DA0602F4EECD200742E69 /* WidgetQuoteSliderAmbitionDriveView.swift in Sources */,
 				DE6083AE2F59DB790025BB2D /* WidgetsPresetsTemplateMonthGridCell.swift in Sources */,
+				DE90F6CF2FC893A400F5278D /* RBPIconButton.swift in Sources */,
 				860BE5712F7476A000311032 /* AppleMusicMainSectionHeaderView.swift in Sources */,
 				860BE5642F73148500311032 /* MusicPlayerViewModel.swift in Sources */,
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEDB368F2F81655700DAF5FC /* WidgetPhotoStorageModel.swift in Sources */,
+				DE90F6B92FC6FC0800F5278D /* RouteOptionsItemSelectView.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				86C2FF732F81575100E4BE36 /* AppleMusicCollectionCell.swift in Sources */,
 				DE6083992F59994E0025BB2D /* WidgetCalendarConfiguration.swift in Sources */,
@@ -3841,6 +4197,7 @@
 				86D0B4F22FC3392D00CAF155 /* AuthorizationRequiredView.swift in Sources */,
 				DEEAAA432F727F3D0072C702 /* Page.swift in Sources */,
 				DEF08FF82F7E80650066EE07 /* WidgetCarLogoViewModel.swift in Sources */,
+				DE90F6CC2FC773A600F5278D /* RouteBuilderPreviewView.swift in Sources */,
 				DE592C642F49C3C800ABA60E /* TabItemButton.swift in Sources */,
 				DECB86842F58840B00378ADC /* PhotoAssetImageLoader.swift in Sources */,
 				DE1DA05B2F4E0FF000742E69 /* WidgetBuilderHelperButton.swift in Sources */,
@@ -3860,14 +4217,18 @@
 				86A71C712F92A94B0002232A /* DropdownButtonView.swift in Sources */,
 				DE1DA0572F4E052D00742E69 /* WidgetBuilderFontItemButton.swift in Sources */,
 				DEEB9D5C2F6A91500041587F /* WidgetsPresetsTemplateLocationTemperatureCell.swift in Sources */,
+				DE6F500A2FC076C900EA1743 /* NavigatorWeatherNotAvailableView.swift in Sources */,
 				DEEAAA3B2F727C8E0072C702 /* FetchLocationsRequest.swift in Sources */,
 				DE1DA0B72F51FD7A00742E69 /* WidgetBuilderRemoveConfirmViewController.swift in Sources */,
 				DEABE5FF2F456CFC00089B9E /* PaddingTextField.swift in Sources */,
+				DE62B4102FC62E0900AF529A /* NavigatorWeatherPreloaderView.swift in Sources */,
 				DEDB36832F814A2B00DAF5FC /* WidgetPhotoWithTextViewController.swift in Sources */,
 				DEF08FDB2F7E73940066EE07 /* WidgetsPresetsTemplateCarLogoCell.swift in Sources */,
 				DEC1586C2F4B2A7800F2843C /* WidgetsPresetsTabView.swift in Sources */,
+				DE62B40E2FC605B500AF529A /* SearchPlaceTablePlaceCell.swift in Sources */,
 				DEC158452F4A1AC600F2843C /* WidgetsHelperView.swift in Sources */,
 				DEC158672F4B269F00F2843C /* WidgetsPresetsView.swift in Sources */,
+				DE90F6B32FC6F82200F5278D /* RouteOptionsRootView.swift in Sources */,
 				DEEAAA652F73BF5B0072C702 /* VehicleWidgetPreview.swift in Sources */,
 				DEF08FFD2F7E859A0066EE07 /* WidgetBuilderCarBrandsView.swift in Sources */,
 				DEABE6032F456CFC00089B9E /* SessionManager.swift in Sources */,
@@ -3878,13 +4239,17 @@
 				DE6083C02F5B1CB10025BB2D /* CalendarWeekRowView.swift in Sources */,
 				DEEB9D542F6A91070041587F /* WeatherIconTemperatureView.swift in Sources */,
 				DEEAAAA52F73FC400072C702 /* CalendarClockView.swift in Sources */,
+				DE90F6902FC6E24D00F5278D /* DistanceUnit.swift in Sources */,
 				DE1DA0AA2F51E15A00742E69 /* WidgetTextQuoteStorageModel.swift in Sources */,
 				DEEAAA222F713BB00072C702 /* SelectLocationViewController.swift in Sources */,
+				DE376D7F2FC5DC8300EB9BE7 /* RouteBuilderManager.swift in Sources */,
 				DEABE60A2F456CFC00089B9E /* IAPError.swift in Sources */,
+				DE6F50112FC0A0EF00EA1743 /* NavigatorMapUnlockGeoView.swift in Sources */,
 				DE629BF42F55F2B3004F5F7E /* WidgetTextStorage.swift in Sources */,
 				DEEAAA0B2F6F0CEE0072C702 /* WidgetBuilderConfigurationTabItemButton.swift in Sources */,
 				862BC1342F747B44000ECDC9 /* AppleMusicLibraryCategory.swift in Sources */,
 				DE0879ED2F5DAC1200FECBA5 /* WidgetCalendarViewController.swift in Sources */,
+				DE90F6C62FC7692200F5278D /* RouteBuilderDepartureTimeView.swift in Sources */,
 				DE1DA0A72F51E14500742E69 /* WidgetTextService.swift in Sources */,
 				DEF08FEA2F7E756D0066EE07 /* WidgetCarLogoBrand.swift in Sources */,
 				DEC1587C2F4B5E0B00F2843C /* WidgetTextQuoteMindsetGrowth.swift in Sources */,
@@ -3899,20 +4264,26 @@
 				DEC158652F4B269A00F2843C /* WidgetsPresetsViewModel.swift in Sources */,
 				86DFA4CB2F8A470F00EA9B58 /* TrackItem.swift in Sources */,
 				DEDB36932F8166F000DAF5FC /* WidgetsPresetsTemplatePhotoCell.swift in Sources */,
+				DE90F6B72FC6F8CD00F5278D /* RouteOptions.swift in Sources */,
 				DE0879EF2F5DAC1B00FECBA5 /* WidgetCalendarViewModel.swift in Sources */,
 				DEABE6132F456CFC00089B9E /* String+Extension.swift in Sources */,
 				DE747DA52F752A5A007C145B /* WidgetClockView.swift in Sources */,
 				DEEAAA122F712B210072C702 /* SelectTemperatureTypeViewController.swift in Sources */,
 				DE629C1A2F5708FC004F5F7E /* WidgetTextManuallyViewController.swift in Sources */,
+				DE90F6C02FC7516000F5278D /* RouteBuilderMenuRootView.swift in Sources */,
 				DEF570C82F801F32002394B9 /* UIImage+Extension.swift in Sources */,
 				DE1DA03E2F4CBD0200742E69 /* WidgetTextQuoteViewModel.swift in Sources */,
 				DEEAAA912F73FBB30072C702 /* WidgetsPresetsTemplateDigitalMirrorCell.swift in Sources */,
 				DEC1588F2F4B647E00F2843C /* WidgetsPresetsTemplateQuoteLifeMeaningCell.swift in Sources */,
 				DEABE61A2F456CFC00089B9E /* APIFormDataRequestBody.swift in Sources */,
 				86D0B4ED2FC328AC00CAF155 /* PlayerAccessCoordinator.swift in Sources */,
+				DE90F6D32FC9BF8000F5278D /* RBPInfoView.swift in Sources */,
 				DEA5CF942F6955190045CBC0 /* WidgetWeatherStyle.swift in Sources */,
 				DEEAAA742F73C5590072C702 /* WidgetClockStorageModel.swift in Sources */,
 				DEEAAAA32F73FC2F0072C702 /* SplitFlapView.swift in Sources */,
+				DE376D752FC5D94700EB9BE7 /* RouteBuilder.swift in Sources */,
+				DE90F6B12FC6F81B00F5278D /* RouteOptionsViewModel.swift in Sources */,
+				DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */,
 				DEEAAA972F73FBCA0072C702 /* WidgetsPresetsTemplateCalendarClockCell.swift in Sources */,
 				DE88813C2F5C1E0D00E59393 /* WeekdayAndDayNumberLargeView.swift in Sources */,
 				DE6083BB2F5AE83F0025BB2D /* MonthGridView.swift in Sources */,
@@ -3925,6 +4296,8 @@
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
 				DEABE61C2F456CFC00089B9E /* IAPErrorHelper.swift in Sources */,
+				DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */,
+				DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */,
 				DEEB9D572F6A912E0041587F /* WidgetsPresetsTemplateCurrentWeatherSummaryCell.swift in Sources */,
 				DEC158852F4B62AC00F2843C /* WidgetsPresetsTemplatesCollectionElement.swift in Sources */,
 				DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */,
@@ -3955,6 +4328,8 @@
 				DEEAAA932F73FBBB0072C702 /* WidgetsPresetsTemplateDigitalClassicCell.swift in Sources */,
 				DE51205A2F45C5140026C5CC /* PowerLiveActivityAttributes.swift in Sources */,
 				860BE5602F73147400311032 /* MusicPlayerView.swift in Sources */,
+				DE6F50022FC06C2F00EA1743 /* NavigatorMapView.swift in Sources */,
+				DE90F6C32FC7533300F5278D /* RouteBuilderMenuOptionButton.swift in Sources */,
 				DEC158632F4B269400F2843C /* WidgetsPresetsViewController.swift in Sources */,
 				DE1DA0472F4DE36C00742E69 /* WidgetBuilderFontColorView.swift in Sources */,
 				DEDB36872F814A3600DAF5FC /* WidgetPhotoWithTextView.swift in Sources */,
@@ -3963,11 +4338,13 @@
 				DE592C4A2F49BCE500ABA60E /* ProfileManager.swift in Sources */,
 				DEEAAA262F713BBE0072C702 /* SelectLocationView.swift in Sources */,
 				86A71C732F92C29E0002232A /* SearchFieldView.swift in Sources */,
+				DE6F50132FC0A46A00EA1743 /* NavigatorResizableMapView.swift in Sources */,
 				86D4FFDB2F9A88250009BC46 /* MusicSourceMenuView.swift in Sources */,
 				DECB867C2F5863F100378ADC /* SharedImageFileStore.swift in Sources */,
 				DEABE6352F456CFC00089B9E /* UIView+RxExtension.swift in Sources */,
 				DE629C1C2F570902004F5F7E /* WidgetTextManuallyViewModel.swift in Sources */,
 				8614BBF72F758D2500E2AAA1 /* AppleMusicService.swift in Sources */,
+				DE90F6BC2FC7515200F5278D /* RouteBuilderMenuView.swift in Sources */,
 				DE6083B22F59DB8C0025BB2D /* WidgetsPresetsTemplateDayNumberWithMonthGridCell.swift in Sources */,
 				86DFA4C32F881E7F00EA9B58 /* AppleMusicArtistLibraryViewController.swift in Sources */,
 				860BE56D2F74712000311032 /* AppleMusicMainItemCell.swift in Sources */,
@@ -3976,6 +4353,7 @@
 				DEF570AC2F7FDDEA002394B9 /* WidgetAIPhotoStorageModel.swift in Sources */,
 				DEDB36BB2F825DFC00DAF5FC /* WidgetPhotoCarouselStorageModel.swift in Sources */,
 				DE747DA12F752A4C007C145B /* WidgetClockViewController.swift in Sources */,
+				DE62B40C2FC605AE00AF529A /* SearchPlaceTablePresetCell.swift in Sources */,
 				DEDB36AB2F824E4D00DAF5FC /* WidgetsPresetsTemplateAIPhotoMyCarCell.swift in Sources */,
 				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
@@ -3987,11 +4365,15 @@
 				DEABE6372F456CFC00089B9E /* PurchaseValidationObserver.swift in Sources */,
 				DEA5CF962F6956BF0045CBC0 /* WidgetWeatherConfiguration.swift in Sources */,
 				DEEAAAA12F73FC1B0072C702 /* DigitalClassicView.swift in Sources */,
+				DE90F6A02FC6EAB600F5278D /* RouteBuilderPreviewRootView.swift in Sources */,
 				DEEAAA052F6F07DC0072C702 /* WidgetWeatherView.swift in Sources */,
 				DEEB9D752F6A924C0041587F /* WidgetsPresetsTemplateDigitalWeatherClockCell.swift in Sources */,
 				DECE31602F62ADF60078414C /* DrivingModeRouteItemButton.swift in Sources */,
 				DEEB9D482F6A8CF20041587F /* WidgetWeatherService.swift in Sources */,
+				DE90F6CA2FC7693300F5278D /* RouteBuilderDepartureTimeRootView.swift in Sources */,
 				DEDB36702F813C9600DAF5FC /* WidgetPhotoWIthTextStorageModel.swift in Sources */,
+				DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */,
+				DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,
 				DEABE63E2F456CFC00089B9E /* UIEdgeInsets+Extension.swift in Sources */,
@@ -4024,6 +4406,7 @@
 				DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */,
 				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
+				DE62B4012FC5FB8A00AF529A /* SearchPlaceRootView.swift in Sources */,
 				DEF08FEF2F7E75A60066EE07 /* WidgetCarLogoService.swift in Sources */,
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
@@ -4041,7 +4424,9 @@
 				DEF090022F7EB9520066EE07 /* WidgetCarBrandsListViewController.swift in Sources */,
 				DEABE6502F456CFC00089B9E /* Fonts.swift in Sources */,
 				DE1DA09D2F51B71800742E69 /* WidgetsPreviewPhoneView.swift in Sources */,
+				DE90F6922FC6E3A900F5278D /* SettingsEnvironment.swift in Sources */,
 				DEEAAA202F7138D20072C702 /* WidgetBuilderLocationView.swift in Sources */,
+				DE6F50062FC074A600EA1743 /* NavigatorWeatherView.swift in Sources */,
 				DEEAAAAF2F741E0D0072C702 /* SplitFlapDividerView.swift in Sources */,
 				DEEB9D6B2F6A92090041587F /* WidgetsPresetsTemplateWeatherClockCell.swift in Sources */,
 				DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */,
@@ -4061,8 +4446,9 @@
 				DE6083A22F599B030025BB2D /* WidgetCalendarStorageModel.swift in Sources */,
 				DE63A22D2F7D3D8F00AF71B7 /* WidgetsPresetsTemplateClockAIPreviewCell.swift in Sources */,
 				DE6083B62F59DB990025BB2D /* WidgetsPresetsTemplateMonthDayAndWeekdayTextCell.swift in Sources */,
-				DEA5CF9E2F6958700045CBC0 /* Temperature.swift in Sources */,
+				DEA5CF9E2F6958700045CBC0 /* TemperatureUnit.swift in Sources */,
 				DE592C5A2F49C1FB00ABA60E /* MainViewController.swift in Sources */,
+				DE62B4072FC6059600AF529A /* SearchPlaceTableView.swift in Sources */,
 				DE629C232F573A82004F5F7E /* WidgetBuilderBackgroundView.swift in Sources */,
 				DEEAA92C2F6D976E0072C702 /* WeatherFourDaysKindsView.swift in Sources */,
 				DEABE6592F456CFC00089B9E /* UIColor+Extension.swift in Sources */,
@@ -4072,6 +4458,7 @@
 				DE747DA32F752A55007C145B /* WidgetClockViewModel.swift in Sources */,
 				DEC1585C2F4A2ED100F2843C /* WidgetsHelperScrollTextView.swift in Sources */,
 				DE629C1E2F570907004F5F7E /* WidgetTextManuallyView.swift in Sources */,
+				DE6F500C2FC0796F00EA1743 /* NavigatorWeatherInfoView.swift in Sources */,
 				DE63A2352F7D49A200AF71B7 /* WidgetClockAIPreviewViewModel.swift in Sources */,
 				DEDB369C2F816B0500DAF5FC /* WidgetPhotoView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
@@ -4090,6 +4477,7 @@
 				DEA5CFA22F6958C90045CBC0 /* Location.swift in Sources */,
 				DEDB36952F81676300DAF5FC /* WidgetsPresetsTemplatePhotoPlaceholderCell.swift in Sources */,
 				DEABE6652F456CFC00089B9E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE62B4032FC5FF8F00AF529A /* SearchPlaceViewModel.swift in Sources */,
 				DE6083B42F59DB920025BB2D /* WidgetsPresetsTemplateMonthAbbrevAndDayNumberLargeCell.swift in Sources */,
 				DE0879F12F5DAC1F00FECBA5 /* WidgetCalendarView.swift in Sources */,
 				DEDB36A82F824B2D00DAF5FC /* WidgetAIPhotoMyCarStorageModel.swift in Sources */,
@@ -4106,9 +4494,17 @@
 				DEA9C55A2F751DCC00B8121E /* AnalogClockFaceView.swift in Sources */,
 				DEABE66E2F456CFC00089B9E /* ContentError.swift in Sources */,
 				862BC1382F747B69000ECDC9 /* AppleMusicLibraryItem.swift in Sources */,
+				DE6F500E2FC09A1900EA1743 /* Date+Extension.swift in Sources */,
 				DE1DA0452F4DDEB800742E69 /* WidgetBuilderPreviewWidgetButton.swift in Sources */,
 				86D4FFD72F969DFF0009BC46 /* AppleMusicLoaderView.swift in Sources */,
 				DEC1588B2F4B643A00F2843C /* WidgetsPresetsTemplateQuoteMindsetGrowthCell.swift in Sources */,
+				DE90F6BE2FC7515800F5278D /* RouteBuilderMenuViewModel.swift in Sources */,
+				4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */,
+				39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */,
+				DE90F6A22FC6EABC00F5278D /* RouteBuilderPreviewViewModel.swift in Sources */,
+				79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */,
+				BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */,
+				6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

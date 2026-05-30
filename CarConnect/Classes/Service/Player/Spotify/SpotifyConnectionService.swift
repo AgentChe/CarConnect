@@ -17,16 +17,6 @@ import Combine
 import SpotifyiOS
 import UIKit
 
-/// Возможности пользователя — определяют, что показывать в UI.
-struct SpotifyUserCapabilities: Equatable {
-    /// `true` = Premium: можно играть любой трек по URI, управлять shuffle/repeat.
-    /// `false` = Free: только play/pause, треки по требованию недоступны.
-    let canPlayOnDemand: Bool
-
-    /// Удобный флаг для UI: показывать ли баннер «Нужен Premium».
-    var requiresPremiumBanner: Bool { !canPlayOnDemand }
-}
-
 // MARK: - SpotifyConnectionService
 
 final class SpotifyConnectionService: NSObject {
@@ -35,6 +25,8 @@ final class SpotifyConnectionService: NSObject {
 
     private let clientID = "bc37361b992e4d579a2327aa20c95d9c"
     private let redirectURI = URL(string: "carconnectapp://exchange")!
+    
+    let userIsPremium = CurrentValueSubject<Bool, Never>(false)
 
     /// Готовый к использованию appRemote. SpotifyMusicPlayer берёт его отсюда,
     /// а не создаёт свой собственный экземпляр.
@@ -64,23 +56,29 @@ final class SpotifyConnectionService: NSObject {
         appRemote.isConnected
     }
     
-    func autorize() {
-        appRemote.authorizeAndPlayURI("") { [weak self] spotifyInstalled in
-            if !spotifyInstalled {
-                self?.openSpotifyInAppStore()
+    func autorize() async -> Bool {
+        let spotifyInstalled = await withCheckedContinuation { [weak self] continuation in
+            self?.appRemote.authorizeAndPlayURI("") { spotifyInstalled in
+                continuation.resume(with: .success(spotifyInstalled))
             }
         }
+        if !spotifyInstalled {
+            Task { @MainActor in
+                self.openSpotifyInAppStore()
+            }
+        }
+        
+        return spotifyInstalled
     }
 
     /// Открыть App Store на странице Spotify.
     /// Вызывать по нажатию кнопки «Установить Spotify».
-    @discardableResult
-    func openSpotifyInAppStore() -> Bool {
+    @MainActor
+    func openSpotifyInAppStore() {
         let itemID = SPTAppRemote.spotifyItunesItemIdentifier()
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id\(itemID)") else { return false }
-        guard UIApplication.shared.canOpenURL(url) else { return false }
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id\(itemID)") else { return }
+        guard UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)
-        return true
     }
     
     /// Подключиться к App Remote, используя сохранённый токен.
@@ -124,14 +122,14 @@ final class SpotifyConnectionService: NSObject {
 
     private func fetchUserCapabilities() {
         appRemote.userAPI?.delegate = self
-        appRemote.userAPI?.fetchCapabilities { result, error in
+        appRemote.userAPI?.fetchCapabilities { [weak self] result, error in
             if let error {
                 // Не удалось получить capabilities — показываем connected без Premium.
                 print("[SpotifyConnectionService] fetchCapabilities error:", error.localizedDescription)
                 return
             }
             if let caps = result as? SPTAppRemoteUserCapabilities {
-                
+                self?.userIsPremium.send(caps.canPlayOnDemand)
             }
         }
     }
@@ -165,6 +163,6 @@ extension SpotifyConnectionService: SPTAppRemoteUserAPIDelegate {
 
     /// Вызывается при изменении подписки в реальном времени (subscribeToCapabilityChanges).
     func userAPI(_ userAPI: SPTAppRemoteUserAPI, didReceive capabilities: SPTAppRemoteUserCapabilities) {
-        
+        userIsPremium.send(capabilities.canPlayOnDemand)
     }
 }

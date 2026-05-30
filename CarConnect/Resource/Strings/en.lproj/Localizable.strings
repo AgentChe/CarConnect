@@ -147,6 +147,9 @@
 "Spotify.Auth.Title" = "Listen to music while driving";
 "Spotify.Auth.Subtitle" = "Connect Spotify to access your playlists";
 "Spotify.Auth.Button" = "Connect Spotify";
+"Spotify.CapabilitiesWarning.Seek" = "Seeking isn’t available with Spotify Free";
+"Spotify.CapabilitiesWarning.Repeat" = "Repeat isn’t available with Spotify Free";
+"Spotify.CapabilitiesWarning.Shuffle" = "Shuffle isn’t available with Spotify Free";
 
 // MARK: Music Source
 "AppleMusic" = "Apple Music";

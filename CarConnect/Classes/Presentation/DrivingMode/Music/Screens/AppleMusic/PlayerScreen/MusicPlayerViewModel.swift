@@ -1,5 +1,5 @@
 //
-//  AppleMusicPlayerViewModel.swift
+//  MusicPlayerViewModel.swift
 //  CarConnect
 //
 //  Created by Vitaliy Zagorodnov on 24.03.2026.
@@ -9,10 +9,11 @@ import Foundation
 import MusicKit
 import Combine
 
-final class AppleMusicPlayerViewModel {
+final class MusicPlayerViewModel {
     
     @MainActor var onUpdateTrack: ((TrackModel) -> Void)?
     @MainActor var onUpdateState: ((PlaybackModel) -> Void)?
+    @MainActor var showMessage: ((String) -> Void)?
     
     private var cancellation: [AnyCancellable] = []
     
@@ -76,25 +77,31 @@ final class AppleMusicPlayerViewModel {
     }
 }
 
-extension AppleMusicPlayerViewModel {
+extension MusicPlayerViewModel {
     enum Source {
         case appleMusic(startItem: Track, trackList: MusicItemCollection<Track>?, parentCollectionID: MusicItemID?)
         case spotify
     }
 }
 
-extension AppleMusicPlayerViewModel: MusicPlayerProgressDelegate {
+extension MusicPlayerViewModel: MusicPlayerProgressDelegate {
     func valueDidChange(value: TimeInterval) {
         switch source {
         case .appleMusic:
             AppleMusicPlayer.shared.seek(to: value)
         case .spotify:
-            SpotifyMusicPlayer.shared.seek(to: value)
+            if SpotifyConnectionService.shared.userIsPremium.value {
+                SpotifyMusicPlayer.shared.seek(to: value)
+            } else {
+                Task { @MainActor in
+                    showMessage?("Spotify.CapabilitiesWarning.Seek".localized)
+                }
+            }
         }
     }
 }
 
-extension AppleMusicPlayerViewModel: MusicPlayerControlsDelegate {
+extension MusicPlayerViewModel: MusicPlayerControlsDelegate {
     func didTapNext() {
         switch source {
         case .appleMusic:
@@ -127,7 +134,11 @@ extension AppleMusicPlayerViewModel: MusicPlayerControlsDelegate {
         case .appleMusic:
             AppleMusicPlayer.shared.toggleShuffleMode()
         case .spotify:
-            SpotifyMusicPlayer.shared.toggleShuffleMode()
+            if SpotifyConnectionService.shared.userIsPremium.value {
+                SpotifyMusicPlayer.shared.toggleShuffleMode()
+            } else {
+                showMessage?("Spotify.CapabilitiesWarning.Shuffle".localized)
+            }
         }
     }
     
@@ -136,7 +147,11 @@ extension AppleMusicPlayerViewModel: MusicPlayerControlsDelegate {
         case .appleMusic:
             AppleMusicPlayer.shared.toggleRepeatMode()
         case .spotify:
-            SpotifyMusicPlayer.shared.toggleRepeatMode()
+            if SpotifyConnectionService.shared.userIsPremium.value {
+                SpotifyMusicPlayer.shared.toggleRepeatMode()
+            } else {
+                showMessage?("Spotify.CapabilitiesWarning.Repeat".localized)
+            }
         }
     }
 }

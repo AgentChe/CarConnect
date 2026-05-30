@@ -66,7 +66,9 @@ final class SpotifyMusicPlayer: NSObject {
     func togglePlaybackStatus() {
         guard let api = appRemote?.playerAPI else { return }
         if appRemote?.isConnected == false {
-            SpotifyConnectionService.shared.autorize()
+            Task { @MainActor in
+                _ = await SpotifyConnectionService.shared.autorize()
+            }
         } else {
             isPlaying ? api.pause(nil) : api.resume(nil)
         }

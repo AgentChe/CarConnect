@@ -30,9 +30,9 @@ extension DrivingModeCoordinator {
     // TODO: Добавить логику переключения
     func testInitial() {
         let navigationController = UINavigationController()
-        let coordinator = PlayerAccessCoordinator(navigationController: navigationController, source: .spotify)
+        let coordinator = PlayerAccessCoordinator(navigationController: navigationController)
         playerCoordinator = coordinator
-        coordinator.start()
+        coordinator.start(source: .appleMusic)
         changeVC(on: navigationController)
     }
 }

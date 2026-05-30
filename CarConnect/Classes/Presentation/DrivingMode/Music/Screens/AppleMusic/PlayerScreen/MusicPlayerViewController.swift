@@ -9,11 +9,11 @@ import UIKit
 import MusicKit
 
 final class MusicPlayerViewController: UIViewController {
-    private lazy var mainView = AppleMusicPlayerView()
-    private let viewModel: AppleMusicPlayerViewModel
+    private lazy var mainView = MusicPlayerView()
+    private let viewModel: MusicPlayerViewModel
     
-    init(source: AppleMusicPlayerViewModel.Source) {
-        viewModel = AppleMusicPlayerViewModel(source: source)
+    init(source: MusicPlayerViewModel.Source) {
+        viewModel = MusicPlayerViewModel(source: source)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,10 +32,13 @@ final class MusicPlayerViewController: UIViewController {
         mainView.trackProgress.delegate = viewModel
         mainView.controlsView.delegate = viewModel
         
-        
-        mainView.backButton.isHidden = (navigationController?.viewControllers.count ?? 1) <= 1
-        
-        mainView.backButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
+        if (navigationController?.viewControllers.count ?? 1) <= 1 {
+            let button = mainView.setup(type: .dropdown)
+            button.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+        } else {
+            let button = mainView.setup(type: .back)
+            button.addTarget(self, action: #selector(pop), for: .touchUpInside)
+        }
         
         viewModel.onUpdateTrack = { [weak self] model in
             guard let self else { return }
@@ -58,11 +61,22 @@ final class MusicPlayerViewController: UIViewController {
             )
         }
         
+        viewModel.showMessage = { [weak self] in
+            self?.mainView.showMessage($0)
+        }
+        
         viewModel.start()
     }
     
     
     @objc func pop(_ button: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func openMenu(_ button: DropdownButtonView) {
+        let controller = MusicSourceMenuViewController(actionFrame: mainView.dropDownButton.frame)
+        
+        controller.modalPresentationStyle = .currentContext
+        present(controller, animated: false)
     }
 }

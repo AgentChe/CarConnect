@@ -1,5 +1,5 @@
 //
-//  AppleMusicPlayerView.swift
+//  MusicPlayerView.swift
 //  CarConnect
 //
 //  Created by Vitaliy Zagorodnov on 24.03.2026.
@@ -7,12 +7,19 @@
 
 import UIKit
 
-final class AppleMusicPlayerView: UIView {
+final class MusicPlayerView: UIView {
+    
+    enum LeftActionType {
+        case back
+        case dropdown
+    }
     
     lazy var backButton = makeBackButton()
     lazy var trackInfo = makeTrackInfo()
     lazy var trackProgress = makeTrackProgress()
     lazy var controlsView = makePlayerControls()
+    
+    private var leftButtonAction: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,20 +33,58 @@ final class AppleMusicPlayerView: UIView {
     }
 }
 
+extension MusicPlayerView {
+    func setup(type: LeftActionType) -> UIButton {
+        let button: UIButton
+        switch type {
+        case .back:
+            button = makeBackButton()
+        case .dropdown:
+            button = makeDropdownButton()
+        }
+        
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: topAnchor, constant: 19.landscapeVScale),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
+        
+        return button
+    }
+    
+    func showMessage(_ message: String) {
+        let messageView = makeMessageView(text: message)
+        messageView.alpha = 0
+        messageView.transform = .init(translationX: 0, y: -30)
+        addSubview(messageView)
+        NSLayoutConstraint.activate([
+            messageView.topAnchor.constraint(equalTo: topAnchor, constant: 21.landscapeVScale),
+            messageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            messageView.alpha = 1
+            messageView.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 2.0, options: .curveEaseOut) {
+            messageView.alpha = 0
+            messageView.transform = .init(translationX: 0, y: -30)
+        } completion: { _ in
+            messageView.removeFromSuperview()
+        }
+    }
+}
+
 // MARK: Private
-private extension AppleMusicPlayerView {
+private extension MusicPlayerView {
     func initialize() {
         backgroundColor = Appearance.color_080A0C
     }
 }
 
 // MARK: Make constraints
-private extension AppleMusicPlayerView {
+private extension MusicPlayerView {
     func makeConstraints() {
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 19.landscapeVScale),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor)
-        ])
         
         NSLayoutConstraint.activate([
             trackInfo.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8.landscapeVScale),
@@ -62,7 +107,7 @@ private extension AppleMusicPlayerView {
 }
 
 // MARK: Lazy initialization
-private extension AppleMusicPlayerView {
+private extension MusicPlayerView {
     func makePlayerControls() -> MusicPlayerControlsView {
         let view = MusicPlayerControlsView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +131,20 @@ private extension AppleMusicPlayerView {
     
     func makeBackButton() -> UIButton {
         let view = BackButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeMessageView(text: String) -> SpotifyCapabilitiesMessageView {
+        let view = SpotifyCapabilitiesMessageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setup(message: text)
+        return view
+    }
+    
+    func makeDropdownButton() -> DropdownButtonView {
+        let view = DropdownButtonView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

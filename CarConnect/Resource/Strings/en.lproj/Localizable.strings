@@ -194,3 +194,8 @@
 "Navigator.RouteBuilderPreview.Info" = "%@ ∙ %@";
 "Navigator.RouteBuilderPreview.Error.Title" = "Something went wrong";
 "Navigator.RouteBuilderPreview.Error.Action" = "Try again";
+
+// MARK: CarPlay
+"CarPlay.Placeholder.Title" = "Route status";
+"CarPlay.Placeholder.Text" = "Start a route in Driving mode to follow it here";
+"CarPlay.Placeholder.Button" = "Open app";

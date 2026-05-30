@@ -120,6 +120,8 @@ extension NavigatorMapView {
         muteButton.isHidden = true
         endNavigationButton.isHidden = true
         myGeoButton.isHidden = false
+
+        NavigatorSession.shared.didStopNavigation()
     }
 }
 
@@ -160,13 +162,16 @@ private extension NavigatorMapView {
     
     func beginNavigation(route: NavigatorRoute) {
         myLocationObservation = nil
-        
-        googleMapView.isNavigationEnabled = true
-        
-        guard let navigator = googleMapView.navigator else {
+
+        guard let session = NavigatorSession.shared.makeSessionIfNeeded() else {
             return
         }
-        
+        session.isStarted = true
+
+        guard googleMapView.enableNavigation(with: session), let navigator = googleMapView.navigator else {
+            return
+        }
+
         isNavigating = true
         
         googleMapView.cameraMode = .following
@@ -223,11 +228,13 @@ private extension NavigatorMapView {
         
         navigator.setDestinations(waypoints) { [weak self] status in
             guard let self, self.isNavigating else { return }
-            
+
             guard status == .OK else { return }
-            
+
             self.googleMapView.navigator?.isGuidanceActive = true
             self.googleMapView.cameraMode = .following
+
+            NavigatorSession.shared.didStartNavigation()
         }
     }
 

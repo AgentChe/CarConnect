@@ -69,9 +69,16 @@ private extension NavigatorViewController {
                     self?.mainView.mapView.drawRoute(nil)
                 },
                 didStart: { [weak self] route in
-                    self?.mainView.mapView.setup(buildRouteHidden: false)
-                    self?.mainView.mapView.setupMarkers(places: nil)
-                    self?.mainView.mapView.drawRoute(nil)
+                    guard let self else { return }
+
+                    self.mainView.mapView.setupMarkers(places: nil)
+                    self.mainView.mapView.drawRoute(nil)
+
+                    self.mainView.mapView.didEndNavigation = { [weak self] in
+                        self?.mainView.mapView.setup(buildRouteHidden: false)
+                    }
+
+                    self.mainView.mapView.startNavigation(route: route)
                 },
                 didLookingAtPresetPlaces: { [weak self] places in
                     self?.mainView.mapView.setupMarkers(places: places)

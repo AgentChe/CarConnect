@@ -16,12 +16,14 @@ final class NavigatorResizableMapView: UIView {
         case expanded
     }
     
+    var didEndNavigation: (() -> Void)?
+    
     private lazy var didTapResizeTrigger = PublishRelay<Void>()
     private lazy var didTapBuildRouteTrigger = PublishRelay<Coordinate>()
     private lazy var didTapUnlockLocationTrackingTrigger = PublishRelay<Void>()
     
     private lazy var geoLocationAPI = GeoLocationAPI()
-    
+
     private var mapView: NavigatorMapView?
     private var unlockGeoView: NavigatorMapUnlockGeoView?
     
@@ -57,6 +59,17 @@ extension NavigatorResizableMapView {
     
     func drawRoute(_ route: NavigatorRoute?) {
         mapView?.drawRoute(route)
+    }
+
+    func startNavigation(route: NavigatorRoute) {
+        mapView?.didEndNavigation = { [weak self] in
+            self?.didEndNavigation?()
+        }
+        mapView?.startNavigation(route: route)
+    }
+
+    func stopNavigation() {
+        mapView?.stopNavigation()
     }
 
     var didTapResize: Signal<Void> {

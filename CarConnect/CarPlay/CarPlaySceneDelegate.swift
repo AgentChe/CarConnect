@@ -145,7 +145,7 @@ private extension CarPlaySceneDelegate {
             title: "CarPlay.Placeholder.Button".localized,
             textStyle: .normal
         ) { _ in
-            // TODO: send an intent to the app to open Driving mode / build a route.
+            UIApplication.shared.open(DeepLink.drivingModeNavigatorURL())
         }
 
         let template = CPInformationTemplate(

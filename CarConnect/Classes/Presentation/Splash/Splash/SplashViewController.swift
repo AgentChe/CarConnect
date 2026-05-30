@@ -20,6 +20,18 @@ final class SplashViewController: UIViewController {
     
     private lazy var didSDKConfiguredTrigger = PublishRelay<Void>()
     
+    private let deepLinkIntent: DeepLinkIntent?
+    
+    private init(deepLinkIntent: DeepLinkIntent?) {
+        self.deepLinkIntent = deepLinkIntent
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -56,8 +68,8 @@ final class SplashViewController: UIViewController {
 
 // MARK: Make
 extension SplashViewController {
-    static func make() -> SplashViewController {
-        SplashViewController()
+    static func make(deepLinkIntent: DeepLinkIntent? = nil) -> SplashViewController {
+        SplashViewController(deepLinkIntent: deepLinkIntent)
     }
 }
 
@@ -74,7 +86,10 @@ private extension SplashViewController {
         
         switch action {
         case .openMain:
-            window.rootViewController = MainViewController.make(requestReview: false)
+            window.rootViewController = MainViewController.make(
+                deepLinkIntent: deepLinkIntent,
+                requestReview: false
+            )
         }
     }
     

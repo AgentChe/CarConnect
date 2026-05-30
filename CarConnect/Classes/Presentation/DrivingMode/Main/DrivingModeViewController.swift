@@ -53,7 +53,11 @@ final class DrivingModeViewController: UIViewController {
                 mainView.menuView.musicItemButton
                     .rx.tap.map { DrivingModeRouteItemButton.Item.music(.appleMusic) }, // TODO: брать актуальный (выбранный) источник музыки
                 mainView.menuView.phoneItemButton
-                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone }
+                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone },
+                SceneDelegateMediator.shared.didOpenURLContexts
+                    .filter { $0.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) }
+                    .map { _ in DrivingModeRouteItemButton.Item.map }
+                    .asObservable()
             ])
             .bind(to: Binder(self) { base, item in
                 base.coordinator.tap(on: item)
@@ -68,7 +72,11 @@ final class DrivingModeViewController: UIViewController {
                 mainView.menuView.musicItemButton
                     .rx.tap.map {true },
                 mainView.menuView.phoneItemButton
-                    .rx.tap.map { true }
+                    .rx.tap.map { true },
+                SceneDelegateMediator.shared.didOpenURLContexts
+                    .filter { $0.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) }
+                    .map { _ in false }
+                    .asObservable()
             ])
             .bind(to: mainView.backgroundView.rx.isHidden)
             .disposed(by: disposeBag)

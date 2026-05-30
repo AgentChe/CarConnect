@@ -303,6 +303,9 @@
 		DE90F6D32FC9BF8000F5278D /* RBPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */; };
 		DE90F6D62FCB15CA00F5278D /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D52FCB15CA00F5278D /* CarPlaySceneDelegate.swift */; };
 		DE90F6D92FCB297800F5278D /* NavigatorSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6D82FCB297800F5278D /* NavigatorSession.swift */; };
+		DE90F6DB2FCB766100F5278D /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6DA2FCB766100F5278D /* DeepLink.swift */; };
+		DE90F6DC2FCB767300F5278D /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6DA2FCB766100F5278D /* DeepLink.swift */; };
+		DE90F6DE2FCB7C1600F5278D /* SceneDelegateMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90F6DD2FCB7C1600F5278D /* SceneDelegateMediator.swift */; };
 		DE97326E2FBF63CD002F032E /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */; };
 		DE9732702FBF63D7002F032E /* NavigatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */; };
 		DE9732722FBF63DB002F032E /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9732712FBF63DB002F032E /* NavigatorView.swift */; };
@@ -890,6 +893,8 @@
 		DE90F6D22FC9BF8000F5278D /* RBPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBPInfoView.swift; sourceTree = "<group>"; };
 		DE90F6D52FCB15CA00F5278D /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		DE90F6D82FCB297800F5278D /* NavigatorSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorSession.swift; sourceTree = "<group>"; };
+		DE90F6DA2FCB766100F5278D /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		DE90F6DD2FCB7C1600F5278D /* SceneDelegateMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateMediator.swift; sourceTree = "<group>"; };
 		DE97326D2FBF63CD002F032E /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
 		DE97326F2FBF63D7002F032E /* NavigatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewModel.swift; sourceTree = "<group>"; };
 		DE9732712FBF63DB002F032E /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -2601,6 +2606,7 @@
 				DECB86832F58840B00378ADC /* PhotoAssetImageLoader.swift */,
 				DEEB9D7A2F6A9C750041587F /* GeoLocationAPI.swift */,
 				DEEAA9272F6D858E0072C702 /* WeatherFetcher.swift */,
+				DE90F6DA2FCB766100F5278D /* DeepLink.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2616,6 +2622,7 @@
 				DEABE5332F456CFC00089B9E /* Appearance.swift */,
 				DEABE5342F456CFC00089B9E /* GlobalDefinitions.swift */,
 				DEABE5352F456CFC00089B9E /* SceneDelegate.swift */,
+				DE90F6DD2FCB7C1600F5278D /* SceneDelegateMediator.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -4011,6 +4018,7 @@
 				DEA5CFA62F695BD70045CBC0 /* Coordinate.swift in Sources */,
 				DE5120342F4572280026C5CC /* PowerProgressBar.swift in Sources */,
 				DEDB36A42F824B1000DAF5FC /* WidgetAIPhotoMyCarConfiguration.swift in Sources */,
+				DE90F6DC2FCB767300F5278D /* DeepLink.swift in Sources */,
 				DEA5CFA32F6958CD0045CBC0 /* Location.swift in Sources */,
 				DE5120352F4572280026C5CC /* AccessCarLockScreenView.swift in Sources */,
 				DEEAAA542F7296430072C702 /* TodayTomorrowWeatherWidgetView.swift in Sources */,
@@ -4088,6 +4096,7 @@
 				DEF570BF2F7FE944002394B9 /* WidgetAIPhotoViewController.swift in Sources */,
 				DE1DA04E2F4DEDB800742E69 /* WidgetBuilderResetItemButton.swift in Sources */,
 				DEDB36752F813F6000DAF5FC /* PhotoWithTextView.swift in Sources */,
+				DE90F6DE2FCB7C1600F5278D /* SceneDelegateMediator.swift in Sources */,
 				DE5120592F45C50F0026C5CC /* AccessCarLiveActivityAttributes.swift in Sources */,
 				DEF08FE02F7E74710066EE07 /* WidgetCarLogoConfiguration.swift in Sources */,
 				DE90F6AF2FC6F81600F5278D /* RouteOptionsView.swift in Sources */,
@@ -4330,6 +4339,7 @@
 				DEF090092F7EBC210066EE07 /* SelectBrandSearchField.swift in Sources */,
 				DE1DA0B52F51FD7100742E69 /* WidgetBuilderRemoveConfirmView.swift in Sources */,
 				866DDCFB2F7C4125000D6CE3 /* AppleMusicTrackListViewController.swift in Sources */,
+				DE90F6DB2FCB766100F5278D /* DeepLink.swift in Sources */,
 				DECE31772F62D7B20078414C /* AppleMusicMainViewController.swift in Sources */,
 				DEEB9D722F6A92350041587F /* WeatherConditionForecastView.swift in Sources */,
 				DE1DA0682F4F01BA00742E69 /* WidgetQuoteSliderItemView.swift in Sources */,

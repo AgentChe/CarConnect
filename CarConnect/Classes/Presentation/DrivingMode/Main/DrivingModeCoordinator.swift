@@ -15,6 +15,7 @@ final class DrivingModeCoordinator {
     private weak var parentVC: UIViewController?
     private weak var container: UIView?
     
+    private var currentItem: DrivingModeRouteItemButton.Item?
     private var previousVC: UIViewController?
     
     init(parentVC: UIViewController, container: UIView) {
@@ -26,6 +27,10 @@ final class DrivingModeCoordinator {
 // MARK: Public
 extension DrivingModeCoordinator {
     func tap(on item: DrivingModeRouteItemButton.Item) {
+        guard currentItem != item else { return }
+        
+        currentItem = item 
+        
         switch item {
         case .map:
             changeVC(on: mapVC)
@@ -54,6 +59,6 @@ private extension DrivingModeCoordinator {
         vc.view.frame = container.bounds
         vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         container.addSubview(vc.view)
-        vc.willMove(toParent: parentVC)
+        vc.didMove(toParent: parentVC)
     }
 }

@@ -12,9 +12,11 @@ final class AppleMusicArtistLibraryViewController: UIViewController {
     private lazy var mainView = AppleMusicArtistLibraryView()
     
     private let viewModel: AppleMusicArtistLibraryModel
+    private let router: AppleMusicPlayerRouter
     
-    init(artist: Artist) {
+    init(artist: Artist, router: AppleMusicPlayerRouter) {
         viewModel = .init(artist: artist)
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,14 +44,13 @@ final class AppleMusicArtistLibraryViewController: UIViewController {
     }
     
     @objc func pop(_ button: UIButton) {
-        navigationController?.popViewController(animated: true)
+        router.pop()
     }
 }
 
 extension AppleMusicArtistLibraryViewController: AppleMusicArtistLibraryDelegate {
     func didSelectItem(_ item: Album) {
-        let controller = AppleMusicTrackListViewController(source: .album(item))
-        navigationController?.pushViewController(controller, animated: true)
+        router.openTrackList(source: .album(item))
     }
     
     func visiblePath(indexPath: IndexPath) {

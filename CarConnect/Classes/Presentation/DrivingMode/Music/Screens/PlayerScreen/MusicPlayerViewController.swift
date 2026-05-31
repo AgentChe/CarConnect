@@ -11,8 +11,10 @@ import MusicKit
 final class MusicPlayerViewController: UIViewController {
     private lazy var mainView = MusicPlayerView()
     private let viewModel: MusicPlayerViewModel
+    private let router: PlayerRouter
     
-    init(source: MusicPlayerViewModel.Source) {
+    init(source: MusicPlayerViewModel.Source, router: PlayerRouter) {
+        self.router = router
         viewModel = MusicPlayerViewModel(source: source)
         
         super.init(nibName: nil, bundle: nil)
@@ -70,13 +72,19 @@ final class MusicPlayerViewController: UIViewController {
     
     
     @objc func pop(_ button: UIButton) {
-        navigationController?.popViewController(animated: true)
+        router.pop()
     }
     
     @objc private func openMenu(_ button: DropdownButtonView) {
-        let controller = MusicSourceMenuViewController(actionFrame: button.frame)
+        let musicSource: MusicSource
         
-        controller.modalPresentationStyle = .currentContext
-        present(controller, animated: false)
+        switch viewModel.source {
+        case .appleMusic:
+            musicSource = .appleMusic
+        case .spotify:
+            musicSource = .spotify
+        }
+        
+        router.openMusicSource(current: musicSource, actionFrame: button.frame)
     }
 }

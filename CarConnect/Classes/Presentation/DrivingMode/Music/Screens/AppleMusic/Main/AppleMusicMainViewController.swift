@@ -12,8 +12,18 @@ final class AppleMusicMainViewController: UIViewController {
     private lazy var mainView = AppleMusicMainView()
     
     private lazy var viewModel = AppleMusicMainViewModel()
+    private let router: AppleMusicPlayerRouter
     
     private lazy var disposeBag = DisposeBag()
+    
+    init(router: AppleMusicPlayerRouter) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -45,10 +55,7 @@ final class AppleMusicMainViewController: UIViewController {
     }
     
     @objc private func openMenu(_ button: DropdownButtonView) {
-        let controller = MusicSourceMenuViewController(actionFrame: mainView.dropDownButton.frame)
-        
-        controller.modalPresentationStyle = .currentContext
-        present(controller, animated: false)
+        router.openMusicSource(current: .appleMusic, actionFrame: button.frame)
     }
 }
 
@@ -69,46 +76,24 @@ extension AppleMusicMainViewController: UITextFieldDelegate {
 
 extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
     func didSelectRecentItem(_ item: AppleMusicLibraryItem) {
-        let controller: UIViewController
         switch item {
         case let .recent(item), let .searchResult(item):
             switch item {
             case .playlist(let playlist):
-                controller = AppleMusicTrackListViewController(source: .playlist(playlist))
+                router.openTrackList(source: .playlist(playlist))
             case .album(let album):
-                controller = AppleMusicTrackListViewController(source: .album(album))
+                router.openTrackList(source: .album(album))
             case .artist(let artist):
-                controller = AppleMusicArtistLibraryViewController(artist: artist)
+                router.openArtistLibrary(artist: artist)
             case .track(let track, _):
-                controller = MusicPlayerViewController(
-                    source: .appleMusic(startItem: track, trackList: nil, parentCollectionID: nil)
-                )
+                router.openPlayer(source: .appleMusic(startItem: track, trackList: nil, parentCollectionID: nil))
             }
-            navigationController?.pushViewController(controller, animated: true)
         case .category(let category):
-            let controller = AppleMusicLibraryViewController(category: category)
-            navigationController?.pushViewController(controller, animated: true)
+            router.openMusicLibrary(category: category)
         }
     }
     
     func loadNext() {
         viewModel.loadNextPage()
-    }
-}
-
-// MARK: Public
-extension AppleMusicMainViewController {
-    static func make() -> UIViewController {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .clear
-        appearance.titleTextAttributes = [
-            .font: Fonts.Inter.bold(size: 24.landscapeVScale),
-            .foregroundColor: Appearance.color_FFFFFF
-        ]
-        let controller = AppleMusicMainViewController()
-        controller.navigationController?.navigationBar.standardAppearance = appearance
-        controller.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        return controller
     }
 }

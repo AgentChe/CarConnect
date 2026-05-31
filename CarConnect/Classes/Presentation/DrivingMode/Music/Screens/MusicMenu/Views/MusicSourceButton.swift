@@ -10,6 +10,7 @@ import UIKit
 class MusicSourceButton: UIButton {
     private lazy var iconView = makeIconView()
     private lazy var label = makeTitleLabel()
+    private(set) var source: MusicSource?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +27,7 @@ class MusicSourceButton: UIButton {
 // MARK: Public
 extension MusicSourceButton {
     func setup(source: MusicSource) {
+        self.source = source
         iconView.image = UIImage(named: source.iconName)
         label.attributedText = source.title.attributed(with: .title)
     }

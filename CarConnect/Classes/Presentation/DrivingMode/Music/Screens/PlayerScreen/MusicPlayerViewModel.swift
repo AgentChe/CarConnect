@@ -17,7 +17,7 @@ final class MusicPlayerViewModel {
     
     private var cancellation: [AnyCancellable] = []
     
-    private let source: Source
+    let source: Source
     
     init(source: Source) {
         self.source = source

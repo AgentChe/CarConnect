@@ -11,8 +11,10 @@ import MusicKit
 final class AppleMusicTrackListViewController: UIViewController {
     private lazy var mainView = AppleMusicTrackListView()
     private let viewModel: AppleMusicTrackListViewModel
+    private let router: AppleMusicPlayerRouter
     
-    init(source: AppleMusicTrackListSource) {
+    init(source: AppleMusicTrackListSource, router: AppleMusicPlayerRouter) {
+        self.router = router
         viewModel = AppleMusicTrackListViewModel(source: source)
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,17 +44,13 @@ final class AppleMusicTrackListViewController: UIViewController {
     }
     
     @objc func pop(_ button: UIButton) {
-        navigationController?.popViewController(animated: true)
+        router.pop()
     }
 }
 
 extension AppleMusicTrackListViewController: AppleMusicTrackListTableDelegate {
     func didSelectItem(_ item: Track) {
-        let controller = MusicPlayerViewController(
-            source: .appleMusic(startItem: item, trackList: viewModel.trackCollection, parentCollectionID: viewModel.collectionID)
-        )
-        
-        navigationController?.pushViewController(controller, animated: true)
+        router.openPlayer(source: .appleMusic(startItem: item, trackList: viewModel.trackCollection, parentCollectionID: viewModel.collectionID))
     }
     
     func visiblePath(indexPath: IndexPath) {

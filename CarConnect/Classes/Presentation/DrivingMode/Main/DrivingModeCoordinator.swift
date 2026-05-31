@@ -9,15 +9,13 @@ import UIKit
 
 final class DrivingModeCoordinator {
     private lazy var mapVC = NavigatorViewController.make()
-    private lazy var musicCoordinator: PlayerCoordinator = PlayerAccessCoordinator.make()
+    private lazy var musicCoordinator = MusicPlayerCoordinator(navigationController: .init())
     private lazy var phoneVC = UIViewController()
     
     private weak var parentVC: UIViewController?
     private weak var container: UIView?
     
     private var previousVC: UIViewController?
-    // TODO: Поправить логику хранения координатора или делегата внутри координатора
-    private var playerCoordinator: PlayerAccessCoordinator?
     
     init(parentVC: UIViewController, container: UIView) {
         self.parentVC = parentVC
@@ -27,16 +25,15 @@ final class DrivingModeCoordinator {
 
 // MARK: Public
 extension DrivingModeCoordinator {
-    // TODO: Добавить логику переключения
-    func testInitial() {
-    }
     func tap(on item: DrivingModeRouteItemButton.Item) {
         switch item {
         case .map:
             changeVC(on: mapVC)
         case .music:
-            changeVC(on: musicCoordinator.rootController)
-            musicCoordinator.start(source: .appleMusic)
+            if let controller = musicCoordinator.navigationController {
+                changeVC(on: controller)
+                musicCoordinator.switchSource(source: nil)
+            }
         case .phone:
             changeVC(on: phoneVC)
         }

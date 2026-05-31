@@ -11,6 +11,8 @@ class MusicSourceMenuView: UIView {
     lazy var dropDownButton = makeDropdownButton()
     private lazy var container = makeContainer()
     
+    private var action: ((MusicSource) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -22,22 +24,37 @@ class MusicSourceMenuView: UIView {
 }
 
 extension MusicSourceMenuView {
-    func setup(for rect: CGRect) {
-        NSLayoutConstraint.activate([
-            dropDownButton.topAnchor.constraint(equalTo: topAnchor, constant: rect.minY),
-            dropDownButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: rect.minX),
+    func setup(for rect: CGRect?, current: MusicSource?, action: @escaping (MusicSource) -> Void) {
+        self.action = action
+        if let current, let rect {
+            NSLayoutConstraint.activate([
+                dropDownButton.topAnchor.constraint(equalTo: topAnchor, constant: rect.minY),
+                dropDownButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: rect.minX),
+                
+                container.topAnchor.constraint(equalTo: dropDownButton.bottomAnchor, constant: 24.landscapeVScale),
+                container.leadingAnchor.constraint(equalTo: dropDownButton.leadingAnchor)
+            ])
             
-            container.topAnchor.constraint(equalTo: dropDownButton.bottomAnchor, constant: 24.landscapeVScale),
-            container.leadingAnchor.constraint(equalTo: dropDownButton.leadingAnchor)
-        ])
-        
-        dropDownButton.setMusicSource(.appleMusic)
-        dropDownButton.isExpanded = true
+            dropDownButton.setMusicSource(current)
+            dropDownButton.isExpanded = true
+        } else {
+            NSLayoutConstraint.activate([
+                container.topAnchor.constraint(equalTo: topAnchor, constant: 56.landscapeVScale),
+                container.leadingAnchor.constraint(equalTo: leadingAnchor)
+            ])
+        }
         
         [MusicSource.spotify, .appleMusic, .radio].forEach { source in
             let button = MusicSourceButton()
             button.setup(source: source)
+            button.addTarget(self, action: #selector(selectSource), for: .touchUpInside)
             container.addArrangedSubview(button)
+        }
+    }
+    
+    @objc private func selectSource(_ button: MusicSourceButton) {
+        if let source = button.source {
+            action?(source)
         }
     }
 }

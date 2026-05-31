@@ -235,7 +235,8 @@ private extension AppleMusicMainViewModel {
         for await state in stateStream {
             currentTask?.cancel()
             
-            currentTask = Task {
+            currentTask = Task { [weak self] in
+                guard let self else { return }
                 switch state {
                 case .search(let term):
                     guard term.count >= 3 else { return }

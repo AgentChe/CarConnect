@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol AuthorizationRequiredViewControllerDelegate: AnyObject {
-    func didTapButton(source: MusicSource)
+    func didTapButton()
 }
 
 final class AuthorizationRequiredViewController: UIViewController {
@@ -37,6 +37,6 @@ final class AuthorizationRequiredViewController: UIViewController {
     }
     
     @objc private func buttonAction() {
-        delegate?.didTapButton(source: source)
+        delegate?.didTapButton()
     }
 }

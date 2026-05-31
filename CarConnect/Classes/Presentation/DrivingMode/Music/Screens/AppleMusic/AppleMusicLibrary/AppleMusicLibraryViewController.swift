@@ -12,9 +12,11 @@ final class AppleMusicLibraryViewController: UIViewController {
     private lazy var mainView = AppleMusicLibraryView()
     
     private let viewModel: AppleMusicLibraryViewModel
+    private let router: AppleMusicPlayerRouter
     
-    init(category: AppleMusicLibraryCategory) {
+    init(category: AppleMusicLibraryCategory, router: AppleMusicPlayerRouter) {
         viewModel = .init(category: category)
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,10 +26,6 @@ final class AppleMusicLibraryViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-    }
-    
-    @objc func backTapped() {
-        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -47,33 +45,27 @@ final class AppleMusicLibraryViewController: UIViewController {
     }
     
     @objc func pop(_ button: UIButton) {
-        navigationController?.popViewController(animated: true)
+        router.pop()
     }
 }
 
 extension AppleMusicLibraryViewController: AppleMusicLibraryTableDelegate {
     func didSelectItem(_ item: AppleMusicCollectionType) {
-        let controller: UIViewController
         switch item {
         case .playlist(let playlist):
-            controller = AppleMusicTrackListViewController(source: .playlist(playlist))
+            router.openTrackList(source: .playlist(playlist))
         case .album(let album):
-            controller = AppleMusicTrackListViewController(source: .album(album))
+            router.openTrackList(source: .album(album))
         case .artist(let artist):
-            controller = AppleMusicArtistLibraryViewController(artist: artist)
+            router.openArtistLibrary(artist: artist)
         case .track(let track, _):
             let tracks: [Track] = viewModel.items
                 .compactMap { model in
                     guard case let .track(track, _) = item else { return nil }
                     return track
                 }
-            
-            controller = MusicPlayerViewController(
-                source: .appleMusic(startItem: track, trackList: .init(tracks), parentCollectionID: nil)
-            )
+            router.openPlayer(source: .appleMusic(startItem: track, trackList: .init(tracks), parentCollectionID: nil))
         }
-        
-        navigationController?.pushViewController(controller, animated: true)
     }
     
     func visiblePath(indexPath: IndexPath) {

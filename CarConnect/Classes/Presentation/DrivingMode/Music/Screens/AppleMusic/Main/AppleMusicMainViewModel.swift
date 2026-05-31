@@ -19,235 +19,238 @@ final class AppleMusicMainViewModel {
     @MainActor private(set) var isLoading: Bool = false
     @MainActor private(set) var isSearching: Bool = false
     @MainActor var onUpdate: (() -> Void)?
-    
+
     @MainActor private var searchElements: [AppleMusicCollectionType] = []
     @MainActor private var recentElements: [AppleMusicCollectionType] = []
-    
+
     private let pageSize: Int = 10
+    private let recentlyPlayedLimit: Int = 50
     private var cancellable: AnyCancellable?
-    
+
     let categoriesSection = AppleMusicMainDataSource(
         section: .library,
         items: AppleMusicLibraryCategory.allCases.map { .category($0) }
     )
-    
-    private let (stateStream, stateContinuation) = AsyncStream<State>.makeStream()
+
+    private let (stateStream, stateContinuation) = AsyncStream<Mode>.makeStream()
     private let (nextStream, nextContinuation) = AsyncStream<Void>.makeStream()
     private var currentTask: Task<Void, Never>?
-    
+    private var stateTask: Task<Void, Never>?
+
     private let appleMusicService = AppleMusicService()
-    
     private var currentSearchText = ""
-    
+
     deinit {
-        stateContinuation.finish()
-        nextContinuation.finish()
-        cancellable?.cancel()
+        
     }
 }
 
-// MARK: Public
+// MARK: - Public
+
 extension AppleMusicMainViewModel {
     
+    func invalidate() {
+        stateContinuation.finish()
+        nextContinuation.finish()
+        currentTask?.cancel()
+        stateTask?.cancel()
+        cancellable?.cancel()
+    }
+
     func loadInitial() {
-        Task { await main() }
-        Task { await start() }
+        currentTask = Task { await self.main() }
+        stateTask = Task { await self.listenForModeChanges() }
         observePlayingTrack()
     }
-    
+
     func loadNextPage() {
         nextContinuation.yield(())
     }
-    
+
     func search(term: String, isEditing: Bool) {
-        if isEditing || !term.isEmpty {
-            isSearching = true
+        let isActive = isEditing || !term.isEmpty
+
+        if isActive {
+            Task { @MainActor in isSearching = true }
             guard term != currentSearchText else { return }
             currentSearchText = term
-            onUpdate?()
+            Task { @MainActor in onUpdate?() }
             stateContinuation.yield(.search(term))
         } else {
-            stateContinuation.yield(.main)
             currentSearchText = ""
-            isSearching = false
-            onUpdate?()
+            Task { @MainActor in
+                isSearching = false
+                onUpdate?()
+            }
+            stateContinuation.yield(.main)
         }
     }
 }
 
-// MARK: Private
+// MARK: - Private
+
 private extension AppleMusicMainViewModel {
-    enum State {
+
+    enum Mode {
         case search(String)
         case main
     }
-    
+
+    // MARK: Observation
+
     func observePlayingTrack() {
         cancellable = AppleMusicPlayer.shared.trackPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                guard let self, isSearching else { return }
-                let items = searchElements.map { element in
+                guard let self, self.isSearching else { return }
+
+                let updated = self.searchElements.map { element -> AppleMusicCollectionType in
                     guard case let .track(track, _) = element else { return element }
-                    
                     return .track(track, isPlaying: AppleMusicPlayer.shared.isPlaying(track: track))
                 }
-                
+
                 let section = AppleMusicMainDataSource(
                     section: .searchResult,
-                    items: items.map { .searchResult(item: $0) }
+                    items: updated.map { .searchResult(item: $0) }
                 )
-                dataSource = [section]
-                onUpdate?()
+                self.dataSource = [section]
+                self.onUpdate?()
             }
     }
-    
-    func search(term: String) async {
-        do {
-            guard term.count >= 0 else {
-                await MainActor.run {
-                    searchElements = []
-                    dataSource = []
-                    onUpdate?()
+
+    // MARK: Mode switching
+
+    func listenForModeChanges() async {
+        for await mode in stateStream {
+            currentTask?.cancel()
+            currentTask = Task { [weak self] in
+                guard let self else { return }
+                switch mode {
+                case .search(let term) where term.count >= 3:
+                    await self.performSearch(term: term)
+                case .main:
+                    await self.main()
+                default:
+                    break
                 }
-                return
             }
+        }
+    }
+
+    // MARK: Search
+
+    func performSearch(term: String) async {
+        do {
             try Task.checkCancellation()
-            await MainActor.run {
-                isLoading = true
-                onUpdate?()
-            }
-            
+            await setLoading(true)
+
             let results = try await appleMusicService.search(term: term, limit: pageSize)
             var topResults = results.topResults
-            
-            let elements = topResults.compactMap(AppleMusicCollectionType.init(topResult:))
-            let section = AppleMusicMainDataSource(section: .searchResult, items: elements.map { .searchResult(item: $0) })
-            
+            var elements = topResults.compactMap(AppleMusicCollectionType.init(topResult:))
+
             try Task.checkCancellation()
-            
-            await MainActor.run {
-                searchElements = elements
-                dataSource = [section]
-                isLoading = false
-                onUpdate?()
-            }
-            
-            var isLoadingProgress = false
-            
+            await updateSearchResults(elements)
+
             for await _ in nextStream {
                 try Task.checkCancellation()
-                
-                guard !isLoadingProgress, topResults.hasNextBatch else { return }
-                isLoadingProgress = true
+                guard topResults.hasNextBatch else { return }
+
                 guard let next = try await topResults.nextBatch(limit: pageSize) else { return }
-                let elements = searchElements.merge(new: next.compactMap(AppleMusicCollectionType.init(topResult:)))
-                
-                let section = AppleMusicMainDataSource(section: .searchResult, items: elements.map { .searchResult(item: $0) })
-                
+                elements = elements.merge(new: next.compactMap(AppleMusicCollectionType.init(topResult:)))
+
                 try Task.checkCancellation()
-                
+
                 await MainActor.run {
-                    searchElements = elements
                     topResults = next
-                    dataSource = [section]
-                    onUpdate?()
                 }
-                
-                isLoadingProgress = false
+                await updateSearchResults(elements)
             }
-        } catch {
-            
-        }
+        } catch {}
     }
-    
+
+    @MainActor
+    func updateSearchResults(_ elements: [AppleMusicCollectionType]) {
+        searchElements = elements
+        dataSource = [AppleMusicMainDataSource(
+            section: .searchResult,
+            items: elements.map { .searchResult(item: $0) }
+        )]
+        isLoading = false
+        onUpdate?()
+    }
+
+    // MARK: Recently Played
+
     func main() async {
-        guard recentElements.isEmpty else {
-            let recentlySection = AppleMusicMainDataSource(
-                section: .recently,
-                items: recentElements.map { .recent(item: $0) }
-            )
-            
-            await MainActor.run {
-                dataSource = [recentlySection, categoriesSection]
-                onUpdate?()
-            }
-            
+        let existing = await MainActor.run { recentElements }
+
+        if !existing.isEmpty {
+            await showRecentlyPlayed(existing)
             return
         }
-        
+
         var offset = 0
-        var isLoadingProgress = false
         var hasMore = true
-        
+
         do {
-            
-            await MainActor.run {
-                isLoading = true
-                onUpdate?()
-            }
-            
+            await setLoading(true)
+
             let items = try await appleMusicService.fetchRecentlyPlayed(limit: pageSize, offset: offset)
-            try await mainSetup(items: items, offset: &offset, hasMore: &hasMore)
-            
-            await MainActor.run {
-                isLoading = false
-                onUpdate?()
-            }
-            
+            (offset, hasMore) = try await appendRecentlyPlayed(items, offset: offset)
+            await setLoading(false)
+
             for await _ in nextStream {
                 try Task.checkCancellation()
-                
-                guard !isLoadingProgress, hasMore else { return }
-                
-                isLoadingProgress = true
-                
+                guard hasMore else { return }
+
                 let items = try await appleMusicService.fetchRecentlyPlayed(limit: pageSize, offset: offset)
-                try await mainSetup(items: items, offset: &offset, hasMore: &hasMore)
-                
-                isLoadingProgress = false
+                (offset, hasMore) = try await appendRecentlyPlayed(items, offset: offset)
             }
-        } catch { }
+        } catch {}
     }
-    
-    func mainSetup(items: [AppleMusicCollectionType], offset: inout Int, hasMore: inout Bool) async throws {
-        offset += pageSize
-        hasMore = items.count >= pageSize && offset < 50
-        
-        let newItems = recentElements.merge(new: items)
-        
-        let recentlySection = AppleMusicMainDataSource(
-            section: .recently,
-            items: newItems.map { .recent(item: $0) }
-        )
-        
+
+    /// Appends new items to `recentElements`, updates data source, returns new offset and hasMore flag.
+    @discardableResult
+    func appendRecentlyPlayed(
+        _ items: [AppleMusicCollectionType],
+        offset: Int
+    ) async throws -> (newOffset: Int, hasMore: Bool) {
+        let newOffset = offset + pageSize
+        let hasMore = items.count >= pageSize && newOffset < recentlyPlayedLimit
+
         try Task.checkCancellation()
-        
+
+        let existing = await MainActor.run { recentElements }
+        let merged = existing.merge(new: items)
+        await showRecentlyPlayed(merged)
+
+        return (newOffset, hasMore)
+    }
+
+    @MainActor
+    func showRecentlyPlayed(_ items: [AppleMusicCollectionType]) {
+        recentElements = items
+        dataSource = [
+            AppleMusicMainDataSource(
+                section: .recently,
+                items: items.map { .recent(item: $0) }
+            ),
+            categoriesSection
+        ]
+        onUpdate?()
+    }
+
+    // MARK: Helpers
+
+    func setLoading(_ value: Bool) async {
         await MainActor.run {
-            recentElements = newItems
-            dataSource = [recentlySection, categoriesSection]
-            
+            isLoading = value
             onUpdate?()
         }
     }
-    
-    func start() async {
-        for await state in stateStream {
-            currentTask?.cancel()
-            
-            currentTask = Task { [weak self] in
-                guard let self else { return }
-                switch state {
-                case .search(let term):
-                    guard term.count >= 3 else { return }
-                    await search(term: term)
-                case .main:
-                    await main()
-                }
-            }
-        }
-    }
 }
+
+// MARK: - AppleMusicCollectionType + MusicCatalogSearchResponse
 
 private extension AppleMusicCollectionType {
     init?(topResult: MusicCatalogSearchResponse.TopResult) {

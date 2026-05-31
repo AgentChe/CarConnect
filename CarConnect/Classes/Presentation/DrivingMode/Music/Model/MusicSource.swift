@@ -15,9 +15,9 @@ extension MusicSource {
         case .appleMusic:
             return "DrivingMode.Music.AppleMusic"
         case .spotify:
-            return "DrivingMode.Music.Radio"
-        case .radio:
             return "DrivingMode.Music.Spotify"
+        case .radio:
+            return "DrivingMode.Music.Radio"
         }
     }
     

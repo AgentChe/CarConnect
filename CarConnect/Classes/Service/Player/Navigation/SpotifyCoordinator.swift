@@ -45,8 +45,8 @@ extension SpotifyCoordinator: PlayerRouter {
         navigationController?.popViewController(animated: true)
     }
     
-    func dismiss() {
-        navigationController?.dismiss(animated: true)
+    func dismiss(animated: Bool) {
+        navigationController?.dismiss(animated: animated)
     }
 }
 

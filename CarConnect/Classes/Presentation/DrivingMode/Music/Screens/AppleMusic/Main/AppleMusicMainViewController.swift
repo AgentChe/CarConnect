@@ -49,6 +49,11 @@ final class AppleMusicMainViewController: UIViewController {
         
         viewModel.loadInitial()
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.invalidate()
+    }
     
     @objc private func textChanged(_ textField: UITextField) {
         viewModel.search(term: textField.text ?? "", isEditing: true)

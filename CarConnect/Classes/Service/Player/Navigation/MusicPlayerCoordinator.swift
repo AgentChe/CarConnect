@@ -55,10 +55,17 @@ final class MusicPlayerCoordinator: CoordinatorBaseProtocol {
 
 extension MusicPlayerCoordinator: MusicSourceSelectionDelegate {
     func selectedSource(_ source: MusicSource) {
-        switchSource(source: source)
+        if navigationController?.presentedViewController != nil {
+            navigationController?.dismiss(animated: false) { [weak self] in
+                self?.switchSource(source: source)
+            }
+        } else {
+            switchSource(source: source)
+        }
+        
     }
     
     func close() {
-        navigationController?.dismiss(animated: true)
+        navigationController?.dismiss(animated: false)
     }
 }

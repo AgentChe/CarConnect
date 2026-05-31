@@ -10,7 +10,7 @@ import UIKit
 
 protocol Routable {
     func pop()
-    func dismiss()
+    func dismiss(animated: Bool)
 }
 
 protocol CoordinatorProtocol: AnyObject {

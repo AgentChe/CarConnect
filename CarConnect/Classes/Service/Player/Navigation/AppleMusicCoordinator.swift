@@ -90,15 +90,15 @@ extension AppleMusicCoordinator: AppleMusicPlayerRouter {
         let controller = MusicSourceMenuViewController(current: current, actionFrame: actionFrame)
         controller.delegate = souceSelectionDelegate
         controller.modalPresentationStyle = .currentContext
-        navigationController?.present(controller, animated: true)
+        navigationController?.present(controller, animated: false)
     }
     
     func pop() {
         navigationController?.popViewController(animated: true)
     }
     
-    func dismiss() {
-        navigationController?.dismiss(animated: true)
+    func dismiss(animated: Bool) {
+        navigationController?.dismiss(animated: animated)
     }
 }
 

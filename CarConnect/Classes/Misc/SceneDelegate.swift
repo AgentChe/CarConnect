@@ -8,6 +8,8 @@
 import UIKit
 import SpotifyiOS
 
+// TODO: Live activity - adding a vehicle из flutter
+// TODO: Live activity - driving mode из flutter
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
@@ -16,14 +18,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
+        let isDrivingModeNavigatorLink = connectionOptions.urlContexts.contains(where: { DeepLink.isDrivingModeNavigator($0.url) })
+
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = SplashViewController.make()
+        window?.rootViewController = SplashViewController.make(deepLinkIntent: isDrivingModeNavigatorLink ? .openDrivingModeNavigator : nil)
         window?.makeKeyAndVisible()
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let url = URLContexts.first?.url else { return }
-        SpotifyConnectionService.shared.handleURL(url)
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -34,5 +33,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         // Корректно отключаемся, иначе Spotify не узнает что можно освободить соединение.
         SpotifyConnectionService.shared.disconnect()
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        SceneDelegateMediator.shared.send(openURLContexts: URLContexts)
     }
 }

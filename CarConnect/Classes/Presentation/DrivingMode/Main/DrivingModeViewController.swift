@@ -53,7 +53,18 @@ final class DrivingModeViewController: UIViewController {
                 mainView.menuView.musicItemButton
                     .rx.tap.map { DrivingModeRouteItemButton.Item.music(.appleMusic) }, // TODO: брать актуальный (выбранный) источник музыки
                 mainView.menuView.phoneItemButton
-                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone }
+                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone },
+                SceneDelegateMediator.shared.didOpenURLContexts
+                    .compactMap { contexts in
+                        if contexts.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) {
+                            return DrivingModeRouteItemButton.Item.map
+                        } else if contexts.contains(where: { DeepLink.isSpotifyModeNavigator($0.url) }) {
+                            return DrivingModeRouteItemButton.Item.music(.spotify)
+                        } else {
+                            return nil
+                        }
+                    }
+                    .asObservable()
             ])
             .bind(to: Binder(self) { base, item in
                 base.coordinator.tap(on: item)
@@ -66,9 +77,20 @@ final class DrivingModeViewController: UIViewController {
                 mainView.menuView.mapItemButton
                     .rx.tap.map { false },
                 mainView.menuView.musicItemButton
-                    .rx.tap.map {true },
+                    .rx.tap.map { true },
                 mainView.menuView.phoneItemButton
-                    .rx.tap.map { true }
+                    .rx.tap.map { true },
+                SceneDelegateMediator.shared.didOpenURLContexts
+                    .compactMap { contexts in
+                        if contexts.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) {
+                            return false
+                        } else if contexts.contains(where: { DeepLink.isSpotifyModeNavigator($0.url) }) {
+                            return true
+                        } else {
+                            return nil
+                        }
+                    }
+                    .asObservable()
             ])
             .bind(to: mainView.backgroundView.rx.isHidden)
             .disposed(by: disposeBag)

@@ -24,7 +24,7 @@ final class SpotifyConnectionService: NSObject {
     static let shared = SpotifyConnectionService()
 
     private let clientID = "bc37361b992e4d579a2327aa20c95d9c"
-    private let redirectURI = URL(string: "carconnectapp://exchange")!
+    private let redirectURI = URL(string: "\(DeepLink.Constants.scheme)://\(DeepLink.Constants.spotifyModeNavigator)")!
     
     let userIsPremium = CurrentValueSubject<Bool, Never>(false)
 
@@ -113,8 +113,6 @@ final class SpotifyConnectionService: NSObject {
             savedAccessToken = token
             appRemote.connectionParameters.accessToken = token
             appRemote.connect()
-        } else if let error = params?[SPTAppRemoteErrorDescriptionKey] as? String {
-            
         }
     }
 

@@ -6,5 +6,11 @@
 //
 
 struct ContactsTableElement {
+    struct Phone {
+        let number: String
+        let label: String
+    }
+
     let name: String
+    let phones: [Phone]
 }

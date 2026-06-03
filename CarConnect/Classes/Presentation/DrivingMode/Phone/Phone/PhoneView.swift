@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class PhoneView: UIView {
     lazy var tabView = makeTabView()
@@ -50,6 +52,10 @@ extension PhoneView {
             contentView.topAnchor.constraint(equalTo: container.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
+    }
+    
+    var didSelectContact: Signal<ContactsTableElement> {
+        contactsView.didSelectContact
     }
 }
 

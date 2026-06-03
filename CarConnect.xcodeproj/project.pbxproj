@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */; };
+		4B24AF53AC3B47802FBD0C91 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */; };
 		4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */; };
+		6B1537F4954A2812AC39C5D3 /* ContactDetailPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */; };
 		6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */; };
 		79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */; };
 		860BE5582F72FA7000311032 /* MusicPlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */; };
@@ -470,7 +472,6 @@
 		DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */; };
 		DEDB36C92F82716A00DAF5FC /* PhotoCarouselWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */; };
 		DEE585662FCFF8710054CACE /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585652FCFF8710054CACE /* PhoneViewController.swift */; };
-		DEE585682FCFF8790054CACE /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585672FCFF8790054CACE /* PhoneViewModel.swift */; };
 		DEE5856A2FCFF87D0054CACE /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585692FCFF87D0054CACE /* PhoneView.swift */; };
 		DEE5856D2FCFF9E60054CACE /* PhoneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5856C2FCFF9E60054CACE /* PhoneTabView.swift */; };
 		DEE585702FCFF9F20054CACE /* PhoneTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5856F2FCFF9F20054CACE /* PhoneTabItemView.swift */; };
@@ -627,6 +628,7 @@
 		DEF570C62F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C52F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift */; };
 		DEF570C82F801F32002394B9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C72F801F32002394B9 /* UIImage+Extension.swift */; };
 		DEF570CB2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */; };
+		E18FA4287F090565337A0070 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -655,6 +657,9 @@
 
 /* Begin PBXFileReference section */
 		133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceAutocompleteRequest.swift; sourceTree = "<group>"; };
+		239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailPhoneView.swift; sourceTree = "<group>"; };
+		382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceNearbyRequest.swift; sourceTree = "<group>"; };
 		6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigatorRoute.swift; sourceTree = "<group>"; };
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1056,7 +1061,6 @@
 		DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselView.swift; sourceTree = "<group>"; };
 		DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselWidgetView.swift; sourceTree = "<group>"; };
 		DEE585652FCFF8710054CACE /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
-		DEE585672FCFF8790054CACE /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		DEE585692FCFF87D0054CACE /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		DEE5856C2FCFF9E60054CACE /* PhoneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabView.swift; sourceTree = "<group>"; };
 		DEE5856F2FCFF9F20054CACE /* PhoneTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabItemView.swift; sourceTree = "<group>"; };
@@ -1220,6 +1224,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192383536418FE98FBADEBC2 /* ContactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BB59FAF1B2F148D489C3CB20 /* View */,
+				382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */,
+				5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */,
+			);
+			path = ContactDetail;
+			sourceTree = "<group>";
+		};
 		41D1262DBDA31F020DC58D12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1398,6 +1412,14 @@
 				86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BB59FAF1B2F148D489C3CB20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE0879E62F5D95D000FECBA5 /* EnterName */ = {
@@ -3128,6 +3150,7 @@
 			children = (
 				DEE585722FD008500054CACE /* Contacts */,
 				DEE585712FD008420054CACE /* Phone */,
+				192383536418FE98FBADEBC2 /* ContactDetail */,
 			);
 			path = Phone;
 			sourceTree = "<group>";
@@ -3154,7 +3177,6 @@
 			children = (
 				DEE5856B2FCFF9DB0054CACE /* View */,
 				DEE585652FCFF8710054CACE /* PhoneViewController.swift */,
-				DEE585672FCFF8790054CACE /* PhoneViewModel.swift */,
 				DEE585692FCFF87D0054CACE /* PhoneView.swift */,
 			);
 			path = Phone;
@@ -4393,7 +4415,6 @@
 				DEEAAA162F712B340072C702 /* SelectTemperatureTypeView.swift in Sources */,
 				DEF5709B2F7FD266002394B9 /* WidgetCarBrandsListTableCell.swift in Sources */,
 				DE1DA0402F4CBD0700742E69 /* WidgetTextQuoteView.swift in Sources */,
-				DEE585682FCFF8790054CACE /* PhoneViewModel.swift in Sources */,
 				DEEAAA8F2F73FBA30072C702 /* DigitalStackedView.swift in Sources */,
 				DE0879F32F5DB48600FECBA5 /* CalendarStyleView.swift in Sources */,
 				DEEB9D792F6A942F0041587F /* WeatherStyleView.swift in Sources */,
@@ -4602,6 +4623,9 @@
 				79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */,
 				BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */,
 				6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */,
+				4B24AF53AC3B47802FBD0C91 /* ContactDetailViewController.swift in Sources */,
+				E18FA4287F090565337A0070 /* ContactDetailView.swift in Sources */,
+				6B1537F4954A2812AC39C5D3 /* ContactDetailPhoneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

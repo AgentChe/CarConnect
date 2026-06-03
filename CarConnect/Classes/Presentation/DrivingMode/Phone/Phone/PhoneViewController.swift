@@ -12,8 +12,6 @@ import RxCocoa
 final class PhoneViewController: UIViewController {
     private lazy var mainView = PhoneView()
     
-    private lazy var viewModel = PhoneViewModel()
-    
     private lazy var disposeBag = DisposeBag()
     
     override func loadView() {
@@ -23,13 +21,18 @@ final class PhoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let output = viewModel.configure(input: PhoneViewModel.Input(
-            didTapTabItem: mainView.tabView.didTap
-        ))
-        
-        output.tabItem
+        mainView.tabView.didTap
+            .asDriver(onErrorDriveWith: .never())
+            .startWith(.contacts)
             .drive(Binder(mainView) { base, item in
                 base.setup(selected: item)
+            })
+            .disposed(by: disposeBag)
+
+        mainView.didSelectContact
+            .emit(onNext: { [weak self] contact in
+                let controller = ContactDetailViewController(contact: contact)
+                self?.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -59,9 +62,4 @@ extension PhoneViewController {
         controller.navigationBar.scrollEdgeAppearance = appearance
         return controller
     }
-}
-
-// MARK: Private
-private extension PhoneViewController {
-    
 }

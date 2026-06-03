@@ -14,7 +14,7 @@ final class PhoneView: UIView {
     lazy var container = makeContainer()
     
     private lazy var contactsView = ContactsView()
-    private lazy var keypadView = UIView()
+    private lazy var keypadView = KeypadView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

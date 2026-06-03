@@ -56,7 +56,7 @@ extension PhoneViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .clear
-        
+
         let controller = UINavigationController(rootViewController: PhoneViewController())
         controller.navigationBar.standardAppearance = appearance
         controller.navigationBar.scrollEdgeAppearance = appearance

@@ -32,6 +32,13 @@ final class ContactsView: UIView {
     }
 }
 
+// MARK: Public
+extension ContactsView {
+    var didSelectContact: Signal<ContactsTableElement> {
+        rootView.listView.tableView.didSelect
+    }
+}
+
 // MARK: Private
 private extension ContactsView {
     func initialize() {
@@ -81,7 +88,8 @@ private extension ContactsView {
 
     func loadContacts() {
         let keys = [
-            CNContactFormatter.descriptorForRequiredKeys(for: .fullName)
+            CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+            CNContactPhoneNumbersKey as CNKeyDescriptor
         ]
 
         let request = CNContactFetchRequest(keysToFetch: keys)
@@ -96,7 +104,14 @@ private extension ContactsView {
                 try self.store.enumerateContacts(with: request) { contact, _ in
                     guard let name = CNContactFormatter.string(from: contact, style: .fullName), !name.isEmpty else { return }
 
-                    elements.append(ContactsTableElement(name: name))
+                    let phones = contact.phoneNumbers.map { phone in
+                        ContactsTableElement.Phone(
+                            number: phone.value.stringValue,
+                            label: phone.label.map { CNLabeledValue<CNPhoneNumber>.localizedString(forLabel: $0) } ?? ""
+                        )
+                    }
+
+                    elements.append(ContactsTableElement(name: name, phones: phones))
                 }
             } catch {
                 elements = []

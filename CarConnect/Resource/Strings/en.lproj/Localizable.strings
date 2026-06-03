@@ -199,3 +199,11 @@
 "CarPlay.Placeholder.Title" = "Route status";
 "CarPlay.Placeholder.Text" = "Start a route in Driving mode to follow it here";
 "CarPlay.Placeholder.Button" = "Open app";
+
+// MARK: Phone
+"Phone.Contants" = "Contacts";
+"Phone.Keypad" = "Keypad";
+"Phone.UnlockContacts.Title" = "Unlock contacts";
+"Phone.UnlockContacts.SubTitle" = "To use this feature, please enable it";
+"Phone.UnlockContacts.Action" = "Enable";
+"Phone.Search" = "Search";

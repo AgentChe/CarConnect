@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		39C4CF5436250822D8A594C1 /* SearchPlaceNearbyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */; };
+		4B24AF53AC3B47802FBD0C91 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */; };
 		4D94AF0ADB24A8B5783AF5E6 /* SearchPlaceAutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */; };
+		6B1537F4954A2812AC39C5D3 /* ContactDetailPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */; };
 		6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */; };
 		79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63A1665ED0958DE4782E9C /* SearchPlaceDirectionsRequest.swift */; };
 		860BE5582F72FA7000311032 /* MusicPlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BE5572F72FA7000311032 /* MusicPlayerControlsView.swift */; };
@@ -60,6 +62,7 @@
 		86DFA4CB2F8A470F00EA9B58 /* TrackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */; };
 		86F5D58F2FC61E820016963B /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; };
 		86F5D5902FC61E820016963B /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86F5D58D2FC61E450016963B /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90D78426D8C5AD8703339D07 /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29931D51B6896F9EE69822D4 /* KeypadButton.swift */; };
 		95F8D8EC028595F0251B277F /* Pods_CarConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */; };
 		BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC90C39C058DD006B240CDC4 /* SearchPlaceDetailsRequest.swift */; };
 		DE0879E82F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0879E72F5D95EA00FECBA5 /* WidgetBuilderEnterNameView.swift */; };
@@ -476,6 +479,19 @@
 		DEDB36C52F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C42F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift */; };
 		DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */; };
 		DEDB36C92F82716A00DAF5FC /* PhotoCarouselWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */; };
+		DEE585662FCFF8710054CACE /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585652FCFF8710054CACE /* PhoneViewController.swift */; };
+		DEE5856A2FCFF87D0054CACE /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585692FCFF87D0054CACE /* PhoneView.swift */; };
+		DEE5856D2FCFF9E60054CACE /* PhoneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5856C2FCFF9E60054CACE /* PhoneTabView.swift */; };
+		DEE585702FCFF9F20054CACE /* PhoneTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5856F2FCFF9F20054CACE /* PhoneTabItemView.swift */; };
+		DEE585752FD008610054CACE /* UnlockContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585742FD008610054CACE /* UnlockContactsView.swift */; };
+		DEE585772FD00A860054CACE /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585762FD00A860054CACE /* ContactsView.swift */; };
+		DEE5857B2FD00AD80054CACE /* ContactsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5857A2FD00AD80054CACE /* ContactsRootView.swift */; };
+		DEE5857E2FD00CEF0054CACE /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5857D2FD00CEF0054CACE /* ContactsListView.swift */; };
+		DEE585812FD00F720054CACE /* ContactsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585802FD00F720054CACE /* ContactsTableView.swift */; };
+		DEE585832FD00F7B0054CACE /* ContactsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585822FD00F7B0054CACE /* ContactsTableCell.swift */; };
+		DEE585852FD00F830054CACE /* ContactsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585842FD00F830054CACE /* ContactsTableElement.swift */; };
+		DEE585872FD017DE0054CACE /* SearchContactField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585862FD017DE0054CACE /* SearchContactField.swift */; };
+		DEE5858A2FD0421B0054CACE /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585892FD0421B0054CACE /* KeypadView.swift */; };
 		DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA9272F6D858E0072C702 /* WeatherFetcher.swift */; };
 		DEEAA92C2F6D976E0072C702 /* WeatherFourDaysKindsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA92B2F6D976E0072C702 /* WeatherFourDaysKindsView.swift */; };
 		DEEAA92E2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */; };
@@ -621,6 +637,7 @@
 		DEF570C62F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C52F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift */; };
 		DEF570C82F801F32002394B9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570C72F801F32002394B9 /* UIImage+Extension.swift */; };
 		DEF570CB2F8022E1002394B9 /* AIPhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF570CA2F8022E1002394B9 /* AIPhotoWidgetView.swift */; };
+		E18FA4287F090565337A0070 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -660,6 +677,10 @@
 
 /* Begin PBXFileReference section */
 		133248A6ADCA3B160FC1827D /* SearchPlaceAutocompleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceAutocompleteRequest.swift; sourceTree = "<group>"; };
+		239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailPhoneView.swift; sourceTree = "<group>"; };
+		29931D51B6896F9EE69822D4 /* KeypadButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
+		382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		65B343B6EBCCE1E3724C777A /* SearchPlaceNearbyRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchPlaceNearbyRequest.swift; sourceTree = "<group>"; };
 		6E08697A028CCE617D4BC8C4 /* NavigatorRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigatorRoute.swift; sourceTree = "<group>"; };
 		7C62C657AABE0202128C8714 /* Pods_CarConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1066,6 +1087,19 @@
 		DEDB36C42F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselViewModel.swift; sourceTree = "<group>"; };
 		DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPhotoCarouselView.swift; sourceTree = "<group>"; };
 		DEDB36C82F82716A00DAF5FC /* PhotoCarouselWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselWidgetView.swift; sourceTree = "<group>"; };
+		DEE585652FCFF8710054CACE /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		DEE585692FCFF87D0054CACE /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
+		DEE5856C2FCFF9E60054CACE /* PhoneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabView.swift; sourceTree = "<group>"; };
+		DEE5856F2FCFF9F20054CACE /* PhoneTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabItemView.swift; sourceTree = "<group>"; };
+		DEE585742FD008610054CACE /* UnlockContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockContactsView.swift; sourceTree = "<group>"; };
+		DEE585762FD00A860054CACE /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		DEE5857A2FD00AD80054CACE /* ContactsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRootView.swift; sourceTree = "<group>"; };
+		DEE5857D2FD00CEF0054CACE /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
+		DEE585802FD00F720054CACE /* ContactsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableView.swift; sourceTree = "<group>"; };
+		DEE585822FD00F7B0054CACE /* ContactsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableCell.swift; sourceTree = "<group>"; };
+		DEE585842FD00F830054CACE /* ContactsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableElement.swift; sourceTree = "<group>"; };
+		DEE585862FD017DE0054CACE /* SearchContactField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactField.swift; sourceTree = "<group>"; };
+		DEE585892FD0421B0054CACE /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 		DEEAA9272F6D858E0072C702 /* WeatherFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcher.swift; sourceTree = "<group>"; };
 		DEEAA92B2F6D976E0072C702 /* WeatherFourDaysKindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsView.swift; sourceTree = "<group>"; };
 		DEEAA92D2F6D977B0072C702 /* WeatherFourDaysKindsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFourDaysKindsItemView.swift; sourceTree = "<group>"; };
@@ -1219,6 +1253,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192383536418FE98FBADEBC2 /* ContactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BB59FAF1B2F148D489C3CB20 /* View */,
+				382ED4A3AF9799CA48A2B8D8 /* ContactDetailViewController.swift */,
+				5E298F76D3DA1EBB4C807D84 /* ContactDetailView.swift */,
+			);
+			path = ContactDetail;
+			sourceTree = "<group>";
+		};
 		41D1262DBDA31F020DC58D12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1273,14 @@
 				DE511FF02F4571AF0026C5CC /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67B1D6A1F6751750417D0D68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29931D51B6896F9EE69822D4 /* KeypadButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7042DA2CCBE40E5674F4D2CC /* Pods */ = {
@@ -1447,6 +1499,14 @@
 				86DFA4CA2F8A470F00EA9B58 /* TrackItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BB59FAF1B2F148D489C3CB20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				239E1131B178639FDAFD0016 /* ContactDetailPhoneView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE0879E62F5D95D000FECBA5 /* EnterName */ = {
@@ -2954,6 +3014,7 @@
 		DECE31522F62AC7B0078414C /* DrivingMode */ = {
 			isa = PBXGroup;
 			children = (
+				DEE585642FCFF8200054CACE /* Phone */,
 				DE97326C2FBF63A7002F032E /* Navigator */,
 				DECE31622F62AFBF0078414C /* Music */,
 				DECE31612F62AF040078414C /* Main */,
@@ -3149,6 +3210,92 @@
 				DEDB36C62F82671A00DAF5FC /* WidgetPhotoCarouselView.swift */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		DEE585642FCFF8200054CACE /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				DEE585882FD0420B0054CACE /* Keypad */,
+				DEE585722FD008500054CACE /* Contacts */,
+				DEE585712FD008420054CACE /* Phone */,
+				192383536418FE98FBADEBC2 /* ContactDetail */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		DEE5856B2FCFF9DB0054CACE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEE5856E2FCFF9E80054CACE /* Tab */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEE5856E2FCFF9E80054CACE /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DEE5856C2FCFF9E60054CACE /* PhoneTabView.swift */,
+				DEE5856F2FCFF9F20054CACE /* PhoneTabItemView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		DEE585712FD008420054CACE /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				DEE5856B2FCFF9DB0054CACE /* View */,
+				DEE585652FCFF8710054CACE /* PhoneViewController.swift */,
+				DEE585692FCFF87D0054CACE /* PhoneView.swift */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		DEE585722FD008500054CACE /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				DEE585732FD008560054CACE /* View */,
+				DEE585762FD00A860054CACE /* ContactsView.swift */,
+				DEE5857A2FD00AD80054CACE /* ContactsRootView.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		DEE585732FD008560054CACE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEE5857C2FD00CCB0054CACE /* List */,
+				DEE585742FD008610054CACE /* UnlockContactsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEE5857C2FD00CCB0054CACE /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DEE5857F2FD00F670054CACE /* TableView */,
+				DEE5857D2FD00CEF0054CACE /* ContactsListView.swift */,
+				DEE585862FD017DE0054CACE /* SearchContactField.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		DEE5857F2FD00F670054CACE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE585802FD00F720054CACE /* ContactsTableView.swift */,
+				DEE585822FD00F7B0054CACE /* ContactsTableCell.swift */,
+				DEE585842FD00F830054CACE /* ContactsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEE585882FD0420B0054CACE /* Keypad */ = {
+			isa = PBXGroup;
+			children = (
+				67B1D6A1F6751750417D0D68 /* View */,
+				DEE585892FD0421B0054CACE /* KeypadView.swift */,
+			);
+			path = Keypad;
 			sourceTree = "<group>";
 		};
 		DEEAA9292F6D972D0072C702 /* Styles */ = {
@@ -4102,6 +4249,7 @@
 				860BE55A2F72FB2B00311032 /* MusicPlayerTrackInfoView.swift in Sources */,
 				DEABE5DF2F456CFC00089B9E /* SceneDelegate.swift in Sources */,
 				DEDB36B02F82545600DAF5FC /* WidgetAIPhotoMyCarViewModel.swift in Sources */,
+				DEE585702FCFF9F20054CACE /* PhoneTabItemView.swift in Sources */,
 				DEEAAA9B2F73FBF80072C702 /* WidgetsPresetsTemplateAnalogClockCell.swift in Sources */,
 				DEEB9D7B2F6A9C750041587F /* GeoLocationAPI.swift in Sources */,
 				DEF08FF22F7E75AE0066EE07 /* WidgetCarLogoMediator.swift in Sources */,
@@ -4132,6 +4280,7 @@
 				DEF08FD62F7E71340066EE07 /* FetchVehicleSupportLogosRequest.swift in Sources */,
 				DECE31672F62BF960078414C /* DrivingModeMenuStatusView.swift in Sources */,
 				DE6083BE2F5B10C50025BB2D /* DayNumberWithMonthGridView.swift in Sources */,
+				DEE5858A2FD0421B0054CACE /* KeypadView.swift in Sources */,
 				DEABE5E62F456CFC00089B9E /* ObservableAndSingle+Extension.swift in Sources */,
 				DEF570C62F7FEAC8002394B9 /* WidgetAIPhotoPreviewView.swift in Sources */,
 				DEDB36B22F82545A00DAF5FC /* WidgetAIPhotoMyCarView.swift in Sources */,
@@ -4191,6 +4340,7 @@
 				DEC1587E2F4B5E1800F2843C /* WidgetTextQuoteLeadershipImpact.swift in Sources */,
 				DEF08FFF2F7E86560066EE07 /* WidgetBuilderCarBrandItemButton.swift in Sources */,
 				DE63A2252F7D2DDC00AF71B7 /* WidgetClockAIPreviewConfiguration.swift in Sources */,
+				DEE5856A2FCFF87D0054CACE /* PhoneView.swift in Sources */,
 				DE6F50042FC0717F00EA1743 /* NavigatorDashboardInfoPanelView.swift in Sources */,
 				DEABE5F82F456CFC00089B9E /* GlobalDefinitions.swift in Sources */,
 				DEEAAA032F6F07D70072C702 /* WidgetWeatherViewModel.swift in Sources */,
@@ -4208,6 +4358,7 @@
 				DEC158432F4A1AC100F2843C /* WidgetsHelperViewModel.swift in Sources */,
 				DEDB368F2F81655700DAF5FC /* WidgetPhotoStorageModel.swift in Sources */,
 				DE90F6B92FC6FC0800F5278D /* RouteOptionsItemSelectView.swift in Sources */,
+				DEE585872FD017DE0054CACE /* SearchContactField.swift in Sources */,
 				DEABE5F92F456CFC00089B9E /* UITapGestureRecognizer+Extension.swift in Sources */,
 				86C2FF732F81575100E4BE36 /* AppleMusicCollectionCell.swift in Sources */,
 				DE6083992F59994E0025BB2D /* WidgetCalendarConfiguration.swift in Sources */,
@@ -4215,6 +4366,7 @@
 				DEABE5FB2F456CFC00089B9E /* TapAreaButton.swift in Sources */,
 				86D4FFE52F9BE47D0009BC46 /* AppleMusicTrackListSource.swift in Sources */,
 				DEEB9D702F6A922D0041587F /* WidgetsPresetsTemplateWeatherConditionForecastCell.swift in Sources */,
+				DEE5857B2FD00AD80054CACE /* ContactsRootView.swift in Sources */,
 				DEABE5FC2F456CFC00089B9E /* SplashReceiptValidationObserver.swift in Sources */,
 				DECE31652F62AFCA0078414C /* MusicSource.swift in Sources */,
 				86D4FFD52F9533AF0009BC46 /* BackButton.swift in Sources */,
@@ -4323,6 +4475,7 @@
 				DEEAAA1A2F712B560072C702 /* SelectTemperatureTypeCellButton.swift in Sources */,
 				860BE55C2F72FB9F00311032 /* MusicPlayerProgressView.swift in Sources */,
 				866DDCF92F7C411D000D6CE3 /* AppleMusicTrackListView.swift in Sources */,
+				DEE5856D2FCFF9E60054CACE /* PhoneTabView.swift in Sources */,
 				DE629C112F56D1B0004F5F7E /* WidgetsPresetsEmptyView.swift in Sources */,
 				DEABE61B2F456CFC00089B9E /* Appearance.swift in Sources */,
 				DE592C572F49BED400ABA60E /* TryAgainView.swift in Sources */,
@@ -4407,6 +4560,7 @@
 				DEDB36702F813C9600DAF5FC /* WidgetPhotoWIthTextStorageModel.swift in Sources */,
 				DE90F6C82FC7692D00F5278D /* RouteBuilderDepartureTimeViewModel.swift in Sources */,
 				DE62B3FF2FC5FB0200AF529A /* SearchPlaceField.swift in Sources */,
+				DEE585812FD00F720054CACE /* ContactsTableView.swift in Sources */,
 				DEC158992F4B74F100F2843C /* WidgetTextManuallyConfiguration.swift in Sources */,
 				DE8881422F5C283600E59393 /* MonthDayAndWeekdayTextView.swift in Sources */,
 				863FE8722FCB186A007C1D61 /* AppleMusicCoordinator.swift in Sources */,
@@ -4438,6 +4592,8 @@
 				DEEAAA6A2F73C07E0072C702 /* VehicleManager.swift in Sources */,
 				DEC1585E2F4A320D00F2843C /* WidgetsHelperScrollAcceptButton.swift in Sources */,
 				DEDB36C72F82671A00DAF5FC /* WidgetPhotoCarouselView.swift in Sources */,
+				DEE585662FCFF8710054CACE /* PhoneViewController.swift in Sources */,
+				DEE585852FD00F830054CACE /* ContactsTableElement.swift in Sources */,
 				DECE315A2F62AD350078414C /* DrivingModeCoordinator.swift in Sources */,
 				DE592C472F49BC8500ABA60E /* SplashViewModel.swift in Sources */,
 				DE62B4012FC5FB8A00AF529A /* SearchPlaceRootView.swift in Sources */,
@@ -4445,6 +4601,7 @@
 				DE5120552F45C07D0026C5CC /* VehicleImageCacheManager.swift in Sources */,
 				DE63A23C2F7D57AA00AF71B7 /* ClockAIPreviewWidgetView.swift in Sources */,
 				DEDB36C52F82671400DAF5FC /* WidgetPhotoCarouselViewModel.swift in Sources */,
+				DEE585832FD00F7B0054CACE /* ContactsTableCell.swift in Sources */,
 				DEDB368C2F8164F000DAF5FC /* WidgetPhotoConfiguration.swift in Sources */,
 				DEF0900C2F7EBDDB0066EE07 /* WidgetCarBrandsListTableElement.swift in Sources */,
 				DEEAAA0E2F7121500072C702 /* WidgetBuilderTimeFormatView.swift in Sources */,
@@ -4452,6 +4609,7 @@
 				DE592C622F49C3B700ABA60E /* TabView.swift in Sources */,
 				DEEAAA292F71A3E80072C702 /* SelectLocationTableView.swift in Sources */,
 				DEABE6452F456CFC00089B9E /* APIRequestBody.swift in Sources */,
+				DEE5857E2FD00CEF0054CACE /* ContactsListView.swift in Sources */,
 				DECE316C2F62C2910078414C /* DrivingModeBatteryView.swift in Sources */,
 				DEABE6462F456CFC00089B9E /* UIApplication+Extension.swift in Sources */,
 				DE592C5E2F49C21F00ABA60E /* MainCoordinator.swift in Sources */,
@@ -4464,6 +4622,7 @@
 				DEEAAAAF2F741E0D0072C702 /* SplitFlapDividerView.swift in Sources */,
 				DEEB9D6B2F6A92090041587F /* WidgetsPresetsTemplateWeatherClockCell.swift in Sources */,
 				DEEAA9282F6D858E0072C702 /* WeatherFetcher.swift in Sources */,
+				DEE585752FD008610054CACE /* UnlockContactsView.swift in Sources */,
 				DEABE6552F456CFC00089B9E /* GradientView.swift in Sources */,
 				DE51205B2F45C5190026C5CC /* TirePressureLiveActivityAttributes.swift in Sources */,
 				DE5120582F45C4A10026C5CC /* LiveActivityRegisterToken.swift in Sources */,
@@ -4497,6 +4656,7 @@
 				DEDB369C2F816B0500DAF5FC /* WidgetPhotoView.swift in Sources */,
 				DE629C162F56E470004F5F7E /* WidgetsPresetsCollectionHelperButton.swift in Sources */,
 				DECE316E2F62C56A0078414C /* DrivingModeStatusTimeView.swift in Sources */,
+				DEE585772FD00A860054CACE /* ContactsView.swift in Sources */,
 				DEF08FDD2F7E73AF0066EE07 /* CarLogoView.swift in Sources */,
 				DEF570C12F7FE955002394B9 /* WidgetAIPhotoViewModel.swift in Sources */,
 				DEC158972F4B728300F2843C /* WidgetTextQuoteConfiguration.swift in Sources */,
@@ -4539,6 +4699,10 @@
 				79262BAE7BF6CE86312B366E /* SearchPlaceDirectionsRequest.swift in Sources */,
 				BB2004C1480820BB62F48ECD /* SearchPlaceDetailsRequest.swift in Sources */,
 				6C7C1A2CAFF7EC49C687C421 /* NavigatorRoute.swift in Sources */,
+				4B24AF53AC3B47802FBD0C91 /* ContactDetailViewController.swift in Sources */,
+				E18FA4287F090565337A0070 /* ContactDetailView.swift in Sources */,
+				6B1537F4954A2812AC39C5D3 /* ContactDetailPhoneView.swift in Sources */,
+				90D78426D8C5AD8703339D07 /* KeypadButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

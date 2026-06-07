@@ -10,7 +10,7 @@ import UIKit
 final class DrivingModeCoordinator {
     private lazy var mapVC = NavigatorViewController.make()
     private lazy var musicCoordinator = MusicPlayerCoordinator(navigationController: .init())
-    private lazy var phoneVC = UIViewController()
+    private lazy var phoneVC = PhoneViewController.make()
     
     private weak var parentVC: UIViewController?
     private weak var container: UIView?

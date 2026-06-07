@@ -1356,6 +1356,13 @@
 			path = Spotify;
 			sourceTree = "<group>";
 		};
+		8623B68F2FD58E4A005AD262 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		862BC1322F747B3B000ECDC9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -3054,6 +3061,7 @@
 		DECE31622F62AFBF0078414C /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				8623B68F2FD58E4A005AD262 /* Views */,
 				DECE31722F62D7880078414C /* Screens */,
 				DECE31632F62AFC30078414C /* Model */,
 			);
@@ -4051,9 +4059,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4068,9 +4080,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CarConnect/Pods-CarConnect-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -157,6 +157,10 @@
 "Spotify.CapabilitiesWarning.Repeat" = "Repeat isn’t available with Spotify Free";
 "Spotify.CapabilitiesWarning.Shuffle" = "Shuffle isn’t available with Spotify Free";
 
+// MARK: Mini player
+"MiniPlayer.Empty" = "Select a source to listen";
+"MiniPlayer.NotPlaying" = "Not playing";
+
 // MARK: Music Source
 "AppleMusic" = "Apple Music";
 "Spotify" = "Spotify";

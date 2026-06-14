@@ -7,13 +7,17 @@
 
 import UIKit
 import MusicKit
+import RxSwift
+import RxCocoa
 
 final class MusicPlayerViewController: UIViewController {
     private lazy var mainView = MusicPlayerView()
     private let viewModel: MusicPlayerViewModel
-    private let router: PlayerRouter
+    private let router: PlayerSourceSelection
     
-    init(source: MusicPlayerViewModel.Source, router: PlayerRouter) {
+    private var disposeBag = DisposeBag()
+    
+    init(source: PlayMusicSource, router: PlayerSourceSelection) {
         self.router = router
         viewModel = MusicPlayerViewModel(source: source)
         
@@ -34,7 +38,7 @@ final class MusicPlayerViewController: UIViewController {
         mainView.trackProgress.delegate = viewModel
         mainView.controlsView.delegate = viewModel
         
-        if (navigationController?.viewControllers.count ?? 1) <= 1 {
+        if (navigationController?.viewControllers.count ?? 1) == 1 {
             let button = mainView.setup(type: .dropdown)
             button.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
         } else {
@@ -42,32 +46,37 @@ final class MusicPlayerViewController: UIViewController {
             button.addTarget(self, action: #selector(pop), for: .touchUpInside)
         }
         
-        viewModel.onUpdateTrack = { [weak self] model in
-            guard let self else { return }
-            
-            mainView.trackInfo.setup(title: model.title, subtitle: model.subtitle, image: model.artwork)
-        }
+        let output = viewModel.configure(input: .init())
         
-        viewModel.onUpdateState = { [weak self] model in
-            guard let self else { return }
-            
-            mainView.trackProgress.setup(
-                current: model.currentTime,
-                duration: model.duration
-            )
-            
-            mainView.controlsView.setup(
-                isPlaying: model.isPlaying,
-                repeatMode: model.repeatMode,
-                shuffleMode: model.shuffleMode
-            )
-        }
         
-        viewModel.showMessage = { [weak self] in
-            self?.mainView.showMessage($0)
-        }
+        output.trackInfo
+            .drive(Binder(mainView.trackInfo) { base, model in
+                base.setup(title: model?.title, subtitle: model?.subtitle, image: model?.artwork)
+            })
+            .disposed(by: disposeBag)
         
-        viewModel.start()
+        
+        output.playbackInfo
+            .drive(Binder(mainView) { base, model in
+                base.trackProgress.setup(
+                    current: model?.currentTime ?? 0,
+                    duration: model?.duration ?? 0
+                )
+                
+                base.controlsView.setup(
+                    isPlaying: model?.isPlaying == true,
+                    repeatMode: model?.repeatMode ?? .all,
+                    shuffleMode: model?.shuffleMode ?? .off
+                )
+            })
+            .disposed(by: disposeBag)
+        
+        output.message
+            .emit(to: Binder(mainView) { base, message in
+                guard let message else { return }
+                base.showMessage(message)
+            })
+            .disposed(by: disposeBag)
     }
     
     
@@ -85,6 +94,6 @@ final class MusicPlayerViewController: UIViewController {
             musicSource = .spotify
         }
         
-        router.openMusicSource(current: musicSource, actionFrame: button.frame)
+        router.openMusicSource(current: musicSource, animated: false)
     }
 }

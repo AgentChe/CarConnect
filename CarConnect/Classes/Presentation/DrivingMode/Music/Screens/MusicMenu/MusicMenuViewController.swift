@@ -14,13 +14,11 @@ protocol MusicSourceSelectionDelegate: AnyObject {
 
 class MusicSourceMenuViewController: UIViewController {
     private lazy var mainView = MusicSourceMenuView()
-    private let actionFrame: CGRect?
     private let current: MusicSource?
     
     weak var delegate: MusicSourceSelectionDelegate?
     
-    init(current: MusicSource?, actionFrame: CGRect?) {
-        self.actionFrame = actionFrame
+    init(current: MusicSource?) {
         self.current = current
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,7 +33,7 @@ class MusicSourceMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.setup(for: actionFrame, current: current) { [weak self] source in
+        mainView.setup(current: current) { [weak self] source in
             self?.delegate?.selectedSource(source)
         }
         if current != nil {

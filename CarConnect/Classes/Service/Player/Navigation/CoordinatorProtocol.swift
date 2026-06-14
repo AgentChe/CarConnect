@@ -19,5 +19,4 @@ protocol CoordinatorProtocol: AnyObject {
 
 protocol CoordinatorBaseProtocol: CoordinatorProtocol {
     var navigationController: UINavigationController? { get set }
-    func start()
 }

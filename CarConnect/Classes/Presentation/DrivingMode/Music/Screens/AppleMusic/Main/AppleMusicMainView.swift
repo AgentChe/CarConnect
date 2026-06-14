@@ -98,7 +98,7 @@ private extension AppleMusicMainView {
 // MARK: Lazy initialization
 private extension AppleMusicMainView {
     func makeDropdownButton() -> DropdownButtonView {
-        let view = DropdownButtonView()
+        let view = DropdownButtonView(type: .image)
         view.translatesAutoresizingMaskIntoConstraints = false
         navigationStack.addSubview(view)
         return view

@@ -46,24 +46,27 @@ final class DrivingModeViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        Observable
+        Observable<DrivingModeRouteItemButton.Item>
             .merge([
                 mainView.menuView.mapItemButton
-                    .rx.tap.map { DrivingModeRouteItemButton.Item.map },
+                    .rx.tap.map { .map },
                 mainView.menuView.musicItemButton
-                    .rx.tap.map { DrivingModeRouteItemButton.Item.music(.appleMusic) }, // TODO: брать актуальный (выбранный) источник музыки
+                    .rx.tap.map { .music(MusicManager.shared.currentSource.map { .player($0) } ?? .source(current: nil) )},
                 mainView.menuView.phoneItemButton
-                    .rx.tap.map { DrivingModeRouteItemButton.Item.phone },
+                    .rx.tap.map { .phone },
                 SceneDelegateMediator.shared.didOpenURLContexts
                     .compactMap { contexts in
                         if contexts.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) {
-                            return DrivingModeRouteItemButton.Item.map
+                            return .map
                         } else if contexts.contains(where: { DeepLink.isSpotifyModeNavigator($0.url) }) {
-                            return DrivingModeRouteItemButton.Item.music(.spotify)
+                            return .music(.player(.spotify))
                         } else {
                             return nil
                         }
                     }
+                    .asObservable(),
+                MusicManager.shared.playerRoute
+                    .map { .music($0) }
                     .asObservable()
             ])
             .bind(to: Binder(self) { base, item in
@@ -80,6 +83,9 @@ final class DrivingModeViewController: UIViewController {
                     .rx.tap.map { true },
                 mainView.menuView.phoneItemButton
                     .rx.tap.map { true },
+                MusicManager.shared.playerRoute
+                    .map { _ in true }
+                    .asObservable(),
                 SceneDelegateMediator.shared.didOpenURLContexts
                     .compactMap { contexts in
                         if contexts.contains(where: { DeepLink.isDrivingModeNavigator($0.url) }) {
@@ -93,6 +99,13 @@ final class DrivingModeViewController: UIViewController {
                     .asObservable()
             ])
             .bind(to: mainView.backgroundView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        MusicManager.shared.musicSource
+            .drive(Binder(mainView) { base, source in
+                let image = UIImage(named: DrivingModeRouteItemButton.Item.music(.player(source ?? .appleMusic)).iconName)
+                base.menuView.musicItemButton.iconView.image = image
+            })
             .disposed(by: disposeBag)
     }
 }

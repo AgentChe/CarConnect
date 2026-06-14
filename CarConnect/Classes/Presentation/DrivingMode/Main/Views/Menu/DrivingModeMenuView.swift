@@ -10,7 +10,7 @@ import UIKit
 final class DrivingModeMenuView: UIView {
     lazy var statusView = makeStatusView()
     lazy var mapItemButton = makeRouteItemButton(item: .map)
-    lazy var musicItemButton = makeRouteItemButton(item: .music(.appleMusic))
+    lazy var musicItemButton = makeRouteItemButton(item: .music(.player(.appleMusic)))
     lazy var phoneItemButton = makeRouteItemButton(item: .phone)
     lazy var settingsButton = makeSettingsButton()
     

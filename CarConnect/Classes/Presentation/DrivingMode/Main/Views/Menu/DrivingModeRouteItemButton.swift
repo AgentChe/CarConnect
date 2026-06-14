@@ -9,7 +9,7 @@ import UIKit
 
 final class DrivingModeRouteItemButton: UIButton {
     enum Item: Codable, Hashable {
-        case map, music(MusicSource), phone
+        case map, music(MusicPlayerRoute), phone
     }
     
     lazy var iconView = makeIconView()
@@ -71,13 +71,13 @@ private extension DrivingModeRouteItemButton {
 }
 
 // MARK: Additional
-private extension DrivingModeRouteItemButton.Item {
+extension DrivingModeRouteItemButton.Item {
     var iconName: String {
         switch self {
         case .map:
             return "DrivingMode.Menu.MapItem"
-        case .music(let musicSource):
-            return musicSource.iconName
+        case .music(let route):
+            return (route.musicSource ?? .appleMusic).iconName
         case .phone:
             return "DrivingMode.Menu.PhoneItem"
         }

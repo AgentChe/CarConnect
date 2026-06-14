@@ -60,7 +60,7 @@ final class AppleMusicMainViewController: UIViewController {
     }
     
     @objc private func openMenu(_ button: DropdownButtonView) {
-        router.openMusicSource(current: .appleMusic, actionFrame: button.frame)
+        router.openMusicSource(current: .appleMusic, animated: false)
     }
 }
 
@@ -91,7 +91,7 @@ extension AppleMusicMainViewController: AppleMusicMainCollectionViewDelegate {
             case .artist(let artist):
                 router.openArtistLibrary(artist: artist)
             case .track(let track, _):
-                router.openPlayer(source: .appleMusic(startItem: track, trackList: nil, parentCollectionID: nil))
+                router.openPlayer(source: .appleMusic(startItem: track, trackList: nil))
             }
         case .category(let category):
             router.openMusicLibrary(category: category)

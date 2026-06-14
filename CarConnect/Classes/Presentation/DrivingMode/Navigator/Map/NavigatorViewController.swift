@@ -25,6 +25,9 @@ final class NavigatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.dashboardInfoPanelView.musicPlayerView.controlDelegate = viewModel
+        mainView.dashboardInfoPanelView.musicPlayerView.sourceDelegate = viewModel
+        
         let output = viewModel.configure(input: NavigatorViewModel.Input(
             didTapResizeMap: mainView.mapView.didTapResize,
             didTapBuildRoute: mainView.mapView.didTapBuildRoute,
@@ -40,6 +43,26 @@ final class NavigatorViewController: UIViewController {
         output.mapPresentationState
             .drive(Binder(mainView) { base, state in
                 base.setup(mapPresentationState: state)
+            })
+            .disposed(by: disposeBag)
+        
+        output.trackInfo
+            .withLatestFrom(output.musicSource) { ($0, $1) }
+            .drive(Binder(mainView) { base, args in
+                let (info, source) = args
+                base.setupTrackInfo(model: info, source: source ?? .appleMusic)
+            })
+            .disposed(by: disposeBag)
+        
+        output.playbackInfo
+            .drive(Binder(mainView) { base, info in
+                base.setupPlayerState(model: info)
+            })
+            .disposed(by: disposeBag)
+        
+        output.musicSource
+            .drive(Binder(mainView) { base, source in
+                base.setupMusicState(source: source)
             })
             .disposed(by: disposeBag)
     }

@@ -64,7 +64,7 @@ extension AppleMusicLibraryViewController: AppleMusicLibraryTableDelegate {
                     guard case let .track(track, _) = item else { return nil }
                     return track
                 }
-            router.openPlayer(source: .appleMusic(startItem: track, trackList: .init(tracks), parentCollectionID: nil))
+            router.openPlayer(source: .appleMusic(startItem: track, trackList: .init(tracks)))
         }
     }
     

@@ -18,8 +18,6 @@ final class AppleMusicTrackListViewModel {
     @MainActor private(set) var isLoading: Bool = false
     @MainActor var onUpdate: (() -> Void)?
     
-    let collectionID: MusicItemID
-    
     private let source: AppleMusicTrackListSource
     private let player = AppleMusicPlayer.shared
     private var cancellable: AnyCancellable?
@@ -29,10 +27,8 @@ final class AppleMusicTrackListViewModel {
         switch source {
         case .album(let album):
             title = album.title
-            collectionID = album.id
         case .playlist(let playlist):
             title = playlist.name
-            collectionID = playlist.id
         }
         
         observePlayingTrack()
@@ -79,6 +75,8 @@ final class AppleMusicTrackListViewModel {
 
 private extension AppleMusicTrackListViewModel {
     func observePlayingTrack() {
+        cancellable?.cancel()
+        
         cancellable = AppleMusicPlayer.shared.trackPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in

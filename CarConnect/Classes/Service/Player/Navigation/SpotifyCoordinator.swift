@@ -33,12 +33,12 @@ final class SpotifyCoordinator: CoordinatorBaseProtocol {
     }
 }
 
-extension SpotifyCoordinator: PlayerRouter {
-    func openMusicSource(current: MusicSource, actionFrame: CGRect) {
-        let controller = MusicSourceMenuViewController(current: current, actionFrame: actionFrame)
+extension SpotifyCoordinator: PlayerSourceSelection {
+    func openMusicSource(current: MusicSource, animated: Bool) {
+        let controller = MusicSourceMenuViewController(current: current)
         controller.delegate = souceSelectionDelegate
         controller.modalPresentationStyle = .currentContext
-        navigationController?.present(controller, animated: true)
+        navigationController?.present(controller, animated: animated)
     }
     
     func pop() {

@@ -1,16 +1,6 @@
 //
 //  SpotifyConnectionService.swift
 //  CarConnect
-//
-//  Отвечает за авторизацию и lifecycle подключения к Spotify App Remote.
-//  Владеет единственным экземпляром SPTAppRemote и реализует SPTAppRemoteDelegate.
-//  UI-логики не содержит — только данные и команды.
-//
-//  Интеграция:
-//  1. SceneDelegate.scene(_:openURLContexts:)  → SpotifyConnectionService.shared.handleURL(_:)
-//  2. SceneDelegate.sceneDidBecomeActive       → SpotifyConnectionService.shared.connect()
-//  3. SceneDelegate.sceneDidEnterBackground    → SpotifyConnectionService.shared.disconnect()
-//
 
 import Foundation
 import Combine

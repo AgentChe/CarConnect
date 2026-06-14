@@ -8,12 +8,21 @@
 import UIKit
 
 final class DropdownButtonView: UIButton {
+    
+    enum ButtonType {
+        case image
+        case text
+    }
+    
     private lazy var iconView = makeIconView()
     private lazy var arrowIcon = makeArrowIconView()
+    private lazy var labelView = makeLabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    private let type: ButtonType
+    
+    init(type: ButtonType) {
+        self.type = type
+        super.init(frame: .zero)
         makeConstraints()
         initialize()
     }
@@ -29,7 +38,12 @@ final class DropdownButtonView: UIButton {
     }
     
     func setMusicSource(_ source: MusicSource) {
-        iconView.image = UIImage(named: source.iconName)
+        switch type {
+        case .image:
+            iconView.image = UIImage(named: source.iconName)
+        case .text:
+            labelView.attributedText = source.title.attributed(with: .text)
+        }
     }
 }
 
@@ -52,6 +66,34 @@ private extension DropdownButtonView {
 // MARK: Make constraints
 private extension DropdownButtonView {
     func makeConstraints() {
+        switch type {
+        case .image:
+            imageLayout()
+        case .text:
+            textLayout()
+        }
+    }
+    
+    func textLayout() {
+        NSLayoutConstraint.activate([
+            labelView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.landscapeHScale),
+            labelView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            arrowIcon.heightAnchor.constraint(equalToConstant: 24.landscapeVScale),
+            arrowIcon.widthAnchor.constraint(equalTo: arrowIcon.heightAnchor),
+            arrowIcon.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
+            arrowIcon.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 4.landscapeHScale),
+            arrowIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.landscapeHScale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 40.landscapeVScale)
+        ])
+    }
+    
+    func imageLayout() {
         NSLayoutConstraint.activate([
             iconView.heightAnchor.constraint(equalToConstant: 32.landscapeVScale),
             iconView.widthAnchor.constraint(equalTo: iconView.heightAnchor),
@@ -83,6 +125,14 @@ private extension DropdownButtonView {
         return view
     }
     
+    func makeLabel() -> UILabel {
+        let view = UILabel()
+        view.numberOfLines = 1
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     func makeArrowIconView() -> UIImageView {
         let view = UIImageView()
         view.image = UIImage(named: "Navigation.ArrowDown")
@@ -92,4 +142,11 @@ private extension DropdownButtonView {
         addSubview(view)
         return view
     }
+}
+
+private extension TextAttributes {
+    static let text = TextAttributes()
+        .font(Fonts.Inter.medium(size: 16.landscapeVScale))
+        .textColor(Appearance.color_FFFFFF)
+        .textAlignment(.left)
 }

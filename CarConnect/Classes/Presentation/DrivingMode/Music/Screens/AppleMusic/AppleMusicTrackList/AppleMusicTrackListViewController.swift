@@ -50,7 +50,7 @@ final class AppleMusicTrackListViewController: UIViewController {
 
 extension AppleMusicTrackListViewController: AppleMusicTrackListTableDelegate {
     func didSelectItem(_ item: Track) {
-        router.openPlayer(source: .appleMusic(startItem: item, trackList: viewModel.trackCollection, parentCollectionID: viewModel.collectionID))
+        router.openPlayer(source: .appleMusic(startItem: item, trackList: viewModel.trackCollection))
     }
     
     func visiblePath(indexPath: IndexPath) {

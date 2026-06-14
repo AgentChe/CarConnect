@@ -12,21 +12,12 @@ import Combine
 import SpotifyiOS
 import UIKit
 
-// MARK: - SpotifyMusicPlayer
-
-final class SpotifyMusicPlayer: NSObject {
-
+final class SpotifyMusicPlayer: NSObject, MusicPlayerProtocol {
     static let shared = SpotifyMusicPlayer()
 
-    /// Публикует метаданные трека. Новый подписчик сразу получает текущее значение.
     let trackPublisher = CurrentValueSubject<TrackModel?, Never>(nil)
-
-    /// Публикует состояние воспроизведения. Новый подписчик сразу получает текущее значение.
     let playbackPublisher = CurrentValueSubject<PlaybackModel?, Never>(nil)
 
-    // MARK: Private
-
-    /// Слабая ссылка — appRemote принадлежит SpotifyConnectionService.
     private weak var appRemote: SPTAppRemote?
 
     private var lastPlayerState: SPTAppRemotePlayerState?
@@ -38,10 +29,6 @@ final class SpotifyMusicPlayer: NSObject {
         startProgressTimer()
     }
 
-    // MARK: - Connection callbacks (вызывает SpotifyConnectionService)
-
-    /// Вызывается из SpotifyConnectionService когда соединение установлено.
-    /// Сохраняет ссылку на appRemote и подписывается на player state.
     func didConnect(to appRemote: SPTAppRemote) {
         self.appRemote = appRemote
         appRemote.playerAPI?.delegate = self
@@ -50,7 +37,6 @@ final class SpotifyMusicPlayer: NSObject {
         })
     }
 
-    /// Вызывается из SpotifyConnectionService когда соединение разорвано.
     func didDisconnect() {
         appRemote = nil
         lastPlayerState = nil
@@ -58,17 +44,12 @@ final class SpotifyMusicPlayer: NSObject {
         trackPublisher.send(nil)
     }
 
-    // MARK: - Playback controls (тот же интерфейс что у AppleMusicPlayer)
-
     var isPlaying: Bool { lastPlayerState?.isPaused == false }
 
-    /// Воспроизвести / поставить на паузу текущий трек.
     func togglePlaybackStatus() {
         guard let api = appRemote?.playerAPI else { return }
         if appRemote?.isConnected == false {
-            Task { @MainActor in
-                _ = await SpotifyConnectionService.shared.autorize()
-            }
+            Task { @MainActor in _ = await SpotifyConnectionService.shared.autorize() }
         } else {
             isPlaying ? api.pause(nil) : api.resume(nil)
         }
@@ -87,31 +68,28 @@ final class SpotifyMusicPlayer: NSObject {
         api.setRepeatMode(next, callback: nil)
     }
 
-    /// Воспроизвести трек по Spotify URI (например "spotify:track:6rqhFgbbKwnb9MLmUQDhG6").
     func play(spotifyURI: String) {
         appRemote?.playerAPI?.play(spotifyURI, callback: nil)
     }
 
-    /// Перемотать на заданную позицию (секунды).
+    func pause() {
+        appRemote?.playerAPI?.pause(nil)
+    }
+
     func seek(to time: TimeInterval) {
         appRemote?.playerAPI?.seek(toPosition: Int(time * 1000), callback: nil)
-        // Оптимистично обновляем UI не дожидаясь следующего playerStateDidChange.
         if let state = lastPlayerState {
             emitPlaybackModel(from: state, overridePosition: time)
         }
     }
 
-    /// Следующий трек.
     func skipToNextEntry() {
         appRemote?.playerAPI?.skip(toNext: nil)
     }
 
-    /// Предыдущий трек.
     func skipToPreviousEntry() {
         appRemote?.playerAPI?.skip(toPrevious: nil)
     }
-
-    // MARK: - Private helpers
 
     private func startProgressTimer() {
         progressTimer = Timer.publish(every: 0.25, on: .main, in: .common)
@@ -131,14 +109,13 @@ final class SpotifyMusicPlayer: NSObject {
         let currentTime = overridePosition ?? (state.isPaused ? basePosition : basePosition + elapsed)
         let duration = TimeInterval(state.track.duration) / 1000.0
 
-        let model = PlaybackModel(
+        playbackPublisher.send(PlaybackModel(
             currentTime: min(currentTime, duration),
             duration: duration,
             isPlaying: !state.isPaused,
             repeatMode: RepeatMode(spotifyMode: state.playbackOptions.repeatMode),
             shuffleMode: state.playbackOptions.isShuffling ? .on : .off
-        )
-        playbackPublisher.send(model)
+        ))
     }
 
     private func emitTrackModel(from track: SPTAppRemoteTrack) {
@@ -146,8 +123,9 @@ final class SpotifyMusicPlayer: NSObject {
             forItem: track,
             with: CGSize(width: 120, height: 120)
         ) { [weak self] image, _ in
-            var artworkURL: URL? = nil
-            if let uiImage = image as? UIImage, let data = uiImage.jpegData(compressionQuality: 0.85) {
+            var artworkURL: URL?
+            if let uiImage = image as? UIImage,
+               let data = uiImage.jpegData(compressionQuality: 0.85) {
                 let tmp = FileManager.default.temporaryDirectory
                     .appendingPathComponent("spotify_artwork_\(track.uri.hashValue).jpg")
                 try? data.write(to: tmp)
@@ -161,10 +139,6 @@ final class SpotifyMusicPlayer: NSObject {
         }
     }
 }
-
-// MARK: - SPTAppRemotePlayerStateDelegate
-// Живёт здесь: SpotifyMusicPlayer отвечает только за состояние плеера,
-// тогда как SPTAppRemoteDelegate (lifecycle соединения) живёт в SpotifyConnectionService.
 
 extension SpotifyMusicPlayer: SPTAppRemotePlayerStateDelegate {
 
@@ -181,17 +155,12 @@ extension SpotifyMusicPlayer: SPTAppRemotePlayerStateDelegate {
     }
 }
 
-// MARK: - RepeatMode mapping
-
-private extension RepeatMode {
+extension RepeatMode {
     init(spotifyMode: SPTAppRemotePlaybackOptionsRepeatMode) {
         switch spotifyMode {
-        case .off:
-            self = .none
-        case .track:
-            self = .one
-        case .context:
-            self = .all
+        case .off: self = .none
+        case .track: self = .one
+        case .context: self = .all
         @unknown default: self = .none
         }
     }

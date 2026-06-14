@@ -34,10 +34,10 @@ extension DrivingModeCoordinator {
         switch item {
         case .map:
             changeVC(on: mapVC)
-        case .music:
+        case .music(let route):
             if let controller = musicCoordinator.navigationController {
                 changeVC(on: controller)
-                musicCoordinator.switchSource(source: nil)
+                musicCoordinator.start(route: route)
             }
         case .phone:
             changeVC(on: phoneVC)

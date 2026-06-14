@@ -81,19 +81,16 @@ private extension MusicPlayerControlsView {
 // MARK: Private
 private extension MusicPlayerControlsView {
     func initialize() {
-        previousButton.backgroundColor = Appearance.color_FFFFFF.withAlphaComponent(0.16)
         previousButton.setImage(UIImage(named: "Player.Previous"), for: .normal)
-        previousButton.tintColor = Appearance.color_FFFFFF
         previousButton.addTarget(self, action: #selector(tapPrevios), for: .touchUpInside)
+        previousButton.tintColor = Appearance.color_FFFFFF
         
-        nextButton.backgroundColor = Appearance.color_FFFFFF.withAlphaComponent(0.16)
         nextButton.setImage(UIImage(named: "Player.Next"), for: .normal)
-        nextButton.tintColor = Appearance.color_FFFFFF
         nextButton.addTarget(self, action: #selector(tapNext), for: .touchUpInside)
+        nextButton.tintColor = Appearance.color_FFFFFF
         
-        playButton.backgroundColor = Appearance.color_FFFFFF
-        playButton.tintColor = Appearance.color_080A0C
         playButton.addTarget(self, action: #selector(tapPlayPause), for: .touchUpInside)
+        playButton.tintColor = Appearance.color_FFFFFF
         
         [previousButton, playButton, nextButton]
             .forEach {

@@ -24,12 +24,12 @@ class MusicSourceMenuView: UIView {
 }
 
 extension MusicSourceMenuView {
-    func setup(for rect: CGRect?, current: MusicSource?, action: @escaping (MusicSource) -> Void) {
+    func setup(current: MusicSource?, action: @escaping (MusicSource) -> Void) {
         self.action = action
-        if let current, let rect {
+        if let current {
             NSLayoutConstraint.activate([
-                dropDownButton.topAnchor.constraint(equalTo: topAnchor, constant: rect.minY),
-                dropDownButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: rect.minX),
+                dropDownButton.topAnchor.constraint(equalTo: topAnchor, constant: 19.landscapeVScale),
+                dropDownButton.leadingAnchor.constraint(equalTo: leadingAnchor),
                 
                 container.topAnchor.constraint(equalTo: dropDownButton.bottomAnchor, constant: 24.landscapeVScale),
                 container.leadingAnchor.constraint(equalTo: dropDownButton.leadingAnchor)
@@ -70,7 +70,7 @@ private extension MusicSourceMenuView {
 // MARK: Lazy initialization
 private extension MusicSourceMenuView {
     func makeDropdownButton() -> DropdownButtonView {
-        let view = DropdownButtonView()
+        let view = DropdownButtonView(type: .image)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

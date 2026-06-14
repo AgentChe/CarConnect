@@ -14,7 +14,6 @@ final class MusicPlayerView: UIView {
         case dropdown
     }
     
-    lazy var backButton = makeBackButton()
     lazy var trackInfo = makeTrackInfo()
     lazy var trackProgress = makeTrackProgress()
     lazy var controlsView = makePlayerControls()
@@ -24,7 +23,6 @@ final class MusicPlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        makeConstraints()
         initialize()
     }
     
@@ -46,6 +44,24 @@ extension MusicPlayerView {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: topAnchor, constant: 19.landscapeVScale),
             button.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            trackInfo.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 8.landscapeVScale),
+            trackInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trackInfo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.landscapeHScale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            trackProgress.topAnchor.constraint(equalTo: trackInfo.bottomAnchor, constant: 24.landscapeVScale),
+            trackProgress.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trackProgress.trailingAnchor.constraint(equalTo: trackInfo.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            controlsView.topAnchor.constraint(equalTo: trackProgress.bottomAnchor, constant: 24.landscapeVScale),
+            controlsView.leadingAnchor.constraint(equalTo: trackProgress.leadingAnchor),
+            controlsView.trailingAnchor.constraint(equalTo: trackProgress.trailingAnchor),
         ])
         
         return button
@@ -79,30 +95,6 @@ extension MusicPlayerView {
 private extension MusicPlayerView {
     func initialize() {
         backgroundColor = Appearance.color_080A0C
-    }
-}
-
-// MARK: Make constraints
-private extension MusicPlayerView {
-    func makeConstraints() {
-        
-        NSLayoutConstraint.activate([
-            trackInfo.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8.landscapeVScale),
-            trackInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trackInfo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.landscapeHScale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            trackProgress.topAnchor.constraint(equalTo: trackInfo.bottomAnchor, constant: 24.landscapeVScale),
-            trackProgress.leadingAnchor.constraint(equalTo: leadingAnchor),
-            trackProgress.trailingAnchor.constraint(equalTo: trackInfo.trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            controlsView.topAnchor.constraint(equalTo: trackProgress.bottomAnchor, constant: 24.landscapeVScale),
-            controlsView.leadingAnchor.constraint(equalTo: trackProgress.leadingAnchor),
-            controlsView.trailingAnchor.constraint(equalTo: trackProgress.trailingAnchor),
-        ])
     }
 }
 
@@ -144,7 +136,7 @@ private extension MusicPlayerView {
     }
     
     func makeDropdownButton() -> DropdownButtonView {
-        let view = DropdownButtonView()
+        let view = DropdownButtonView(type: .image)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

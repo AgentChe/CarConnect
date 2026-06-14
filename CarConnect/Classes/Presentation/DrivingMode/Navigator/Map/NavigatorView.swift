@@ -51,6 +51,18 @@ extension NavigatorView {
             self?.mapView.setup(mapPresentationState: mapPresentationState)
         })
     }
+    
+    func setupPlayerState(model: PlaybackModel?) {
+        dashboardInfoPanelView.musicPlayerView.setupState(model: model)
+    }
+    
+    func setupTrackInfo(model: TrackModel?, source: MusicSource) {
+        dashboardInfoPanelView.musicPlayerView.setupTrackInfo(model: model, source: source)
+    }
+    
+    func setupMusicState(source: MusicSource?) {
+        dashboardInfoPanelView.musicPlayerView.displayMusic(isAvailable: source != nil)
+    }
 }
 
 // MARK: Private

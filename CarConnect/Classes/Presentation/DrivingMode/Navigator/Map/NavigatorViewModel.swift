@@ -13,6 +13,8 @@ final class NavigatorViewModel {
         case openSettings
         case showRouteBuilder(Coordinate)
     }
+    
+    private let musicManager = MusicManager.shared
 }
 
 // MARK: Public
@@ -26,6 +28,9 @@ extension NavigatorViewModel {
     struct Output {
         let mapPresentationState: Driver<NavigatorResizableMapView.MapPresentationState>
         let action: Driver<Action>
+        let trackInfo: Driver<TrackModel?>
+        let playbackInfo: Driver<PlaybackModel?>
+        let musicSource: Driver<MusicSource?>
     }
     
     func configure(input: Input) -> Output {
@@ -34,7 +39,10 @@ extension NavigatorViewModel {
             action: makeAction(
                 didTapUnlockLocationTracking: input.didTapUnlockLocationTracking,
                 didTapBuildRoute: input.didTapBuildRoute
-            )
+            ),
+            trackInfo: musicManager.trackInfo,
+            playbackInfo: musicManager.playbackInfo,
+            musicSource: musicManager.musicSource
         )
     }
 }
@@ -69,5 +77,33 @@ private extension NavigatorViewModel {
             .asDriver(onErrorDriveWith: .never())
 
         return Driver.merge(openSettings, showRouteBuilder)
+    }
+}
+
+extension NavigatorViewModel: NavigatorMusicControlDelegate {
+    func didTapNext() {
+        musicManager.next()
+    }
+    
+    func didTapPrevios() {
+        musicManager.previos()
+    }
+    
+    func didTapPlayPause() {
+        if musicManager.isPlaying {
+            musicManager.togglePlaybackStatus()
+        } else if let current = musicManager.currentSource {
+            musicManager.showPlayer(route: .player(current))
+        }
+    }
+    
+    func didTapSourceButton() {
+        musicManager.showPlayer(route: .source(current: musicManager.currentSource))
+    }
+}
+
+extension NavigatorViewModel: NavigatorMusicSelection {
+    func didSelectSource(_ source: MusicSource) {
+        musicManager.showPlayer(route: .player(source))
     }
 }

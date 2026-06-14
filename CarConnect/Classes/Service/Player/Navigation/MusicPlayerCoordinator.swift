@@ -8,11 +8,26 @@
 import Foundation
 import UIKit
 
-protocol PlayerRouter: Routable {
-    func openMusicSource(current: MusicSource, actionFrame: CGRect)
+enum MusicPlayerRoute: Codable, Hashable {
+    case player(MusicSource)
+    case source(current: MusicSource?)
+    
+    var musicSource: MusicSource? {
+        switch self {
+        case .player(let musicSource):
+            musicSource
+        case .source(let musicSource):
+            musicSource
+        }
+    }
+}
+
+protocol PlayerSourceSelection: Routable, AnyObject {
+    func openMusicSource(current: MusicSource, animated: Bool)
 }
 
 final class MusicPlayerCoordinator: CoordinatorBaseProtocol {
+    
     var navigationController: UINavigationController?
     
     var childCoordinator: [CoordinatorProtocol] = []
@@ -23,7 +38,9 @@ final class MusicPlayerCoordinator: CoordinatorBaseProtocol {
         self.navigationController = navigationController
     }
     
-    func start() {
+    private func start(source: MusicSource) {
+        self.source = source
+        
         switch source {
         case .appleMusic:
             let coordinator = AppleMusicCoordinator(navigationController: navigationController)
@@ -37,35 +54,40 @@ final class MusicPlayerCoordinator: CoordinatorBaseProtocol {
             coordinator.start()
         case .radio:
             break
-        case .none:
-            let controller = MusicSourceMenuViewController(current: nil, actionFrame: nil)
-            controller.delegate = self
-            navigationController?.setViewControllers([controller], animated: true)
         }
     }
     
-    
-    
-    func switchSource(source: MusicSource?) {
-//        guard self.source != source else { return }
-        self.source = source
-        start()
+    func start(route: MusicPlayerRoute) {
+        switch route {
+        case .player(let musicSource):
+            selectedSource(musicSource)
+        case .source(let musicSource):
+            let controller = MusicSourceMenuViewController(current: musicSource)
+            controller.delegate = self
+            navigationController?.setViewControllers([controller], animated: false)
+        }
     }
 }
 
 extension MusicPlayerCoordinator: MusicSourceSelectionDelegate {
     func selectedSource(_ source: MusicSource) {
+        MusicManager.shared.changeSource(to: source)
+        
         if navigationController?.presentedViewController != nil {
             navigationController?.dismiss(animated: false) { [weak self] in
-                self?.switchSource(source: source)
+                self?.start(source: source)
             }
         } else {
-            switchSource(source: source)
+            start(source: source)
         }
         
     }
     
     func close() {
-        navigationController?.dismiss(animated: false)
+        if navigationController?.presentedViewController != nil {
+            navigationController?.dismiss(animated: false)
+        } else {
+            
+        }
     }
 }

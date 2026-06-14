@@ -12,9 +12,9 @@ import MusicKit
 protocol AppleMusicPlayerRouter: Routable {
     func openTrackList(source: AppleMusicTrackListSource)
     func openArtistLibrary(artist: Artist)
-    func openPlayer(source: MusicPlayerViewModel.Source)
+    func openPlayer(source: PlayMusicSource)
     func openMusicLibrary(category: AppleMusicLibraryCategory)
-    func openMusicSource(current: MusicSource, actionFrame: CGRect)
+    func openMusicSource(current: MusicSource, animated: Bool)
 }
 
 final class AppleMusicCoordinator: CoordinatorBaseProtocol {
@@ -65,8 +65,9 @@ extension AppleMusicCoordinator: AppleMusicPlayerRouter {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    func openPlayer(source: MusicPlayerViewModel.Source) {
+    func openPlayer(source: PlayMusicSource) {
         let controller = MusicPlayerViewController(source: source, router: self)
+        controller.navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -86,13 +87,6 @@ extension AppleMusicCoordinator: AppleMusicPlayerRouter {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    func openMusicSource(current: MusicSource, actionFrame: CGRect) {
-        let controller = MusicSourceMenuViewController(current: current, actionFrame: actionFrame)
-        controller.delegate = souceSelectionDelegate
-        controller.modalPresentationStyle = .currentContext
-        navigationController?.present(controller, animated: false)
-    }
-    
     func pop() {
         navigationController?.popViewController(animated: true)
     }
@@ -102,4 +96,11 @@ extension AppleMusicCoordinator: AppleMusicPlayerRouter {
     }
 }
 
-extension AppleMusicCoordinator: PlayerRouter { }
+extension AppleMusicCoordinator: PlayerSourceSelection {
+    func openMusicSource(current: MusicSource, animated: Bool) {
+        let controller = MusicSourceMenuViewController(current: current)
+        controller.delegate = souceSelectionDelegate
+        controller.modalPresentationStyle = .currentContext
+        navigationController?.present(controller, animated: animated)
+    }
+}
